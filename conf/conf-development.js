@@ -1,0 +1,9 @@
+var conf = {
+    web:{
+        host:'0.0.0.0',
+        port:8000
+
+    }
+};
+
+module.exports = conf;

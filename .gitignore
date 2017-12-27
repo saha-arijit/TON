@@ -36,11 +36,18 @@ build/Release
 node_modules/
 jspm_packages/
 
+# RIDE Results
+WebTesting/Browser/GUI/DEMO/Results
+
+
 # Typescript v1 declaration files
 typings/
 
 # Optional npm cache directory
 .npm
+
+# Compiled Python Files
+.pyc
 
 # Optional eslint cache
 .eslintcache
