@@ -2,6 +2,25 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
     $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????";
 
+// Global Resetting function
+
+    $('.container-fluid').on('click',function () {
+        $scope.apiShowTestOps=false;
+        $scope.apiModalViaTestOpsHeadingStyle=false;
+        $scope.apiShowGUIBrowser=false;
+        $scope.apiModalGUIBrowserHeadingStyle=false;
+        $scope.apiModalViaGUIHeadingStyle=false;
+        $scope.apiModalGUIApiHeadingStyle=false;
+        $scope.apiShowGUIapi=false;
+        $scope.apiBackIcon=true;
+        //
+        // $('#webTestCaseModal').modal('hide')
+        // $('#apiTestCaseModal').modal('hide')
+        // $('#mobileTestCaseModal').modal('hide')
+
+
+    });
+
 
 // disabling web testing web prepare testcase button
     $scope.web = true;
@@ -17,13 +36,31 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
     // Hidding or Showing GUI
 $scope.showGUI = false;
-$scope.apiShowGUI = false;
+$scope.apiShowGUI=false;
+
+// api Testing 3rd step
+    $scope.apiShowTestOps= false;
+    $scope.apiShowTestOps=false;
+    $scope.apiModalViaTestOpsHeadingStyle=false;
+    $scope.apiShowGUIBrowser=false;
+    $scope.apiModalGUIBrowserHeadingStyle=false;
+    $scope.apiModalViaGUIHeadingStyle=false;
+    $scope.apiModalGUIApiHeadingStyle=false;
+    $scope.apiShowGUIapi=false;
+    $scope.apiBackIcon=true;
+
+    $scope.apiTestingShowBrowserFun =function () {
+        $scope.apiShowGUIBrowser =$scope.apiModalGUIBrowserHeadingStyle=true
+            $scope.apiBackIcon=false;
+    };
+
+
+
+
 // Hidding or Showing GUI Browser
 $scope.showGUIBrowser = false;
-$scope.apiShowGUIBrowser = false;
 // Hidding or Showing GUI API
 $scope.showGUIapi = false;
-$scope.apiShowGUIapi = false;
 // dding or Showing API Testing -  api Modal
 $scope.showAPITestingApiModal = false;
 
@@ -35,6 +72,10 @@ $scope.showGUIapifun= function () {
 };$scope.apiShowGUIapifun= function () {
     $scope.apiShowGUIBrowser = false;
     $scope.apiShowGUIapi = true;
+    $scope.apiModalGUIApiHeadingStyle = true;
+    $scope.apiShowGUIapi = true;
+    $scope.apiBackIcon =false;
+
 
     $scope.allModalHeadingStyle = true;
 
@@ -42,6 +83,7 @@ $scope.showGUIapifun= function () {
 };
 // Showing or hidding Via TestOps
     $scope.showTestOps =false;
+
     $scope.showTestOpsFun = function () {
         // $scope.showGUI=false;
         $scope.showTestOps=true;
@@ -49,15 +91,28 @@ $scope.showGUIapifun= function () {
         $scope.modalViaTestOpsHeadingStyle = true;
     $scope.webBackIcon=false;
     };
+    $scope.apiShowTestOpsFun = function () {
+        // $scope.showGUI=false;
+        $scope.apiShowTestOps=true;
+        $scope.allModalHeadingStyle = true;
+        $scope.apiModalViaTestOpsHeadingStyle = true;
+    $scope.apiBackIcon=false;
+    };
     $scope.ViaGUIShowHideFun = function () {
         $scope.showGUI=$scope.modalViaGUIHeadingStyle=true;
         $scope.webBackIcon=false;
-    }
+    }; $scope.apiViaGUIShowHideFun = function () {
+        $scope.apiBackIcon=false;
+        $scope.apiShowGUI=$scope.apiModalViaGUIHeadingStyle=true
+
+        // $scope.apiShowGUI=$scope.modalViaGUIHeadingStyle=true;
+        // $scope.webBackIcon=false;
+    };
     // Showing or hidding Via API Testing api Modal Fun
     $scope.showAPITestingApiModalFun= function () {
         $scope.showAPITestingApiModal = true;
         $scope.modalApiHeadingStyle = true;
-    }
+    };
 
     // Ng class for web Modal Heading
     $scope.allModalHeadingStyle = false;
@@ -110,6 +165,13 @@ $scope.showGUIapifun= function () {
 
     $scope.apiShowGUI= false;
     $scope.apiShowTestOps= false;
+    $scope.apiModalViaTestOpsHeadingStyle= false;
+    $scope.apiModalGUIApiHeadingStyle= false;
+    $scope.apiModalGUIBrowserHeadingStyle= false;
+    $scope.apiModalViaGUIHeadingStyle= false;
+
+
+    $scope.apiShowTestOps= false;
     $scope.apiShowGUIapi= false;
 
     $scope.allModalHeadingStyle= false;
@@ -140,15 +202,23 @@ $scope.showGUIapifun= function () {
 
    };
    $scope.apiCloseIconFun = function () {
-       $scope.apiShowGUI=$scope.showTestOps=false;
+       $scope.apiShowGUI= false;
+       $scope.apiShowTestOps= false;
+       $scope.apiModalViaTestOpsHeadingStyle= false;
+       $scope.apiModalGUIApiHeadingStyle= false;
+       $scope.apiModalGUIBrowserHeadingStyle= false;
+       $scope.apiModalViaGUIHeadingStyle= false;
+       $scope.apiBackIcon= true;
 
-       $scope.allModalHeadingStyle= false;
 
-       $scope.apiTestingModalViaGUIHeadingStyle= false;
-       $scope.apiTestingModalGUIBrowserHeadingStyle= false;
-       $scope.apiTestingModalGUIApiHeadingStylee= false;
-       $scope.apiTestingModalViaTestOpsHeadingStyle= false;
-       $scope.apiBackIcon=true;
+       $scope.apiShowTestOps= false;
+       $scope.apiShowTestOps=false;
+       $scope.apiModalViaTestOpsHeadingStyle=false;
+       $scope.apiShowGUIBrowser=false;
+       $scope.apiModalGUIBrowserHeadingStyle=false;
+       $scope.apiModalViaGUIHeadingStyle=false;
+       $scope.apiModalGUIApiHeadingStyle=false;
+       $scope.apiShowGUIapi=false;
 
 
 

@@ -1,5 +1,5 @@
-<div class="container-fluid" style=" padding-left:0 ! important">
-    <div class="row disply-flex">
+<div class="container-fluid" style=" padding-left:0 ! important" >
+    <div class="row">
         <div class="col-s-12 col-sm-6 col-md-10" style=" padding-right:0 ! important">
             <!--<div class="row row-color">-->
             <!--<div class="col-sm-2 col-md-3">-->
@@ -270,7 +270,7 @@
 
                                                                     <div ng-if="showGUIBrowser">
 
-
+                                                                        <br>
 
                                                                         <button  class="btn btn-primary btn-block" style="margin-top: 2%"
                                                                                  ng-click="openRide()">FUNCTIONAL</button>
@@ -280,6 +280,7 @@
                                                                                  ng-click="openRide()">LOAD</button>
 
                                                                     </div>
+                                                                    <br>
                                                                     <button ng-hide="showGUIBrowser"   ng-class="{'modalGUIApiHeadingStyle':modalGUIApiHeadingStyle}"
                                                                             ng-click="showGUIapifun()"
                                                                             class="btn btn-primary btn-block " style="margin-top: 2%">API</button>
@@ -471,17 +472,18 @@
                                                                 <!--<h4>JENKINS</h4>-->
                                                                 <!--<h4>API</h4>-->
                                                                 <button class="btn btn-primary btn-block" ng-hide="apiShowTestOps"
-                                                                        ng-cass="{'modalViaGUIHeadingStyle':modalViaGUIHeadingStyle}"
-                                                                        style="margin-top: 2%" ng-click="">
+                                                                        ng-class="{'apiModalViaGUIHeadingStyle':apiModalViaGUIHeadingStyle}"
+                                                                        style="margin-top: 2%" ng-click="apiViaGUIShowHideFun()">
                                                                     Via GUI
                                                                 </button>
 
                                                                 <div ng-if="apiShowGUI">
                                                                     <br>
                                                                     <button  ng-hide="apiShowGUIapi" class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                             ng-cass="{'modalGUIBrowserHeadingStyle':modalGUIBrowserHeadingStyle}"
+                                                                             ng-class="{'apiModalGUIBrowserHeadingStyle':apiModalGUIBrowserHeadingStyle}"
 
-                                                                             ng-click="apiShowGUIBrowser =apiTestingModalGUIBrowserHeadingStyle= true">BROWSER</button>
+                                                                             ng-click="apiTestingShowBrowserFun()">BROWSER</button>
+                                                                             <!--ng-click="apiShowGUIBrowser =apiTestingModalGUIBrowserHeadingStyle= true">BROWSER</button>-->
 
                                                                     <div ng-if="apiShowGUIBrowser">
 
@@ -495,8 +497,7 @@
                                                                                  ng-click="openRide()">LOAD</button>
 
                                                                     </div>
-                                                                    <br>
-                                                                    <button ng-hide="apiShowGUIBrowser"   ng-clss="{'modalGUIApiHeadingStyle':modalGUIApiHeadingStyle}"
+                                                                    <button ng-hide="apiShowGUIBrowser"   ng-class="{'apiModalGUIApiHeadingStyle':apiModalGUIApiHeadingStyle}"
                                                                             ng-click="apiShowGUIapifun()"
                                                                             class="btn btn-primary btn-block " style="margin-top: 2%">API</button>
 
@@ -513,8 +514,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <br>
-                                                                <button  ng-hide="apiShowGUI" ng-clas="{'modalViaTestOpsHeadingStyle':modalViaTestOpsHeadingStyle}"
-                                                                         ng-click="showTestOpsFun()" class="btn btn-primary btn-block"
+                                                                <button  ng-hide="apiShowGUI" ng-class="{'apiModalViaTestOpsHeadingStyle':apiModalViaTestOpsHeadingStyle}"
+                                                                         ng-click="apiShowTestOpsFun()" class="btn btn-primary btn-block"
                                                                          style="margin-top: 2%">Via TestOps
                                                                 </button>
 

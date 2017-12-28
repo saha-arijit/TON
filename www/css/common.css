@@ -338,6 +338,13 @@ p.webSpeech-bubble {
        }.modalViaGUIHeadingStyle:hover{
     background-color: darkgrey;
                }
+.apiModalViaGUIHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+       }.apiModalViaGUIHeadingStyle:hover{
+    background-color: darkgrey;
+               }
 .modalGUIBrowserHeadingStyle{
     border: none;
     cursor: default;
@@ -352,11 +359,32 @@ p.webSpeech-bubble {
        }.modalGUIApiHeadingStyle{
     background-color: darkgrey;
                }
+.apiModalGUIApiHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+       }.apiModalGUIApiHeadingStyle{
+    background-color: darkgrey;
+               }
+.apiModalGUIBrowserHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+       }.apiModalGUIBrowserHeadingStyle{
+    background-color: darkgrey;
+               }
 .modalViaTestOpsHeadingStyle{
     border: none;
     cursor: default;
     background-color: grey !important;
        }.modalViaTestOpsHeadingStyle{
+    background-color: darkgrey;
+               }
+.apiModalViaTestOpsHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+       }.apiModalViaTestOpsHeadingStyle{
     background-color: darkgrey;
                }
 .modalApiHeadingStyle{
