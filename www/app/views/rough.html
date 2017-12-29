@@ -14,16 +14,16 @@
                         <li class=" disabled"><a>
                         <img  style="max-height: 10vh;margin-top:-3.5vh;margin-bottom:-1.5vh;max-width: 30vh" src="../../images/test-on-need-logo-192_42-1.png"/></a>
                         </li>
-                        <li class="active "><a class="tabLinksColorChange" href="#webTesting"  data-toggle="tab">
+                        <li class="active " id="webTestingModel"><a class="tabLinksColorChange" href="#webTesting"  data-toggle="tab">
                             <!--<button class="btn btn-primary ">Web Application Testing</button>-->
                             Web Application Testing
                         </a></li>
-                        <li><a class="tabLinksColorChange" href="#apiTesting"  data-toggle="tab">
+                        <li id="apiTestingModel"><a class="tabLinksColorChange" href="#apiTesting"  data-toggle="tab">
                             <!--<button class=" btn btn-primary ">API Testing</button>-->
                             API Testing
                         </a></li>
 
-                        <li><a class="tabLinksColorChange" href="#mobileTesting" data-toggle="tab">
+                        <li id="mobileTestingModel"><a class="tabLinksColorChange" href="#mobileTesting" data-toggle="tab">
                             <!--<button class="btn btn-primary">Mobile Application Testing</button>-->
                             Mobile Application Testing
                         </a></li>
@@ -170,7 +170,7 @@
 
 
                                                                         <!--<input type="file"  class="form-control" id="sampleFile">-->
-                                                                        <button class="btn btn-primary" ng-disabled="webModalFileSelected"  ng-click="webModalPrepareTestCase()">Prepare</button>
+                                                                        <button  id="webPrepareB" class="btn btn-primary" ng-disabled="webModalFileSelected"  ng-click="webModalPrepareTestCase()">Prepare</button>
                                                                     </div>
                                                                 </div>
 
@@ -338,8 +338,19 @@
                                     <br>
                                     <br>
 
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
 
+                                                <input type="text" ng-model="ngModel1"
+                                                       style="padding: 1% 0 1% 35%" class="form-control">
 
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+
+                                    <br>
+                                    <br>
 
 
                                     <!--here the input file is removed-->
@@ -555,6 +566,19 @@
                                     <br>
                                     <br>
 
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+
+                                            <input type="text"  ng-model="ngModel1"
+                                                   style="padding: 1% 0 1% 35%" class="form-control">
+
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                    <br>
+                                    <br>
+
 
 
                                     <div class="row">
@@ -693,7 +717,18 @@
                                     <br>
                                     <br>
 
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
 
+                                            <input type="text" ng-model="ngModel1"
+                                                   style="padding: 1% 0 1% 35%" class="form-control">
+
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                    <br>
+                                    <br>
 
                                     <div class="row">
                                         <div class="col-md-2"></div>

@@ -20,6 +20,22 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
 
     });
+// NgModel for Tab switching
+
+    // $scope.webTestingModel = "";
+    // $scope.apiTestingModel = "";
+    // $scope.mobileTestingModel = "";
+    // $scope.ngModel1 = "";
+
+$('#webTestingModel').on('click',function () {
+    $scope.ngModel1 = "";
+});
+$('#apiTestingModel').on('click',function () {
+    $scope.ngModel1 = "";
+});
+$('#mobileTestingModel').on('click',function () {
+    $scope.ngModel1 = "";
+});
 
 
 // disabling web testing web prepare testcase button
@@ -52,6 +68,7 @@ $scope.apiShowGUI=false;
     $scope.apiTestingShowBrowserFun =function () {
         $scope.apiShowGUIBrowser =$scope.apiModalGUIBrowserHeadingStyle=true
             $scope.apiBackIcon=false;
+
     };
 
 
@@ -202,6 +219,7 @@ $scope.showGUIapifun= function () {
 
    };
    $scope.apiCloseIconFun = function () {
+
        $scope.apiShowGUI= false;
        $scope.apiShowTestOps= false;
        $scope.apiModalViaTestOpsHeadingStyle= false;
@@ -279,6 +297,9 @@ $scope.showGUIapifun= function () {
             // $('#iFrame').detach();
 
         }, 3000);
+        $('#webTestCaseModal').modal('hide');
+        $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
+
 
     };
 
@@ -295,6 +316,10 @@ $scope.showGUIapifun= function () {
             // $('#iFrame').detach();
 
         }, 3000);
+        $('#webTestCaseModal').modal('hide');
+        $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
+
+
 
     };
 
@@ -319,34 +344,116 @@ $scope.showGUIapifun= function () {
             method: 'post',
             url: '/kantu'
         });
+        $('#recordTestCaseModal').modal('hide');
+        $scope.ngModel1="Kantu has opened..please remember to close it."
+
+        // $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
+
 
     };
     $scope.openJenkins = function () {
         $http({
             method: 'post',
             url: '/jenkins'
-        })
+        });
+
+        $scope.ngModel1="jenkins has opened..please remember to close it.";
+
+        $('#webTestingModal').modal('hide');
+        $scope.showGUI=$scope.showTestOps=false;
+        $scope.allModalHeadingStyle= false;
+        $scope.modalViaGUIHeadingStyle= false;
+        $scope.modalGUIBrowserHeadingStyle= false;
+        $scope.modalGUIApiHeadingStylee= false;
+        $scope.modalViaTestOpsHeadingStyle= false;
+        $scope.webBackIcon=true;
+
+        $('#apiTestCaseModal').modal('hide');
+        $scope.apiShowGUI= false;
+        $scope.apiShowTestOps= false;
+        $scope.apiModalViaTestOpsHeadingStyle= false;
+        $scope.apiModalGUIApiHeadingStyle= false;
+        $scope.apiModalGUIBrowserHeadingStyle= false;
+        $scope.apiModalViaGUIHeadingStyle= false;
+        $scope.apiBackIcon= true;
 
     };
     $scope.openRide = function () {
         $http({
             method: 'post',
             url: '/execute'
-        })
+        });
+
+        $scope.ngModel1="Ride has opened..please remember to close it.";
+
+        $('#webTestingModal').modal('hide');
+        $scope.showGUI=$scope.showTestOps=false;
+        $scope.allModalHeadingStyle= false;
+        $scope.modalViaGUIHeadingStyle= false;
+        $scope.modalGUIBrowserHeadingStyle= false;
+        $scope.modalGUIApiHeadingStylee= false;
+        $scope.modalViaTestOpsHeadingStyle= false;
+        $scope.webBackIcon=true;
+
+        $('#apiTestCaseModal').modal('hide');
+        $scope.apiShowGUI= false;
+        $scope.apiShowTestOps= false;
+        $scope.apiModalViaTestOpsHeadingStyle= false;
+        $scope.apiModalGUIApiHeadingStyle= false;
+        $scope.apiModalGUIBrowserHeadingStyle= false;
+        $scope.apiModalViaGUIHeadingStyle= false;
+        $scope.apiBackIcon= true;
+
+        $('#mobileTestCaseModal').modal('hide');
+
+
+
+
+
+
+
 // alert("shduhdu")
     };
     $scope.analyze = function () {
         $http({
             method: 'post',
             url: '/analyze'
-        })
+        });
+        $scope.ngModel1="Kibana has opened..please remember to close it."
+
+        // $('#webTestingModal').modal('hide')
+
 
     };
     $scope.openPostman = function () {
         $http({
             method: 'post',
             url: '/postman'
-        })
+        });
+
+        $scope.ngModel1="Postman has opened..please remember to close it.";
+
+
+        $('#recordTestCaseModal').modal('hide');
+        $('#webTestingModal').modal('hide');
+        $scope.showGUI=$scope.showTestOps=false;
+        $scope.allModalHeadingStyle= false;
+        $scope.modalViaGUIHeadingStyle= false;
+        $scope.modalGUIBrowserHeadingStyle= false;
+        $scope.modalGUIApiHeadingStylee= false;
+        $scope.modalViaTestOpsHeadingStyle= false;
+        $scope.webBackIcon=true;
+
+        $('#apiTestCaseModal').modal('hide');
+        $scope.apiShowGUI= false;
+        $scope.apiShowTestOps= false;
+        $scope.apiModalViaTestOpsHeadingStyle= false;
+        $scope.apiModalGUIApiHeadingStyle= false;
+        $scope.apiModalGUIBrowserHeadingStyle= false;
+        $scope.apiModalViaGUIHeadingStyle= false;
+        $scope.apiBackIcon= true;
+
+
 
     };
 
@@ -366,6 +473,10 @@ $scope.showGUIapifun= function () {
                      // Single Modal
         $('#singleModalTrigger').on('click', function () {
             $('#apiTestCaseModal').modal('hide');
+
+
+        });$('#webPrepareBtn1,#webPrepareBtn2').on('click', function () {
+            $('#webTestCaseModal').modal('hide');
 
 
         });
@@ -390,34 +501,7 @@ $scope.showGUIapifun= function () {
         });
 
 
-        // Web Testing- Web Modal
-        // $('#webModalTrigger').on('click', function () {
-        //     $('#webTestCaseModal').modal('hide')
-        //     $('#webModal').modal('show')
-        //
-        //
-        // });
-        //
-        // $('#closeWebModal').on('click', function () {
-        //     $('#webModal').modal('hide');
-        //     // // $('#singleModal').modal('toggle');
-        //     $('#webTestCaseModal').modal('show');
-        // });
 
-
-        // Web Testing- api Modal
-
-        // $('#apiModalTrigger').on('click', function () {
-        //     $('#webTestCaseModal').modal('hide')
-        //
-        //
-        // });
-        //
-        // $('#closeApiModal').on('click', function () {
-        //     $('#apiModal').modal('hide');
-        //     // // $('#singleModal').modal('toggle');
-        //     $('#webTestCaseModal').modal('show');
-        // });
 
     });
 
