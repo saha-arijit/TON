@@ -17,14 +17,14 @@ var path = require('path'), // ensures that the path is consistent, regardless o
     reporters: 'html'
         }, function (err) {
     if (err) { throw err; }
-    console.log('collection run complete!');
+    //console.log('collection run complete!');
         });
     };
 var value = 5;
 var items = [];
 for (i=0;i<value;i++){
     items.push(i)
-    console.log(i)
+    //console.log(i)
 }
 async.forEach(items,function(){
    async.parallel([

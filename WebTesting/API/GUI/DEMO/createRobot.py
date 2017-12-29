@@ -56,7 +56,9 @@ class createRobot :
 
 	def writeTestCases (self, file, testFile, contents, prsntFlg):
 		testCase = testFile.split('.')
-		testCase = testCase[0].split('_')
+		print "*************************"
+		print testCase
+		#testCase = testCase[0].split('_')
 		if prsntFlg == 1:
 			index = 0
 			lookup = "Test Cases"
@@ -64,16 +66,16 @@ class createRobot :
 				for num, line in enumerate(myFile, 1):
 					if lookup in line:
 						index = num
-			value = testCase[1]+ "\n" + "#Keyword 	Instances" + "\n" + "\t"+ "TC_"+testCase[1]+ "\n"
+			value = testCase[0]+ "\n" + "#Keyword 	Instances" + "\n" + "\t"+ "TC_"+testCase[0]+ "\n"
 			contents.insert (index, value)
 			file = open (robotFileName, "w")
 			contents = "".join(contents)
 			file.write (contents)
 		elif prsntFlg == 0:
 			file.write ("\n"+"*** Test Cases ***" + "\n")
-			file.write (testCase[1] + "\n")
+			file.write (testCase[0] + "\n")
 			file.write ("#Keyword 	Instances" + "\n")
-			file.write ("\t"+"TC_"+testCase[1]+ "\n")
+			file.write ("\t"+"TC_"+testCase[0] + "\n")
 
 	def writeKeywords (self, file, prsntFlg):
 		if prsntFlg ==1 :

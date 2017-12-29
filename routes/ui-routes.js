@@ -44,6 +44,78 @@ UIRoutes.prototype.init = function() {
             res.end();
     }); 
 
+    app.post('/jenkins',
+    function(req, res){
+    
+     console.log("Came into Jenkins")
+     
+            child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            res.end();
+    }); 
+
+
+	app.post('/prepareWebAPI',
+    	function(req, res){
+    
+      		if (!req.files)
+                return res.status(400).send('No files were uploaded.');
+
+            global.sampleFile = req.files.sampleFile;
+            //console.log("SAMPLE",sampleFile)
+            flag = 1
+
+            global.inputFileName = baseFolder+'/WebTesting/API/GUI/DEMO/'+sampleFile.name;
+            //console.log("BASEFOLDER",inputFileName)
+
+            sampleFile.mv (inputFileName, function(err){
+                if (err)
+                    return res.status(500).send(err);
+            });
+
+            sleep(5000);
+
+            //child = shell.exec('python '+baseFolder+'/WebTesting/API/GUI/DEMO/Load_Json_Parser.py ' + inputFileName+' '+baseFolder);
+            try{
+            	child = exec('python '+baseFolder+'/WebTesting/API/GUI/DEMO/Load_Json_Parser.py ' + inputFileName+' '+baseFolder, (e, stdout, stderr)=> {
+		          if (e instanceof Error) {
+		             console.error(e);
+		             throw e;
+		          }
+		          res.end();
+		          console.log ("Done....")
+		        });	
+            }catch (ex){
+            	console.log ("In error...")
+            	console.log (ex)
+            }
+            
+
+    });    
+
+
+	app.post('/executeWebApi',
+        function(req, res){
+
+        dataFile = baseFolder+"/WebTesting/API/GUI/DEMO/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+          
+        
+        fs.writeFile(dataFile,ColumnNamesList , function(err) {
+         if(err) {
+             return console.log(err);
+         }
+        console.log("The file was saved!");
+        });
+
+          child = exec('ride.py '+baseFolder+'/WebTesting/API/GUI/DEMO/LoadTest.robot', (e, stdout, stderr)=> {
+          if (e instanceof Error) {
+             console.error(e);
+             throw e;
+          }
+          res.end();
+            });
+
+        });
     // app.use(fileUpload());
 
     app.post('/validate',
