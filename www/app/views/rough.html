@@ -64,12 +64,12 @@
                                                                         style="margin-top: 2%" ng-click="openKantu()">
                                                                     USING BROWSER
                                                                 </button>
-                                                                <br>
+
                                                                 <button class="btn btn-primary btn-block"
                                                                         style="margin-top: 2%" ng-click='openPostman()'>
                                                                     USING API
                                                                 </button>
-                                                                <br>
+
 
 
                                                             </div>
@@ -160,6 +160,7 @@
                                                                                 action="/validate"
                                                                                 method="post"
                                                                                 target="myIFrame">
+                                                                            <label>Choose a Kantu json File</label>
                                                                             <input type="file" accept=".json" name="sampleFile"
                                                                                    ng-click="webModalFileSelected=false"
                                                                                    stle="padding: 1% 0 1% 35%" class="form-control"
@@ -175,7 +176,7 @@
                                                                 </div>
 
 
-                                                                <br>
+
                                                                 <!--API Modal-2-->
 
                                                                 <a role="button" class="btn btn-primary btn-block"
@@ -200,9 +201,11 @@
                                                                                 action="/validate"
                                                                                 method="post"
                                                                                 target="myIFrame">
+                                                                            <label>Choose a Kantu json File</label>
+
                                                                             <input type="file" accept=".json" name="sampleFile"
                                                                                    ng-click="apiModalFileSelected=false"
-                                                                                   stle="padding: 1% 0 1% 35%" class="form-control"
+                                                                                   style="padding: 1% 0 1% 0%" class="form-control"
                                                                                    value="Browse To Select The File">
                                                                             <input type="submit" style="visibility: hidden" id="apiModalInputId"
                                                                                    value="Validate" name="submit">
@@ -280,7 +283,6 @@
                                                                                  ng-click="openRide()">LOAD</button>
 
                                                                     </div>
-                                                                    <br>
                                                                     <button ng-hide="showGUIBrowser"   ng-class="{'modalGUIApiHeadingStyle':modalGUIApiHeadingStyle}"
                                                                             ng-click="showGUIapifun()"
                                                                             class="btn btn-primary btn-block " style="margin-top: 2%">API</button>
@@ -297,7 +299,6 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <br>
                                                                 <button  ng-hide="showGUI" ng-class="{'modalViaTestOpsHeadingStyle':modalViaTestOpsHeadingStyle}"
                                                                          ng-click="showTestOpsFun()" class="btn btn-primary btn-block"
                                                                         style="margin-top: 2%">Via TestOps
@@ -342,8 +343,8 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-10">
 
-                                                <input type="text" ng-model="ngModel1"
-                                                       style="padding: 1% 0 1% 35%" class="form-control">
+                                                <input type="text" ng-model="ngModel1" disabled
+                                                       style="cursor:default;padding: 1% 0 1% 35%" class="form-control">
 
                                         </div>
                                         <div class="col-md-1"></div>
@@ -570,8 +571,8 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-10">
 
-                                            <input type="text"  ng-model="ngModel1"
-                                                   style="padding: 1% 0 1% 35%" class="form-control">
+                                            <input type="text"  ng-model="ngModel1" disabled
+                                                   style="cursor:default;padding: 1% 0 1% 35%" class="form-control">
 
                                         </div>
                                         <div class="col-md-1"></div>
@@ -721,8 +722,8 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-10">
 
-                                            <input type="text" ng-model="ngModel1"
-                                                   style="padding: 1% 0 1% 35%" class="form-control">
+                                            <input type="text" ng-model="ngModel1" disabled
+                                                   style="cursor:default;padding: 1% 0 1% 35%" class="form-control">
 
                                         </div>
                                         <div class="col-md-1"></div>
