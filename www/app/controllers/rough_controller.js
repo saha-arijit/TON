@@ -26,8 +26,12 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
     // $scope.apiTestingModel = "";
     // $scope.mobileTestingModel = "";
     // $scope.ngModel1 = "";
+// Disabling the API Testing - api Functional modal
+    $scope.apiShowFunctional=false;
 
-$('#webTestingModel').on('click',function () {
+
+
+    $('#webTestingModel').on('click',function () {
     $scope.ngModel1 = "";
 });
 $('#apiTestingModel').on('click',function () {
@@ -92,6 +96,8 @@ $scope.showGUIapifun= function () {
     $scope.apiModalGUIApiHeadingStyle = true;
     $scope.apiShowGUIapi = true;
     $scope.apiBackIcon =false;
+
+        $scope.apiShowFunctional=false ;
 
 
     $scope.allModalHeadingStyle = true;

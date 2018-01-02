@@ -491,24 +491,24 @@
 
                                                                 <div ng-if="apiShowGUI">
                                                                     <br>
-                                                                    <button  ng-hide="apiShowGUIapi" class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                             ng-class="{'apiModalGUIBrowserHeadingStyle':apiModalGUIBrowserHeadingStyle}"
+                                                                    <!--<button  ng-hide="apiShowGUIapi" class="btn btn-primary btn-block" style="margin-top: 2%"-->
+                                                                             <!--ng-class="{'apiModalGUIBrowserHeadingStyle':apiModalGUIBrowserHeadingStyle}"-->
 
-                                                                             ng-click="apiTestingShowBrowserFun()">BROWSER</button>
-                                                                             <!--ng-click="apiShowGUIBrowser =apiTestingModalGUIBrowserHeadingStyle= true">BROWSER</button>-->
+                                                                             <!--ng-click="apiTestingShowBrowserFun()">BROWSER</button>-->
+                                                                             <!--&lt;!&ndash;ng-click="apiShowGUIBrowser =apiTestingModalGUIBrowserHeadingStyle= true">BROWSER</button>&ndash;&gt;-->
 
-                                                                    <div ng-if="apiShowGUIBrowser">
+                                                                    <!--<div ng-if="apiShowGUIBrowser">-->
 
-                                                                        <br>
+                                                                        <!--<br>-->
 
-                                                                        <button  class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="openRide()">FUNCTIONAL</button>
-                                                                        <button  class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="openRide()">AUTOMATION</button>
-                                                                        <button  class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="openRide()">LOAD</button>
+                                                                        <!--<button  class="btn btn-primary btn-block" style="margin-top: 2%"-->
+                                                                                 <!--ng-click="openRide()">FUNCTIONAL</button>-->
+                                                                        <!--<button  class="btn btn-primary btn-block" style="margin-top: 2%"-->
+                                                                                 <!--ng-click="openRide()">AUTOMATION</button>-->
+                                                                        <!--<button  class="btn btn-primary btn-block" style="margin-top: 2%"-->
+                                                                                 <!--ng-click="openRide()">LOAD</button>-->
 
-                                                                    </div>
+                                                                    <!--</div>-->
                                                                     <button ng-hide="apiShowGUIBrowser"   ng-class="{'apiModalGUIApiHeadingStyle':apiModalGUIApiHeadingStyle}"
                                                                             ng-click="apiShowGUIapifun()"
                                                                             class="btn btn-primary btn-block " style="margin-top: 2%">API</button>
@@ -517,10 +517,23 @@
                                                                     <div ng-if="apiShowGUIapi">
                                                                         <br>
                                                                         <button  class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="openPostman()">FUNCTIONAL</button>
-                                                                        <button  class="btn btn-primary btn-block" style="margin-top: 2%"
+                                                                                 ng-click="apiShowFunctional=true">FUNCTIONAL</button>
+                                                                        <div ng-if="apiShowFunctional">
+                                                                            <br>
+                                                                            <form name="webTestingApiform">
+                                                                                <label>Upload Postman Collection</label>
+                                                                                <input type="file" accept=".json" class="form-control"  required>
+                                                                                <br>
+                                                                                <label>Environment Variable</label>
+                                                                                <input type="number"  class="form-control"  required>
+                                                                                <br>
+                                                                                <button class="btn btn-primary" type="submit"
+                                                                                        disabed="x=y">Execute</button>
+                                                                            </form>
+                                                                        </div>
+                                                                        <button ng-hide=""  class="btn btn-primary btn-block" style="margin-top: 2%"
                                                                                  ng-click="openPostman()">AUTOMATION</button>
-                                                                        <button  class="btn btn-primary btn-block" style="margin-top: 2%"
+                                                                        <button ng-hide="" class="btn btn-primary btn-block" style="margin-top: 2%"
                                                                                  ng-click="openRide()">LOAD</button>
 
                                                                     </div>
