@@ -29,7 +29,7 @@ class createRobot :
 			
 
 	def writeSettings (self, testFile, file, contents, prsntFlg):
-		# testCase = testFile.split('.')
+		testCase = testFile.split('.')
 		if prsntFlg == 1:
 			index = 0
 			lookup = "Settings"
@@ -39,14 +39,14 @@ class createRobot :
 						sys.exit ()				
 					if lookup in line:
 						index = num + 1
-			value = "Library           "+testFile+"\n"
+			value = "Library           " + testCase[0] + '/'+ testFile+"\n"
 			contents.insert (index, value)
 			file = open (robotFileName, "w")
 			contents = "".join(contents)
 			file.write (contents)
 		elif prsntFlg == 0:	
 			file.write ("*** Settings ***" + "\n")
-			file.write ("Library           "+ testFile + "\n")
+			file.write ("Library           " + testCase[0] + '/'+ testFile+"\n")
 
 	def writeVariables (self, file, prsntFlg):
 		if prsntFlg == 1:

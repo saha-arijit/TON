@@ -13,6 +13,7 @@ class Load_json_Parser:
 		json = json.split('.')
 		json = json [0]
 		
+		# Creating the .js file for execution in newmaan command line tool
 		file = open(json+'.js' , 'w')
 		
 		for lines in line:
@@ -58,6 +59,9 @@ class Load_json_Parser:
 		file.write('\t' +'os.system(\'node ' + testCase[6] +'.js\')' + '\n')
 		
 		file.close()
+
+
+
 
 		test = testCase[6]+".py"
 		

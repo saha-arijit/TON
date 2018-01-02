@@ -62,10 +62,17 @@ UIRoutes.prototype.init = function() {
 
             global.sampleFile = req.files.sampleFile;
             //console.log("SAMPLE",sampleFile)
-            flag = 1
 
-            global.inputFileName = baseFolder+'/WebTesting/API/GUI/DEMO/'+sampleFile.name;
-            //console.log("BASEFOLDER",inputFileName)
+            folderName = sampleFile.name.split ('.')
+
+            folder = baseFolder+'/WebTesting/API/GUI/DEMO/'+ folderName[0]
+            
+            if (!fs.existsSync(folder)){
+				fs.mkdirSync (folder)
+			}	
+			//global.inputFileName = baseFolder+'/WebTesting/API/GUI/DEMO/'+sampleFile.name+'/' + sampleFile.name;
+          	//console.log("BASEFOLDER",inputFileName)
+          	global.inputFileName = folder + '/' + sampleFile.name
 
             sampleFile.mv (inputFileName, function(err){
                 if (err)
