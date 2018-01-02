@@ -42,9 +42,9 @@ class Load_json_Parser:
 		file.write('import sys'+'\n')
 		file.write('import os'+'\n')
 		file.write('def ' + 'TC_'+ testCase[6] +'(users)' + ':'+'\n')
-		file.write('\t' + 'file = open(' +'\'' + testCase[6] +'.js\'' + ','+ '\'r\')' + '\n')
+		file.write('\t' + 'file = open(' +'\'' + testCase[6] + '/' + testCase[6] +'.js\'' + ','+ '\'r\')' + '\n')
 		file.write('\t' + 'line = file.readlines()' + '\n')
-		file.write('\t' + 'file = open(' +'\'' + testCase[6] +'.js\'' + ','+ '\'w\')' + '\n')
+		file.write('\t' + 'file = open(' +'\'' + testCase[6] + '/' + testCase[6] +'.js\'' + ','+ '\'w\')' + '\n')
 		file.write('\t' + 'for lines in line:' + '\n')
 		file.write('\t' + '\t' + "if \'var value\' in lines:" + '\n')
 		file.write('\t' + '\t' + '\t' + 'lines = lines.split(\'=\')' + '\n')
@@ -56,7 +56,7 @@ class Load_json_Parser:
 		file.write('\t' + '\t' +'\t'+ 'if \"var value\" not in lines:' + '\n')
 		file.write('\t' + '\t' +'\t'+ '\t' +'file.write (str(lines))' + '\n')
 		file.write('\t' +'file.close()' + '\n')
-		file.write('\t' +'os.system(\'node ' + testCase[6] +'.js\')' + '\n')
+		file.write('\t' +'os.system(\'node ' + testCase[6] + '/'+ testCase[6] +'.js\')' + '\n')
 		
 		file.close()
 
