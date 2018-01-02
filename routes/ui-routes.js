@@ -149,6 +149,14 @@ UIRoutes.prototype.init = function() {
             res.end();
 
             var name = (inputFileName).split(".");
+            child = exec('python '+baseFolder+'/WebTesting/Browser/GUI/DEMO/createRobot.py '+name[0]+".py "+baseFolder, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            res.end();
+            });
 
             child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/DEMO/'+ name[6]+".py");
             res.end();
@@ -168,48 +176,16 @@ UIRoutes.prototype.init = function() {
          }
         console.log("The file was saved!");
         });
-
-        if (flag == 0){
-
-          //child = exec('ride.py '+base+'/WebTesting/Browser/GUI/DEMO/TestCases.robot', (e, stdout, stderr)=> {
-          child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/DEMO/TestCases.robot', (e, stdout, stderr)=> {
-          if (e instanceof Error) {
-             console.error(e);
-             throw e;
-          }
-          console.log('stdout ', stdout);
-          console.log('Results -- /POC/Results')
-          res.end();
-            });
-        }
-
-        else {
-
-          console.log("came in createRobot")
-
-       var name = (inputFileName).split(".");
-       child = exec('python '+baseFolder+'/WebTesting/Browser/GUI/DEMO/createRobot.py '+name[0]+".py "+baseFolder, (e, stdout, stderr)=> {
-       if (e instanceof Error) {
+        child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/DEMO/TestCases.robot', (e, stdout, stderr)=> {
+        if (e instanceof Error) {
           console.error(e);
           throw e;
-       }
-       console.log('stdout ', stdout);
-       res.end();
-       });
-
-       child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/DEMO/TestCases.robot', (e, stdout, stderr)=> {
-          if (e instanceof Error) {
-             console.error(e);
-             throw e;
-          }
-          console.log('stdout ', stdout);
-          console.log('Results -- /POC/Results')
-          //console.log('stderr ', stderr);.
-          res.end();
-            });
-      }
-
+        }
+        console.log('stdout ', stdout);
+        console.log('Results -- /POC/Results')
+        res.end();
         });
+      });
 
     app.post('/analyze',
         function(req, res){
