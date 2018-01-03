@@ -4,7 +4,6 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
 
 
-
 // Global Resetting function
 
     $('.contaier-fluid').on('click',function () {
