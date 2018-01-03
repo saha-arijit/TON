@@ -2,6 +2,9 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
     $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????";
 
+
+
+
 // Global Resetting function
 
     $('.contaier-fluid').on('click',function () {
@@ -218,8 +221,9 @@ $scope.showGUIapifun= function () {
     //     $scope.apiBackIcon=false;
     //     }
         if ($scope.apiShowGUIapi = $scope.apiShowGUI=true){
+
+            $scope.apiShowGUI=true;
             $scope.apiShowGUIapi=false;
-            $scope.apiShowGUI=true
         }else{
 
         }
