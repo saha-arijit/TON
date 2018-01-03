@@ -485,7 +485,7 @@
                                                                 <!--<h4>API</h4>-->
                                                                 <button class="btn btn-primary btn-block" ng-hide="apiShowTestOps"
                                                                         ng-class="{'apiModalViaGUIHeadingStyle':apiModalViaGUIHeadingStyle}"
-                                                                        style="margin-top: 2%" ng-click="apiViaGUIShowHideFun()">
+                                                                         ng-click="apiViaGUIShowHideFun()">
                                                                     Via GUI
                                                                 </button>
 
@@ -509,15 +509,17 @@
                                                                                  <!--ng-click="openRide()">LOAD</button>-->
 
                                                                     <!--</div>-->
-                                                                    <button ng-hide=""   ng-class="{'apiModalGUIApiHeadingStyle':apiModalGUIApiHeadingStyle}"
+                                                                    <button    ng-class="{'apiModalGUIApiHeadingStyle':apiModalGUIApiHeadingStyle}"
                                                                             ng-click="apiShowGUIapifun()"
-                                                                            class="btn btn-primary btn-block " style="margin-top: 2%">API</button>
+                                                                            class="btn btn-primary btn-block " >API</button>
 
 
                                                                     <div ng-if="apiShowGUIapi">
                                                                         <br>
-                                                                        <button  ng-hide="apiShowAutomation || apiShowLoad" class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="apiShowFunctional=true">FUNCTIONAL</button>
+                                                                        <button  ng-hide="apiShowAutomation || apiShowLoad" class="btn btn-primary btn-block"
+                                                                                 ng-click="apiShowFunctional=apiModalFunctionalHeadingStyle=true"
+                                                                        ng-class="{'apiModalFunctionalHeadingStyle':apiModalFunctionalHeadingStyle}"
+                                                                        >FUNCTIONAL</button>
                                                                         <div ng-if="apiShowFunctional">
                                                                             <br>
                                                                             <form name="ApiTestingApiform1">
@@ -531,8 +533,10 @@
                                                                                         disabed="x=y">Execute</button>
                                                                             </form>
                                                                         </div>
-                                                                        <button ng-hide="apiShowFunctional|| apiShowLoad"  class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="apiShowAutomation=true">AUTOMATION</button>
+                                                                        <br>
+                                                                        <button ng-hide="apiShowFunctional|| apiShowLoad"  class="btn btn-primary btn-block"
+                                                                                 ng-click="apiShowAutomation=apiModalAutomationHeadingStyle=true"
+                                                                                ng-class="{'apiModalAutomationHeadingStyle':apiModalAutomationHeadingStyle}">AUTOMATION</button>
 
                                                                         <div ng-if="apiShowAutomation">
                                                                             <br>
@@ -547,12 +551,14 @@
                                                                                         disabed="x=y">Execute</button>
                                                                             </form>
                                                                         </div>
-                                                                        <button ng-hide="apiShowFunctional||apiShowAutomation" class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="apiShowLoad=true">LOAD</button>
+                                                                        <br>
+                                                                        <button ng-hide="apiShowFunctional||apiShowAutomation" class="btn btn-primary btn-block"
+                                                                                 ng-click="apiShowLoad=apiModalLoadHeadingStyletrue=true"
+                                                                        ng-class="{'apiModalLoadHeadingStyletrue':apiModalLoadHeadingStyletrue}">LOAD</button>
 
                                                                         <div ng-if="apiShowLoad">
                                                                             <br>
-                                                                            <form name="ApiTestingApiform2">
+                                                                            <form name="ApiTestingApiform3">
                                                                                 <label>Upload Postman Collection</label>
                                                                                 <input type="file" accept=".json" class="form-control"  required>
                                                                                 <br>
@@ -579,7 +585,7 @@
                                                                 <br>
                                                                 <button  ng-hide="apiShowGUI" ng-class="{'apiModalViaTestOpsHeadingStyle':apiModalViaTestOpsHeadingStyle}"
                                                                          ng-click="apiShowTestOpsFun()" class="btn btn-primary btn-block"
-                                                                         style="margin-top: 2%">Via TestOps
+                                                                         >Via TestOps
                                                                 </button>
 
 
@@ -587,7 +593,7 @@
                                                                     <br>
                                                                     <!--<button   class="btn btn-primary btn-block" style="margin-top: 2%"-->
                                                                               <!--ng-click="openJenkins()">BROWSER</button>-->
-                                                                    <button   class="btn btn-primary btn-block" style="margin-top: 2%"
+                                                                    <button   class="btn btn-primary btn-block"
                                                                               ng-click="openJenkins()">API</button>
                                                                 </div>
 

@@ -335,14 +335,18 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
-       }.modalViaGUIHeadingStyle:hover{
+    margin-bottom:8% !important;
+
+}.modalViaGUIHeadingStyle:hover{
     background-color: darkgrey;
                }
 .apiModalViaGUIHeadingStyle{
     border: none;
     cursor: default;
     background-color: grey !important;
-       }.apiModalViaGUIHeadingStyle:hover{
+    margin-bottom:8% !important;
+
+}.apiModalViaGUIHeadingStyle:hover{
     background-color: darkgrey;
                }
 .modalGUIBrowserHeadingStyle{
@@ -363,28 +367,63 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
-       }.apiModalGUIApiHeadingStyle{
+    margin-bottom:8% !important;
+
+}.apiModalGUIApiHeadingStyle:hover{
+    background-color: darkgrey;
+               }
+.apiModalFunctionalHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+    margin-bottom:8% !important;
+
+}.apiModalFunctionalHeadingStyle:hover{
+    background-color: darkgrey;
+               }
+.apiModalAutomationHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+    margin-bottom:8% !important;
+    /*line-break: auto;*/
+       }.apiModalAutomationHeadingStyle:hover{
+    background-color: darkgrey;
+               }
+.apiModalLoadHeadingStyletrue{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+    margin-bottom:8% !important;
+
+}.apiModalLoadHeadingStyletrue:hover{
     background-color: darkgrey;
                }
 .apiModalGUIBrowserHeadingStyle{
     border: none;
     cursor: default;
     background-color: grey !important;
-       }.apiModalGUIBrowserHeadingStyle{
+       }.apiModalGUIBrowserHeadingStyle:hover{
     background-color: darkgrey;
                }
 .modalViaTestOpsHeadingStyle{
     border: none;
     cursor: default;
     background-color: grey !important;
-       }.modalViaTestOpsHeadingStyle{
+       }.modalViaTestOpsHeadingStyle:hover{
     background-color: darkgrey;
                }
 .apiModalViaTestOpsHeadingStyle{
     border: none;
     cursor: default;
     background-color: grey !important;
-       }.apiModalViaTestOpsHeadingStyle{
+    margin-bottom:8% !important;
+
+
+
+
+
+}.apiModalViaTestOpsHeadingStyle{
     background-color: darkgrey;
                }
 .modalApiHeadingStyle{
