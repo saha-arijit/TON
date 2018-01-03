@@ -389,13 +389,14 @@ p.webSpeech-bubble {
        }.apiModalAutomationHeadingStyle:hover{
     background-color: darkgrey;
                }
-.apiModalLoadHeadingStyletrue{
+.apiModalLoadHeadingStyle{
     border: none;
     cursor: default;
     background-color: grey !important;
-    margin-bottom:8% !important;
+    /*margin-bottom:5% !important;*/
+    /*margin-top:0 !important;*/
 
-}.apiModalLoadHeadingStyletrue:hover{
+}.apiModalLoadHeadingStyle:hover{
     background-color: darkgrey;
                }
 .apiModalGUIBrowserHeadingStyle{

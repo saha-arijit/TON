@@ -4,6 +4,53 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
 
 
+
+
+
+
+
+    $('#Trigger2').on('click', function () {
+        $('#modal1').modal('hide');
+        // $('#singleModal').modal('toggle');
+        // $('#apiTestCaseModal').modal('show');
+    });
+    $('#Trigger3').on('click', function () {
+        $('#modal2').modal('hide');
+        // $('#singleModal').modal('toggle');
+        // $('#apiTestCaseModal').modal('show');
+    });
+    $('#Trigger6').on('click', function () {
+        $('#modal5').modal('hide');
+        // $('#singleModal').modal('toggle');
+        // $('#apiTestCaseModal').modal('show');
+    });
+    $('#Trigger7').on('click', function () {
+        $('#modal5').modal('hide');
+        // $('#singleModal').modal('toggle');
+        // $('#apiTestCaseModal').modal('show');
+    });
+    $('#Trigger9').on('click', function () {
+        $('#modal1').modal('hide');
+        // $('#singleModal').modal('toggle');
+        // $('#apiTestCaseModal').modal('show');
+    });$('#Trigger').on('click', function () {
+        $('#modal5').modal('hide');
+        // $('#singleModal').modal('toggle');
+        // $('#apiTestCaseModal').modal('show');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Global Resetting function
 
     $('.contaier-fluid').on('click',function () {
@@ -74,6 +121,9 @@ $scope.apiShowGUI=false;
     $scope.apiShowFunctional=false;
     $scope.apiShowAutomation=false;
     $scope.apiShowLoad=false;
+    $scope.apiModalLoadHeadingStyle=false;
+    $scope.apiModalAutomationHeadingStyle=false;
+    $scope.apiModalFunctionalHeadingStyle=false;
 
 
 
@@ -385,7 +435,8 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
             method: 'post',
             url: '/jenkins'
         });
-
+        $('#modal9').modal('hide');
+        $('#modal1').modal('hide');
         $scope.ngModel1="jenkins has opened..please remember to close it.";
 
         $('#webTestingModal').modal('hide');
@@ -397,14 +448,14 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
         $scope.modalViaTestOpsHeadingStyle= false;
         $scope.webBackIcon=true;
 
-        $('#apiTestCaseModal').modal('hide');
-        $scope.apiShowGUI= false;
-        $scope.apiShowTestOps= false;
-        $scope.apiModalViaTestOpsHeadingStyle= false;
-        $scope.apiModalGUIApiHeadingStyle= false;
-        $scope.apiModalGUIBrowserHeadingStyle= false;
-        $scope.apiModalViaGUIHeadingStyle= false;
-        $scope.apiBackIcon= true;
+        // $('#apiTestCaseModal').modal('hide');
+        // $scope.apiShowGUI= false;
+        // $scope.apiShowTestOps= false;
+        // $scope.apiModalViaTestOpsHeadingStyle= false;
+        // $scope.apiModalGUIApiHeadingStyle= false;
+        // $scope.apiModalGUIBrowserHeadingStyle= false;
+        // $scope.apiModalViaGUIHeadingStyle= false;
+        // $scope.apiBackIcon= true;
 
     };
     $scope.openRide = function () {
