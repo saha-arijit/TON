@@ -509,18 +509,18 @@
                                                                                  <!--ng-click="openRide()">LOAD</button>-->
 
                                                                     <!--</div>-->
-                                                                    <button ng-hide="apiShowGUIBrowser"   ng-class="{'apiModalGUIApiHeadingStyle':apiModalGUIApiHeadingStyle}"
+                                                                    <button ng-hide=""   ng-class="{'apiModalGUIApiHeadingStyle':apiModalGUIApiHeadingStyle}"
                                                                             ng-click="apiShowGUIapifun()"
                                                                             class="btn btn-primary btn-block " style="margin-top: 2%">API</button>
 
 
                                                                     <div ng-if="apiShowGUIapi">
                                                                         <br>
-                                                                        <button  class="btn btn-primary btn-block" style="margin-top: 2%"
+                                                                        <button  ng-hide="apiShowAutomation || apiShowLoad" class="btn btn-primary btn-block" style="margin-top: 2%"
                                                                                  ng-click="apiShowFunctional=true">FUNCTIONAL</button>
                                                                         <div ng-if="apiShowFunctional">
                                                                             <br>
-                                                                            <form name="webTestingApiform">
+                                                                            <form name="ApiTestingApiform1">
                                                                                 <label>Upload Postman Collection</label>
                                                                                 <input type="file" accept=".json" class="form-control"  required>
                                                                                 <br>
@@ -531,10 +531,48 @@
                                                                                         disabed="x=y">Execute</button>
                                                                             </form>
                                                                         </div>
-                                                                        <button ng-hide=""  class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="openPostman()">AUTOMATION</button>
-                                                                        <button ng-hide="" class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                                 ng-click="openRide()">LOAD</button>
+                                                                        <button ng-hide="apiShowFunctional|| apiShowLoad"  class="btn btn-primary btn-block" style="margin-top: 2%"
+                                                                                 ng-click="apiShowAutomation=true">AUTOMATION</button>
+
+                                                                        <div ng-if="apiShowAutomation">
+                                                                            <br>
+                                                                            <form name="ApiTestingApiform2">
+                                                                                <label>Upload Postman Collection</label>
+                                                                                <input type="file" accept=".json" class="form-control"  required>
+                                                                                <br>
+                                                                                <label>Environment Variable (optional)</label>
+                                                                                <input type="number"  class="form-control"  required>
+                                                                                <br>
+                                                                                <button class="btn btn-primary" type="submit"
+                                                                                        disabed="x=y">Execute</button>
+                                                                            </form>
+                                                                        </div>
+                                                                        <button ng-hide="apiShowFunctional||apiShowAutomation" class="btn btn-primary btn-block" style="margin-top: 2%"
+                                                                                 ng-click="apiShowLoad=true">LOAD</button>
+
+                                                                        <div ng-if="apiShowLoad">
+                                                                            <br>
+                                                                            <form name="ApiTestingApiform2">
+                                                                                <label>Upload Postman Collection</label>
+                                                                                <input type="file" accept=".json" class="form-control"  required>
+                                                                                <br>
+                                                                                <label>Environment Variable (optional)</label>
+                                                                                <input type="number"  class="form-control"  required>
+                                                                                <br>
+                                                                                <label>Iterations</label>
+                                                                                <input type="number"  class="form-control"  required>
+                                                                                <br>
+                                                                                <label>No. of Users</label>
+                                                                                <input type="number"  class="form-control"  required>
+                                                                                <br>
+                                                                                <label>Ramp Up Period</label>
+                                                                                <input type="number"  class="form-control"  required>
+                                                                                <br>
+
+                                                                                <button class="btn btn-primary" type="submit"
+                                                                                        disabed="x=y">Execute</button>
+                                                                            </form>
+                                                                        </div>
 
                                                                     </div>
                                                                 </div>
@@ -547,8 +585,8 @@
 
                                                                 <div ng-show="apiShowTestOps">
                                                                     <br>
-                                                                    <button   class="btn btn-primary btn-block" style="margin-top: 2%"
-                                                                              ng-click="openJenkins()">BROWSER</button>
+                                                                    <!--<button   class="btn btn-primary btn-block" style="margin-top: 2%"-->
+                                                                              <!--ng-click="openJenkins()">BROWSER</button>-->
                                                                     <button   class="btn btn-primary btn-block" style="margin-top: 2%"
                                                                               ng-click="openJenkins()">API</button>
                                                                 </div>

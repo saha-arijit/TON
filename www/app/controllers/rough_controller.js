@@ -4,10 +4,9 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
 // Global Resetting function
 
-    $('.container-fluid').on('click',function () {
+    $('.contaier-fluid').on('click',function () {
         $scope.apiShowTestOps=false;
         $scope.apiModalViaTestOpsHeadingStyle=false;
-        $scope.apiShowGUIBrowser=false;
         $scope.apiModalGUIBrowserHeadingStyle=false;
         $scope.apiModalViaGUIHeadingStyle=false;
         $scope.apiModalGUIApiHeadingStyle=false;
@@ -58,16 +57,23 @@ $('#mobileTestingModel').on('click',function () {
 $scope.showGUI = false;
 $scope.apiShowGUI=false;
 
-// api Testing 3rd step
+// api Testing 2nd step
     $scope.apiShowTestOps= false;
     $scope.apiShowTestOps=false;
     $scope.apiModalViaTestOpsHeadingStyle=false;
-    $scope.apiShowGUIBrowser=false;
     $scope.apiModalGUIBrowserHeadingStyle=false;
     $scope.apiModalViaGUIHeadingStyle=false;
     $scope.apiModalGUIApiHeadingStyle=false;
     $scope.apiShowGUIapi=false;
     $scope.apiBackIcon=true;
+
+    // currently working
+
+    $scope.apiShowFunctional=false;
+    $scope.apiShowAutomation=false;
+    $scope.apiShowLoad=false;
+
+
 
     $scope.apiTestingShowBrowserFun =function () {
         $scope.apiShowGUIBrowser =$scope.apiModalGUIBrowserHeadingStyle=true
@@ -186,7 +192,7 @@ $scope.showGUIapifun= function () {
 
 }; $scope.apiBackIconFun = function () {
 
-    $scope.apiShowGUI= false;
+    // $scope.apiShowGUI= false;
     $scope.apiShowTestOps= false;
     $scope.apiModalViaTestOpsHeadingStyle= false;
     $scope.apiModalGUIApiHeadingStyle= false;
@@ -195,7 +201,7 @@ $scope.showGUIapifun= function () {
 
 
     $scope.apiShowTestOps= false;
-    $scope.apiShowGUIapi= false;
+    // $scope.apiShowGUIapi= false;
 
     $scope.allModalHeadingStyle= false;
 
@@ -203,12 +209,27 @@ $scope.showGUIapifun= function () {
     $scope.apiTestingModalGUIBrowserHeadingStyle= false;
     $scope.apiTestingModalGUIApiHeadingStyle= false;
     $scope.apiTestingModalViaTestOpsHeadingStyle= false;
-    if ($scope.apiBackIcon=true){
-        $scope.apiBackIcon=true
+    // if ($scope.apiBackIcon=$scope.apiShowAutomation=true){
+    //     $scope.apiBackIcon=true;
+    //     $scope.apiShowAutomation=false;
+    //
+    //
+    // }else{
+    //     $scope.apiBackIcon=false;
+    //     }
+        if ($scope.apiShowGUIapi = $scope.apiShowGUI=true){
+            $scope.apiShowGUIapi=false;
+            $scope.apiShowGUI=true
+        }else{
 
-    }else{
-        $scope.apiBackIcon=false;
         }
+if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
+            $scope.apiShowGUIapi=false;
+    $scope.apiShowGUI=false;
+        }
+        else{
+
+}
 
 
 };
@@ -238,7 +259,6 @@ $scope.showGUIapifun= function () {
        $scope.apiShowTestOps= false;
        $scope.apiShowTestOps=false;
        $scope.apiModalViaTestOpsHeadingStyle=false;
-       $scope.apiShowGUIBrowser=false;
        $scope.apiModalGUIBrowserHeadingStyle=false;
        $scope.apiModalViaGUIHeadingStyle=false;
        $scope.apiModalGUIApiHeadingStyle=false;
