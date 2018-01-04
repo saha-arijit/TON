@@ -8,7 +8,6 @@ class Load_json_Parser:
 
 		location = "/WebTesting/API/GUI/Demo_Bell/"
 		
-		
 		file = open(base + location +'NewLoadNewman.js' , 'r')
 		line = file.readlines()
 		json = json.split('.')
