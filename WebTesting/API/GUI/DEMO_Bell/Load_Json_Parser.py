@@ -8,6 +8,7 @@ class Load_json_Parser:
 
 		location = "/WebTesting/API/GUI/Demo_Bell/"
 		
+		
 		file = open(base + location +'NewLoadNewman.js' , 'r')
 		line = file.readlines()
 		json = json.split('.')
@@ -41,7 +42,12 @@ class Load_json_Parser:
 		file = open(json +'.py' , 'w')
 		file.write('import sys'+'\n')
 		file.write('import os'+'\n')
+		file.write('from Load_Thread import myThread' + '\n')
+		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
 		file.write('def ' + 'TC_'+ testCase[6] +'(users)' + ':'+'\n')
+		file.write('\t' +'baseFolder='+'"'+base+'"'+'\n')
+		file.write('\t' +'thread1.createCSV(baseFolder)'+'\n')
+		file.write('\t' +'thread1.start()'+'\n')
 		file.write('\t' + 'file = open(' +'\'' + testCase[6] + '/' + testCase[6] +'.js\'' + ','+ '\'r\')' + '\n')
 		file.write('\t' + 'line = file.readlines()' + '\n')
 		file.write('\t' + 'file = open(' +'\'' + testCase[6] + '/' + testCase[6] +'.js\'' + ','+ '\'w\')' + '\n')
@@ -57,6 +63,7 @@ class Load_json_Parser:
 		file.write('\t' + '\t' +'\t'+ '\t' +'file.write (str(lines))' + '\n')
 		file.write('\t' +'file.close()' + '\n')
 		file.write('\t' +'os.system(\'node ' + testCase[6] + '/'+ testCase[6] +'.js\')' + '\n')
+		file.write('\t' +'thread1.stop()')
 		
 		file.close()
 
