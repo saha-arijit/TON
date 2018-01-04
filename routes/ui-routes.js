@@ -65,15 +65,16 @@ UIRoutes.prototype.init = function() {
 
             folderName = sampleFile.name.split ('.')
 
-            folder = baseFolder+'/WebTesting/API/GUI/DEMO/'+ folderName[0]
+            folder = baseFolder+'/WebTesting/API/GUI/Demo_Bell/'+ folderName[0]
             
             if (!fs.existsSync(folder)){
 				fs.mkdirSync (folder)
 			}	
-			//global.inputFileName = baseFolder+'/WebTesting/API/GUI/DEMO/'+sampleFile.name+'/' + sampleFile.name;
-          	//console.log("BASEFOLDER",inputFileName)
+			//global.inputFileName = baseFolder+'/WebTesting/API/GUI/Demo_Bell/'+sampleFile.name+'/' + sampleFile.name;
+          	// console.log("BASEFOLDER",inputFileName)
           	global.inputFileName = folder + '/' + sampleFile.name
-
+            console.log("SAMPLE FILE",sampleFile);
+            console.log("INPUT FILE",inputFileName);
             sampleFile.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
@@ -81,9 +82,9 @@ UIRoutes.prototype.init = function() {
 
             sleep(5000);
 
-            //child = shell.exec('python '+baseFolder+'/WebTesting/API/GUI/DEMO/Load_Json_Parser.py ' + inputFileName+' '+baseFolder);
+            //child = shell.exec('python '+baseFolder+'/WebTesting/API/GUI/Demo_Bell/Load_Json_Parser.py ' + inputFileName+' '+baseFolder);
             try{
-            	child = exec('python '+baseFolder+'/WebTesting/API/GUI/DEMO/Load_Json_Parser.py ' + inputFileName+' '+baseFolder, (e, stdout, stderr)=> {
+            	child = exec('python '+baseFolder+'/WebTesting/API/GUI/Demo_Bell/Load_Json_Parser.py ' + inputFileName+' '+baseFolder, (e, stdout, stderr)=> {
 		          if (e instanceof Error) {
 		             console.error(e);
 		             throw e;
@@ -103,7 +104,7 @@ UIRoutes.prototype.init = function() {
 	app.post('/executeWebApi',
         function(req, res){
 
-        dataFile = baseFolder+"/WebTesting/API/GUI/DEMO/CPU%."+"csv";
+        dataFile = baseFolder+"/WebTesting/API/GUI/Demo_Bell/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
           
         
@@ -114,7 +115,7 @@ UIRoutes.prototype.init = function() {
         console.log("The file was saved!");
         });
 
-          child = exec('ride.py '+baseFolder+'/WebTesting/API/GUI/DEMO/LoadTest.robot', (e, stdout, stderr)=> {
+          child = exec('ride.py '+baseFolder+'/WebTesting/API/GUI/Demo_Bell/LoadTest.robot', (e, stdout, stderr)=> {
           if (e instanceof Error) {
              console.error(e);
              throw e;
@@ -135,9 +136,16 @@ UIRoutes.prototype.init = function() {
             console.log("SAMPLE",sampleFile)
             flag = 1
 
-            global.inputFileName = baseFolder+'/WebTesting/Browser/GUI/DEMO/'+sampleFile.name;
-            console.log("BASEFOLDER",inputFileName)
+            folderName = sampleFile.name.split ('.')
 
+            folder = baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/'+ folderName[0]
+            
+            if (!fs.existsSync(folder)){
+                fs.mkdirSync (folder)
+            }   
+            //global.inputFileName = baseFolder+'/WebTesting/API/GUI/Demo_Bell/'+sampleFile.name+'/' + sampleFile.name;
+            // console.log("BASEFOLDER",inputFileName)
+            global.inputFileName = folder + '/' + sampleFile.name
             sampleFile.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
@@ -145,11 +153,12 @@ UIRoutes.prototype.init = function() {
 
             sleep(5000);
 
-            child = shell.exec('python '+baseFolder+'/WebTesting/Browser/GUI/DEMO/readJson.py ' + inputFileName+' '+baseFolder);
+            child = shell.exec('python '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/readJson.py ' + inputFileName+' '+baseFolder);
             res.end();
 
             var name = (inputFileName).split(".");
-            child = exec('python '+baseFolder+'/WebTesting/Browser/GUI/DEMO/createRobot.py '+name[0]+".py "+baseFolder, (e, stdout, stderr)=> {
+            console.log("NAME",name)
+            child = exec('python '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/createRobot.py '+name[0]+".py "+baseFolder, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
@@ -158,7 +167,7 @@ UIRoutes.prototype.init = function() {
             res.end();
             });
 
-            child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/DEMO/'+ name[6]+".py");
+            child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/'+ name[6]+".py");
             res.end();
 
         });
@@ -166,7 +175,7 @@ UIRoutes.prototype.init = function() {
     app.post('/execute',
         function(req, res){
 
-        dataFile = baseFolder+"/WebTesting/Browser/GUI/DEMO/CPU%."+"csv";
+        dataFile = baseFolder+"/WebTesting/Browser/GUI/Demo_Bell/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
           
         
@@ -176,7 +185,7 @@ UIRoutes.prototype.init = function() {
          }
         console.log("The file was saved!");
         });
-        child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/DEMO/TestCases.robot', (e, stdout, stderr)=> {
+        child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/TestCases.robot', (e, stdout, stderr)=> {
         if (e instanceof Error) {
           console.error(e);
           throw e;
@@ -191,7 +200,7 @@ UIRoutes.prototype.init = function() {
         function(req, res){
 
              console.log("Came to Analyze Results");
-    child = exec(baseFolder+"/WebTesting/Browser/GUI/DEMO/viewAnalytics.py "+baseFolder, (e, stdout, stderr)=> {
+    child = exec(baseFolder+"/WebTesting/Browser/GUI/Demo_Bell/viewAnalytics.py "+baseFolder, (e, stdout, stderr)=> {
     if (e instanceof Error) {
         console.error(e);
         throw e;

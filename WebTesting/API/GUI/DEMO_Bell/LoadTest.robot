@@ -6,6 +6,6 @@ Library           FlipkartCollection/FlipkartCollection.py
 *** Test Cases ***
 FlipkartCollection
     #Keyword    Instances
-    TC_FlipkartCollection    3
+    TC_FlipkartCollection    2
 
 *** Keywords ***

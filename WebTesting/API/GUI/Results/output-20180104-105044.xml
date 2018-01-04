@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180104 10:50:44.663" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\API\GUI\Demo_Bell\LoadTest.robot" id="s1" name="LoadTest">
+<test id="s1-t1" name="FlipkartCollection">
+<kw name="TC FlipkartCollection" library="FlipkartCollection">
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" endtime="20180104 10:51:02.260" starttime="20180104 10:50:44.819"></status>
+</kw>
+<status status="PASS" endtime="20180104 10:51:02.260" critical="yes" starttime="20180104 10:50:44.819"></status>
+</test>
+<status status="PASS" endtime="20180104 10:51:02.260" starttime="20180104 10:50:44.741"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="LoadTest" pass="1">LoadTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

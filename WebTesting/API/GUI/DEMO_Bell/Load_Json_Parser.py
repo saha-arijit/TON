@@ -6,7 +6,7 @@ class Load_json_Parser:
 
 	def LoadNewman(self,json, base):
 
-		location = "/WebTesting/API/GUI/DEMO_Bell/"
+		location = "/WebTesting/API/GUI/Demo_Bell/"
 		
 		file = open(base + location +'NewLoadNewman.js' , 'r')
 		line = file.readlines()

@@ -20,7 +20,7 @@ var path = require('path'), // ensures that the path is consistent, regardless o
     //console.log('collection run complete!');
         });
     };
-var value = 3;
+var value = 2;
 var items = [];
 for (i=0;i<value;i++){
     items.push(i)

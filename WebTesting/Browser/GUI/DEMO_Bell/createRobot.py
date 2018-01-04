@@ -6,7 +6,7 @@ class createRobot :
 	def createTestFile(self, testCase,baseFolder):
 		
 		global robotFileName;
-		robotFileName = baseFolder+"/WebTesting/Browser/GUI/DEMO_Bell/TestCases.robot"	
+		robotFileName = baseFolder+"/WebTesting/Browser/GUI/Demo_Bell/TestCases.robot"	
 		with open(testCase) as data_file:
 			testFile = testCase.split('/')
 

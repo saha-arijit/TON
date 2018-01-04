@@ -16,12 +16,12 @@ class viewAnalytics:
 
 	def setIndex(self,baseFolder):
 
-		command = "elasticdump --input="+baseFolder+"\WebTesting\Browser\GUI\DEMO_Bell/createIndex.json --output=http://localhost:9200/.kibana"
+		command = "elasticdump --input="+baseFolder+"\WebTesting\Browser\GUI\Demo_Bell/createIndex.json --output=http://localhost:9200/.kibana"
 		os.system(command)
 
 	def setVisualization(self,baseFolder):
 
-		command = "elasticdump --input="+baseFolder+"\WebTesting\Browser\GUI\DEMO_Bell/hai.json --output=http://localhost:9200/.kibana"
+		command = "elasticdump --input="+baseFolder+"\WebTesting\Browser\GUI\Demo_Bell/hai.json --output=http://localhost:9200/.kibana"
 		os.system(command)
 
 
