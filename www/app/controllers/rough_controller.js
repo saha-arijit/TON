@@ -66,7 +66,7 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
         $scope.apiBackIcon=true;
 
         // api Testing Step 2 PopUp
-        $('.modal').modal('hide')
+        // $('.modal').modal('hide')
 
 
     });
@@ -544,6 +544,12 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
         $http({
             method: 'post',
             url: '/analyze'
+        }).then(function success(response) {
+
+            console.log("resp",response)
+        },function error(error) {
+
+            console.log("err",error)
         });
         $scope.ngModel1="Kibana has opened..please remember to close it."
 
