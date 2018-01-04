@@ -56,7 +56,7 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
 // Global Resetting function
 
-    $('.contaier-fluid').on('click',function () {
+    $('.container-fluid').on('click',function () {
         $scope.apiShowTestOps=false;
         $scope.apiModalViaTestOpsHeadingStyle=false;
         $scope.apiModalGUIBrowserHeadingStyle=false;
@@ -64,10 +64,9 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
         $scope.apiModalGUIApiHeadingStyle=false;
         $scope.apiShowGUIapi=false;
         $scope.apiBackIcon=true;
-        //
-        // $('#webTestCaseModal').modal('hide')
-        // $('#apiTestCaseModal').modal('hide')
-        // $('#mobileTestCaseModal').modal('hide')
+
+        // api Testing Step 2 PopUp
+        $('.modal').modal('hide')
 
 
     });
