@@ -16,28 +16,31 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
     });
     $('#Trigger3').on('click', function () {
         $('#modal2').modal('hide');
-        // $('#singleModal').modal('toggle');
-        // $('#apiTestCaseModal').modal('show');
+
     });
     $('#Trigger6').on('click', function () {
         $('#modal5').modal('hide');
-        // $('#singleModal').modal('toggle');
-        // $('#apiTestCaseModal').modal('show');
+
     });
     $('#Trigger7').on('click', function () {
         $('#modal5').modal('hide');
-        // $('#singleModal').modal('toggle');
-        // $('#apiTestCaseModal').modal('show');
+
     });
     $('#Trigger9').on('click', function () {
         $('#modal1').modal('hide');
-        // $('#singleModal').modal('toggle');
-        // $('#apiTestCaseModal').modal('show');
-    });$('#Trigger').on('click', function () {
+
+    });$('#Trigger8').on('click', function () {
         $('#modal5').modal('hide');
-        // $('#singleModal').modal('toggle');
-        // $('#apiTestCaseModal').modal('show');
+
     });
+
+
+
+    var checker = document.getElementById('1');
+    var sendbtn = document.getElementById('2');
+    checker.onchange = function() {
+        sendbtn.enabled = true;
+    };
 
 
 
@@ -124,6 +127,50 @@ $scope.apiShowGUI=false;
     $scope.apiModalLoadHeadingStyle=false;
     $scope.apiModalAutomationHeadingStyle=false;
     $scope.apiModalFunctionalHeadingStyle=false;
+
+    $scope.modalViaTestOpsHeadingStyle=false;
+
+
+$scope.apiTestingViaTestOpsModalClose= function () {
+
+    $('#modal9').modal('hide');
+    $('#modal1').modal('show');
+};
+
+$scope.apiTestingViaGUILoadModalClose = function () {
+    $('#modal8').modal('hide');
+    $('#modal5').modal('show');
+};
+$scope.apiTestingViaGUIAutomationModalClose = function () {
+    $('#modal7').modal('hide');
+    $('#modal5').modal('show');
+};$scope.apiTestingViaGUIFunctionalModalClose = function () {
+    $('#modal6').modal('hide');
+    $('#modal5').modal('show');
+};$scope.apiTestingViaGUIApiModalClose = function () {
+    $('#modal5').modal('hide');
+    $('#modal2').modal('show');
+};
+$scope.apiTestingViaGUIModalClose = function () {
+    $('#modal2').modal('hide');
+    $('#modal1').modal('show');
+};
+
+
+
+// Disabling the Button for api testing  Show GUI Functional part
+    $scope.apiTestingFunctionalFile =true;
+
+// Autmation File
+    $scope.apiTestingAutomationFile =true;
+
+
+
+
+// Load File
+    $scope.apiTestingLoadFile =true;
+
+
 
 
 

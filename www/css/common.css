@@ -276,7 +276,28 @@ p.webSpeech-bubble {
     top: 20vh;
     /*left:0;*/
 
+}.modalForLoad {
+     top:-2vh ! important;
+     position: fixed;
+    /*left:0;*/
+
 }
+
+
+/*.modal {*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*z-index: 1050;*/
+    /*display: none;*/
+    /*overflow: hidden;*/
+    /*-webkit-overflow-scrolling: touch;*/
+    /*outline: 0;*/
+/*}*/
+
+
 .modal-backdrop {
     /* bug fix - no overlay */
     display: none;
@@ -344,7 +365,7 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
-    margin-bottom:8% !important;
+    margin-bottom:10% !important;
 
 }.apiModalViaGUIHeadingStyle:hover{
     background-color: darkgrey;
@@ -367,7 +388,7 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
-    margin-bottom:8% !important;
+    margin-bottom:10% !important;
 }.apiModalGUIApiHeadingStyle:hover{
     background-color: darkgrey;
                }
@@ -375,7 +396,7 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
-    margin-bottom:8% !important;
+    margin-bottom:10% !important;
 
 }.apiModalFunctionalHeadingStyle:hover{
     background-color: darkgrey;
@@ -384,7 +405,7 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
-    margin-bottom:8% !important;
+    margin-bottom:10% !important;
     /*line-break: auto;*/
        }.apiModalAutomationHeadingStyle:hover{
     background-color: darkgrey;
@@ -393,7 +414,7 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
-    /*margin-bottom:5% !important;*/
+    margin-bottom:10% !important;
     /*margin-top:0 !important;*/
 
 }.apiModalLoadHeadingStyle:hover{
@@ -410,6 +431,7 @@ p.webSpeech-bubble {
     border: none;
     cursor: default;
     background-color: grey !important;
+    margin-bottom:10% !important;
        }.modalViaTestOpsHeadingStyle:hover{
     background-color: darkgrey;
                }
@@ -476,3 +498,34 @@ p.webSpeech-bubble {
     color:white;
     font-size: medium;
 }
+.modal-title{
+    text-align: center;
+}.apiTestingFunctionalLabel1{
+
+ margin-left:19% !important;
+ }.apiTestingFunctionalLabel2{
+
+ margin-left:23% !important;
+ }
+.apiTestingAutomationLabel1{
+
+ margin-left:19% !important;
+ }.apiTestingAutomationLabel2{
+
+ margin-left:16% !important;
+ }.apiTestingLoadLabel1{
+
+ margin-left:19% !important;
+ }.apiTestingLoadLabel2{
+
+ margin-left:16% !important;
+ }.apiTestingLoadLabel3{
+
+ margin-left:35% !important;
+ }.apiTestingLoadLabel4{
+
+ margin-left:33% !important;
+ }.apiTestingLoadLabel5{
+
+ margin-left:28% !important;
+ }
