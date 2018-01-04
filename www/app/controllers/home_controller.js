@@ -1,6 +1,3 @@
-
-
-
 kibanaApp.controller('homeController',['$scope','$http',function ($scope,$http) {
 
     $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????-";
