@@ -411,6 +411,7 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
 
 // for web Testing  -  web modal
     $scope.webModalPrepareTestCase = function () {
+        console.log("working")
         var iFrame = $('<iframe name = "myIFrame" id="iFrame"></iframe>');
         $('body').append(iFrame);
         document.getElementById('webModalInputId').click();
@@ -531,15 +532,15 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
         $scope.apiBackIcon= true;
 
         $('#mobileTestCaseModal').modal('hide');
-
-
-
-
-
-
-
-// alert("shduhdu")
     };
+
+    $scope.openRideWebApi = function () {
+        $http({
+            method: 'post',
+            url: '/executeWebApi'
+        })
+    };
+
     $scope.analyze = function () {
         $http({
             method: 'post',
