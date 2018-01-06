@@ -83,7 +83,7 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
     $scope.apiShowFunctional=false;
 
 
-
+// Ng Model function
     $('#webTestingModel').on('click',function () {
         $scope.ngModel1 = "";
     });
@@ -91,6 +91,15 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
         $scope.ngModel1 = "";
     });
     $('#mobileTestingModel').on('click',function () {
+        $scope.ngModel1 = "";
+    });
+
+
+    $('.webStepBtn').on('click',function () {
+        $scope.ngModel1 = "";
+    });
+
+    $('.apiStepBtn').on('click',function () {
         $scope.ngModel1 = "";
     });
 
@@ -236,7 +245,12 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
             // $('#iFrame').detach();
 
         }, 3000);
-        $('#webTestCaseModal').modal('hide');
+        // $('#').modal('hide');
+        // $('#webPrepareTestCaseModal1').modal('hide');
+        $('.modal').modal('hide');
+
+        $scope.ngModel1="Preparation is in progress....Finished now...."
+
 
 
 
@@ -248,6 +262,7 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
         $('body').append(iFrame);
         document.getElementById('apiModalInputId').click();
         $('#iFrame').hide();
+        $('#webPrepareTestCaseModal1').modal('hide');
 
         setTimeout(function () {
 
@@ -255,8 +270,9 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
             // $('#iFrame').detach();
 
         }, 3000);
-        $('#webTestCaseModal').modal('hide');
-        $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
+        $('.modal').modal('hide');
+        $scope.ngModel1="Preparation is in progress....Finished now...."
+
 
 
 
@@ -268,7 +284,7 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
             method: 'post',
             url: '/kantu'
         });
-        $('#wModal').modal('hide');
+        $('#wModal1').modal('hide');
         $scope.ngModel1="Kantu has opened..please remember to close it."
 
         // $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
@@ -320,6 +336,18 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
         });
         $scope.ngModel1="Kibana has opened..please remember to close it."
 
+        setTimeout(function () {
+
+
+                $scope.ngModel1="";
+
+
+        }, 100);
+        // setTimeout(function () {
+        //     $scope.ngModel1="";
+        // },100)
+
+
         // $('#webTestingModal').modal('hide')
 
 
@@ -333,11 +361,15 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
         $scope.ngModel1="Postman has opened..please remember to close it.";
 
 
+        // For Web Part
+
+// For Step 3
         $('#webExecuteTestCaseModal3').modal('hide');
         $('#webExecuteTestCaseModal4').modal('hide');
 
+// For Step 1
+        $('#wModal1').modal('hide');
 
-        $('#').modal('hide');
 
 
 

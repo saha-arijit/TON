@@ -170,7 +170,7 @@
                 </button>
                 <form name="ApiTestingApiform1">
                     <label class="apiTestingFunctionalLabel1">Upload Postman Collection</label>
-                    <input type="file" accept=".json" ng-click="apiTestingFunctionalFile=false" id="1"
+                    <input type="file" accept=".json" style="padding: 1% 0 1% 20%;" ng-click="apiTestingFunctionalFile=false" id="1"
                            class="form-control">
                     <br>
                     <label class="apiTestingFunctionalLabel2">Environment Variable</label>
@@ -222,7 +222,7 @@
                 </button>
                 <form name="ApiTestingApiform2">
                     <label class="apiTestingAutomationLabel1">Upload Postman Collection</label>
-                    <input type="file" accept=".json" class="form-control" ng-click="apiTestingAutomationFile=false">
+                    <input type="file" accept=".json" style="padding: 1% 0 1% 20%;"class="form-control" ng-click="apiTestingAutomationFile=false">
                     <br>
                     <label class="apiTestingAutomationLabel2">Environment Variable (optional)</label>
                     <input type="number" class="form-control" ng-model="EnvVariableForForm2" required>
@@ -242,7 +242,7 @@
 <!--modal 8-->
 
 
-<div class="modal fade btnInModal " id="modal8" role="dialog">
+<div class="modal fade btnInModal modalForLoad " id="modal8" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -271,7 +271,7 @@
                 </button>
                 <form name="ApiTestingApiform3">
                     <label class="apiTestingLoadLabel1">Upload Postman Collection</label>
-                    <input type="file" accept=".json" ng-click="apiTestingLoadFile =false" class="form-control"
+                    <input type="file" accept=".json" style="padding: 1% 0 1% 19%;" ng-click="apiTestingLoadFile =false" class="form-control"
                            required>
                     <br>
                     <label class="apiTestingLoadLabel2">Environment Variable (optional)</label>
@@ -345,7 +345,7 @@
                         <!--nav-pills-->
                         <li class=" disabled">
                             <img style="border-bottom: none ! important;cursor:pointer;max-height: 10vh;margin-top:-3%;margin-left:-3%;max-width: 30vh"
-                                 src="../../images/test-on-need-logo-192_42-1.png"/></a>
+                                 src="../../images/test-on-need-logo-192_42-1.png"/>
                         </li>
                         <li class="active " id="webTestingModel"><a class="tabLinksColorChange" href="#webTesting"
                                                                     data-toggle="tab">
@@ -379,7 +379,8 @@
                                                 <!--<br>-->
                                                 <button class="btn btn-primary webStepBtn" type="submit"
                                                         data-toggle="modal"
-                                                        data-target="#wModal1">Record Test Case
+                                                        data-target="#wModal1"
+                                                        ng-click="ngModel1=''">Record Test Case
                                                 </button>
 
                                                 <!--Modal For postman or kantu Web Testing  -->
@@ -423,7 +424,7 @@
                                             <div class="webDivBtn">
                                                 <h4 class="stepTextColor">Step 2</h4>
                                                 <button class="btn btn-primary webStepBtn" type="button"
-                                                        data-toggle="modal"
+                                                        data-toggle="modal" ng-click="ngModel1=''"
                                                         data-target="#webPrepareTestCaseModal">Prepare
                                                     Test Case
                                                 </button>
@@ -497,9 +498,10 @@
                                                                         method="post"
                                                                         target="myIFrame">
                                                                     <label>Choose a Kantu json File</label>
+
                                                                     <input type="file" accept=".json" name="sampleFile"
                                                                            ng-click="webTestingForBrowserFile = false"
-                                                                           style="padding: 1% 0 1% 35%"
+                                                                           style="padding: 1% 0 1% 20%"
                                                                            class="form-control"
                                                                            value="Browse To Select The File">
                                                                     <input type="submit" style="visibility: hidden"
@@ -553,7 +555,7 @@
 
                                                                     <input type="file" accept=".json" name="sampleFile"
                                                                            ng-click="webTestingForAPIFile = false"
-                                                                           style="padding: 1% 0 1% 0%"
+                                                                           style="padding: 1% 0 1% 20%"
                                                                            class="form-control"
                                                                            value="Browse To Select The File">
                                                                     <input type="submit" style="visibility: hidden"
@@ -585,6 +587,7 @@
                                                 <h4 class="stepTextColor">Step 3</h4>
                                                 <button class="btn btn-primary webStepBtn" data-toggle="modal"
                                                         data-target="#webExecuteTestCaseModal1"
+                                                        ng-click="ngModel1=''"
                                                 >Execute Test Case
                                                 </button>
 
@@ -906,7 +909,7 @@
                                                 <h4 class="stepTextColor">Step 2</h4>
                                                 <a role="button" class="btn btn-primary  apiStepBtn" data-toggle="modal"
                                                    data-target="#modal1"
-                                                >Execute Test Case
+                                                   ng-click="ngModel1=''" >Execute Test Case
                                                 </a>
                                                 <!--Popup Window using Bootstrap-->
 
