@@ -4,11 +4,38 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
 
 
+// Over ALl Modal Triggerring Function
 
 
+    // For Web PArt
+
+    // For Step 2 Prepare Test case
+
+    $('#webTestingForBrowserTrigger1').on('click', function () {
+        $('#webPrepareTestCaseModal').modal('hide');
+
+    }); $('#webTestingForBrowserTrigger2').on('click', function () {
+        $('#webPrepareTestCaseModal').modal('hide');
+
+    });
+    $('#webTestingViaGUITrigger2').on('click', function () {
+        $('#webExecuteTestCaseModal1').modal('hide');
+
+    });$('#webTestingAPITrigger3').on('click', function () {
+        $('#webExecuteTestCaseModal2').modal('hide');
+
+    });$('#webTestingBrowserTrigger4').on('click', function () {
+        $('#webExecuteTestCaseModal2').modal('hide');
+
+    });$('#webTestingViaTestOpsTrigger5').on('click', function () {
+        $('#webExecuteTestCaseModal1').modal('hide');
+
+    });
 
 
+// For Api Testing
 
+    // For Step 2
     $('#Trigger2').on('click', function () {
         $('#modal1').modal('hide');
         // $('#singleModal').modal('toggle');
@@ -36,90 +63,55 @@ kibanaApp.controller('roughController', ['$scope', '$http', function ($scope, $h
 
 
 
-    var checker = document.getElementById('1');
-    var sendbtn = document.getElementById('2');
-    checker.onchange = function() {
-        sendbtn.enabled = true;
-    };
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Global Resetting function
 
     $('.container-fluid').on('click',function () {
-        $scope.apiShowTestOps=false;
-        $scope.apiModalViaTestOpsHeadingStyle=false;
-        $scope.apiModalGUIBrowserHeadingStyle=false;
-        $scope.apiModalViaGUIHeadingStyle=false;
-        $scope.apiModalGUIApiHeadingStyle=false;
-        $scope.apiShowGUIapi=false;
-        $scope.apiBackIcon=true;
+
 
         // api Testing Step 2 PopUp
-        // $('.modal').modal('hide')
+        // $('.m').modal('hide');
+
+        // Closing all the modal once the btn clicked
+        // $('.btnInModal').modal('hide')
 
 
     });
-// NgModel for Tab switching
 
-    // $scope.webTestingModel = "";
-    // $scope.apiTestingModel = "";
-    // $scope.mobileTestingModel = "";
-    // $scope.ngModel1 = "";
 // Disabling the API Testing - api Functional modal
     $scope.apiShowFunctional=false;
 
 
-
+// Ng Model function
     $('#webTestingModel').on('click',function () {
-    $scope.ngModel1 = "";
-});
-$('#apiTestingModel').on('click',function () {
-    $scope.ngModel1 = "";
-});
-$('#mobileTestingModel').on('click',function () {
-    $scope.ngModel1 = "";
-});
+        $scope.ngModel1 = "";
+    });
+    $('#apiTestingModel').on('click',function () {
+        $scope.ngModel1 = "";
+    });
+    $('#mobileTestingModel').on('click',function () {
+        $scope.ngModel1 = "";
+    });
+
+
+    $('.webStepBtn').on('click',function () {
+        $scope.ngModel1 = "";
+    });
+
+    $('.apiStepBtn').on('click',function () {
+        $scope.ngModel1 = "";
+    });
 
 
 // disabling web testing web prepare testcase button
     $scope.web = true;
 
-    // For Close button to resset everything
-    $scope.webChildModal=false;
-    $scope.apiChildModal=false;
-    // Disabling the button initially
-    $scope.webModalFileSelected = true;
-    $scope.apiModalFileSelected = true;
-    // Hiding the  Modal back menu icon
-    $scope.webTestingBackMenuIcon = true;
 
-    // Hidding or Showing GUI
-$scope.showGUI = false;
-$scope.apiShowGUI=false;
 
-// api Testing 2nd step
-    $scope.apiShowTestOps= false;
-    $scope.apiShowTestOps=false;
-    $scope.apiModalViaTestOpsHeadingStyle=false;
-    $scope.apiModalGUIBrowserHeadingStyle=false;
-    $scope.apiModalViaGUIHeadingStyle=false;
-    $scope.apiModalGUIApiHeadingStyle=false;
-    $scope.apiShowGUIapi=false;
-    $scope.apiBackIcon=true;
+ // Heading Style
 
-    // currently working
-
+// Heading Style For API Part
     $scope.apiShowFunctional=false;
     $scope.apiShowAutomation=false;
     $scope.apiShowLoad=false;
@@ -130,288 +122,118 @@ $scope.apiShowGUI=false;
     $scope.modalViaTestOpsHeadingStyle=false;
 
 
-$scope.apiTestingViaTestOpsModalClose= function () {
+    // Heading Style For Web Part
 
-    $('#modal9').modal('hide');
-    $('#modal1').modal('show');
-};
+    // For Prepare Test Case
+    $scope.webModalForBrowserHeadingStyle=false;
+    $scope.webModalForAPIHeadingStyle=false;
+    $scope.webModalBrowserHeadingStyle=false;
 
-$scope.apiTestingViaGUILoadModalClose = function () {
-    $('#modal8').modal('hide');
-    $('#modal5').modal('show');
-};
-$scope.apiTestingViaGUIAutomationModalClose = function () {
-    $('#modal7').modal('hide');
-    $('#modal5').modal('show');
-};$scope.apiTestingViaGUIFunctionalModalClose = function () {
-    $('#modal6').modal('hide');
-    $('#modal5').modal('show');
-};$scope.apiTestingViaGUIApiModalClose = function () {
-    $('#modal5').modal('hide');
-    $('#modal2').modal('show');
-};
-$scope.apiTestingViaGUIModalClose = function () {
-    $('#modal2').modal('hide');
-    $('#modal1').modal('show');
-};
+    // For Execute  Test Case
+
+    $scope.webModalViaGUIHeadingStyle=false;
+    $scope.webModalAPIHeadingStyle=false;
+    $scope.webModalViaTestOpsHeadingStyle=false;
 
 
+    // Back icon Function For Modal
 
-// Disabling the Button for api testing  Show GUI Functional part
+    // For Web Part
+
+
+    // For step 2 Prepare Test Case
+    // For Browser
+    $scope.webTestingForBrowserModalClose= function () {
+        $('#webPrepareTestCaseModal1').modal('hide');
+        $('#webPrepareTestCaseModal').modal('show');
+    };
+
+    // For API
+    $scope.webTestingForAPIModalClose= function () {
+        $('#webPrepareTestCaseModal2').modal('hide');
+        $('#webPrepareTestCaseModal').modal('show');
+    };
+
+
+ // For step 3 Execute Test Case
+    // For Via GUI
+    $scope.webTestingViaGUIModalClose= function () {
+        $('#webExecuteTestCaseModal2').modal('hide');
+        $('#webExecuteTestCaseModal1').modal('show');
+    };
+    // For Browser
+    $scope.webTestingBrowserModalClose= function () {
+        $('#webExecuteTestCaseModal4').modal('hide');
+        $('#webExecuteTestCaseModal2').modal('show');
+    };
+
+    // For API
+    $scope.webTestingAPIModalClose= function () {
+        $('#webExecuteTestCaseModal3').modal('hide');
+        $('#webExecuteTestCaseModal2').modal('show');
+    };
+
+
+    // For Via TestOps
+    $scope.webTestingViaTestOpsModalClose= function () {
+        $('#webExecuteTestCaseModal5').modal('hide');
+        $('#webExecuteTestCaseModal1').modal('show');
+    };
+
+
+
+    // For API Testing Part
+    $scope.apiTestingViaTestOpsModalClose= function () {
+
+        $('#modal9').modal('hide');
+        $('#modal1').modal('show');
+    };
+
+    $scope.apiTestingViaGUILoadModalClose = function () {
+        $('#modal8').modal('hide');
+        $('#modal5').modal('show');
+    };
+    $scope.apiTestingViaGUIAutomationModalClose = function () {
+        $('#modal7').modal('hide');
+        $('#modal5').modal('show');
+    };$scope.apiTestingViaGUIFunctionalModalClose = function () {
+        $('#modal6').modal('hide');
+        $('#modal5').modal('show');
+    };$scope.apiTestingViaGUIApiModalClose = function () {
+        $('#modal5').modal('hide');
+        $('#modal2').modal('show');
+    };
+    $scope.apiTestingViaGUIModalClose = function () {
+        $('#modal2').modal('hide');
+        $('#modal1').modal('show');
+    };
+
+
+
+    // overall Disabling btn furntion
+
+
+    // For Web Testing For Browser part
+    $scope.webTestingForBrowserFile =true;
+    $scope.webTestingForAPIFile =true;
+
+    // For api testing  Show GUI Functional part
+
     $scope.apiTestingFunctionalFile =true;
-
-// Autmation File
+    // Autmation File
     $scope.apiTestingAutomationFile =true;
-
-
-
-
-// Load File
+    // Load File
     $scope.apiTestingLoadFile =true;
 
 
 
 
-
-    $scope.apiTestingShowBrowserFun =function () {
-        $scope.apiShowGUIBrowser =$scope.apiModalGUIBrowserHeadingStyle=true
-            $scope.apiBackIcon=false;
-
-    };
-
-
-
-
-// Hidding or Showing GUI Browser
-$scope.showGUIBrowser = false;
-// Hidding or Showing GUI API
-$scope.showGUIapi = false;
-// dding or Showing API Testing -  api Modal
-$scope.showAPITestingApiModal = false;
-
-$scope.showGUIapifun= function () {
-    $scope.showGUIBrowser = false;
-    $scope.showGUIapi = true;
-    $scope.allModalHeadingStyle = true;
-    $scope.modalGUIApiHeadingStyle = true;
-};$scope.apiShowGUIapifun= function () {
-    $scope.apiShowGUIBrowser = false;
-    $scope.apiShowGUIapi = true;
-    $scope.apiModalGUIApiHeadingStyle = true;
-    $scope.apiShowGUIapi = true;
-    $scope.apiBackIcon =false;
-
-        $scope.apiShowFunctional=false ;
-
-
-    $scope.allModalHeadingStyle = true;
-
-    $scope.apiTestingModalGUIApiHeadingStyle = true;
-};
-// Showing or hidding Via TestOps
-    $scope.showTestOps =false;
-
-    $scope.showTestOpsFun = function () {
-        // $scope.showGUI=false;
-        $scope.showTestOps=true;
-        $scope.allModalHeadingStyle = true;
-        $scope.modalViaTestOpsHeadingStyle = true;
-    $scope.webBackIcon=false;
-    };
-    $scope.apiShowTestOpsFun = function () {
-        // $scope.showGUI=false;
-        $scope.apiShowTestOps=true;
-        $scope.allModalHeadingStyle = true;
-        $scope.apiModalViaTestOpsHeadingStyle = true;
-    $scope.apiBackIcon=false;
-    };
-    $scope.ViaGUIShowHideFun = function () {
-        $scope.showGUI=$scope.modalViaGUIHeadingStyle=true;
-        $scope.webBackIcon=false;
-    }; $scope.apiViaGUIShowHideFun = function () {
-        $scope.apiBackIcon=false;
-        $scope.apiShowGUI=$scope.apiModalViaGUIHeadingStyle=true
-
-        // $scope.apiShowGUI=$scope.modalViaGUIHeadingStyle=true;
-        // $scope.webBackIcon=false;
-    };
-    // Showing or hidding Via API Testing api Modal Fun
-    $scope.showAPITestingApiModalFun= function () {
-        $scope.showAPITestingApiModal = true;
-        $scope.modalApiHeadingStyle = true;
-    };
-
-    // Ng class for web Modal Heading
-    $scope.allModalHeadingStyle = false;
-    $scope.modalViaGUIHeadingStyle=false;
-    $scope.modalGUIBrowserHeadingStyle=false;
-    $scope.modalGUIApiHeadingStyle=false;
-    $scope.modalViaTestOpsHeadingStyle=false;
-
-// Hiding Back Icon for web testing
-
-    $scope.webTestingBackMenuIcon=false;
-    $scope.webBackIcon=true;
-
-    $scope.webBackIconFun = function () {
-
-    $scope.showGUI= false;
-    $scope.showTestOps= false;
-    $scope.showGUIapi= false;
-    $scope.allModalHeadingStyle= false;
-    $scope.modalViaGUIHeadingStyle= false;
-    $scope.modalGUIBrowserHeadingStyle= false;
-    $scope.modalGUIApiHeadingStyle= false;
-    $scope.modalViaTestOpsHeadingStyle= false;
-    if ($scope.webBackIcon=true){
-        $scope.webBackIcon=true
-
-    }else{
-        $scope.webBackIcon=false;
-        }
-    // if($scope.showGUIBrowser=true)
-    // {
-    //
-    //     // $scope.showGUI=$scope.showGUIBrowser= $scope.showGUIapi=false;
-    //     // $scope.showGUI=false;
-    //     // $scope.showTestOps= false;
-    //     // $scope.showGUI=true;
-    //
-    //     $scope.showGUIBrowser= false;
-    //     // $scope.showTestOps= false;
-    //
-    //
-    //
-    //
-    //     // alert("jhufegh")
-    // }else {
-    //     alert("yes")
-    // }
-
-}; $scope.apiBackIconFun = function () {
-
-    // $scope.apiShowGUI= false;
-    $scope.apiShowTestOps= false;
-    $scope.apiModalViaTestOpsHeadingStyle= false;
-    $scope.apiModalGUIApiHeadingStyle= false;
-    $scope.apiModalGUIBrowserHeadingStyle= false;
-    $scope.apiModalViaGUIHeadingStyle= false;
-
-
-    $scope.apiShowTestOps= false;
-    // $scope.apiShowGUIapi= false;
-
-    $scope.allModalHeadingStyle= false;
-
-    $scope.apiTestingModalViaGUIHeadingStyle= false;
-    $scope.apiTestingModalGUIBrowserHeadingStyle= false;
-    $scope.apiTestingModalGUIApiHeadingStyle= false;
-    $scope.apiTestingModalViaTestOpsHeadingStyle= false;
-    // if ($scope.apiBackIcon=$scope.apiShowAutomation=true){
-    //     $scope.apiBackIcon=true;
-    //     $scope.apiShowAutomation=false;
-    //
-    //
-    // }else{
-    //     $scope.apiBackIcon=false;
-    //     }
-        if ($scope.apiShowGUIapi = $scope.apiShowGUI=true){
-
-            $scope.apiShowGUI=true;
-            $scope.apiShowGUIapi=false;
-        }else{
-
-        }
-if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
-            $scope.apiShowGUIapi=false;
-    $scope.apiShowGUI=false;
-        }
-        else{
-
-}
-
-
-};
-   $scope.webCloseIconFun = function () {
-       $scope.showGUI=$scope.showTestOps=false;
-       $scope.allModalHeadingStyle= false;
-       $scope.modalViaGUIHeadingStyle= false;
-       $scope.modalGUIBrowserHeadingStyle= false;
-       $scope.modalGUIApiHeadingStylee= false;
-       $scope.modalViaTestOpsHeadingStyle= false;
-       $scope.webBackIcon=true;
-
-
-
-   };
-   $scope.apiCloseIconFun = function () {
-
-       $scope.apiShowGUI= false;
-       $scope.apiShowTestOps= false;
-       $scope.apiModalViaTestOpsHeadingStyle= false;
-       $scope.apiModalGUIApiHeadingStyle= false;
-       $scope.apiModalGUIBrowserHeadingStyle= false;
-       $scope.apiModalViaGUIHeadingStyle= false;
-       $scope.apiBackIcon= true;
-
-
-       $scope.apiShowTestOps= false;
-       $scope.apiShowTestOps=false;
-       $scope.apiModalViaTestOpsHeadingStyle=false;
-       $scope.apiModalGUIBrowserHeadingStyle=false;
-       $scope.apiModalViaGUIHeadingStyle=false;
-       $scope.apiModalGUIApiHeadingStyle=false;
-       $scope.apiShowGUIapi=false;
-
-
-
-   };$scope.APICloseIconFun = function () {
-        $scope.modalApiHeadingStyle=$scope.showAPITestingApiModal=false
-    };
-
-    $scope.webChildModalHide = function () {
-        $scope.webChildModal=true;
-        $scope.webTestingBackMenuIcon = false;
-        $scope.allModalHeadingStyle = true;
-        $scope.webTestingBackMenuIcon=true;
-    };$scope.apiChildModalHide = function () {
-        $scope.apiChildModal=true;
-        $scope.webTestingBackMenuIcon =false;
-        $scope.allModalHeadingStyle = true;
-        $scope.webTestingBackMenuIcon=true;
-
-
-    };
-
-// Enabling the validate case button after picking a file
-    $scope.webFileSelected = function () {
-        $scope.web = false;
-    };
-
     // Initially MouseOver false for all functions
     $scope.mouseOver=false;
 
 
-    // for Api Testing
-    // $scope.mouseOver = function () {
-    //
-    //     $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????-";
-    //     var data = $('<p id="apiBubbleElement"  ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()"\n' +
-    //         '                               class="apiSpeech"\n' +
-    //         '                               style="text-align: center;margin-top: -10%;float: left">bubble works !!!!!!!!!! Right????????????</p>\n');
-    //     $('#apiBubbleColumn').append(data);
-    //     $scope.x = true;
-    //
-    // };
-    // $scope.mouseLeave = function () {
-    //
-    //     $('#apiBubbleElement').remove();
-    //     $scope.x = false;
-    // };
-
 // for web Testing  -  web modal
     $scope.webModalPrepareTestCase = function () {
-        console.log("working")
         var iFrame = $('<iframe name = "myIFrame" id="iFrame"></iframe>');
         $('body').append(iFrame);
         document.getElementById('webModalInputId').click();
@@ -423,8 +245,13 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
             // $('#iFrame').detach();
 
         }, 3000);
-        $('#webTestCaseModal').modal('hide');
-        $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
+        // $('#').modal('hide');
+        // $('#webPrepareTestCaseModal1').modal('hide');
+        $('.modal').modal('hide');
+
+        $scope.ngModel1="Preparation is in progress....Finished now...."
+
+
 
 
     };
@@ -435,6 +262,7 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
         $('body').append(iFrame);
         document.getElementById('apiModalInputId').click();
         $('#iFrame').hide();
+        $('#webPrepareTestCaseModal1').modal('hide');
 
         setTimeout(function () {
 
@@ -442,35 +270,21 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
             // $('#iFrame').detach();
 
         }, 3000);
-        $('#webTestCaseModal').modal('hide');
-        $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
+        $('.modal').modal('hide');
+        $scope.ngModel1="Preparation is in progress....Finished now...."
+
 
 
 
     };
 
-    // for webTesting
-    // $scope.webPrepareTestCase = function () {
-    //     var iFrame = $('<iframe name = "myIFrame" id="iFrame"></iframe>');
-    //     $('body').append(iFrame);
-    //     document.getElementById('webInputId').click();
-    //     $('#iFrame').hide();
-    //
-    //     setTimeout(function () {
-    //
-    //         $('#iFrame').remove();
-    //         // $('#iFrame').detach();
-    //
-    //     }, 3000);
-    //
-    // };
 
     $scope.openKantu = function () {
         $http({
             method: 'post',
             url: '/kantu'
         });
-        $('#recordTestCaseModal').modal('hide');
+        $('#wModal1').modal('hide');
         $scope.ngModel1="Kantu has opened..please remember to close it."
 
         // $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
@@ -486,23 +300,9 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
         $('#modal1').modal('hide');
         $scope.ngModel1="jenkins has opened..please remember to close it.";
 
-        $('#webTestingModal').modal('hide');
-        $scope.showGUI=$scope.showTestOps=false;
-        $scope.allModalHeadingStyle= false;
-        $scope.modalViaGUIHeadingStyle= false;
-        $scope.modalGUIBrowserHeadingStyle= false;
-        $scope.modalGUIApiHeadingStylee= false;
-        $scope.modalViaTestOpsHeadingStyle= false;
-        $scope.webBackIcon=true;
+        $('#webExecuteTestCaseModal5').modal('hide');
 
-        // $('#apiTestCaseModal').modal('hide');
-        // $scope.apiShowGUI= false;
-        // $scope.apiShowTestOps= false;
-        // $scope.apiModalViaTestOpsHeadingStyle= false;
-        // $scope.apiModalGUIApiHeadingStyle= false;
-        // $scope.apiModalGUIBrowserHeadingStyle= false;
-        // $scope.apiModalViaGUIHeadingStyle= false;
-        // $scope.apiBackIcon= true;
+
 
     };
     $scope.openRide = function () {
@@ -513,34 +313,16 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
 
         $scope.ngModel1="Ride has opened..please remember to close it.";
 
-        $('#webTestingModal').modal('hide');
-        $scope.showGUI=$scope.showTestOps=false;
-        $scope.allModalHeadingStyle= false;
-        $scope.modalViaGUIHeadingStyle= false;
-        $scope.modalGUIBrowserHeadingStyle= false;
-        $scope.modalGUIApiHeadingStylee= false;
-        $scope.modalViaTestOpsHeadingStyle= false;
-        $scope.webBackIcon=true;
 
-        $('#apiTestCaseModal').modal('hide');
-        $scope.apiShowGUI= false;
-        $scope.apiShowTestOps= false;
-        $scope.apiModalViaTestOpsHeadingStyle= false;
-        $scope.apiModalGUIApiHeadingStyle= false;
-        $scope.apiModalGUIBrowserHeadingStyle= false;
-        $scope.apiModalViaGUIHeadingStyle= false;
-        $scope.apiBackIcon= true;
+
+        $('#webExecuteTestCaseModal3').modal('hide');
+        $('#webExecuteTestCaseModal4').modal('hide');
+
 
         $('#mobileTestCaseModal').modal('hide');
-    };
 
-    $scope.openRideWebApi = function () {
-        $http({
-            method: 'post',
-            url: '/executeWebApi'
-        })
-    };
 
+    };
     $scope.analyze = function () {
         $http({
             method: 'post',
@@ -553,6 +335,18 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
             console.log("err",error)
         });
         $scope.ngModel1="Kibana has opened..please remember to close it."
+
+        setTimeout(function () {
+
+
+                $scope.ngModel1="";
+
+
+        }, 100);
+        // setTimeout(function () {
+        //     $scope.ngModel1="";
+        // },100)
+
 
         // $('#webTestingModal').modal('hide')
 
@@ -567,24 +361,16 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
         $scope.ngModel1="Postman has opened..please remember to close it.";
 
 
-        $('#recordTestCaseModal').modal('hide');
-        $('#webTestingModal').modal('hide');
-        $scope.showGUI=$scope.showTestOps=false;
-        $scope.allModalHeadingStyle= false;
-        $scope.modalViaGUIHeadingStyle= false;
-        $scope.modalGUIBrowserHeadingStyle= false;
-        $scope.modalGUIApiHeadingStylee= false;
-        $scope.modalViaTestOpsHeadingStyle= false;
-        $scope.webBackIcon=true;
+        // For Web Part
 
-        $('#apiTestCaseModal').modal('hide');
-        $scope.apiShowGUI= false;
-        $scope.apiShowTestOps= false;
-        $scope.apiModalViaTestOpsHeadingStyle= false;
-        $scope.apiModalGUIApiHeadingStyle= false;
-        $scope.apiModalGUIBrowserHeadingStyle= false;
-        $scope.apiModalViaGUIHeadingStyle= false;
-        $scope.apiBackIcon= true;
+// For Step 3
+        $('#webExecuteTestCaseModal3').modal('hide');
+        $('#webExecuteTestCaseModal4').modal('hide');
+
+// For Step 1
+        $('#wModal1').modal('hide');
+
+
 
 
 
@@ -597,46 +383,11 @@ if ($scope.apiShowGUIapi!=$scope.apiShowGUI){
     // apiModal.after(apiInnermodal1);
     //
     // Web Testing
-    var webModal = $('#webTestCaseModal');
-    var webInnermodal1 = webModal.find(".modal");     //get reference to nested modal
-    webModal.after(webInnermodal1);
+    // var webModal = $('#webTestCaseModal');
+    // var webInnermodal1 = webModal.find(".modal");     //get reference to nested modal
+    // webModal.after(webInnermodal1);
 
 
-    $(function () {
-                     // Single Modal
-        $('#singleModalTrigger').on('click', function () {
-            $('#apiTestCaseModal').modal('hide');
-
-
-        });$('#webPrepareBtn1,#webPrepareBtn2').on('click', function () {
-            $('#webTestCaseModal').modal('hide');
-
-
-        });
-        //
-
-        $('#closeSingleModal').on('click', function () {
-            $('#singleModal').modal('hide');
-            // $('#singleModal').modal('toggle');
-            $('#apiTestCaseModal').modal('show');
-        });
-
-        // Performance Modal
-        $('#performanceModalTrigger').on('click', function () {
-            $('#apiTestCaseModal').modal('hide')
-
-
-        });
-        $('#closePerformanceModal').on('click', function () {
-            $('#performanceModal').modal('hide');
-            // // $('#singleModal').modal('toggle');
-            $('#apiTestCaseModal').modal('show');
-        });
-
-
-
-
-    });
 
 
 
