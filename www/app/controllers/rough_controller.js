@@ -83,6 +83,24 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         });
 
 
+
+
+        // For Mobile Testing Part
+
+        $('#mobileExecuteTestCaseTrigger2').on('click', function () {
+            $('#mobileExecuteTestCaseModal1').modal('hide');
+
+        }); $('#mobileExecuteTestCaseTrigger3').on('click', function () {
+            $('#mobileExecuteTestCaseModal1').modal('hide');
+
+        });
+
+
+
+
+
+
+
 // Global Resetting function
 
         $('.container-fluid').on('click', function () {
@@ -152,6 +170,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.webModalAPIHeadingStyle = false;
         $scope.webModalViaTestOpsHeadingStyle = false;
 
+
+        // For Mobile Testing Part
+        // Forr Execute  Test Case
+
+        $scope.mobileModalViaGUIHeadingStyle = false;
+        $scope.mobileModalViaTestOpsHeadingStyle = false;
 
         // Back icon Function For Modal
 
@@ -227,6 +251,23 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         };
 
 
+        // For Mobile Testing Part
+
+        // For Step 3
+        $scope.mobileTestingViaGUIModalClose = function () {
+            $('#mobileExecuteTestCaseModal2').modal('hide');
+            $('#mobileExecuteTestCaseModal1').modal('show');
+        };
+
+        $scope.mobileTestingViaTestOpsModalClose = function () {
+            $('#mobileExecuteTestCaseModal3').modal('hide');
+            $('#mobileExecuteTestCaseModal1').modal('show');
+        };
+
+
+
+
+
         // overall Disabling btn furntion
 
 
@@ -269,37 +310,48 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
         $scope.files = [];
-        $scope.fileName = [];
+
         $scope.name = "";
-        $scope.e = true;
+        $scope.mobileTestingBtn1Disable= true;
 
         $scope.getFiles = function ($files) {
             for (i = 0; i < $files.length; i++) {
-                $scope.files.push($files[i]
+                $scope.files.push($files[i]);
+
+                console.log($scope.files
                 )
+
             }
 
 
-        }
-        $('input[type=file]').change(function () {
-            if ($('input[type=file]').val() == "") {
+        };
+        $(' #mobileTestingFile1').change(function () {
+            if ($('#mobileTestingFile1').val() == "") {
                 $scope.$apply(function () {
-                    $scope.e = true;
+                    $scope.mobileTestingBtn1Disable= true;
+
                 })
 
             }
             else {
                 $scope.$apply(function () {
-                    $scope.e = false;
+                    $scope.mobileTestingBtn1Disable= false;
+
                 })
 
             }
-        })
+        });
+
+        $scope.aa = "";
 
         $scope.upload = function () {
             $scope.loading = true;
 
-            $scope.files.push($scope.name)
+            $('#mobilePrepareTestCaseModal1').modal('hide');
+
+
+
+            $scope.files.push($scope.aa)
 
             Upload.upload({
                 url: '/h',
@@ -311,14 +363,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 $scope.loading = false;
                 $scope.name = "";
-// Set back to pristine.
-                $scope.$apply(function () {
-                    $('form input[type=file]').val() == null;
 
-                })
-// Since Angular 1.3, set back to untouched state.
-                $scope.f.$setUntouched();
-                $scope.f.$setPristine();
+                    $('form input[type=file]').val() == null;
 
 
             })
@@ -369,6 +415,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $scope.ngModel1 = "jenkins has opened..please remember to close it.";
 
             $('#webExecuteTestCaseModal5').modal('hide');
+            $('#mobileExecuteTestCaseModal3').modal('hide');
 
 
         };
@@ -386,6 +433,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
             $('#mobileTestCaseModal').modal('hide');
+            $('#mobileExecuteTestCaseModal2').modal('hide');
 
 
         };
