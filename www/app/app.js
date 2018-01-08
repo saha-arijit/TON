@@ -1,5 +1,5 @@
 // Creating anugular Module
-var kibanaApp = angular.module('kibanaApp', ['ngRoute', 'ui.router']);
+var kibanaApp = angular.module('kibanaApp', ['ngRoute', 'ui.router','ngFileUpload']);
 // creating configuration
 kibanaApp.config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {

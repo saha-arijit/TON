@@ -1,4 +1,41 @@
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    border-bottom : 16px solid black;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
 
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.spinner{
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    background: white;
+    opacity: 0.6;
+}
 .c {
     background: red;
     width: 200px;
@@ -92,9 +129,9 @@
       background-color: #4b8ec9;
       text-align: center;
       padding-top: 1%;
-      padding-bottom: 3%;
-      width:60%;
-      margin: auto;
+      padding-bottom: 6%;
+      /*width:60%;*/
+      /*margin: auto;*/
 
   }
 
@@ -122,7 +159,7 @@
      margin-top: 9%;
  }.mobileStepBtn {
       background-color: #4A8FCA;
-      padding: 3%;
+      padding: 5%;
       color: #fff;
       border-radius: 4px;
       font-weight: 400;
@@ -301,12 +338,12 @@ p.webSpeech-bubble {
 /*}*/
 
 
-.modal-backdrop {
-    /* bug fix - no overlay */
-    display: none;
-}
+/*.modal-backdrop {*/
+    /*!* bug fix - no overlay *!*/
+    /*display: none;*/
+/*}*/
 .modal-backdrop.in {
-    opacity: 0.7;
+    opacity: 0.5 !important;
 }
 
 .modal-dialog {
@@ -314,15 +351,7 @@ p.webSpeech-bubble {
     margin: 30px auto;
 }
 
-.singleModal-dialog {
-    width: 50vh;
-
-    margin: 30px auto;
-}.performanceModal-dialog {
-     width: 50vh;
-
-     margin: 30px auto;
- }.webModal-dialog {
+.webModal-dialog {
       width: 60vh;
 
       margin: 30px auto;
@@ -331,11 +360,7 @@ p.webSpeech-bubble {
     width: 60vh;
 
     margin: 3px auto;
-}.recordModal-dialog {
-     width: 60vh;
-
-     /*margin: 3px auto;*/
- }
+}
 
 .panel-pink {
     background-color: #874aa3;
@@ -559,4 +584,26 @@ p.webSpeech-bubble {
      }.apiTestingLoadLabel5{
 
           margin-left:28% !important;
-      }
+      }.row-eq-height {
+           display: -webkit-box;
+           display: -webkit-flex;
+           display: -ms-flexbox;
+           display: flex;
+       }.singleheader-list-style {
+            background-color:#fff;
+            border-left: 1px solid #9c9c9c;
+            border-right: 1px solid #9c9c9c;
+            padding:20px;
+            height:100% /*--New Attribute--*/
+        }
+.singleheader-content-style {
+    background-color: #fff;
+    border-right: 1px solid #9c9c9c;
+    height: 100%; /*--New Attribute (just for sure in case your left col taller)--*/
+    padding: 20px;
+}.row-eq-height {
+     display: -webkit-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display:         flex;
+ }
