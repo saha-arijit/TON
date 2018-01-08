@@ -423,6 +423,22 @@ p.webSpeech-bubble {
 
 }.webModalAPIHeadingStyle:hover{
      background-color: darkgrey;
+ }.mobileModalViaGUIHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+    margin-bottom:10% !important;
+
+}.mobileModalViaGUIHeadingStyle:hover{
+     background-color: darkgrey;
+ }.mobileModalViaTestOpsHeadingStyle{
+    border: none;
+    cursor: default;
+    background-color: grey !important;
+    margin-bottom:10% !important;
+
+}.mobileModalViaTestOpsHeadingStyle:hover{
+     background-color: darkgrey;
  }.webModalBrowserHeadingStyle{
     border: none;
     cursor: default;
