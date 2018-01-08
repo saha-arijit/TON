@@ -521,12 +521,12 @@
                                                                            class="form-control"
                                                                            value="Browse To Select The File">
                                                                     <input type="submit" style="visibility: hidden"
-                                                                           id="webModalInputId"
+                                                                           id="webModalInputId1"
                                                                            value="Validate" name="submit">
                                                                 </form>
 
 
-                                                                <!--<input type="file"  class="form-control" id="sampleFile">-->
+                                                                <!-- <input type="file"  class="form-control" id="sampleFile"> -->
                                                                 <button class="btn btn-primary"
                                                                         ng-disabled="webTestingForBrowserFile"
                                                                         ng-click="webModalPrepareTestCase()">Prepare
@@ -564,7 +564,7 @@
 
                                                                 <form
                                                                         enctype="multipart/form-data"
-                                                                        action="/validate"
+                                                                        action="/prepareWebAPI"
                                                                         method="post"
                                                                         target="myIFrame">
                                                                     <label>Choose a Postman json Collection File</label>
@@ -815,7 +815,7 @@
                                                                 </button>
                                                                 <br>
                                                                 <button class="btn btn-primary btn-block"
-                                                                        ng-click="openRide()">LOAD
+                                                                        ng-click="openAPIRide()">LOAD
                                                                 </button>
                                                                 <br>
                                                             </div>
