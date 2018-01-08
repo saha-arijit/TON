@@ -1,4 +1,12 @@
-<!--&lt;!&ndash; Trigger the modal with a button &ndash;&gt;-->
+
+<!--<button ng-click="openPdf()">click</button>-->
+<div class="spinner" ng-show="loading">
+    <div class="loader"></div>
+</div>
+
+<!--<progress-bar cur-val='{{curVal}}' max-val='{{maxVal}}'></progress-bar>&lt;!&ndash;&lt;!&ndash; Trigger the modal with a button &ndash;&gt;&ndash;&gt;-->
+
+
 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
 
 
@@ -170,7 +178,8 @@
                 </button>
                 <form name="ApiTestingApiform1">
                     <label class="apiTestingFunctionalLabel1">Upload Postman Collection</label>
-                    <input type="file" accept=".json" style="padding: 1% 0 1% 20%;" ng-click="apiTestingFunctionalFile=false" id="1"
+                    <input type="file" accept=".json" style="padding: 1% 0 1% 20%;"
+                           ng-click="apiTestingFunctionalFile=false" id="1"
                            class="form-control">
                     <br>
                     <label class="apiTestingFunctionalLabel2">Environment Variable</label>
@@ -222,7 +231,8 @@
                 </button>
                 <form name="ApiTestingApiform2">
                     <label class="apiTestingAutomationLabel1">Upload Postman Collection</label>
-                    <input type="file" accept=".json" style="padding: 1% 0 1% 20%;"class="form-control" ng-click="apiTestingAutomationFile=false">
+                    <input type="file" accept=".json" style="padding: 1% 0 1% 20%;" class="form-control"
+                           ng-click="apiTestingAutomationFile=false">
                     <br>
                     <label class="apiTestingAutomationLabel2">Environment Variable (optional)</label>
                     <input type="number" class="form-control" ng-model="EnvVariableForForm2" required>
@@ -271,7 +281,8 @@
                 </button>
                 <form name="ApiTestingApiform3">
                     <label class="apiTestingLoadLabel1">Upload Postman Collection</label>
-                    <input type="file" accept=".json" style="padding: 1% 0 1% 19%;" ng-click="apiTestingLoadFile =false" class="form-control"
+                    <input type="file" accept=".json" style="padding: 1% 0 1% 19%;" ng-click="apiTestingLoadFile =false"
+                           class="form-control"
                            required>
                     <br>
                     <label class="apiTestingLoadLabel2">Environment Variable (optional)</label>
@@ -331,8 +342,8 @@
 
 
 <div class="container-fluid m" style=" padding-left:0 ! important" id="m">
-    <div class="row">
-        <div class="col-s-12 col-sm-6 col-md-10" style=" padding-right:0 ! important">
+    <div class="row row-eq-height">
+        <div class=" col-md-10" style=" padding-right:0 ! important">
             <!--<div class="row row-color">-->
             <!--<div class="col-sm-2 col-md-3">-->
             <!--&lt;!&ndash;Logo&ndash;&gt;-->
@@ -617,7 +628,8 @@
                                                                         data-toggle="modal"
                                                                         data-target="#webExecuteTestCaseModal5"
                                                                         id="webTestingViaTestOpsTrigger5"
-                                                                        ng-click="webModalViaTestOpsHeadingStyle=true">Via TestOps
+                                                                        ng-click="webModalViaTestOpsHeadingStyle=true">
+                                                                    Via TestOps
                                                                 </button>
                                                             </div>
 
@@ -625,9 +637,6 @@
 
                                                     </div>
                                                 </div>
-
-
-
 
 
                                                 <!--webExecuteTestCaseModal5-->
@@ -655,11 +664,13 @@
                                                                 >Via TestOps
                                                                 </button>
 
-                                                                <button   class="btn btn-primary btn-block"
-                                                                          ng-click="openJenkins()">BROWSER</button>
+                                                                <button class="btn btn-primary btn-block"
+                                                                        ng-click="openJenkins()">BROWSER
+                                                                </button>
                                                                 <br>
-                                                                <button   class="btn btn-primary btn-block"
-                                                                          ng-click="openJenkins()">API</button>
+                                                                <button class="btn btn-primary btn-block"
+                                                                        ng-click="openJenkins()">API
+                                                                </button>
                                                             </div>
 
                                                         </div>
@@ -676,9 +687,9 @@
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <a href="#" class=" pull-left"
-                                                                ng-click="webTestingViaGUIModalClose()">
+                                                                   ng-click="webTestingViaGUIModalClose()">
                                                                        <span style="font-weight:700;color:#cccccc"
-                                                                        class="glyphicon glyphicon-menu-left"></span>
+                                                                             class="glyphicon glyphicon-menu-left"></span>
                                                                 </a>
 
                                                                 <button type="button" class="close"
@@ -843,7 +854,8 @@
                                     <div class="row">
                                         <div class="col-md-2"></div>
                                         <div class="col-md-8" style="background-color: #4b8ec9">
-                                            <p class="webTestingHoverHeading">Open Source Architecture
+                                            <p class="webTestingHoverHeading">Open Source
+                                                <strong style="font-size: large">Architecture</strong>
                                             </p>
                                             <div class="row" id="webBubbleRow">
                                                 <div class="col-md-2" id="webBubbleColumn">
@@ -853,7 +865,7 @@
                                                         {{firstInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <div style="padding: 6% 0 21% 10%">
+                                                                <div style="padding: 6% 0 20.2% 10%">
                                                         <input type="text" class="form-control webGroupInputBox"
                                                                ng-mouseover="mouseOver=true"
                                                                ng-mouseleave="mouseOver=false">
@@ -909,7 +921,7 @@
                                                 <h4 class="stepTextColor">Step 2</h4>
                                                 <a role="button" class="btn btn-primary  apiStepBtn" data-toggle="modal"
                                                    data-target="#modal1"
-                                                   ng-click="ngModel1=''" >Execute Test Case
+                                                   ng-click="ngModel1=''">Execute Test Case
                                                 </a>
                                                 <!--Popup Window using Bootstrap-->
 
@@ -987,33 +999,121 @@
                         </div>
 
 
-                        <!--Tab 3-->
-                        <div class="tab-pane fade btnInModal" id="mobileTesting">
+                        <!--Tab 3 Mobile Application Testing-->
+                        <div class="tab-pane fade " id="mobileTesting">
                             <div class="row" style=" background-color: rgba(142,68,173,0.9);">
                                 <div class="col-md-12">
                                     <br><br>
                                     <div class="row">
-
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="mobileDivBtn">
                                                 <h4 class="stepTextColor">Step 1</h4>
+                                                <button class="btn btn-primary mobileStepBtn" ng-click="openNotepad()">
+                                                    Develop Test Case
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mobileDivBtn">
+                                                <h4 class="stepTextColor">Step 2</h4>
+
+
+                                                <!-- Trigger the Mobile modal with a button -->
+                                               <button type="button" class="btn btn-primary mobileStepBtn" data-toggle="modal"
+                                                       data-target="#mobilePrepareTestCaseModal1"
+                                                >Prepare Test Case</button>
+
+
+                                                <!-- mobilePrepareTestCase    Modal1  -->
+                                                <div class="modal fade" id="mobilePrepareTestCaseModal1" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">
+                                                                    Prepare Test Case
+                                                                </h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form>
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Choose Test Case .py File
+                                                                        </label>
+                                                                        <input id="mobileTestingFile1" type="file" class="form-control" ng-files="getFiles($files)">
+                                                                    </div>
+
+                                                                    <button class="btn btn-primary"   ng-disabled="mobileTestingBtn1Disable" ng-click="upload()" type="submit">Prepare</button>
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mobileDivBtn">
+                                                <h4 class="stepTextColor">Step 3</h4>
                                                 <a role="button" class="btn btn-primary  mobileStepBtn"
                                                    data-toggle="modal"
-                                                   data-target="#mobileTestCaseModal"
+                                                   data-target="#mobileExecuteTestCaseModal1"
+                                                   id="mobileExecuteTestCaseTrigger1"
                                                 >Execute Test Case
                                                 </a>
-                                                <!--Popup Window using Bootstrap-->
-                                                <div class="modal fade btnInModal" id="mobileTestCaseModal"
+
+
+                                                <!--mobileTestCase Modal1-->
+                                                <div class="modal fade" id="mobileExecuteTestCaseModal1" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Execute Test Case</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <button class="btn btn-primary btn-block"
+                                                                        data-target="#mobileExecuteTestCaseModal2"
+                                                                        data-toggle="modal"
+                                                                        id="mobileExecuteTestCaseTrigger2"
+                                                                ng-click="mobileModalViaGUIHeadingStyle=true">Via GUI
+                                                                </button>
+                                                                <br>
+                                                                <button class="btn btn-primary btn-block"
+                                                                        data-target="#mobileExecuteTestCaseModal3"
+                                                                        data-toggle="modal"
+                                                                        id="mobileExecuteTestCaseTrigger3"
+                                                                        ng-click="mobileModalViaTestOpsHeadingStyle=true">Via TestOps
+                                                                </button>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <!--mobileExecuteTestCaseModal2>-->
+
+                                                <div class="modal fade btnInModal" id="mobileExecuteTestCaseModal2"
                                                      tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <!--<h4 class="modal-title">My Modal</h4>-->
-                                                                <!--<a ng-click="modalApiHeadingStyle=showAPITestingApiModal=false" ng-show= "modalApiHeadingStyle=showAPITestingApiModal" href="#" class="a pull-left"-->
-                                                                <!--&gt;-->
-                                                                <!--<span style="font-weight:700;color:#cccccc"-->
-                                                                <!--class="glyphicon glyphicon-menu-left"></span>-->
-                                                                <!--</a>-->
+                                                                <a href="#" class=" pull-left"
+                                                                   ng-click="mobileTestingViaGUIModalClose()">
+                                              <span style="font-weight:700;color:#cccccc"
+                                                    class="glyphicon glyphicon-menu-left"></span>
+                                                                </a>
+
                                                                 <button type="button" class="close" data-dismiss="modal"
                                                                         aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span></button>
@@ -1022,27 +1122,30 @@
                                                             </div>
                                                             <div class="modal-body">
 
+                                                                <button class="btn btn-primary btn-block"
+                                                                       ng-class="{'mobileModalViaGUIHeadingStyle':mobileModalViaGUIHeadingStyle}">Via GUI
+                                                                </button>
                                                                 <a role="button"
                                                                    class="btn btn-primary btn-block"
-                                                                   style="margin-top: 2%" data-toggle="modal"
+                                                                    data-toggle="modal"
                                                                    data-target="#singleModal"
                                                                    ng-click="openRide()">FUNCTIONAL
                                                                 </a>
-
+                                                                <br>
 
                                                                 <button class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
                                                                         data-target="#performanceModal"
-                                                                        style="margin-top: 2%"
+
                                                                         ng-click="openRide()">AUTOMATION
                                                                 </button>
-
+                                                                <br>
 
                                                                 <button class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
                                                                         data-target="#performanceModal"
-                                                                        style="margin-top: 2%"
-                                                                        ng-clck="openRide()">LOAD
+
+                                                                        ng-click="openRide()">LOAD
                                                                 </button>
 
 
@@ -1050,11 +1153,67 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+
+
+                                                <!--mobileExecuteTestCaseModal3>-->
+
+                                                <div class="modal fade btnInModal" id="mobileExecuteTestCaseModal3"
+                                                     tabindex="-1" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <a href="#" class=" pull-left"
+                                                                   ng-click="mobileTestingViaTestOpsModalClose()">
+                                              <span style="font-weight:700;color:#cccccc"
+                                                    class="glyphicon glyphicon-menu-left"></span>
+                                                                </a>
+
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span></button>
+                                                                <!--<h4 class="modal-title">My Modal</h4>-->
+                                                                <h4 class="modal-title">Execute Test Case</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+
+                                                                <button class="btn btn-primary btn-block"
+                                                                        ng-class="{'mobileModalViaTestOpsHeadingStyle':mobileModalViaTestOpsHeadingStyle}">Via TestOps
+                                                                </button>
+                                                                <a role="button"
+                                                                   class="btn btn-primary btn-block"
+                                                                   data-toggle="modal"
+                                                                   data-target="#singleModal"
+                                                                   ng-click="openJenkins()">FUNCTIONAL
+                                                                </a>
+                                                                <br>
+
+                                                                <button class="btn btn-primary btn-block"
+                                                                        data-toggle="modal"
+                                                                        data-target="#performanceModal"
+
+                                                                        ng-click="openJenkins()">AUTOMATION
+                                                                </button>
+                                                                <br>
+
+                                                                <button class="btn btn-primary btn-block"
+                                                                        data-toggle="modal"
+                                                                        data-target="#performanceModal"
+
+                                                                        ng-click="openJenkins()">LOAD
+                                                                </button>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="mobileDivBtn">
-                                                <h4 class="stepTextColor">Step 2</h4>
+                                                <h4 class="stepTextColor">Step 4</h4>
                                                 <button class="btn btn-primary mobileStepBtn" ng-click="analyze()">
                                                     Analyze
                                                     Results
@@ -1092,7 +1251,7 @@
                                                         {{firstInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <div style="padding: 10% 0 15.4% 10%;">
+                                                    <div style="padding: 6% 0 20.2% 10%;">
                                                         <input type="text" class="form-control apiGroupInputBox"
                                                                ng-mouseover="mouseOver=true"
                                                                ng-mouseleave="mouseOver=false">
@@ -1144,7 +1303,7 @@
         <!--<button class="btn btn-primary menuHeading">Mobile Application Testing</button>-->
 
         <!--</div>-->
-        <div class=" col-sm-3 col-md-2 menuLogin">
+        <div class=" col-md-2 menuLogin">
 
             <button style="border-color: #ffffff; !important;" class="btn btn-primary menuLoginHeading">Login</button>
 
@@ -1156,14 +1315,11 @@
                         style="color:white;margin-bottom: 3vh! important;margin-top: 3vh ! important">
                         Resources</h3></div>
             </div>
-            <br>
-            <p style="font-size: medium;color:white;text-align: left">
-                <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> Installation Manual
-            </p>
+
             <br>
             <p style="font-size: medium;color:white;pading-left: 20%;text-align: left">
                 <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</p>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
+
             <!--<a href="#">-->
             <!--<img clss="img-responsive"-->
             <!--src="../../images/pdf-icon.png" style="height:1%;width:20%;flat: left"/>-->
@@ -1171,8 +1327,8 @@
             <!--</span>-->
             <!--<p style="font-size: medium;color:white;padding-left: 20%"> User Manual</p>-->
             <!--</a>-->
-            <br><br><br><br>
-            <div class="row" style="background-color:#8c52ab;padding-top:5.5%;padding-bottom:5.8%">
+
+            <div class="row" style="background-color:#8c52ab;padding-top:5.5%;padding-bottom:5.8%;margin-top:57.7vh">
                 <div class="col-md-12 ">
                     <h4 style="text-align: center;color:white;">Contact Us</h4>
                     <p style="font-size: medium;text-align: center;color:white;">sales@testonneed.com</p>

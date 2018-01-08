@@ -126,6 +126,10 @@ UIRoutes.prototype.init = function() {
         });
     // app.use(fileUpload());
 
+    app.post('/h',function (req,res) {
+        console.log(req.files   ,req,"data")
+        res.end()
+    });
     app.post('/validate',
         function(req, res){
 
