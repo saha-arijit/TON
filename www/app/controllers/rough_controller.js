@@ -437,6 +437,23 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
+        $scope.openAPIRide = function () { 
+            $http({
+                method: 'post',
+                url: '/executeWebApi'
+            });
+
+            $scope.ngModel1 = "Ride has opened..please remember to close it.";
+
+
+            $('#webExecuteTestCaseModal3').modal('hide');
+            $('#webExecuteTestCaseModal4').modal('hide');
+
+
+            $('#mobileTestCaseModal').modal('hide');
+
+
+        };
         $scope.analyze = function () {
             $http({
                 method: 'post',
