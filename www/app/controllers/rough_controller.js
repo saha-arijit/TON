@@ -293,6 +293,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
         $scope.files = [];
+        $scope.fileNames = [];
 
 
 
@@ -300,6 +301,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.getFiles = function ($files) {
             for (i = 0; i < $files.length; i++) {
                 $scope.files.push($files[i]);
+                $scope.fileNames.push($files[i].name);
 
                 console.log($scope.files
                 )
@@ -407,7 +409,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $scope.mobileTestingBtn1Disable= true;
 
 
-
             })
         };
 
@@ -421,7 +422,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 {
                     url: '/apiFile1',
                     method:'post',
-                    data:$scope.files
+                    data:$scope.files,
+                    // file:$scope.files
                 }
 
             ).then(function (resp) {
@@ -490,7 +492,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.openRide = function () {
             $http({
                 method: 'post',
-                url: '/executeWebApi'
+                url: '/execute'
             });
 
             $scope.ngModel1 = "Ride has opened..please remember to close it.";
@@ -505,6 +507,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
+        
         $scope.openAPIRide = function () { 
             $http({
                 method: 'post',

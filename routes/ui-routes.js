@@ -49,7 +49,7 @@ UIRoutes.prototype.init = function() {
 
     app.post('/jenkins',
     function(req, res){
-    
+      
      console.log("Came into Jenkins")
      
             // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
@@ -193,7 +193,7 @@ UIRoutes.prototype.init = function() {
          if(err) {
              return console.log(err);
          }
-        console.log("The file was saved!");
+        console.log("The file was saved!" + appName);
         });
         child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/TestCases.robot', (e, stdout, stderr)=> {
         if (e instanceof Error) {
@@ -229,15 +229,18 @@ UIRoutes.prototype.init = function() {
 
     app.post('/apiFile1',
         function (req,res) {
-// global.ApiFile2 = req.files.Api;
-//             console.log(req.files.name);
-            console.log(req.files);
-            // console.log(ApiFile2);
+
+            var object = req.files;
+            var count = Object.keys(object).length;
+
+//             var length =req.files.length
+            for (i=0;i<count;i++){
+                var fileName =req.files[i].name;
+                console.log(fileName,"FileNameList");
+
+            }
+
             res.end()
         })
-
-
-
-
-
+    
 };
