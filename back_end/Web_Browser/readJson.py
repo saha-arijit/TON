@@ -4,15 +4,16 @@ import os
 
 class readJson :
 
-	def parseNCreate(self, testCase,baseFolder):
+	def parseNCreate(self, testCase,baseFolder,appName):
 		self.baseFolder = baseFolder
+		self.appName    = appName
 		with open(testCase) as data_file:
 
 			testCase = testCase.split('.')
 			file = open (testCase[0]+".py", "w")
 			testCase = testCase[0].split("/")
 			data = json.load(data_file)
-			read.writeImports(file, testCase,baseFolder)
+			read.writeImports(file, testCase,baseFolder,appName)
 
 			i = 0
 			try :	
@@ -82,29 +83,31 @@ class readJson :
 				file.write ("\t"+ "thread1.stop()" + "\n")
 
 
-	def write_ClassName(self, testCase, file,baseFolder):
+	def write_ClassName(self, testCase, file,baseFolder,appName):
 		file.write ("def TC_"+ testCase[6]+"(var_head, var_instances, var_load):"+ "\n"+"\n")
 		file.write ("\t"+"baseFolder = '"+baseFolder+"'" +"\n")
+		file.write ("\t"+"appName    = '"+appName+"'" +"\n")
 		file.write ("\t"+"if (var_load == \"YES\" or var_load == \"Yes\" or var_load == \"yes\"):" +"\n")
-		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder)" + "\n")
+		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName)" + "\n")
 		file.write ("\t"+"\t"+"thread1.start()" + "\n")
 		file.write ("\t"+"\t"+"for i in range (1, int(var_instances)):" + "\n")
 		file.write ("\t"+"\t"+"\t"+"Thread(target = "+testCase[6]+", args = [var_head]).start()" + "\n" + "\n")
 		file.write ("\t"+"else:" + "\n")
-		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder)" + "\n")
+		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName)" + "\n")
 		file.write ("\t"+"\t"+"thread1.start()" + "\n")	
 		file.write ("\t"+"\t" + testCase[6]+ " (var_head)" + "\n" + "\n")
 
 
-	def writeImports(self,file, testCase,baseFolder):
+	def writeImports(self,file, testCase,baseFolder,appName):
 		file.write ("import time" + "\n")
 		file.write ("from selenium.webdriver.chrome.options import Options"+"\n")
 		file.write ("import threading, sys" +"\n")
 		file.write ("from threading import Thread" + "\n")
 		file.write ("from selenium import webdriver" + "\n")
+		file.write ("sys.path.insert(0,'"+baseFolder+"/back_end\Web_Browser')"+"\n")
 		file.write ("from SampleThread_1 import myThread" + "\n")
 		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
-		read.write_ClassName(testCase, file, baseFolder)
+		read.write_ClassName(testCase, file, baseFolder,appName)
 		file.write ("def "+ testCase[6]+"(var_head):"+ "\n"+"\n")
 		file.write ("\t" + "chrome_options = Options() " + "\n")
 		file.write ("\t" +"chrome_options.add_argument(\"--headless\")" + "\n")
@@ -117,4 +120,4 @@ class readJson :
 
 
 read = readJson()
-read.parseNCreate(sys.argv[1],sys.argv[2])
+read.parseNCreate(sys.argv[1],sys.argv[2],sys.argv[3])
