@@ -309,6 +309,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
+
+
+
+
         // Disabling the btn for Mobile Testing Part
         $(' #mobileTestingFile1').change(function () {
             if ($('#mobileTestingFile1').val() == null) {
@@ -378,8 +382,9 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             }
         });
 
+// Uploading Files Function
 
-
+        // For Mobile Testing
         $scope.uploadPythonFile = function () {
             $scope.loading = true;
 
@@ -405,9 +410,36 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
             })
+        };
 
-// $scope.f.$setPristine();
-        }
+
+        // For API Testing Part
+
+        $scope.uploadApiFile1 =function () {
+            $('#modal8').modal('hide');
+            $scope.loading = true;
+            Upload.upload(
+                {
+                    url: '/apiFile1',
+                    method:'post',
+                    data:$scope.files
+                }
+
+            ).then(function (resp) {
+                $scope.loading = false;
+                $('#apiTestingBtn1Disable').val(null);
+                $('#apiTestingBtn2Disable').val(null);
+                    $scope.apiTestingBtn1Disable= true;
+                    $scope.apiTestingBtn2Disable= true;
+            },
+                function (error) {
+                  console.log(error,"error")
+                })
+
+
+        };
+
+        // Loader or Spinner
         $scope.loading = false;
         // for apitTesting
         $scope.apiModalPrepareTestCase = function () {

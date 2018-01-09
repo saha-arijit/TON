@@ -180,16 +180,16 @@
                 </button>
                 <form name="ApiTestingApiform1">
                     <label class="apiTestingLoadLabel1 labelMandatory ">Upload Postman Collection</label>
-                    <input id="apiTestingBtn1Disable" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
+                    <input id="apiTestingBtn1Disable" name="ApiFile1"  ng-files="getFiles($files)"  type="file" accept=".json" style="padding: 1% 0 1% 19%;"
                            class="form-control">
                     <br>
                     <label class="apiTestingLoadLabel2">Environment Variable (optional)</label>
-                    <input id="apiTestingBtn2Disable" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
+                    <input id="apiTestingBtn2Disable"  name="ApiFile2" ng-files="getFiles($files)" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
                            class="form-control"
                            >
                     <br>
                     <button class="btn btn-primary" type="submit" style="margin-left: 35%;"
-                            ng-disabled="(apiTestingBtn1Disable ||apiTestingBtn2Disable)">Execute
+                            ng-disabled="(apiTestingBtn1Disable ||apiTestingBtn2Disable)" ng-click="uploadApiFile1()">Execute
                     </button>
                 </form>
 

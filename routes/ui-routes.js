@@ -176,6 +176,7 @@ UIRoutes.prototype.init = function() {
 
         });
 
+
     app.post('/execute',
         function(req, res){
 
@@ -218,4 +219,21 @@ UIRoutes.prototype.init = function() {
             child = opn('http://localhost:5601',{app:['chrome','-new-window']});
             console.log('stdout ');
         });
+
+    // Response for apiFile1 request
+
+
+    app.post('/apiFile1',
+        function (req,res) {
+// global.ApiFile2 = req.files.Api;
+//             console.log(req.files.name);
+            console.log(req.files);
+            // console.log(ApiFile2);
+            res.end()
+        })
+
+
+
+
+
 };

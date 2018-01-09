@@ -570,12 +570,13 @@ p.webSpeech-bubble {
      margin-left:16% !important;
  }
 .labelMandatory:after {
-    content: "*";
-    color: black;
+
+    content: " *";
+    color: red;
 }
 .apiTestingLoadLabel1{
 
-      margin-left:19% !important;
+      margin-left:15% !important;
   }.apiTestingLoadLabel2{
 
        margin-left:16% !important;
