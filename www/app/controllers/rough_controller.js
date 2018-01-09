@@ -293,6 +293,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
         $scope.files = [];
+        $scope.fileNames = [];
 
 
 
@@ -300,6 +301,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.getFiles = function ($files) {
             for (i = 0; i < $files.length; i++) {
                 $scope.files.push($files[i]);
+                $scope.fileNames.push($files[i].name);
 
                 console.log($scope.files
                 )
@@ -421,7 +423,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 {
                     url: '/apiFile1',
                     method:'post',
-                    data:$scope.files
+                    data:$scope.files,
+                    // file:$scope.files
                 }
 
             ).then(function (resp) {
