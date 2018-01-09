@@ -240,9 +240,5 @@ UIRoutes.prototype.init = function() {
 
             res.end()
         })
-
-
-
-
-
+    
 };
