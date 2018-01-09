@@ -490,7 +490,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.openRide = function () {
             $http({
                 method: 'post',
-                url: '/executeWebApi'
+                url: '/execute'
             });
 
             $scope.ngModel1 = "Ride has opened..please remember to close it.";
@@ -505,6 +505,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
+        
         $scope.openAPIRide = function () { 
             $http({
                 method: 'post',

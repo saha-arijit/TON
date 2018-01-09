@@ -192,7 +192,7 @@ UIRoutes.prototype.init = function() {
          if(err) {
              return console.log(err);
          }
-        console.log("The file was saved!");
+        console.log("The file was saved!" + appName);
         });
         child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/TestCases.robot', (e, stdout, stderr)=> {
         if (e instanceof Error) {
