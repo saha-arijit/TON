@@ -52,7 +52,8 @@ UIRoutes.prototype.init = function() {
     
      console.log("Came into Jenkins")
      
-            child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            child = shell.exec('start chrome http://localhost:8080')
             res.end();
     }); 
 
