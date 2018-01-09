@@ -50,8 +50,11 @@ UIRoutes.prototype.init = function() {
     app.post('/jenkins',
     function(req, res){
     
-     console.log("Came into Jenkins")
-     
+     console.log("Came into Jenkins");
+     // For Ubuntu
+        opn('http://localhost:8080', {app: ['google-chrome', '-new-tab']});
+        // For Windows
+        opn('http://localhost:8080', {app: ['chrome', '-new-tab']});
             child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
             res.end();
     }); 
@@ -228,15 +231,18 @@ UIRoutes.prototype.init = function() {
 
     app.post('/apiFile1',
         function (req,res) {
-// global.ApiFile2 = req.files.Api;
-//             console.log(req.files.name);
-            console.log(req.files);
-            // console.log(ApiFile2);
+
+            var object = req.files;
+            var count = Object.keys(object).length;
+
+//             var length =req.files.length
+            for (i=0;i<count;i++){
+                var fileName =req.files[i].name;
+                console.log(fileName,"FileNameList");
+
+            }
+
             res.end()
         })
-
-
-
-
-
+    
 };
