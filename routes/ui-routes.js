@@ -49,13 +49,11 @@ UIRoutes.prototype.init = function() {
 
     app.post('/jenkins',
     function(req, res){
-    
-     console.log("Came into Jenkins");
-     // For Ubuntu
-        opn('http://localhost:8080', {app: ['google-chrome', '-new-tab']});
-        // For Windows
-        opn('http://localhost:8080', {app: ['chrome', '-new-tab']});
-            child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+      
+     console.log("Came into Jenkins")
+     
+            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            child = shell.exec('start chrome http://localhost:8080')
             res.end();
     }); 
 
