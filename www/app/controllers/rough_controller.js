@@ -319,7 +319,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $scope.$apply(function () {
                     $scope.mobileTestingBtn1Disable= true;
 
-
                 })
 
             }
