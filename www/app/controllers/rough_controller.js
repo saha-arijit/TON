@@ -65,14 +65,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#modal2').modal('hide');
 
         });
-        $('#Trigger6').on('click', function () {
-            $('#modal5').modal('hide');
 
-        });
-        $('#Trigger7').on('click', function () {
-            $('#modal5').modal('hide');
-
-        });
         $('#Trigger9').on('click', function () {
             $('#modal1').modal('hide');
 
@@ -151,8 +144,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.apiShowAutomation = false;
         $scope.apiShowLoad = false;
         $scope.apiModalLoadHeadingStyle = false;
-        $scope.apiModalAutomationHeadingStyle = false;
-        $scope.apiModalFunctionalHeadingStyle = false;
+
+
 
         $scope.modalViaTestOpsHeadingStyle = false;
 
@@ -233,14 +226,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#modal8').modal('hide');
             $('#modal5').modal('show');
         };
-        $scope.apiTestingViaGUIAutomationModalClose = function () {
-            $('#modal7').modal('hide');
-            $('#modal5').modal('show');
-        };
-        $scope.apiTestingViaGUIFunctionalModalClose = function () {
-            $('#modal6').modal('hide');
-            $('#modal5').modal('show');
-        };
+
         $scope.apiTestingViaGUIApiModalClose = function () {
             $('#modal5').modal('hide');
             $('#modal2').modal('show');
@@ -275,13 +261,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.webTestingForBrowserFile = true;
         $scope.webTestingForAPIFile = true;
 
-        // For api testing  Show GUI Functional part
+        // For API Testing For API -> load part
+        $scope.apiTestingBtn1Disable= true;
+        $scope.apiTestingBtn2Disable= true;
 
-        $scope.apiTestingFunctionalFile = true;
-        // Autmation File
-        $scope.apiTestingAutomationFile = true;
-        // Load File
-        $scope.apiTestingLoadFile = true;
 
 
         // Initially MouseOver false for all functions
@@ -311,8 +294,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         };
         $scope.files = [];
 
-        $scope.name = "";
-        $scope.mobileTestingBtn1Disable= true;
+
+
 
         $scope.getFiles = function ($files) {
             for (i = 0; i < $files.length; i++) {
@@ -325,8 +308,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
+
+
+
+
+
+        // Disabling the btn for Mobile Testing Part
         $(' #mobileTestingFile1').change(function () {
-            if ($('#mobileTestingFile1').val() == "") {
+            if ($('#mobileTestingFile1').val() == null) {
                 $scope.$apply(function () {
                     $scope.mobileTestingBtn1Disable= true;
 
@@ -342,16 +331,66 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             }
         });
 
-        $scope.aa = "";
 
-        $scope.upload = function () {
+
+
+        // Disabling the btn 1 for API Testing Part
+        $(' #apiTestingBtn1Disable').change(function () {
+            if ($('#apiTestingBtn1Disable').val() == "") {
+                $scope.$apply(function () {
+
+                    $scope.apiTestingBtn1Disable= true;
+
+
+                })
+
+            }
+            else {
+                $scope.$apply(function () {
+
+                    $scope.apiTestingBtn1Disable= false;
+
+                })
+
+            }
+        });
+
+
+
+
+        // Disabling the btn 2 for API Testing Part
+        $('#apiTestingBtn2Disable').change(function () {
+            if ($('#apiTestingBtn2Disable').val() =="") {
+                $scope.$apply(function () {
+
+
+                    $scope.apiTestingBtn2Disable= true;
+
+
+                })
+
+            }
+            else {
+                $scope.$apply(function () {
+
+
+                    $scope.apiTestingBtn2Disable= false;
+
+                })
+
+            }
+        });
+
+// Uploading Files Function
+
+        // For Mobile Testing
+        $scope.uploadPythonFile = function () {
             $scope.loading = true;
 
             $('#mobilePrepareTestCaseModal1').modal('hide');
 
 
 
-            $scope.files.push($scope.aa)
 
             Upload.upload({
                 url: '/h',
@@ -364,13 +403,42 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $scope.loading = false;
                 $scope.name = "";
 
-                    $('form input[type=file]').val() == null;
+                    $('input[type=file]').val( null);
+                $scope.mobileTestingBtn1Disable= true;
+
 
 
             })
+        };
 
-// $scope.f.$setPristine();
-        }
+
+        // For API Testing Part
+
+        $scope.uploadApiFile1 =function () {
+            $('#modal8').modal('hide');
+            $scope.loading = true;
+            Upload.upload(
+                {
+                    url: '/apiFile1',
+                    method:'post',
+                    data:$scope.files
+                }
+
+            ).then(function (resp) {
+                $scope.loading = false;
+                $('#apiTestingBtn1Disable').val(null);
+                $('#apiTestingBtn2Disable').val(null);
+                    $scope.apiTestingBtn1Disable= true;
+                    $scope.apiTestingBtn2Disable= true;
+            },
+                function (error) {
+                  console.log(error,"error")
+                })
+
+
+        };
+
+        // Loader or Spinner
         $scope.loading = false;
         // for apitTesting
         $scope.apiModalPrepareTestCase = function () {
@@ -422,7 +490,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.openRide = function () {
             $http({
                 method: 'post',
-                url: '/execute'
+                url: '/executeWebApi'
             });
 
             $scope.ngModel1 = "Ride has opened..please remember to close it.";
@@ -498,6 +566,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 // For Step 1
             $('#wModal1').modal('hide');
+
+            // For Mobile Testing
+
+            // For Step 2
+            $('#modal5').modal('hide');
 
         };
 
