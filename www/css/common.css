@@ -313,8 +313,8 @@ p.webSpeech-bubble {
     top: 20vh;
     /*left:0;*/
 
-}.modalForLoad {
-     top:-2vh ! important;
+}.apiModal1ForLoad {
+     top:12vh ! important;
      position: fixed;
      /*left:0;*/
 
@@ -464,24 +464,7 @@ p.webSpeech-bubble {
 }.apiModalGUIApiHeadingStyle:hover{
      background-color: darkgrey;
  }
-.apiModalFunctionalHeadingStyle{
-    border: none;
-    cursor: default;
-    background-color: grey !important;
-    margin-bottom:10% !important;
 
-}.apiModalFunctionalHeadingStyle:hover{
-     background-color: darkgrey;
- }
-.apiModalAutomationHeadingStyle{
-    border: none;
-    cursor: default;
-    background-color: grey !important;
-    margin-bottom:10% !important;
-    /*line-break: auto;*/
-}.apiModalAutomationHeadingStyle:hover{
-     background-color: darkgrey;
- }
 .apiModalLoadHeadingStyle{
     border: none;
     cursor: default;
@@ -583,11 +566,16 @@ p.webSpeech-bubble {
 
     margin-left:19% !important;
 }.apiTestingAutomationLabel2{
-
      margin-left:16% !important;
- }.apiTestingLoadLabel1{
+ }
+.labelMandatory:after {
 
-      margin-left:19% !important;
+    content: " *";
+    color: red;
+}
+.apiTestingLoadLabel1{
+
+      margin-left:15% !important;
   }.apiTestingLoadLabel2{
 
        margin-left:16% !important;
@@ -600,24 +588,8 @@ p.webSpeech-bubble {
      }.apiTestingLoadLabel5{
 
           margin-left:28% !important;
-      }.row-eq-height {
-           display: -webkit-box;
-           display: -webkit-flex;
-           display: -ms-flexbox;
-           display: flex;
-       }.singleheader-list-style {
-            background-color:#fff;
-            border-left: 1px solid #9c9c9c;
-            border-right: 1px solid #9c9c9c;
-            padding:20px;
-            height:100% /*--New Attribute--*/
-        }
-.singleheader-content-style {
-    background-color: #fff;
-    border-right: 1px solid #9c9c9c;
-    height: 100%; /*--New Attribute (just for sure in case your left col taller)--*/
-    padding: 20px;
-}.row-eq-height {
+      }
+.row-eq-height {
      display: -webkit-box;
      display: -webkit-flex;
      display: -ms-flexbox;
