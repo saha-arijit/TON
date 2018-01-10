@@ -142,7 +142,7 @@ UIRoutes.prototype.init = function() {
                 return res.status(400).send('No files were uploaded.');
 
             global.sampleFile = req.files.sampleFile;
-            console.log("SAMPLE",sampleFile)
+            //console.log("SAMPLE",sampleFile)
             flag = 1
 
             folderName = sampleFile.name.split ('.')

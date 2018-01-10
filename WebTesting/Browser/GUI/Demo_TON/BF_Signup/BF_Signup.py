@@ -61,7 +61,3 @@ def BF_Signup(var_head):
 
 	driver.quit()
 	thread1.stop()
-
-
-if __name__ == '__main__':
-	TC_BF_Signup("No", "0", "No")

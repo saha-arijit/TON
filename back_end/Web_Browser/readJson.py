@@ -104,7 +104,7 @@ class readJson :
 		file.write ("import threading, sys" +"\n")
 		file.write ("from threading import Thread" + "\n")
 		file.write ("from selenium import webdriver" + "\n")
-		file.write ("sys.path.insert(0,'"+baseFolder+"/back_end\Web_Browser')"+"\n")
+		file.write ("sys.path.insert(0,'"+baseFolder+"/back_end/Web_Browser')"+"\n")
 		file.write ("from SampleThread_1 import myThread" + "\n")
 		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
 		read.write_ClassName(testCase, file, baseFolder,appName)
