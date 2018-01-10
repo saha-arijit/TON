@@ -33,7 +33,7 @@ def BF_Signup(var_head):
 	else:
 		driver = webdriver.Chrome ()
 
-	driver.set_page_load_timeout(30)
+	driver.set_page_load_timeout(180)
 	url = "https://twitter.com/"
 	driver.get(url)
 	driver.maximize_window()
@@ -61,3 +61,7 @@ def BF_Signup(var_head):
 
 	driver.quit()
 	thread1.stop()
+
+
+if __name__ == '__main__':
+	TC_BF_Signup("No", "0", "No")
