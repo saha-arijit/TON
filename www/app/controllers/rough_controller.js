@@ -395,7 +395,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
             Upload.upload({
-                url: '/h',
+                url: '/prepareMobileGUI',
                 method: 'POST',
                 // data: [],
                 data: $scope.files
@@ -492,7 +492,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.openRide = function () {
             $http({
                 method: 'post',
-                url: '/execute'
+                url: '/execute'    // opens TestCases.robot
             });
 
             $scope.ngModel1 = "Ride has opened..please remember to close it.";
@@ -511,7 +511,24 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.openAPIRide = function () { 
             $http({
                 method: 'post',
-                url: '/executeWebApi'
+                url: '/executeWebApi'   // opens LoadTest.robot
+            });
+
+            $scope.ngModel1 = "Ride has opened..please remember to close it.";
+
+
+            $('#webExecuteTestCaseModal3').modal('hide');
+            $('#webExecuteTestCaseModal4').modal('hide');
+
+
+            $('#mobileTestCaseModal').modal('hide');
+
+
+        };
+        $scope.openMobileRide = function () { 
+            $http({
+                method: 'post',
+                url: '/executeMobileGUI'   // opens LoadTest.robot
             });
 
             $scope.ngModel1 = "Ride has opened..please remember to close it.";

@@ -6,6 +6,7 @@ class Load_json_Parser:
 
 	def LoadNewman(self,json, base,app):
 
+		global location
 		location = "/back_end/Web_API/"
 		
 		file = open(base + location +'NewLoadNewman.js' , 'r')
@@ -41,7 +42,7 @@ class Load_json_Parser:
 		file = open(json +'.py' , 'w')
 		file.write('import sys'+'\n')
 		file.write('import os'+'\n')
-		file.write("sys.path.insert(0,'"+base+"/back_end/Web_API')"+"\n")
+		file.write("sys.path.insert(0,'"+base+location+"')"+"\n")
 		file.write('from Load_Thread import myThread' + '\n')
 		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
 		file.write('def ' + 'TC_'+ testCase[6] +'(users)' + ':'+'\n')

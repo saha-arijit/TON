@@ -19,6 +19,7 @@ global.baseFolder = "D:/TON";
 global.appName    = "Demo_TON";
 global.forAPI     = baseFolder+"/back_end/Web_API";
 global.forBrowser = baseFolder+"/back_end/Web_Browser";
+global.forMobile  = baseFolder+"/back_end/Mobile_GUI";
 module.exports    = UIRoutes;
 UIRoutes.prototype.init = function() {
     var self = this;
@@ -242,5 +243,70 @@ UIRoutes.prototype.init = function() {
 
             res.end()
         })
-    
+
+    app.post('/prepareMobileGUI',
+        function(req, res){
+            
+            console.log("came into prepareMobileGUI",req)
+            if (!req.files)
+                return res.status(400).send('No files were uploaded.');
+
+            global.sampleData = req.files[0];
+            global.sampleFile = req.files[0].name;
+            //console.log("SAMPLE",sampleFile)
+
+            folderName = sampleFile.split ('.')
+
+            folder = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
+            
+            if (!fs.existsSync(folder)){
+                fs.mkdirSync (folder)
+            }   
+            global.inputFileName = folder + '/' + sampleFile
+            console.log("SAMPLE FILE",sampleFile);
+            console.log("INPUT FILE",inputFileName);
+            sampleData.mv (inputFileName, function(err){
+                if (err)
+                    return res.status(500).send(err);
+            });
+
+            sleep(5000);
+            try{
+                child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                  if (e instanceof Error) {
+                     console.error(e);
+                     throw e;
+                  }
+                  res.end();
+                  console.log ("Done....")
+                }); 
+            }catch (ex){
+                console.log ("In error...")
+                console.log (ex)
+            }
+        }); 
+
+        app.post('/executeMobileGUI',
+        function(req, res){
+
+        dataFile = baseFolder+"/MobileTesting/GUI/"+appName+"/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+          
+        
+        fs.writeFile(dataFile,ColumnNamesList , function(err) {
+         if(err) {
+             return console.log(err);
+         }
+        console.log("The file was saved!");
+        });
+
+          child = exec('ride.py '+baseFolder+'/MobileTesting/GUI/'+appName+'/mobileTestcase.robot', (e, stdout, stderr)=> {
+          if (e instanceof Error) {
+             console.error(e);
+             throw e;
+          }
+          res.end();
+            });
+
+        });
 };
