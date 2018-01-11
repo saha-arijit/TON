@@ -147,11 +147,11 @@
                 </button>
                 <form name="ApiTestingApiform1">
                     <label class="apiTestingLoadLabel1 labelMandatory ">Upload Postman Collection</label>
-                    <input id="apiTestingBtn1Disable" name="ApiFile1"  files-input  ng-model="user.ApiFile1" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
+                    <input id="apiTestingBtn1Disable" name="ApiFile1"  ng-files="getApiFile1($files)" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
                            class="form-control">
                     <br>
                     <label class="apiTestingLoadLabel2">Environment Variable (optional)</label>
-                    <input id="apiTestingBtn2Disable"  name="ApiFile2" files-input ng-model="user.ApiFile2" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
+                    <input id="apiTestingBtn2Disable"  name="ApiFile2" ng-files="getApiFile1($files)" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
                            class="form-control"
                            >
                     <br>
@@ -366,7 +366,7 @@
                                                                     <input id="WebFile1" type="file" accept=".json" name="sampleFile"
                                                                            style="padding: 1% 0 1% 20%"
                                                                            class="form-control"
-                                                                           files-input ng-model="WebFile1">
+                                                                             ng-files="getFiles($files)">
                                                                     <br>
                                                                     <button class="btn btn-primary"
                                                                             ng-disabled="webTestingBtn1Disable"
@@ -412,7 +412,7 @@
                                                                     <label>Choose a Postman .json Collection File</label>
 
                                                                     <input  id="WebFile2" type="file" accept=".json"
-                                                                           style="padding: 1% 0 1% 20%" files-input  ng-model="WebFile2" name="sampleFile"
+                                                                           style="padding: 1% 0 1% 20%"  ng-files="getFiles($files)" name="sampleFile"
                                                                            class="form-control"
                                                                            >
                                                                     <br>
@@ -886,7 +886,7 @@
                                                                         <label>
                                                                             Choose Test Case .py File
                                                                         </label>
-                                                                        <input ng-model="mobileTestingFile1" files-input id="mobileTestingFile1" type="file" class="form-control">
+                                                                        <input id="mobileTestingFile1"  ng-files="getFiles($files)" type="file" class="form-control">
                                                                     </div>
 
                                                                     <button class="btn btn-primary"   ng-disabled="mobileTestingBtn1Disable" ng-click="uploadMobileFile1()" type="submit">Prepare</button>
