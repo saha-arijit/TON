@@ -54,7 +54,17 @@ UIRoutes.prototype.init = function() {
      console.log("Came into Jenkins")
      
             // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
-            child = shell.exec('start chrome http://localhost:8080')
+            child = shell.exec('Start chrome http://localhost:8080')
+            res.end();
+    }); 
+
+    app.post('/notepad',
+    function(req, res){
+      
+     console.log("Came into NotePad")
+     
+            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            child = shell.exec('START C:/Notepad++/notepad++.exe')
             res.end();
     }); 
 
