@@ -19,6 +19,7 @@ global.baseFolder = "D:/TON";
 global.appName    = "Demo_TON";
 global.forAPI     = baseFolder+"/back_end/Web_API";
 global.forBrowser = baseFolder+"/back_end/Web_Browser";
+global.forMobile  = baseFolder+"/back_end/Mobile_GUI";
 module.exports    = UIRoutes;
 UIRoutes.prototype.init = function() {
     var self = this;
@@ -53,7 +54,17 @@ UIRoutes.prototype.init = function() {
      console.log("Came into Jenkins")
      
             // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
-            child = shell.exec('start chrome http://localhost:8080')
+            child = shell.exec('Start chrome http://localhost:8080')
+            res.end();
+    }); 
+
+    app.post('/notepad',
+    function(req, res){
+      
+     console.log("Came into NotePad")
+     
+            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            child = shell.exec('START C:/Notepad++/notepad++.exe')
             res.end();
     }); 
 
@@ -65,29 +76,25 @@ UIRoutes.prototype.init = function() {
       		if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleFile = req.files.sampleFile;
-            //console.log("SAMPLE",sampleFile)
+            global.sampleFile = req.files[0];
 
             folderName = sampleFile.name.split ('.')
-
             folder = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+ folderName[0]
             
             if (!fs.existsSync(folder)){
 				fs.mkdirSync (folder)
 			}	
-			//global.inputFileName = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+sampleFile.name+'/' + sampleFile.name;
-          	// console.log("BASEFOLDER",inputFileName)
+
           	global.inputFileName = folder + '/' + sampleFile.name
-            console.log("SAMPLE FILE",sampleFile);
-            console.log("INPUT FILE",inputFileName);
+
             sampleFile.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
 
             sleep(5000);
+            console.log("The File was Moved")
 
-            //child = shell.exec('python '+baseFolder+'/WebTesting/API/GUI/'+appName+'/Load_Json_Parser.py ' + inputFileName+' '+baseFolder);
             try{
             	child = exec('python '+forAPI+'/Load_Json_Parser.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
 		          if (e instanceof Error) {
@@ -137,12 +144,11 @@ UIRoutes.prototype.init = function() {
     });
     app.post('/validate',
         function(req, res){
-            console.log("came into validate");
+            
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleFile = req.files.sampleFile;
-            //console.log("SAMPLE",sampleFile)
+            global.sampleFile = req.files[0];
             flag = 1
 
             folderName = sampleFile.name.split ('.')
@@ -152,8 +158,7 @@ UIRoutes.prototype.init = function() {
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
             }   
-            //global.inputFileName = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+sampleFile.name+'/' + sampleFile.name;
-            // console.log("BASEFOLDER",inputFileName)
+
             global.inputFileName = folder + '/' + sampleFile.name
             sampleFile.mv (inputFileName, function(err){
                 if (err)
@@ -161,12 +166,13 @@ UIRoutes.prototype.init = function() {
             });
 
             sleep(5000);
+            console.log("The File was Moved")
 
             child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName+' '+baseFolder+' '+appName);
             res.end();
 
             var name = (inputFileName).split(".");
-            console.log("NAME",name)
+
             child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
@@ -193,7 +199,7 @@ UIRoutes.prototype.init = function() {
          if(err) {
              return console.log(err);
          }
-        console.log("The file was saved!" + appName);
+        console.log("The file was saved!");
         });
         child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/TestCases.robot', (e, stdout, stderr)=> {
         if (e instanceof Error) {
@@ -242,5 +248,70 @@ UIRoutes.prototype.init = function() {
 
             res.end()
         })
-    
+
+    app.post('/prepareMobileGUI',
+        function(req, res){
+            
+            console.log("came into prepareMobileGUI",req)
+            if (!req.files)
+                return res.status(400).send('No files were uploaded.');
+
+            global.sampleData = req.files[0];
+            global.sampleFile = req.files[0].name;
+            //console.log("SAMPLE",sampleFile)
+
+            folderName = sampleFile.split ('.')
+
+            folder = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
+            
+            if (!fs.existsSync(folder)){
+                fs.mkdirSync (folder)
+            }   
+            global.inputFileName = folder + '/' + sampleFile
+            console.log("SAMPLE FILE",sampleFile);
+            console.log("INPUT FILE",inputFileName);
+            sampleData.mv (inputFileName, function(err){
+                if (err)
+                    return res.status(500).send(err);
+            });
+
+            sleep(5000);
+            try{
+                child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                  if (e instanceof Error) {
+                     console.error(e);
+                     throw e;
+                  }
+                  res.end();
+                  console.log ("Done....")
+                }); 
+            }catch (ex){
+                console.log ("In error...")
+                console.log (ex)
+            }
+        }); 
+
+        app.post('/executeMobileGUI',
+        function(req, res){
+
+        dataFile = baseFolder+"/MobileTesting/GUI/"+appName+"/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+          
+        
+        fs.writeFile(dataFile,ColumnNamesList , function(err) {
+         if(err) {
+             return console.log(err);
+         }
+        console.log("The file was saved!");
+        });
+
+          child = exec('ride.py '+baseFolder+'/MobileTesting/GUI/'+appName+'/mobileTestcase.robot', (e, stdout, stderr)=> {
+          if (e instanceof Error) {
+             console.error(e);
+             throw e;
+          }
+          res.end();
+            });
+
+        });
 };
