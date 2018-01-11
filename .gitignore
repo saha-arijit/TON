@@ -50,7 +50,7 @@ typings/
 .npm
 
 # Compiled Python Files
-.pyc
+*.pyc
 
 # Optional eslint cache
 .eslintcache
