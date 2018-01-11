@@ -151,12 +151,12 @@
                            class="form-control">
                     <br>
                     <label class="apiTestingLoadLabel2">Environment Variable (optional)</label>
-                    <input id="apiTestingBtn2Disable"  name="ApiFile2" ng-files="getApiFile1($files)" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
+                    <input   name="ApiFile2" ng-files="getApiFile1($files)" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
                            class="form-control"
                            >
                     <br>
                     <button class="btn btn-primary" type="submit"  style="margin-left: 35%;"
-                            ng-disabled="(apiTestingBtn1Disable ||apiTestingBtn2Disable)" ng-click="uploadApiFile1()">Execute
+                            ng-disabled="(apiTestingBtn1Disable)" ng-click="uploadApiFile1()">Execute
                     </button>
                 </form>
 
@@ -886,7 +886,7 @@
                                                                         <label>
                                                                             Choose Test Case .py File
                                                                         </label>
-                                                                        <input id="mobileTestingFile1"  ng-files="getFiles($files)" type="file" class="form-control">
+                                                                        <input id="mobileTestingFile1" style="padding: 1% 0 1% 19%;"  ng-files="getFiles($files)" type="file" class="form-control">
                                                                     </div>
 
                                                                     <button class="btn btn-primary"   ng-disabled="mobileTestingBtn1Disable" ng-click="uploadMobileFile1()" type="submit">Prepare</button>

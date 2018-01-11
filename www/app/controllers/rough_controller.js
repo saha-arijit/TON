@@ -283,7 +283,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         // For API Testing For API -> load part
         $scope.apiTestingBtn1Disable= true;
-        $scope.apiTestingBtn2Disable= true;
 
         // For Mobile Testing For Prepare TestCase part
         $scope.mobileTestingBtn1Disable= true;
@@ -390,28 +389,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
 
-        // Disabling the btn 2 for API Testing Part
-        $('#apiTestingBtn2Disable').change(function () {
-            if ($('#apiTestingBtn2Disable').val() =="") {
-                $scope.$apply(function () {
-
-
-                    $scope.apiTestingBtn2Disable= true;
-
-
-                })
-
-            }
-            else {
-                $scope.$apply(function () {
-
-
-                    $scope.apiTestingBtn2Disable= false;
-
-                })
-
-            }
-        });
 
 // Uploading Files Function
 
@@ -540,7 +517,7 @@ Upload.upload({
                 $scope.loading = false;
                 $scope.name = "";
 
-                    $('input[type=file]').val( null);
+                    $('#mobileTestingFile1').val( null);
                 $scope.mobileTestingBtn1Disable= true;
 
 
@@ -566,9 +543,7 @@ Upload.upload({
             ).then(function (resp) {
                 $scope.loading = false;
                 $('#apiTestingBtn1Disable').val(null);
-                $('#apiTestingBtn2Disable').val(null);
                     $scope.apiTestingBtn1Disable= true;
-                    $scope.apiTestingBtn2Disable= true;
             },
                 function (error) {
                   console.log(error,"error")

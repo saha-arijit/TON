@@ -263,10 +263,10 @@ UIRoutes.prototype.init = function() {
             folderName = sampleFile.split ('.')
 
             folder = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
-            
+
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
-            }   
+            }
             global.inputFileName = folder + '/' + sampleFile
             console.log("SAMPLE FILE",sampleFile);
             console.log("INPUT FILE",inputFileName);
@@ -284,7 +284,7 @@ UIRoutes.prototype.init = function() {
                   }
                   res.end();
                   console.log ("Done....")
-                }); 
+                });
             }catch (ex){
                 console.log ("In error...")
                 console.log (ex)
