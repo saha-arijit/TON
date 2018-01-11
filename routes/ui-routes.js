@@ -257,13 +257,14 @@ UIRoutes.prototype.init = function() {
     app.post('/prepareMobileGUI',
         function(req, res){
             
-            console.log("came into prepareMobileGUI",req)
+            console.log("came into prepareMobileGUI...")
+
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
             global.sampleData = req.files[0];
             global.sampleFile = req.files[0].name;
-            //console.log("SAMPLE",sampleFile)
+            console.log("SAMPLE",sampleFile)
 
             folderName = sampleFile.split ('.')
 
@@ -273,13 +274,13 @@ UIRoutes.prototype.init = function() {
                 fs.mkdirSync (folder)
             }   
             global.inputFileName = folder + '/' + sampleFile
-            console.log("SAMPLE FILE",sampleFile);
-            console.log("INPUT FILE",inputFileName);
+            
             sampleData.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
 
+            console.log ("The file has been moved.")
             sleep(5000);
             try{
                 child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {

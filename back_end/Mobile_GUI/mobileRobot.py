@@ -30,12 +30,14 @@ class mobileRobot :
 
 	def writeSettings (self, testFile, file, contents, prsntFlg):
 		testCase = testFile.split('.')
+		print testCase[0] 
 		if prsntFlg == 1:
 			index = 0
 			lookup = "Settings"
 			with open(robotFileName) as myFile:
 				for num, line in enumerate(myFile, 1):
-					if testFile in line:
+					if testCase[0] in line:
+						print "Found it!!!!!!!!!!"
 						sys.exit ()				
 					if lookup in line:
 						index = num + 1
@@ -56,8 +58,6 @@ class mobileRobot :
 
 	def writeTestCases (self, file, testFile, contents, prsntFlg):
 		testCase = testFile.split('.')
-		print "*************************"
-		print testCase
 		#testCase = testCase[0].split('_')
 		if prsntFlg == 1:
 			index = 0
@@ -85,4 +85,4 @@ class mobileRobot :
 
 			
 robot = mobileRobot()
-#robot.createTestFile(sys.argv[1],sys.argv[2])
+# robot.createTestFile("CalC.py", "D:/TON", "Demo_TON")
