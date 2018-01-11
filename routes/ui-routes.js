@@ -3,7 +3,7 @@ var exec        =    require('child_process').exec,
 var sleep       = require('system-sleep');
 
 var flag   =0
-current_dir = __dirname;
+    current_dir = __dirname;
 
 var UIRoutes = function(app,opn,fileUpload,shell,exec) {
 
@@ -16,7 +16,11 @@ var UIRoutes = function(app,opn,fileUpload,shell,exec) {
 };
 
 global.baseFolder = "D:/TON";
-module.exports = UIRoutes;
+global.appName    = "Demo_TON";
+global.forAPI     = baseFolder+"/back_end/Web_API";
+global.forBrowser = baseFolder+"/back_end/Web_Browser";
+global.forMobile  = baseFolder+"/back_end/Mobile_GUI";
+module.exports    = UIRoutes;
 UIRoutes.prototype.init = function() {
     var self = this;
     var app = this.app;
@@ -28,152 +32,133 @@ UIRoutes.prototype.init = function() {
 
 
     app.post('/kantu',
-        function(req, res){
+    function(req, res){
 
-            opn('chrome-extension://gcbalfbdmfieckjlnblleoemohcganoc/popup.html', {app: ['chrome', '-new-window']});
-            res.end();
-        });
+        opn('chrome-extension://gcbalfbdmfieckjlnblleoemohcganoc/popup.html', {app: ['chrome', '-new-window']});
+        res.end();
+    });
 
 
     app.post('/postman',
-        function(req, res){
-
-            console.log("Came into Postman")
-
+    function(req, res){
+    
+     console.log("Came into Postman")
+     
             child = shell.exec('START C:/Postman/Update.exe --processStart "Postman.exe"');
             res.end();
-        });
+    }); 
 
     app.post('/jenkins',
-        function(req, res){
-
-            console.log("Came into Jenkins");
-            // For Ubuntu
-            opn('http://localhost:8080', {app: ['google-chrome', '-new-tab']});
-            // For Windows
-            opn('http://localhost:8080', {app: ['chrome', '-new-tab']});
-            child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+    function(req, res){
+      
+     console.log("Came into Jenkins")
+     
+            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            child = shell.exec('Start chrome http://localhost:8080')
             res.end();
-        });
+    }); 
+
+    app.post('/notepad',
+    function(req, res){
+      
+     console.log("Came into NotePad")
+     
+            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+            child = shell.exec('START C:/Notepad++/notepad++.exe')
+            res.end();
+    }); 
 
 
-    app.post('/prepareWebAPI',
-        function(req, res){
-            console.log(req)
-            if (!req.files)
+	app.post('/prepareWebAPI',
+    	function(req, res){
+            
+            console.log("came into prepareAPI")
+      		if (!req.files)
                 return res.status(400).send('No files were uploaded.');
-            var count = Object.keys(req.files).length;
 
-//             var length =req.files.length
-            for (i=0;i<count;i++){
-                var fileName =req.files[i].name;
-                console.log(fileName,"FileNameList");
+            global.sampleFile = req.files[0];
 
-            }
-            global.sampleFile = fileName;
-            console.log("SAMPLE",sampleFile)
-
-            folderName = sampleFile.split ('.')
-            // console.log(folderName)
-
-
-            folder = baseFolder+'/WebTesting/API/GUI/Demo_Bell/'+ folderName[0]
-
+            folderName = sampleFile.name.split ('.')
+            folder = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+ folderName[0]
+            
             if (!fs.existsSync(folder)){
-                fs.mkdirSync (folder)
-            }
-            //global.inputFileName = baseFolder+'/WebTesting/API/GUI/Demo_Bell/'+sampleFile.name+'/' + sampleFile.name;
-            // console.log("BASEFOLDER",inputFileName)
-            global.inputFileName = folder + '/' + sampleFile.name
-            console.log("SAMPLE FILE",sampleFile);
-            console.log("INPUT FILE",inputFileName);
+				fs.mkdirSync (folder)
+			}	
+
+          	global.inputFileName = folder + '/' + sampleFile.name
+
             sampleFile.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
 
             sleep(5000);
+            console.log("The File was Moved")
 
-            //child = shell.exec('python '+baseFolder+'/WebTesting/API/GUI/Demo_Bell/Load_Json_Parser.py ' + inputFileName+' '+baseFolder);
             try{
-                child = exec('python '+baseFolder+'/WebTesting/API/GUI/Demo_Bell/Load_Json_Parser.py ' + inputFileName+' '+baseFolder, (e, stdout, stderr)=> {
-                    if (e instanceof Error) {
-                    console.error(e);
-                    throw e;
-                }
-                res.end();
-                console.log ("Done....")
-            });
+            	child = exec('python '+forAPI+'/Load_Json_Parser.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+		          if (e instanceof Error) {
+		             console.error(e);
+		             throw e;
+		          }
+		          res.end();
+		          console.log ("Done....")
+		        });	
             }catch (ex){
-                console.log ("In error...")
-                console.log (ex)
+            	console.log ("In error...")
+            	console.log (ex)
             }
+            
+
+    });    
 
 
-        });
-
-
-    app.post('/executeWebApi',
+	app.post('/executeWebApi',
         function(req, res){
 
-            dataFile = baseFolder+"/WebTesting/API/GUI/Demo_Bell/CPU%."+"csv";
-            ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
-
-
-            fs.writeFile(dataFile,ColumnNamesList , function(err) {
-                if(err) {
-                    return console.log(err);
-                }
-                console.log("The file was saved!");
-            });
-
-            child = exec('ride.py '+baseFolder+'/WebTesting/API/GUI/Demo_Bell/LoadTest.robot', (e, stdout, stderr)=> {
-                if (e instanceof Error) {
-                console.error(e);
-                throw e;
-            }
-            res.end();
+        dataFile = baseFolder+"/WebTesting/API/GUI/"+appName+"/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+          
+        
+        fs.writeFile(dataFile,ColumnNamesList , function(err) {
+         if(err) {
+             return console.log(err);
+         }
+        console.log("The file was saved!");
         });
+
+          child = exec('ride.py '+baseFolder+'/WebTesting/API/GUI/'+appName+'/LoadTest.robot', (e, stdout, stderr)=> {
+          if (e instanceof Error) {
+             console.error(e);
+             throw e;
+          }
+          res.end();
+            });
 
         });
     // app.use(fileUpload());
 
-    app.post('/prepareMobileGUI',function (req,res) {
-        console.log(req.files   ,"data")
+    app.post('/h',function (req,res) {
+        console.log(req.files   ,req,"data")
         res.end()
     });
     app.post('/validate',
         function(req, res){
-
+            
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            // global.sampleFile = req.files.sampleFile;
-            //console.log("SAMPLE",sampleFile)
-
-            var count = Object.keys(req.files).length;
-
-//             var length =req.files.length
-            for (i=0;i<count;i++){
-                var fileName =req.files[i].name;
-                console.log(fileName,"FileNameList");
-
-            }
-            global.sampleFile = fileName;
-            console.log("SAMPLE",sampleFile)
-
+            global.sampleFile = req.files[0];
             flag = 1
 
+            folderName = sampleFile.name.split ('.')
 
-            folderName = sampleFile.split ('.')
-
-            folder = baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/'+ folderName[0]
-
+            folder = baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ folderName[0]
+            
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
-            }
-            //global.inputFileName = baseFolder+'/WebTesting/API/GUI/Demo_Bell/'+sampleFile.name+'/' + sampleFile.name;
-            // console.log("BASEFOLDER",inputFileName)
+            }   
+
             global.inputFileName = folder + '/' + sampleFile.name
             sampleFile.mv (inputFileName, function(err){
                 if (err)
@@ -181,22 +166,23 @@ UIRoutes.prototype.init = function() {
             });
 
             sleep(5000);
+            console.log("The File was Moved")
 
-            child = shell.exec('python '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/readJson.py ' + inputFileName+' '+baseFolder);
+            child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName+' '+baseFolder+' '+appName);
             res.end();
 
             var name = (inputFileName).split(".");
-            console.log("NAME",name)
-            child = exec('python '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/createRobot.py '+name[0]+".py "+baseFolder, (e, stdout, stderr)=> {
-                if (e instanceof Error) {
-                console.error(e);
-                throw e;
+
+            child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
             }
             console.log('stdout ', stdout);
             res.end();
-        });
+            });
 
-            child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/'+ name[6]+".py");
+            child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
             res.end();
 
         });
@@ -205,39 +191,39 @@ UIRoutes.prototype.init = function() {
     app.post('/execute',
         function(req, res){
 
-            dataFile = baseFolder+"/WebTesting/Browser/GUI/Demo_Bell/CPU%."+"csv";
-            ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
-
-
-            fs.writeFile(dataFile,ColumnNamesList , function(err) {
-                if(err) {
-                    return console.log(err);
-                }
-                console.log("The file was saved!");
-            });
-            child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/Demo_Bell/TestCases.robot', (e, stdout, stderr)=> {
-                if (e instanceof Error) {
-                console.error(e);
-                throw e;
-            }
-            console.log('stdout ', stdout);
-            console.log('Results -- /POC/Results')
-            res.end();
+        dataFile = baseFolder+"/WebTesting/Browser/GUI/"+appName+"/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+          
+        
+        fs.writeFile(dataFile,ColumnNamesList , function(err) {
+         if(err) {
+             return console.log(err);
+         }
+        console.log("The file was saved!");
         });
+        child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/TestCases.robot', (e, stdout, stderr)=> {
+        if (e instanceof Error) {
+          console.error(e);
+          throw e;
+        }
+        console.log('stdout ', stdout);
+        console.log('Results -- /POC/Results')
+        res.end();
         });
+      });
 
     app.post('/analyze',
         function(req, res){
 
-            console.log("Came to Analyze Results");
-            child = exec(baseFolder+"/WebTesting/Browser/GUI/Demo_Bell/viewAnalytics.py "+baseFolder, (e, stdout, stderr)=> {
-                if (e instanceof Error) {
-                console.error(e);
-                throw e;
-            }
-            console.log('stdout ', stdout);
-            res.end();
-        });
+             console.log("Came to Analyze Results");
+    child = exec(forBrowser+"/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+    if (e instanceof Error) {
+        console.error(e);
+        throw e;
+    }
+    console.log('stdout ', stdout);
+    res.end();
+    });
             console.log("Entering  into Kibana");
 
             child = opn('http://localhost:5601',{app:['chrome','-new-window']});
@@ -251,18 +237,81 @@ UIRoutes.prototype.init = function() {
         function (req,res) {
 
             var object = req.files;
-            console.log(object,"FileNameList");
+            var count = Object.keys(object).length;
 
-//             var count = Object.keys(object).length;
-//
-// //             var length =req.files.length
-//             for (i=0;i<count;i++){
-//                 var fileName =req.files[i].name;
-//                 console.log(fileName,"FileNameList");
-//
-//             }
+//             var length =req.files.length
+            for (i=0;i<count;i++){
+                var fileName =req.files[i].name;
+                console.log(fileName,"FileNameList");
+
+            }
 
             res.end()
         })
 
+    app.post('/prepareMobileGUI',
+        function(req, res){
+            
+            console.log("came into prepareMobileGUI",req)
+            if (!req.files)
+                return res.status(400).send('No files were uploaded.');
+
+            global.sampleData = req.files[0];
+            global.sampleFile = req.files[0].name;
+            //console.log("SAMPLE",sampleFile)
+
+            folderName = sampleFile.split ('.')
+
+            folder = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
+            
+            if (!fs.existsSync(folder)){
+                fs.mkdirSync (folder)
+            }   
+            global.inputFileName = folder + '/' + sampleFile
+            console.log("SAMPLE FILE",sampleFile);
+            console.log("INPUT FILE",inputFileName);
+            sampleData.mv (inputFileName, function(err){
+                if (err)
+                    return res.status(500).send(err);
+            });
+
+            sleep(5000);
+            try{
+                child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                  if (e instanceof Error) {
+                     console.error(e);
+                     throw e;
+                  }
+                  res.end();
+                  console.log ("Done....")
+                }); 
+            }catch (ex){
+                console.log ("In error...")
+                console.log (ex)
+            }
+        }); 
+
+        app.post('/executeMobileGUI',
+        function(req, res){
+
+        dataFile = baseFolder+"/MobileTesting/GUI/"+appName+"/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+          
+        
+        fs.writeFile(dataFile,ColumnNamesList , function(err) {
+         if(err) {
+             return console.log(err);
+         }
+        console.log("The file was saved!");
+        });
+
+          child = exec('ride.py '+baseFolder+'/MobileTesting/GUI/'+appName+'/mobileTestcase.robot', (e, stdout, stderr)=> {
+          if (e instanceof Error) {
+             console.error(e);
+             throw e;
+          }
+          res.end();
+            });
+
+        });
 };

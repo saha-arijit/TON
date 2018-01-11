@@ -104,7 +104,7 @@ class readJson :
 		file.write ("import threading, sys" +"\n")
 		file.write ("from threading import Thread" + "\n")
 		file.write ("from selenium import webdriver" + "\n")
-		file.write ("sys.path.insert(0,'"+baseFolder+"/back_end/Web_Browser')"+"\n")
+		file.write ("sys.path.insert(0,'"+baseFolder+"/back_end\Web_Browser')"+"\n")
 		file.write ("from SampleThread_1 import myThread" + "\n")
 		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
 		read.write_ClassName(testCase, file, baseFolder,appName)
@@ -116,7 +116,7 @@ class readJson :
 		file.write ("\t" + "\t" + "driver = webdriver.Chrome(chrome_options=chrome_options)" + "\n")#,executable_path=\"D:\\TestSelenium\\SeleniumScripts\\chromedriver.exe\")" + "\n")
 		file.write ("\t" + "else:" + "\n")
 		file.write ("\t" + "\t" + "driver = webdriver.Chrome ()" + "\n" + "\n")
-		file.write("\t"+ "driver.set_page_load_timeout(180)" +"\n")
+		file.write("\t"+ "driver.set_page_load_timeout(30)" +"\n")
 
 
 read = readJson()
