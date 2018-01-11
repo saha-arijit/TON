@@ -1,17 +1,29 @@
-kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
+// kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
+//
+//     function fn_link(scope, element, attrs) {
+//         var onChange = $parse(attrs.ngFiles);
+//         element.on('change', function (event) {
+//             onChange(scope, {$files: event.target.files});
+//         });
+//     }
+//
+//     return {
+//         link: fn_link
+//     }
+// }])
 
-    function fn_link(scope, element, attrs) {
-        var onChange = $parse(attrs.ngFiles);
-        element.on('change', function (event) {
-            onChange(scope, {$files: event.target.files});
-        });
-    }
 
+kibanaApp.directive("filesInput", function() {
     return {
-        link: fn_link
+        require: "ngModel",
+        link: function postLink(scope,elem,attrs,ngModel) {
+            elem.on("change", function(e) {
+                var files = elem[0].files;
+                ngModel.$setViewValue(files);
+            })
+        }
     }
-}])
-    .controller('roughController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
+}).controller('roughController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
 
         $scope.openPdf = function () {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
@@ -254,16 +266,20 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
 
-        // overall Disabling btn furntion
+        // overall Disabling btn function
 
 
         // For Web Testing For Browser part
-        $scope.webTestingForBrowserFile = true;
-        $scope.webTestingForAPIFile = true;
+        $scope.webTestingBtn1Disable= true;
+        $scope.webTestingBtn2Disable= true;
+
 
         // For API Testing For API -> load part
         $scope.apiTestingBtn1Disable= true;
         $scope.apiTestingBtn2Disable= true;
+
+        // For Mobile Testing For Prepare TestCase part
+        $scope.mobileTestingBtn1Disable= true;
 
 
 
@@ -271,53 +287,59 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.mouseOver = false;
 
 
-// for web Testing  -  web modal
-        $scope.webModalPrepareTestCase = function () {
-            var iFrame = $('<iframe name = "myIFrame" id="iFrame"></iframe>');
-            $('body').append(iFrame);
-            document.getElementById('webModalInputId1').click();
-            $('#iFrame').hide();
-
-            setTimeout(function () {
-
-                $('#iFrame').remove();
-                // $('#iFrame').detach();
-
-            }, 3000);
-            // $('#').modal('hide');
-            // $('#webPrepareTestCaseModal1').modal('hide');
-            $('.modal').modal('hide');
-
-            $scope.ngModel1 = "Preparation is in progress....Finished now...."
-
-
-        };
         $scope.files = [];
-        $scope.fileNames = [];
+        $scope.mobileTestingFile1 = "";
+        $scope.WebFile1 = "";
+        $scope.WebFile2 = "";
 
 
 
+        // Disabling the btn1 for Web Testing Part
 
-        $scope.getFiles = function ($files) {
-            for (i = 0; i < $files.length; i++) {
-                $scope.files.push($files[i]);
-                $scope.fileNames.push($files[i].name);
+        $('#WebFile1').change(
+            function () {
+                if ($('#WebFile1').val()=="")
+                {
+                    $scope.$apply(function () {
+                        $scope.webTestingBtn1Disable= true;
+                    })
 
-                console.log($scope.files
-                )
+                }
+                else {
+                    $scope.$apply(function () {
+                        $scope.webTestingBtn1Disable=false;
+                    })
+                }
 
             }
+        );
 
+        // Disabling the btn2 for Web Testing Part
 
-        };
+        $('#WebFile2').change(
+            function () {
+                if ($('#WebFile2').val()=="")
+                {
+                    $scope.$apply(function () {
+                        $scope.webTestingBtn2Disable= true;
+                    })
 
+                }
+                else {
+                    $scope.$apply(function () {
+                        $scope.webTestingBtn2Disable=false;
+                    })
+                }
+
+            }
+        );
 
 
 
 
         // Disabling the btn for Mobile Testing Part
         $(' #mobileTestingFile1').change(function () {
-            if ($('#mobileTestingFile1').val() == null) {
+            if ($('#mobileTestingFile1').val() =="") {
                 $scope.$apply(function () {
                     $scope.mobileTestingBtn1Disable= true;
 
@@ -385,20 +407,75 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 // Uploading Files Function
 
+        // For Web Testing
+
+
+        $scope.uploadWebFile1 = function () {
+            $scope.ngModel1= "Preparation is in progress...";
+            $scope.loading = true;
+            $('#webPrepareTestCaseModal1').modal('hide');
+$scope.files.push($scope.WebFile1);
+Upload.upload({
+    url:'/validate',
+    method:'post',
+    data:$scope.WebFile1
+}).success(function (res) {
+    $scope.webTestingBtn1Disable= true;
+    $('#WebFile1').val(null);
+    $scope.ngModel1= "Preparation has been completed";
+
+    $scope.loading = false;
+})
+    .error(function (error) {
+       console.log(error,"Error")
+    })
+
+
+
+        };
+
+
+        $scope.uploadWebFile2 = function () {
+            $scope.ngModel1= "Preparation is in progress...";
+            $scope.loading = true;
+            $('#webPrepareTestCaseModal2').modal('hide');
+Upload.upload({
+    url:'/prepareWebAPI',
+    method:'post',
+    data:$scope.WebFile2
+}).success(function (res) {
+    $scope.webTestingBtn2Disable= true;
+    $('#WebFile2').val(null);
+    $scope.ngModel1= "Preparation has been completed";
+
+    $scope.loading = false;
+})
+    .error(function (error) {
+       console.log(error,"Error")
+    })
+
+
+
+        };
+
+$scope.upload =function () {
+Upload.upload({
+    url:'/h',
+    method:'post',
+    data:$scope.files
+})
+}
+
         // For Mobile Testing
-        $scope.uploadPythonFile = function () {
+        $scope.uploadMobileFile1 = function () {
             $scope.loading = true;
 
             $('#mobilePrepareTestCaseModal1').modal('hide');
 
-
-
-
             Upload.upload({
-                url: '/h',
+                url: '/prepareMobileGUI',
                 method: 'POST',
-                // data: [],
-                data: $scope.files
+                data: $scope.mobileTestingFile1
             }).then(function (resp) {
 
 
@@ -414,15 +491,21 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         // For API Testing Part
-
+$scope.ApiFile2="";
+$scope.ApiFile1="";
+    $scope.user= {};
         $scope.uploadApiFile1 =function () {
             $('#modal8').modal('hide');
             $scope.loading = true;
+            $scope.files.push($scope.ApiFile1);
+            $scope.files.push($scope.ApiFile2);
+            console.log($scope.files)
+
             Upload.upload(
                 {
                     url: '/apiFile1',
                     method:'post',
-                    data:$scope.files,
+                    data:$scope.user
                     // file:$scope.files
                 }
 
@@ -442,25 +525,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         // Loader or Spinner
         $scope.loading = false;
-        // for apitTesting
-        $scope.apiModalPrepareTestCase = function () {
-            var iFrame = $('<iframe name = "myIFrame" id="iFrame"></iframe>');
-            $('body').append(iFrame);
-            document.getElementById('apiModalInputId').click();
-            $('#iFrame').hide();
-            $('#webPrepareTestCaseModal1').modal('hide');
 
-            setTimeout(function () {
-
-                $('#iFrame').remove();
-                // $('#iFrame').detach();
-
-            }, 3000);
-            $('.modal').modal('hide');
-            $scope.ngModel1 = "Preparation is in progress....Finished now...."
-
-
-        };
 
 
         $scope.openKantu = function () {
