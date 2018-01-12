@@ -227,7 +227,7 @@ UIRoutes.prototype.init = function() {
             console.log('stdout ');
         });
 
-    // Response for apiFile1 request
+    // Response for apiFile1 req
 
 
     app.post('/apiFile1',
@@ -235,11 +235,27 @@ UIRoutes.prototype.init = function() {
 
             var object = req.files;
             var count = Object.keys(object).length;
+            console.log("COUNTTTT",count)
 
-//             var length =req.files.length
             for (i=0;i<count;i++){
-                var fileName =req.files[i].name;
+                 value = 'file['+i+']'
+                
+                var fileData = req.files[value];
+                var fileName =req.files[value].name;
+
+            folder = baseFolder+'/API Testing'
+
+            if (!fs.existsSync(folder)){
+                fs.mkdirSync (folder)
             }
+            var inputFile = folder + '/' + fileName
+
+            fileData.mv (inputFile, function(err){
+                if (err)
+                    return res.status(500).send(err);
+            });
+            }
+            console.log ("The file has been moved.")
 
             res.end()
         })
@@ -251,16 +267,6 @@ UIRoutes.prototype.init = function() {
 
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
-
-            var object = req.files;
-            var count = Object.keys(object).length;
-
-            for (i=0;i<count;i++){
-                value = 'file['+i+']'
-                var fileName =req.files[value].name;
-                console.log("FILEEEEEEEEEEEE",fileName)
-
-            }
 
             global.sampleData = req.files['file[0]'];
             global.sampleFile = req.files['file[0]'].name;
