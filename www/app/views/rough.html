@@ -152,8 +152,9 @@
                     <br>
                     <label class="apiTestingLoadLabel2">Environment Variable (optional)</label>
                     <input   name="ApiFile2" ng-files="getApiFile1($files)" type="file" accept=".json" style="padding: 1% 0 1% 19%;"
-                           class="form-control"
-                           >
+                             class="form-control"
+                    >
+                  
                     <br>
                     <button class="btn btn-primary" type="submit"  style="margin-left: 35%;"
                             ng-disabled="(apiTestingBtn1Disable)" ng-click="uploadApiFile1()">Execute
@@ -161,7 +162,6 @@
                 </form>
 
             </div>
-
         </div>
 
     </div>
@@ -271,7 +271,7 @@
                                                                 </button>
                                                                 <br>
                                                                 <button class="btn btn-primary btn-block btnInModal "
-                                                                        ng-click='openPostman()'>
+                                                                        ng-click='openPostmanRecord()'>
                                                                     USING API
                                                                 </button>
 
@@ -646,11 +646,11 @@
 
 
                                                                 <button class="btn btn-primary btn-block"
-                                                                        ng-click="openRide()">FUNCTIONAL
+                                                                        ng-click="openPostman()">FUNCTIONAL
                                                                 </button>
                                                                 <br>
                                                                 <button class="btn btn-primary btn-block"
-                                                                        ng-click="openRide()">AUTOMATION
+                                                                        ng-click="openPostman()">AUTOMATION
                                                                 </button>
                                                                 <br>
                                                                 <button class="btn btn-primary btn-block"
@@ -755,7 +755,7 @@
                                                 <!--<br>-->
                                                 <button class="btn btn-primary apiStepBtn" type="button"
 
-                                                        ng-click="openPostman()">Prepare
+                                                        ng-click="openPostmanRecord()">Prepare
                                                     Test Case
                                                 </button>
                                             </div>

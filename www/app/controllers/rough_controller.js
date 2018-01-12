@@ -527,6 +527,7 @@ Upload.upload({
         };
 
 
+
         // For API Testing Part
 
         $scope.uploadApiFile1 =function () {
@@ -541,19 +542,18 @@ Upload.upload({
                     data:[],
                     file:$scope.apiFiles
                 }
-
+              
             ).then(function (resp) {
-                $scope.loading = false;
-                $('#apiTestingBtn1Disable').val(null);
-                    $scope.apiTestingBtn1Disable= true;
-            },
+                    $scope.loading = false;
+                    $('#apiTestingBtn1Disable').val(null);
+                        $scope.apiTestingBtn1Disable= true;
+                },
                 function (error) {
-                  console.log(error,"error")
+                    console.log(error,"error")
                 })
 
 
         };
-
         // Loader or Spinner
         $scope.loading = false;
 
@@ -674,6 +674,32 @@ Upload.upload({
             });
 
             $scope.ngModel1 = "Postman has opened..please remember to close it.";
+
+
+            // For Web Part
+
+// For Step 3
+            $('#webExecuteTestCaseModal3').modal('hide');
+            $('#webExecuteTestCaseModal4').modal('hide');
+
+// For Step 1
+            $('#wModal1').modal('hide');
+
+            // For Mobile Testing
+
+            // For Step 2
+            $('#modal5').modal('hide');
+
+        };
+
+
+        $scope.openPostmanRecord = function () {
+            $http({
+                method: 'post',
+                url: '/postmanRecord'
+            });
+
+            $scope.ngModel1 = "Postman and Chrome has opened..please remember to close them.";
 
 
             // For Web Part

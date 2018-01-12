@@ -46,7 +46,29 @@ UIRoutes.prototype.init = function() {
      
             child = shell.exec('START C:/Postman/Update.exe --processStart "Postman.exe"');
             res.end();
+
     }); 
+
+
+    app.post('/postmanRecord',
+    function(req, res){
+    
+     console.log("Came into Postman for recording.")
+     
+        child = shell.exec('START C:/Postman/Update.exe --processStart "Postman.exe"');
+        res.end();
+
+        child = exec('"C:/Program\ Files\ (x86)/Google/Chrome/Application/chrome.exe" --ignore-certificate-errors', (e, stdout, stderr)=>{
+            if (e instanceof Error) {
+                console.error(e);
+                throw e;
+            }
+        });
+        res.end();
+    });
+
+            
+
 
     app.post('/jenkins',
     function(req, res){
