@@ -230,18 +230,20 @@ UIRoutes.prototype.init = function() {
     // Response for apiFile1 req
 
 
-    app.post('/apiFile1',
+    app.post('/apiFileUploadAPI',
         function (req,res) {
 
             var object = req.files;
             var count = Object.keys(object).length;
-            console.log("COUNTTTT",count)
+            console.log("Number of Files : ",count)
 
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
                 
                 var fileData = req.files[value];
                 var fileName =req.files[value].name;
+
+                console.log ("File Uploaded : " ,fileName)
 
             folder = baseFolder+'/API Testing'
 
@@ -326,4 +328,7 @@ UIRoutes.prototype.init = function() {
             });
 
         });
+
+
+
 };
