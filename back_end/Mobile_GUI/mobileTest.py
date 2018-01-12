@@ -29,7 +29,7 @@ class mobileTest:
 		file.write('\t' +'appName   ='+'"'+app+'"'+'\n')
 		file.write('\t' +'thread1.createCSV(baseFolder,appName)'+'\n')
 		file.write('\t' +'thread1.start()'+'\n')
-		file.write('\t' +'os.system(\'Python ' + testCase[6] + '/'+ testCase[6] +'.py\')' + '\n')
+		file.write('\t' +'os.system(\'python ' + testCase[6] + '/'+ testCase[6] +'.py\')' + '\n')
 		file.write('\t' +'thread1.stop()')
 		
 		file.close()
