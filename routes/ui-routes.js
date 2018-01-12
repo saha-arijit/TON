@@ -96,19 +96,19 @@ UIRoutes.prototype.init = function() {
       		if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleFile = req.files.sampleFile;
+            global.sampleData = req.files['file[0]'];
+            global.sampleFile = req.files['file[0]'].name;
 
-            folderName = sampleFile.name.split ('.')
+            folderName = sampleFile.split('.')
 
             folder = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+ folderName[0]
             
             if (!fs.existsSync(folder)){
-				fs.mkdirSync (folder)
-			}	
+                fs.mkdirSync (folder)
+            }   
 
-          	global.inputFileName = folder + '/' + sampleFile.name
-
-            sampleFile.mv (inputFileName, function(err){
+            global.inputFileName = folder + '/' + sampleFile
+            sampleData.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
@@ -168,10 +168,10 @@ UIRoutes.prototype.init = function() {
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleFile = req.files.sampleFile;
-            flag = 1
+            global.sampleData = req.files['file[0]'];
+            global.sampleFile = req.files['file[0]'].name;
 
-            folderName = sampleFile.name.split ('.')
+            folderName = sampleFile.split('.')
 
             folder = baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ folderName[0]
             
@@ -179,8 +179,8 @@ UIRoutes.prototype.init = function() {
                 fs.mkdirSync (folder)
             }   
 
-            global.inputFileName = folder + '/' + sampleFile.name
-            sampleFile.mv (inputFileName, function(err){
+            global.inputFileName = folder + '/' + sampleFile
+            sampleData.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
@@ -293,8 +293,8 @@ UIRoutes.prototype.init = function() {
                 return res.status(400).send('No files were uploaded.');
 
 
-            global.sampleData = req.files['file[0]'];
-            global.sampleFile = req.files['file[0]'].name;
+            this.sampleData = req.files['file[0]'];
+            this.sampleFile = req.files['file[0]'].name;
 
             folderName = sampleFile.split ('.')
 
@@ -303,7 +303,7 @@ UIRoutes.prototype.init = function() {
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
             }
-            global.inputFileName = folder + '/' + sampleFile
+            this.inputFileName = folder + '/' + sampleFile
 
             sampleData.mv (inputFileName, function(err){
                 if (err)
