@@ -886,7 +886,9 @@
                                                                         <label>
                                                                             Choose Test Case .py File
                                                                         </label>
-                                                                        <input id="mobileTestingFile1" style="padding: 1% 0 1% 19%;"  ng-files="getFiles($files)" type="file" class="form-control">
+
+                                                                        <input id="mobileTestingFile1" accept=".py" style="padding: 1% 0 1% 19%;"  ng-files="getFiles($files)" type="file" class="form-control">
+
                                                                     </div>
 
                                                                     <button class="btn btn-primary"   ng-disabled="mobileTestingBtn1Disable" ng-click="uploadMobileFile1()" type="submit">Prepare</button>
