@@ -239,7 +239,6 @@ UIRoutes.prototype.init = function() {
 //             var length =req.files.length
             for (i=0;i<count;i++){
                 var fileName =req.files[i].name;
-
             }
 
             res.end()
@@ -253,8 +252,18 @@ UIRoutes.prototype.init = function() {
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleData = req.files[0];
-            global.sampleFile = req.files[0].name;
+            var object = req.files;
+            var count = Object.keys(object).length;
+
+            for (i=0;i<count;i++){
+                value = 'file['+i+']'
+                var fileName =req.files[value].name;
+                console.log("FILEEEEEEEEEEEE",fileName)
+
+            }
+
+            global.sampleData = req.files['file[0]'];
+            global.sampleFile = req.files['file[0]'].name;
 
             folderName = sampleFile.split ('.')
 
@@ -278,7 +287,7 @@ UIRoutes.prototype.init = function() {
                      console.error(e);
                      throw e;
                   }
-                  res.end();
+                 res.end();
                   console.log ("Done....")
                 });
             }catch (ex){
