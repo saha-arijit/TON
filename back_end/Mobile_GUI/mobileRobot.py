@@ -7,9 +7,7 @@ class mobileRobot :
 		
 		global robotFileName;
 		robotFileName = baseFolder+"/MobileTesting/GUI/"+appName+"/mobileTestcase.robot"	
-		# with open(testCase) as data_file:
-		# 	testFile = testCase.split('/')
-		# 	testCase = testCase.split('.')
+
 
 		if os.path.isfile(robotFileName):
 			print ("yes")
@@ -37,7 +35,6 @@ class mobileRobot :
 			with open(robotFileName) as myFile:
 				for num, line in enumerate(myFile, 1):
 					if testCase[0] in line:
-						print "Found it!!!!!!!!!!"
 						sys.exit ()				
 					if lookup in line:
 						index = num + 1

@@ -2,7 +2,7 @@ var exec        =    require('child_process').exec,
     fs          =    require('fs');
 var sleep       = require('system-sleep');
 
-var flag   =0
+var flag        =0
     current_dir = __dirname;
 
 var UIRoutes = function(app,opn,fileUpload,shell,exec) {
@@ -53,7 +53,6 @@ UIRoutes.prototype.init = function() {
       
      console.log("Came into Jenkins")
      
-            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
             child = shell.exec('Start chrome http://localhost:8080')
             res.end();
     }); 
@@ -62,8 +61,7 @@ UIRoutes.prototype.init = function() {
     function(req, res){
       
      console.log("Came into NotePad")
-     
-            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+
             child = shell.exec('START C:/Notepad++/notepad++.exe')
             res.end();
     }); 
@@ -77,7 +75,6 @@ UIRoutes.prototype.init = function() {
                 return res.status(400).send('No files were uploaded.');
 
             global.sampleFile = req.files.sampleFile;
-            //console.log("SAMPLE",sampleFile)
 
             folderName = sampleFile.name.split ('.')
 
@@ -86,11 +83,9 @@ UIRoutes.prototype.init = function() {
             if (!fs.existsSync(folder)){
 				fs.mkdirSync (folder)
 			}	
-			//global.inputFileName = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+sampleFile.name+'/' + sampleFile.name;
-          	// console.log("BASEFOLDER",inputFileName)
+
           	global.inputFileName = folder + '/' + sampleFile.name
-            console.log("SAMPLE FILE",sampleFile);
-            console.log("INPUT FILE",inputFileName);
+
             sampleFile.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
@@ -98,7 +93,6 @@ UIRoutes.prototype.init = function() {
 
             sleep(5000);
 
-            //child = shell.exec('python '+baseFolder+'/WebTesting/API/GUI/'+appName+'/Load_Json_Parser.py ' + inputFileName+' '+baseFolder);
             try{
             	child = exec('python '+forAPI+'/Load_Json_Parser.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
 		          if (e instanceof Error) {
@@ -153,7 +147,6 @@ UIRoutes.prototype.init = function() {
                 return res.status(400).send('No files were uploaded.');
 
             global.sampleFile = req.files.sampleFile;
-            console.log("SAMPLE",sampleFile)
             flag = 1
 
             folderName = sampleFile.name.split ('.')
@@ -163,8 +156,7 @@ UIRoutes.prototype.init = function() {
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
             }   
-            //global.inputFileName = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+sampleFile.name+'/' + sampleFile.name;
-            // console.log("BASEFOLDER",inputFileName)
+
             global.inputFileName = folder + '/' + sampleFile.name
             sampleFile.mv (inputFileName, function(err){
                 if (err)
@@ -247,7 +239,6 @@ UIRoutes.prototype.init = function() {
 //             var length =req.files.length
             for (i=0;i<count;i++){
                 var fileName =req.files[i].name;
-                console.log(fileName,"FileNameList");
 
             }
 
@@ -264,17 +255,16 @@ UIRoutes.prototype.init = function() {
 
             global.sampleData = req.files[0];
             global.sampleFile = req.files[0].name;
-            console.log("SAMPLE",sampleFile)
 
             folderName = sampleFile.split ('.')
 
             folder = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
-            
+
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
-            }   
+            }
             global.inputFileName = folder + '/' + sampleFile
-            
+
             sampleData.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
@@ -290,7 +280,7 @@ UIRoutes.prototype.init = function() {
                   }
                   res.end();
                   console.log ("Done....")
-                }); 
+                });
             }catch (ex){
                 console.log ("In error...")
                 console.log (ex)
