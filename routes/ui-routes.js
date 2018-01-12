@@ -2,7 +2,7 @@ var exec        =    require('child_process').exec,
     fs          =    require('fs');
 var sleep       = require('system-sleep');
 
-var flag   =0
+var flag        =0
     current_dir = __dirname;
 
 var UIRoutes = function(app,opn,fileUpload,shell,exec) {
@@ -75,7 +75,6 @@ UIRoutes.prototype.init = function() {
       
      console.log("Came into Jenkins")
      
-            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
             child = shell.exec('Start chrome http://localhost:8080')
             res.end();
     }); 
@@ -84,8 +83,7 @@ UIRoutes.prototype.init = function() {
     function(req, res){
       
      console.log("Came into NotePad")
-     
-            // child = shell.exec('START ' + baseFolder + "/bat_file/openJenkins.bat");
+
             child = shell.exec('START C:/Notepad++/notepad++.exe')
             res.end();
     }); 
@@ -98,9 +96,10 @@ UIRoutes.prototype.init = function() {
       		if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleFile = req.files[0];
+            global.sampleFile = req.files.sampleFile;
 
             folderName = sampleFile.name.split ('.')
+
             folder = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+ folderName[0]
             
             if (!fs.existsSync(folder)){
@@ -115,7 +114,6 @@ UIRoutes.prototype.init = function() {
             });
 
             sleep(5000);
-            console.log("The File was Moved")
 
             try{
             	child = exec('python '+forAPI+'/Load_Json_Parser.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
@@ -166,11 +164,11 @@ UIRoutes.prototype.init = function() {
     });
     app.post('/validate',
         function(req, res){
-            
+            console.log("came into validate");
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleFile = req.files[0];
+            global.sampleFile = req.files.sampleFile;
             flag = 1
 
             folderName = sampleFile.name.split ('.')
@@ -188,13 +186,12 @@ UIRoutes.prototype.init = function() {
             });
 
             sleep(5000);
-            console.log("The File was Moved")
 
             child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName+' '+baseFolder+' '+appName);
             res.end();
 
             var name = (inputFileName).split(".");
-
+            console.log("NAME",name)
             child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
@@ -221,7 +218,7 @@ UIRoutes.prototype.init = function() {
          if(err) {
              return console.log(err);
          }
-        console.log("The file was saved!");
+        console.log("The file was saved!" + appName);
         });
         child = exec('ride.py '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/TestCases.robot', (e, stdout, stderr)=> {
         if (e instanceof Error) {
@@ -252,21 +249,37 @@ UIRoutes.prototype.init = function() {
             console.log('stdout ');
         });
 
-    // Response for apiFile1 request
+    // Response for apiFile1 req
 
 
-    app.post('/apiFile1',
+    app.post('/apiFileUploadAPI',
         function (req,res) {
 
             var object = req.files;
             var count = Object.keys(object).length;
+            console.log("Number of Files : ",count)
 
-//             var length =req.files.length
             for (i=0;i<count;i++){
-                var fileName =req.files[i].name;
-                console.log(fileName,"FileNameList");
+                 value = 'file['+i+']'
+                
+                var fileData = req.files[value];
+                var fileName =req.files[value].name;
 
+                console.log ("File Uploaded : " ,fileName)
+
+            folder = baseFolder+'/API Testing'
+
+            if (!fs.existsSync(folder)){
+                fs.mkdirSync (folder)
             }
+            var inputFile = folder + '/' + fileName
+
+            fileData.mv (inputFile, function(err){
+                if (err)
+                    return res.status(500).send(err);
+            });
+            }
+            console.log ("The file has been moved.")
 
             res.end()
         })
@@ -274,29 +287,30 @@ UIRoutes.prototype.init = function() {
     app.post('/prepareMobileGUI',
         function(req, res){
             
-            console.log("came into prepareMobileGUI",req)
+            console.log("came into prepareMobileGUI...")
+
             if (!req.files)
                 return res.status(400).send('No files were uploaded.');
 
-            global.sampleData = req.files[0];
-            global.sampleFile = req.files[0].name;
-            //console.log("SAMPLE",sampleFile)
+
+            global.sampleData = req.files['file[0]'];
+            global.sampleFile = req.files['file[0]'].name;
 
             folderName = sampleFile.split ('.')
 
             folder = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
-            
+
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
-            }   
+            }
             global.inputFileName = folder + '/' + sampleFile
-            console.log("SAMPLE FILE",sampleFile);
-            console.log("INPUT FILE",inputFileName);
+
             sampleData.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
 
+            console.log ("The file has been moved.")
             sleep(5000);
             try{
                 child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
@@ -304,9 +318,9 @@ UIRoutes.prototype.init = function() {
                      console.error(e);
                      throw e;
                   }
-                  res.end();
+                 res.end();
                   console.log ("Done....")
-                }); 
+                });
             }catch (ex){
                 console.log ("In error...")
                 console.log (ex)
@@ -336,4 +350,7 @@ UIRoutes.prototype.init = function() {
             });
 
         });
+
+
+
 };
