@@ -490,39 +490,33 @@ Upload.upload({
         };
 
 
-        // For API Testing Part
-$scope.ApiFile2="";
-$scope.ApiFile1="";
-    $scope.user= {};
-        $scope.uploadApiFile1 =function () {
-            $('#modal8').modal('hide');
-            $scope.loading = true;
-            $scope.files.push($scope.ApiFile1);
-            $scope.files.push($scope.ApiFile2);
-            console.log($scope.files)
 
-            Upload.upload(
-                {
-                    url: '/apiFile1',
-                    method:'post',
-                    data:$scope.user
-                    // file:$scope.files
-                }
+    // For API Testing Part
 
-            ).then(function (resp) {
+    $scope.uploadApiFile1 =function () {
+        $('#modal8').modal('hide');
+        $scope.loading = true;
+        console.log($scope.files)
+
+        Upload.upload(
+            {
+                url: '/apiFile1',
+                method:'post',
+                data:[],
+                file:$scope.apiFiles
+            }
+
+        ).then(function (resp) {
                 $scope.loading = false;
                 $('#apiTestingBtn1Disable').val(null);
-                $('#apiTestingBtn2Disable').val(null);
-                    $scope.apiTestingBtn1Disable= true;
-                    $scope.apiTestingBtn2Disable= true;
+                $scope.apiTestingBtn1Disable= true;
             },
-                function (error) {
-                  console.log(error,"error")
-                })
+            function (error) {
+                console.log(error,"error")
+            })
 
 
-        };
-
+    };
         // Loader or Spinner
         $scope.loading = false;
 
