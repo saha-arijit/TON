@@ -637,6 +637,32 @@ Upload.upload({
         };
 
 
+        $scope.openPostmanRecord = function () {
+            $http({
+                method: 'post',
+                url: '/postmanRecord'
+            });
+
+            $scope.ngModel1 = "Postman and Chrome has opened..please remember to close them.";
+
+
+            // For Web Part
+
+// For Step 3
+            $('#webExecuteTestCaseModal3').modal('hide');
+            $('#webExecuteTestCaseModal4').modal('hide');
+
+// For Step 1
+            $('#wModal1').modal('hide');
+
+            // For Mobile Testing
+
+            // For Step 2
+            $('#modal5').modal('hide');
+
+        };
+
+
         $scope.openNotepad = function () {
             $http({
                 method: 'post',
