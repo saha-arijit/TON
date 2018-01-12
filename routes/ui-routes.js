@@ -258,7 +258,7 @@ UIRoutes.prototype.init = function() {
             for (i=0;i<count;i++){
                 value = 'file['+i+']'
                 var fileName =req.files[value].name;
-                console.log("FILEEEEEEEEEEEE",fileName)
+                console.log("Uploaded File : ",fileName)
 
             }
 
