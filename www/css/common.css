@@ -121,8 +121,8 @@
      background-color: #4b8ec9;
      text-align: center;
      padding-top: 1%;
-     padding-bottom: 4%;
-     width:80%;
+     padding-bottom: 6%;
+     /*width:80%;*/
      margin: auto;
 
  }.mobileDivBtn {
@@ -313,7 +313,7 @@ p.webSpeech-bubble {
     top: 20vh;
     /*left:0;*/
 
-}.apiModal1ForLoad {
+}.apiMoal1ForLoad {
      top:12vh ! important;
      position: fixed;
      /*left:0;*/
@@ -464,17 +464,6 @@ p.webSpeech-bubble {
 }.apiModalGUIApiHeadingStyle:hover{
      background-color: darkgrey;
  }
-
-.apiModalLoadHeadingStyle{
-    border: none;
-    cursor: default;
-    background-color: grey !important;
-    margin-bottom:10% !important;
-    /*margin-top:0 !important;*/
-
-}.apiModalLoadHeadingStyle:hover{
-     background-color: darkgrey;
- }
 .apiModalGUIBrowserHeadingStyle{
     border: none;
     cursor: default;
@@ -573,19 +562,19 @@ p.webSpeech-bubble {
     content: " *";
     color: red;
 }
-.apiTestingLoadLabel1{
+.apiTestingLoadabel1{
 
       margin-left:15% !important;
-  }.apiTestingLoadLabel2{
+  }.apiTestingLodLabel2{
 
        margin-left:16% !important;
-   }.apiTestingLoadLabel3{
+   }.apiTestingLodLabel3{
 
         margin-left:35% !important;
-    }.apiTestingLoadLabel4{
+    }.apiTestingLodLabel4{
 
          margin-left:33% !important;
-     }.apiTestingLoadLabel5{
+     }.apiTestingLoaLabel5{
 
           margin-left:28% !important;
       }
