@@ -89,10 +89,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#modal1').modal('hide');
 
         });
-        $('#Trigger8').on('click', function () {
-            $('#modal5').modal('hide');
 
-        });
 
 
 
@@ -162,7 +159,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.apiShowFunctional = false;
         $scope.apiShowAutomation = false;
         $scope.apiShowLoad = false;
-        $scope.apiModalLoadHeadingStyle = false;
+
 
 
 
@@ -240,12 +237,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#modal9').modal('hide');
             $('#modal1').modal('show');
         };
-
-        $scope.apiTestingViaGUILoadModalClose = function () {
-            $('#modal8').modal('hide');
-            $('#modal5').modal('show');
-        };
-
         $scope.apiTestingViaGUIApiModalClose = function () {
             $('#modal5').modal('hide');
             $('#modal2').modal('show');
@@ -531,7 +522,9 @@ Upload.upload({
         // For API Testing Part
 
         $scope.uploadApiFile1 =function () {
+
             $('#modal8').modal('hide');
+            $scope.ngModel1="Preparation is in progress..";
             $scope.loading = true;
             console.log($scope.files)
 
@@ -544,6 +537,8 @@ Upload.upload({
                 }
               
             ).then(function (resp) {
+                    $scope.ngModel1="Preparation has been completed..";
+
                     $scope.loading = false;
                     $('#apiTestingBtn1Disable').val(null);
                         $scope.apiTestingBtn1Disable= true;
@@ -600,6 +595,7 @@ Upload.upload({
 
             $('#mobileTestCaseModal').modal('hide');
             $('#mobileExecuteTestCaseModal2').modal('hide');
+            $('#modal5').modal('hide');
 
 
         };
