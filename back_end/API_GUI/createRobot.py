@@ -95,7 +95,7 @@ class createRobot :
 				for num, line in enumerate(myFile, 1):
 					if lookup in line:
 						index = num
-			value = "#Keyword 	Iterations	VirtualUsers	RampUP Period" + "\n" + "\t"+ "TC_"+testCase[0]+"	1	1	1" +"\n"
+			value =  "\t"+ "TC_"+testCase[0]+"	1	1	1" +"\n"
 			contents.insert(index, value)
 			file = open(robotFileName,"w")
 			contents = "".join(contents)
