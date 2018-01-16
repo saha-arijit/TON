@@ -251,24 +251,21 @@ UIRoutes.prototype.init = function() {
 
     // Response for apiFile1 req
 
-
-    app.post('/apiFileUploadAPI',
+ app.post('/apiFileUploadAPI',
         function (req,res) {
 
             var object = req.files;
             var count = Object.keys(object).length;
             console.log("Number of Files : ",count)
-
+            collFile = req.files['file[0]'].name.split('.json')
+            folder = baseFolder+'/APITesting/API/GUI/Demo_TON/'+collFile[0]
+            
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
                 
                 var fileData = req.files[value];
                 var fileName =req.files[value].name;
-
-                console.log ("File Uploaded : " ,fileName)
-
-            folder = baseFolder+'/API Testing'
-
+            
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
             }
@@ -279,10 +276,45 @@ UIRoutes.prototype.init = function() {
                     return res.status(500).send(err);
             });
             }
+            
+            
+            try{
+            if(count>1){
+                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ req.files['file[1]'].name
+                }
+            else{
+                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ "None"
+                }
+                
+                child = exec(cmd, (e, stdout, stderr)=> {
+                if (e instanceof Error) {
+                 console.error(e);
+                 throw e;
+                }
+                });
+            }
+            catch (ex){
+                console.log ("In error...")
+                console.log (ex)
+            }
+       
             console.log ("The file has been moved.")
 
             res.end()
         })
+
+     app.post('/executeAPIGUI',
+        function(req, res){
+        
+          child = exec('ride.py '+baseFolder+'/APITesting/API/GUI/'+appName+'/LoadTest.robot', (e, stdout, stderr)=> {
+          if (e instanceof Error) {
+             console.error(e);
+             throw e;
+          }
+          res.end();
+            });
+
+        });
 
     app.post('/prepareMobileGUI',
         function(req, res){
@@ -350,7 +382,5 @@ UIRoutes.prototype.init = function() {
             });
 
         });
-
-
 
 };

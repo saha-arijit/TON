@@ -538,10 +538,12 @@ Upload.upload({
               
             ).then(function (resp) {
                     $scope.ngModel1="Preparation has been completed..";
-
+ $('#apiTestingBtn2Disable').val(null);
                     $scope.loading = false;
                     $('#apiTestingBtn1Disable').val(null);
                         $scope.apiTestingBtn1Disable= true;
+                        $scope.apiFiles=[]
+                          $('#File1').val( null);
                 },
                 function (error) {
                     console.log(error,"error")
@@ -599,8 +601,28 @@ Upload.upload({
 
 
         };
+
+         $scope.openAPIRide = function () {
+            $http({
+                method: 'post',
+                url: '/executeAPIGUI'
+            });
+
+            $scope.ngModel1 = "Ride has opened..please remember to close it.";
+
+
+            $('#webExecuteTestCaseModal3').modal('hide');
+            $('#webExecuteTestCaseModal4').modal('hide');
+
+
+            $('#mobileTestCaseModal').modal('hide');
+            $('#mobileExecuteTestCaseModal2').modal('hide');
+            $('#modal5').modal('hide');
+
+
+        };
         
-        $scope.openAPIRide = function () { 
+        $scope.openWebAPIRide = function () { 
             $http({
                 method: 'post',
                 url: '/executeWebApi'
