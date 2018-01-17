@@ -174,7 +174,16 @@
 
     background-color: #4b8ec9;
 
-}.apiGroupInputBox {
+}
+.form-control:focus, textarea:focus,input:focus {
+    border:1px solid white  ;
+    /*border-color: white;*/
+    -webkit-x-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.apiGroupInputBox {
 
      background-color: #4b8ec9;
 

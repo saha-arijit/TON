@@ -17,26 +17,25 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-
-//
-// kibanaApp.directive("filesInput", function() {
-//     return {
-//         require: "ngModel",
-//         link: function postLink(scope,elem,attrs,ngModel) {
-//             elem.on("change", function(e) {
-//                 var files = elem[0].files;
-//                 ngModel.$setViewValue(files);
-//             })
-//         }
-//     }
-// })
     .controller('roughController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
 
         $scope.openPdf = function () {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
         }
 
-        $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????";
+        $scope.firstInputBox = "bubble works !!! Right????????????";
+        $scope.secondInputBox = "bubble works !!!!!!!!!! Right?";
+        $scope.thirdInputBox = "bubble works !!!!!!!!!! Right????????????";
+        $scope.fourthInputBox = "bubble works !!!!!!!!!! Right";
+
+
+
+        // document.getElementById('#hafegi').readOnly = true;
+// Over ALl Modal Restricting Function
+
+        $('.close').on('click',function () {
+            $('input[type=file]').val(null)
+        });
 
 
 // Over ALl Modal Triggerring Function
@@ -286,7 +285,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         // Initially MouseOver false for all functions
-        $scope.mouseOver = false;
+        $scope.mouseOverFirst = false;
+        $scope.mouseOverSecond = false;
+        $scope.mouseOverThird = false;
+        $scope.mouseOverFourth = false;
 
 
         $scope.files = [];
