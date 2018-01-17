@@ -41,9 +41,9 @@ class Load_json_Parser:
 		file.write('\t' + '\t' + '\t' + 'os.system(cmd)' + '\n')
 		file.write('\t' + '\t' + '\t' + 'time.sleep(int(ramp)/int(vuser))' + '\n')
 		file.close()
-		test = testCase[0]+".py"
-		print (base)
 		
+
+		test = testCase[0]+".py"
 		robot = createRobot()
 		robot.createTestFile(test, base)
 

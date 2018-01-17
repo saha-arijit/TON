@@ -91,45 +91,55 @@ UIRoutes.prototype.init = function() {
 
 	app.post('/prepareWebAPI',
     	function(req, res){
-
+            
             console.log("came into prepareAPI")
-      		if (!req.files)
-                return res.status(400).send('No files were uploaded.');
-
-            global.sampleData = req.files['file[0]'];
-            global.sampleFile = req.files['file[0]'].name;
-
-            folderName = sampleFile.split('.')
-
-            folder = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+ folderName[0]
-
+            var object = req.files;
+            var count = Object.keys(object).length;
+            console.log("Number of Files : ",count)
+            collFile = req.files['file[0]'].name.split('.json')
+            folder = baseFolder+'/WebTesting/API/GUI/Demo_TON/'+collFile[0]
+            
+            for (i=0;i<count;i++){
+                 value = 'file['+i+']'
+                
+                var fileData = req.files[value];
+                var fileName =req.files[value].name;
+            
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
             }
+            var inputFile = folder + '/' + fileName
 
-            global.inputFileName = folder + '/' + sampleFile
-            sampleData.mv (inputFileName, function(err){
+            fileData.mv (inputFile, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
-
-            sleep(5000);
-
-            try{
-            	child = exec('python '+forAPI+'/Load_Json_Parser.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
-		          if (e instanceof Error) {
-		             console.error(e);
-		             throw e;
-		          }
-		          res.end();
-		          console.log ("Done....")
-		        });
-            }catch (ex){
-            	console.log ("In error...")
-            	console.log (ex)
             }
+            
+            
+            try{
+            if(count>1){
+                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
+                }
+            else{
+                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder +' '+ "None"+' '+baseFolder+' '+appName
+                }
+                
+                child = exec(cmd, (e, stdout, stderr)=> {
+                if (e instanceof Error) {
+                 console.error(e);
+                 throw e;
+                }
+                });
+            }
+            catch (ex){
+                console.log ("In error...")
+                console.log (ex)
+            }
+       
+            console.log ("The file has been moved.")
 
-
+            res.end()
     });    
 
 
