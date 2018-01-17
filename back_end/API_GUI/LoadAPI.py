@@ -14,6 +14,9 @@ class Load_json_Parser:
 		print ("Directory Name :"  + base)
 		print ("Env File name :"+ envvar)
 		testCase = json.split('.')
+		if(testCase[0].find("-") >0):
+			testCase_temp = testCase[0].split("-")
+			testCase[0]=testCase_temp[0]
 		os.chdir(base)
 		file = open(testCase[0] +'.py' , 'w')
 		file.write('import sys'+'\n')
