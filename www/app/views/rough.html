@@ -352,20 +352,22 @@
                                                                         ng-class="{'webModalForAPIHeadingStyle':webModalForAPIHeadingStyle}">
                                                                     For API
                                                                 </button>
-
-                                                                <form>
-                                                                    <label>Choose a Postman .json Collection File</label>
-
-                                                                    <input  id="WebFile2" type="file" accept=".json"
-                                                                           style="padding: 1% 0 1% 20%"  ng-files="getFiles($files)" name="sampleFile"
-                                                                           class="form-control"
-                                                                           >
+                                                                <form name="webTestingApiform1">
+                                                                    <label class="labelMandatory ">Upload Postman Collection</label>
+                                                                    <input id="WebFile2"   ng-files="getFiles($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
+                                                                           class="form-control">
                                                                     <br>
-                                                                    <button class="btn btn-primary"
-                                                                            ng-disabled="webTestingBtn2Disable"
-                                                                            ng-click="uploadWebFile2()">Prepare
+                                                                    <label >Environment Variable (optional)</label>
+                                                                    <input  id="WebFile3"   ng-files="getFiles($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
+                                                                            class="form-control"
+                                                                    >
+
+                                                                    <br>
+                                                                    <button class="btn btn-primary" type="submit"
+                                                                            ng-disabled="(webTestingBtn2Disable)" ng-click="uploadWebFile2()">Prepare
                                                                     </button>
                                                                 </form>
+
 
 
 
@@ -747,7 +749,7 @@
 
                                                                     <br>
                                                                     <button class="btn btn-primary" type="submit"
-                                                                            ng-disabled="(apiTestingBtn1Disable)" ng-click="uploadApiFile1()">Execute
+                                                                            ng-disabled="(apiTestingBtn1Disable)" ng-click="uploadApiFile1()">Prepare
                                                                     </button>
                                                                 </form>
 
