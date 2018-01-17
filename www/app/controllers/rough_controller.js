@@ -131,12 +131,17 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // Ng Model function
         $('#webTestingModel').on('click', function () {
             $scope.ngModel1 = "";
+                      var href ='/assets/pdf.pdf';$('#userManual').attr('href',href)
         });
         $('#apiTestingModel').on('click', function () {
             $scope.ngModel1 = "";
+                     var href ='/assets/pdf2.pdf';
+                      $('#userManual').attr('href',href)
         });
         $('#mobileTestingModel').on('click', function () {
             $scope.ngModel1 = "";
+                       var href ='/assets/pdf3.pdf';
+                       $('#userManual').attr('href',href)
         });
 
 
