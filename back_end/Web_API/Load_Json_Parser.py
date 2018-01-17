@@ -14,6 +14,7 @@ class Load_json_Parser:
 		file = open(json +'.py' , 'w')
 		file.write('import sys'+'\n')
 		file.write('import os'+'\n')
+		file.write('import time'+'\n' + '\n')
 		file.write("sys.path.insert(0,'"+root+location+"')"+"\n")
 		file.write('from Load_Thread import myThread' + '\n')
 		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
