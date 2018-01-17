@@ -311,7 +311,7 @@
                                                                     <input id="WebFile1" type="file" accept=".json" name="sampleFile"
                                                                            style="padding: 1% 0 1% 20%"
                                                                            class="form-control"
-                                                                             ng-files="getFiles($files)">
+                                                                           ng-files="getFiles($files)">
                                                                     <br>
                                                                     <button class="btn btn-primary"
                                                                             ng-disabled="webTestingBtn1Disable"
@@ -354,11 +354,11 @@
                                                                 </button>
                                                                 <form name="webTestingApiform1">
                                                                     <label class="labelMandatory ">Upload Postman Collection</label>
-                                                                    <input id="WebFile2"   ng-files="getFiles($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
+                                                                    <input id="WebFile2"   ng-files="getWebFile1($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
                                                                            class="form-control">
                                                                     <br>
                                                                     <label >Environment Variable (optional)</label>
-                                                                    <input  id="WebFile3"   ng-files="getFiles($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
+                                                                    <input  id="WebFile3"   ng-files="getWebFile2($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
                                                                             class="form-control"
                                                                     >
 
@@ -656,7 +656,7 @@
                                                         {{firstInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
-                                                                <div style="padding: 6% 0 20.2% 10%">
+                                                    <div style="padding: 6% 0 20.2% 10%">
                                                         <input type="text" class="form-control webGroupInputBox"
                                                                ng-mouseover="mouseOver=true"
                                                                ng-mouseleave="mouseOver=false">
@@ -743,8 +743,8 @@
                                                                            class="form-control">
                                                                     <br>
                                                                     <label >Environment Variable (optional)</label>
-                                                                    <input  id="apiTestingBtn2Disable"  name="ApiFile2" ng-files="getApiFile1($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
-                                                                             class="form-control"
+                                                                    <input  id="apiTestingBtn2Disable"  name="ApiFile2" ng-files="getApiFile2($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
+                                                                            class="form-control"
                                                                     >
 
                                                                     <br>
@@ -867,8 +867,8 @@
 
 
                                                 <!-- Trigger the Mobile modal with a button -->
-                                               <button type="button" class="btn btn-primary mobileStepBtn" data-toggle="modal"
-                                                       data-target="#mobilePrepareTestCaseModal1"
+                                                <button type="button" class="btn btn-primary mobileStepBtn" data-toggle="modal"
+                                                        data-target="#mobilePrepareTestCaseModal1"
                                                 >Prepare Test Case</button>
 
 
@@ -934,7 +934,7 @@
                                                                         data-target="#mobileExecuteTestCaseModal2"
                                                                         data-toggle="modal"
                                                                         id="mobileExecuteTestCaseTrigger2"
-                                                                ng-click="mobileModalViaGUIHeadingStyle=true">Via GUI
+                                                                        ng-click="mobileModalViaGUIHeadingStyle=true">Via GUI
                                                                 </button>
                                                                 <br>
                                                                 <button class="btn btn-primary btn-block"
@@ -973,11 +973,11 @@
                                                             <div class="modal-body">
 
                                                                 <button class="btn btn-primary btn-block"
-                                                                       ng-class="{'mobileModalViaGUIHeadingStyle':mobileModalViaGUIHeadingStyle}">Via GUI
+                                                                        ng-class="{'mobileModalViaGUIHeadingStyle':mobileModalViaGUIHeadingStyle}">Via GUI
                                                                 </button>
                                                                 <a role="button"
                                                                    class="btn btn-primary btn-block"
-                                                                    data-toggle="modal"
+                                                                   data-toggle="modal"
                                                                    data-target="#singleModal"
                                                                    ng-click="openMobileRide()">FUNCTIONAL
                                                                 </a>
@@ -1167,10 +1167,8 @@
             </div>
 
             <br>
-            <a id="userManual" href="/assets/pdf.pdf" target="_blank" style="text-decoration: none;font-size: medium;color:white;pading-left: 20%;text-align: left">
-                <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</a>
- <!--<p style="font-size: medium;color:white;pading-left: 20%;text-align: left">-->
-                <!--<i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</p>-->
+            <p style="font-size: medium;color:white;pading-left: 20%;text-align: left">
+                <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</p>
 
             <!--<a href="#">-->
             <!--<img clss="img-responsive"-->

@@ -131,18 +131,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // Ng Model function
         $('#webTestingModel').on('click', function () {
             $scope.ngModel1 = "";
-            var href ='/assets/pdf.pdf';
-            $('#userManual').attr('href',href)
         });
         $('#apiTestingModel').on('click', function () {
             $scope.ngModel1 = "";
-            var href ='/assets/pdf2.pdf';
-            $('#userManual').attr('href',href)
         });
         $('#mobileTestingModel').on('click', function () {
             $scope.ngModel1 = "";
-            var href ='/assets/pdf3.pdf';
-            $('#userManual').attr('href',href)
         });
 
 
@@ -291,9 +285,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         $scope.files = [];
-        $scope.apiFiles = [];
-        // $scope.apiFile2 = [];
-        // $scope.apiFile2 = [];
+
+        $scope.webFile1 = [];
+        $scope.webFile2 = [];
+        $scope.apiFile2 = [];
+        $scope.apiFile2 = [];
 
 
 
@@ -390,19 +386,35 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // Uploading Files Function
 
         // For Web Testing
-        // $scope.fileName=[]
+
         $scope.getFiles = function($files) {
 
             for (var k = 0; k < $files.length; k++) {
-                // $scope.files=[];
+                $scope.files=[];
                 $scope.files.push($files[k])
 
             }
             console.log( $scope.files,"QuestionFilesList")
 
-            // angular.forEach($files, function(value, key) {
-            //     $scope.fileName.push({ name: value.name });
-            // });
+            $scope.$apply();
+        };  $scope.getWebFile1 = function($files) {
+
+            for (var k = 0; k < $files.length; k++) {
+                $scope.webFile1=[];
+                $scope.webFile1.push($files[k])
+
+            }
+            console.log( $scope.files,"QuestionFilesList")
+
+            $scope.$apply();
+        };$scope.getWebFile2 = function($files) {
+
+            for (var k = 0; k < $files.length; k++) {
+                $scope.webFile2=[];
+                $scope.webFile2.push($files[k])
+
+            }
+            console.log( $scope.files,"QuestionFilesList")
             $scope.$apply();
         };
 
@@ -410,32 +422,24 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.getApiFile1 = function($files) {
 
             for (var k = 0; k < $files.length; k++) {
-
-                $scope.apiFiles.push($files[k])
+                $scope.apiFile1=[];
+                $scope.apiFile1.push($files[k])
 
             }
             console.log( $scope.files,"QuestionFilesList")
-
-            // angular.forEach($files, function(value, key) {
-            //     $scope.fileName.push({ name: value.name });
-            // });
             $scope.$apply();
         };
 
-        // $scope.getApiFile2 = function($files) {
-        //
-        //     for (var k = 0; k < $files.length; k++) {
-        //
-        //         $scope.apiFile2.push($files[k])
-        //
-        //     }
-        //     console.log( $scope.files,"QuestionFilesList")
-        //
-        //     // angular.forEach($files, function(value, key) {
-        //     //     $scope.fileName.push({ name: value.name });
-        //     // });
-        //     $scope.$apply();
-        // };
+        $scope.getApiFile2 = function($files) {
+
+            for (var k = 0; k < $files.length; k++) {
+
+                $scope.apiFile2=[];
+                $scope.apiFile2.push($files[k])
+            }
+            console.log( $scope.files,"QuestionFilesList")
+            $scope.$apply();
+        };
 
         $scope.uploadWebFile1 = function () {
             $scope.ngModel1= "Preparation is in progress..."; $scope.ngModel1= "Preparation has been completed";
@@ -443,22 +447,22 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#webPrepareTestCaseModal1').modal('hide');
             // console.log($scope.WebFile1.length)
 
-Upload.upload({
-    url:'/validate',
-    method:'post',
-    data:[],
-    file:$scope.files
+            Upload.upload({
+                url:'/validate',
+                method:'post',
+                data:[],
+                file:$scope.files
 
-}).success(function (res) {
-    $scope.webTestingBtn1Disable= true;
-    $('#WebFile1').val(null);
-    $scope.ngModel1= "Preparation has been completed";
+            }).success(function (res) {
+                $scope.webTestingBtn1Disable= true;
+                $('#WebFile1').val(null);
+                $scope.ngModel1= "Preparation has been completed";
 
-    $scope.loading = false;
-})
-    .error(function (error) {
-       console.log(error,"Error")
-    })
+                $scope.loading = false;
+            })
+                .error(function (error) {
+                    console.log(error,"Error")
+                })
 
 
 
@@ -467,37 +471,38 @@ Upload.upload({
 
 
         $scope.uploadWebFile2 = function () {
+            $scope.files=$scope.webFile1.concat($scope.webFile2);
             $scope.ngModel1= "Preparation is in progress...";
             $scope.loading = true;
             $('#webPrepareTestCaseModal2').modal('hide');
-Upload.upload({
-    url:'/prepareWebAPI',
-    method:'post',
-    data:[],
-    file:$scope.files
-}).success(function (res) {
-    $scope.ngModel1= "Preparation has been completed...";
-    $scope.loading = false;
-    $scope.webTestingBtn2Disable= true;
-    $('#WebFile2').val(null);
-    $('#WebFile3').val(null);
-    $scope.files=[];
-})
-    .error(function (error) {
-       console.log(error,"Error")
-    })
+            Upload.upload({
+                url:'/prepareWebAPI',
+                method:'post',
+                data:[],
+                file:$scope.files
+            }).success(function (res) {
+                $scope.ngModel1= "Preparation has been completed...";
+                $scope.loading = false;
+                $scope.webTestingBtn2Disable= true;
+                $('#WebFile2').val(null);
+                $('#WebFile3').val(null);
+                $scope.files=[];
+            })
+                .error(function (error) {
+                    console.log(error,"Error")
+                })
 
 
 
         };
 
-$scope.upload =function () {
-Upload.upload({
-    url:'/h',
-    method:'post',
-    data:$scope.files
-})
-}
+        $scope.upload =function () {
+            Upload.upload({
+                url:'/h',
+                method:'post',
+                data:$scope.files
+            })
+        }
 
         // For Mobile Testing
         $scope.uploadMobileFile1 = function () {
@@ -517,8 +522,8 @@ Upload.upload({
                 $scope.ngModel1= "Preparation has been completed..";
                 $scope.loading = false;
                 $scope.name = "";
-
-                    $('#mobileTestingFile1').val( null);
+                $scope.files=[];
+                $('#mobileTestingFile1').val( null);
                 $scope.mobileTestingBtn1Disable= true;
 
 
@@ -535,23 +540,26 @@ Upload.upload({
             $scope.ngModel1="Preparation is in progress...";
             $scope.loading = true;
             console.log($scope.files)
-
+            $scope.files=$scope.apiFile1.concat($scope.apiFile2)
             Upload.upload(
+
+
+
                 {
                     url: '/apiFileUploadAPI',
                     method:'post',
                     data:[],
-                    file:$scope.apiFiles
+                    file:$scope.files
                 }
-              
+
             ).then(function (resp) {
                     $scope.ngModel1="Preparation has been completed...";
- $('#apiTestingBtn2Disable').val(null);
+                    $('#apiTestingBtn2Disable').val(null);
                     $scope.loading = false;
                     $('#apiTestingBtn1Disable').val(null);
-                        $scope.apiTestingBtn1Disable= true;
-                        $scope.apiFiles=[]
-                          $('#File1').val( null);
+                    $scope.apiTestingBtn1Disable= true;
+                    $scope.files=[];
+                    $('#File1').val( null);
                 },
                 function (error) {
                     console.log(error,"error")
@@ -610,7 +618,7 @@ Upload.upload({
 
         };
 
-         $scope.openAPIRide = function () {
+        $scope.openAPIRide = function () {
             $http({
                 method: 'post',
                 url: '/executeAPIGUI'
@@ -629,8 +637,8 @@ Upload.upload({
 
 
         };
-        
-        $scope.openWebAPIRide = function () { 
+
+        $scope.openWebAPIRide = function () {
             $http({
                 method: 'post',
                 url: '/executeWebApi'
@@ -648,7 +656,7 @@ Upload.upload({
 
         };
 
-        $scope.openMobileRide = function () { 
+        $scope.openMobileRide = function () {
             $http({
                 method: 'post',
                 url: '/executeMobileGUI'
