@@ -394,7 +394,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.getFiles = function($files) {
 
             for (var k = 0; k < $files.length; k++) {
-                $scope.files=[];
+                // $scope.files=[];
                 $scope.files.push($files[k])
 
             }
@@ -465,6 +465,7 @@ Upload.upload({
         };
 
 
+
         $scope.uploadWebFile2 = function () {
             $scope.ngModel1= "Preparation is in progress...";
             $scope.loading = true;
@@ -475,11 +476,12 @@ Upload.upload({
     data:[],
     file:$scope.files
 }).success(function (res) {
+    $scope.ngModel1= "Preparation has been completed...";
+    $scope.loading = false;
     $scope.webTestingBtn2Disable= true;
     $('#WebFile2').val(null);
-    $scope.ngModel1= "Preparation has been completed";
-
-    $scope.loading = false;
+    $('#WebFile3').val(null);
+    $scope.files=[];
 })
     .error(function (error) {
        console.log(error,"Error")
@@ -512,7 +514,7 @@ Upload.upload({
                 file:$scope.files
             }).then(function (resp) {
 
-                $scope.ngModel1= "Preparation has been completed";
+                $scope.ngModel1= "Preparation has been completed..";
                 $scope.loading = false;
                 $scope.name = "";
 
@@ -530,7 +532,7 @@ Upload.upload({
         $scope.uploadApiFile1 =function () {
 
             $('#modal8').modal('hide');
-            $scope.ngModel1="Preparation is in progress..";
+            $scope.ngModel1="Preparation is in progress...";
             $scope.loading = true;
             console.log($scope.files)
 
@@ -543,7 +545,7 @@ Upload.upload({
                 }
               
             ).then(function (resp) {
-                    $scope.ngModel1="Preparation has been completed..";
+                    $scope.ngModel1="Preparation has been completed...";
  $('#apiTestingBtn2Disable').val(null);
                     $scope.loading = false;
                     $('#apiTestingBtn1Disable').val(null);

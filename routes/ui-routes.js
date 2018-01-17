@@ -91,7 +91,7 @@ UIRoutes.prototype.init = function() {
 
 	app.post('/prepareWebAPI',
     	function(req, res){
-            
+
             console.log("came into prepareAPI")
       		if (!req.files)
                 return res.status(400).send('No files were uploaded.');
@@ -102,10 +102,10 @@ UIRoutes.prototype.init = function() {
             folderName = sampleFile.split('.')
 
             folder = baseFolder+'/WebTesting/API/GUI/'+appName+'/'+ folderName[0]
-            
+
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
-            }   
+            }
 
             global.inputFileName = folder + '/' + sampleFile
             sampleData.mv (inputFileName, function(err){
@@ -123,12 +123,12 @@ UIRoutes.prototype.init = function() {
 		          }
 		          res.end();
 		          console.log ("Done....")
-		        });	
+		        });
             }catch (ex){
             	console.log ("In error...")
             	console.log (ex)
             }
-            
+
 
     });    
 
