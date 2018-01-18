@@ -625,9 +625,46 @@
                                         <div class="col-md-3">
                                             <div class="webDivBtn">
                                                 <h4 class="stepTextColor">Step 4</h4>
-                                                <button class="btn btn-primary webStepBtn" ng-click="analyze()">Analyze
+                                                <button class="btn btn-primary webStepBtn"
+                                                        data-toggle="modal"
+                                                        data-backdrop="static" data-keyboard="false"
+                                                        data-target="#webAnalyzeModal"
+                                                >Analyze
                                                     Results
                                                 </button>
+
+
+                                                <!--webAnalyzeModal-->
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="webAnalyzeModal" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;
+                                                                </button>
+                                                                <h4 class="modal-title">Analyze Results</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <button type="button" class="btn btn-primary btn-block"
+                                                                     ng-click="analyze()"  >For Browser
+                                                                </button>
+                                                                <br>
+                                                                <button type="button" class="btn btn-primary btn-block"
+                                                                        ng-click="apiAnalyze()"
+                                                                        >For API
+                                                                </button>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

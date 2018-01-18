@@ -718,9 +718,38 @@ var x= $(window).height();
         };
 
         $scope.analyze = function () {
+            $('#webAnalyzeModal').modal('hide');
+
             $http({
                 method: 'post',
                 url: '/analyze'
+            }).then(function success(response) {
+
+                console.log("resp", response)
+            }, function error(error) {
+
+                console.log("err", error)
+            });
+            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ngModel1 = ''
+                })
+            }, 9000);
+
+            // setTimeout(function () {
+            //     $scope.ngModel1="";
+            // },100)
+
+
+            // $('#webTestingModal').modal('hide')
+
+
+        };   $scope.apiAnalyze = function () {
+            $('#webAnalyzeModal').modal('hide');
+            $http({
+                method: 'post',
+                url: '/analyzeWebApi'
             }).then(function success(response) {
 
                 console.log("resp", response)
