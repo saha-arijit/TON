@@ -290,10 +290,10 @@ UIRoutes.prototype.init = function() {
             
             try{
             if(count>1){
-                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ req.files['file[1]'].name
+                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
                 }
             else{
-                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ "None"
+                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ "None"+' '+baseFolder+' '+appName
                 }
                 
                 child = exec(cmd, (e, stdout, stderr)=> {
@@ -316,7 +316,17 @@ UIRoutes.prototype.init = function() {
      app.post('/executeAPIGUI',
         function(req, res){
         
-          child = exec('ride.py '+baseFolder+'/APITesting/API/GUI/'+appName+'/LoadTest.robot', (e, stdout, stderr)=> {
+        dataFile = baseFolder+"/APITesting/API/GUI/"+appName+"/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+          
+        fs.writeFile(dataFile,ColumnNamesList , function(err) {
+         if(err) {
+             return console.log(err);
+         }
+        console.log("The file was saved!");
+        });
+        
+        child = exec('ride.py '+baseFolder+'/APITesting/API/GUI/'+appName+'/LoadTest.robot', (e, stdout, stderr)=> {
           if (e instanceof Error) {
              console.error(e);
              throw e;

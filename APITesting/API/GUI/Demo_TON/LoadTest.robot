@@ -1,19 +1,19 @@
 *** Settings ***
-Library           D:/TON/APITesting/API/GUI/Demo_TON/FlipkartCollection/FlipkartCollection.py
-Library           D:/TON/APITesting/API/GUI/Demo_TON/BF_Signup/BF_Signup.py
+Library           AF_NFV_001/AF_NFV_001.py
+Library           AF_Bell_Demo/AF_Bell_Demo.py
 
 *** Variables ***
 
 *** Test Cases ***
-BF_Signup
+AF_Bell_Demo
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_BF_Signup	1	1	1
-FlipkartCollection
+	TC_AF_Bell_Demo	1	1	1
+AF_NFV_001
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_FlipkartCollection	1	1	1
+	TC_AF_NFV_001	1	1	1
 AL_Run_All
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_FlipkartCollection	1	1	1
-	TC_BF_Signup	1	1	1
+	TC_AF_NFV_001	1	1	1
+	TC_AF_Bell_Demo	1	1	1
 
 *** Keywords ***
