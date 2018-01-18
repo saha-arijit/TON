@@ -6,7 +6,7 @@ class viewAnalytics:
 
 	def confToLogstash(self,baseFolder,appName):
 		
-		confFile = baseFolder+"/bat_file/APIconf.bat"
+		confFile = baseFolder+"/bat_file/WebAPIconf.bat"
 		os.system ('start '+ confFile)
 		self.baseFolder = baseFolder
 
@@ -21,7 +21,7 @@ class viewAnalytics:
 
 	def setVisualization(self,baseFolder,appName):
 
-		command = "elasticdump --input="+baseFolder+"/back_end/Web_API/api.json --output=http://localhost:9200/.kibana"
+		command = "elasticdump --input="+baseFolder+"/back_end/Web_API/WebAPI.json --output=http://localhost:9200/.kibana"
 		os.system(command)
 
 
