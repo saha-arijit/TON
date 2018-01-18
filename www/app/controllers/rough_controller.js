@@ -602,6 +602,7 @@ var x= $(window).height();
                     $('#apiTestingBtn1Disable').val(null);
                     $scope.apiTestingBtn1Disable= true;
                     $scope.files=[];
+                    $scope.apiFile2=[];
                     $('#File1').val( null);
                 },
                 function (error) {
