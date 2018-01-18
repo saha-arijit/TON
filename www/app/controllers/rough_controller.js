@@ -132,7 +132,19 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         });
+var x= $(window).height();
 
+        var a = (x/113)+'%';
+        var b = 0;
+        var c = (x/33.3)+'%';
+        var d = (x/67)+'%';
+        var y = a +" "+b+" "+c+" "+d;
+
+        console.log(y);
+        $("#id").each(function() {
+            $(this).css("padding", y);
+        });
+    // $('#id').css('padding-bottom',20%)
 // Disabling the API Testing - api Functional modal
         $scope.apiShowFunctional = false;
 
