@@ -103,6 +103,11 @@
     font-size: large;
     margin-left: -50px;
 }
+.force-to-bottom {
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+}
 
 .row-color {
     text-align: center;
