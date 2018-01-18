@@ -530,6 +530,7 @@ var x= $(window).height();
                 $('#WebFile2').val(null);
                 $('#WebFile3').val(null);
                 $scope.files=[];
+                $scope.webFile2=[];
             })
                 .error(function (error) {
                     console.log(error,"Error")
