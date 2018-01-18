@@ -17,26 +17,35 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-
-//
-// kibanaApp.directive("filesInput", function() {
-//     return {
-//         require: "ngModel",
-//         link: function postLink(scope,elem,attrs,ngModel) {
-//             elem.on("change", function(e) {
-//                 var files = elem[0].files;
-//                 ngModel.$setViewValue(files);
-//             })
-//         }
-//     }
-// })
     .controller('roughController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
 
         $scope.openPdf = function () {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
         }
 
-        $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????";
+        $scope.firstWebInputBox = "bubble works !!! Right????????????";
+        $scope.secondWebInputBox = "bubble works !!!!!!!!!! Right?";
+        $scope.thirdWebInputBox = "bubble works !!!!!!!!!! Right????????????";
+        $scope.fourthWebInputBox = "bubble works !!!!!!!!!! Right";
+
+ $scope.firstApiInputBox = "bubble works !!! Right????????????";
+        $scope.secondApiInputBox = "bubble works !!!!!!!!!! Right?";
+        $scope.thirdApiInputBox = "bubble works !!!!!!!!!! Right????????????";
+        $scope.fourthApiInputBox = "bubble works !!!!!!!!!! Right";
+
+ $scope.firstMobileInputBox = "bubble works !!! Right????????????";
+        $scope.secondMobileInputBox = "bubble works !!!!!!!!!! Right?";
+        $scope.thirdMobileInputBox = "bubble works !!!!!!!!!! Right????????????";
+        $scope.fourthMobileInputBox = "bubble works !!!!!!!!!! Right";
+
+
+
+        // document.getElementById('#hafegi').readOnly = true;
+// Over ALl Modal Restricting Function
+
+        $('.close').on('click',function () {
+            $('input[type=file]').val(null)
+        });
 
 
 // Over ALl Modal Triggerring Function
@@ -286,7 +295,24 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         // Initially MouseOver false for all functions
-        $scope.mouseOver = false;
+        $scope.webMouseOverFirst = false;
+        $scope.webMouseOverSecond = false;
+        $scope.webMouseOverThird = false;
+        $scope.webMouseOverFourth = false;
+
+        // For ApiPart
+
+        $scope.apiMouseOverFirst = false;
+        $scope.apiMouseOverSecond = false;
+        $scope.apiMouseOverThird = false;
+        $scope.apiMouseOverFourth = false;
+// For Mobile Part
+
+        $scope.mobileMouseOverFirst = false;
+        $scope.mobileMouseOverSecond = false;
+        $scope.mobileMouseOverThird = false;
+        $scope.mobileMouseOverFourth = false;
+
 
 
         $scope.files = [];

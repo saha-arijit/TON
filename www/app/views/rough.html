@@ -18,11 +18,11 @@
             <div class="modal-body">
 
                 <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal2"
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#modal2"
                         id="Trigger2" ng-click="apiModalViaGUIHeadingStyle=true">Via GUI
                 </button>
                 <br>
-                <button type="button" class="btn btn-primary  btn-block" data-toggle="modal" data-target="#modal9"
+                <button type="button" class="btn btn-primary  btn-block" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#modal9"
                         id="Trigger9"
                         ng-click="modalViaTestOpsHeadingStyle=true">Via TestOps
                 </button>
@@ -58,7 +58,7 @@
                         ng-class="{'apiModalViaGUIHeadingStyle':apiModalViaGUIHeadingStyle}">Via GUI
                 </button>
                 <button type="button" class="btn btn-primary  btn-block" data-toggle="modal"
-                        data-target="#modal5" id="Trigger3" ng-click="apiModalGUIApiHeadingStyle=true">API
+                        data-target="#modal5" data-backdrop="static" data-keyboard="false" id="Trigger3" ng-click="apiModalGUIApiHeadingStyle=true">API
                 </button>
             </div>
 
@@ -193,7 +193,7 @@
                                                 <!--<br>-->
                                                 <button class="btn btn-primary webStepBtn" type="submit"
                                                         data-toggle="modal"
-                                                        data-target="#wModal1"
+                                                        data-target="#wModal1" data-backdrop="static" data-keyboard="false"
                                                         ng-click="ngModel1=''">Record Test Case
                                                 </button>
 
@@ -239,6 +239,7 @@
                                                 <h4 class="stepTextColor">Step 2</h4>
                                                 <button class="btn btn-primary webStepBtn" type="button"
                                                         data-toggle="modal" ng-click="ngModel1=''"
+                                                        data-backdrop="static" data-keyboard="false"
                                                         data-target="#webPrepareTestCaseModal">Prepare
                                                     Test Case
                                                 </button>
@@ -261,6 +262,7 @@
                                                             <div class="modal-body">
                                                                 <button type="button" class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#webPrepareTestCaseModal1"
                                                                         ng-click="webModalForBrowserHeadingStyle=true"
                                                                         id="webTestingForBrowserTrigger1">For Browser
@@ -268,6 +270,7 @@
                                                                 <br>
                                                                 <button type="button" class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#webPrepareTestCaseModal2"
                                                                         ng-click="webModalForAPIHeadingStyle=true"
                                                                         id="webTestingForBrowserTrigger2">For API
@@ -388,6 +391,7 @@
                                             <div class="webDivBtn">
                                                 <h4 class="stepTextColor">Step 3</h4>
                                                 <button class="btn btn-primary webStepBtn" data-toggle="modal"
+                                                        data-backdrop="static" data-keyboard="false"
                                                         data-target="#webExecuteTestCaseModal1"
                                                         ng-click="ngModel1=''"
                                                 >Execute Test Case
@@ -409,6 +413,7 @@
                                                             <div class="modal-body">
                                                                 <button class="btn btn-primary btn-block "
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#webExecuteTestCaseModal2"
                                                                         id="webTestingViaGUITrigger2"
                                                                         ng-click="webModalViaGUIHeadingStyle=true">Via
@@ -416,6 +421,7 @@
                                                                 </button>
                                                                 <br>
                                                                 <button class="btn btn-primary btn-block"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-toggle="modal"
                                                                         data-target="#webExecuteTestCaseModal5"
                                                                         id="webTestingViaTestOpsTrigger5"
@@ -496,6 +502,7 @@
 
                                                                 <button class="btn btn-primary btn-block "
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#webExecuteTestCaseModal4"
                                                                         id="webTestingBrowserTrigger4"
                                                                         ng-click="webModalBrowserHeadingStyle=true">
@@ -505,6 +512,7 @@
                                                                 <button class="btn btn-primary btn-block "
                                                                         data-toggle="modal"
                                                                         data-target="#webExecuteTestCaseModal3"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         id="webTestingAPITrigger3"
                                                                         ng-click="webModalAPIHeadingStyle=true">API
                                                                 </button>
@@ -650,29 +658,45 @@
                                             </p>
                                             <div class="row" id="webBubbleRow">
                                                 <div class="col-md-2" id="webBubbleColumn">
-                                                    <p ng-show="mouseOver"
+                                                    <p ng-show="webMouseOverFirst"
                                                        class="webSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{firstInputBox}}</p>
+                                                        {{firstWebInputBox}}</p>
+                                                    <p ng-show="webMouseOverSecond"
+                                                       class="webSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{secondWebInputBox}}</p>
+                                                    <p ng-show="webMouseOverThird"
+                                                       class="webSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{thirdWebInputBox}}</p>
+                                                    <p ng-show="webMouseOverFourth"
+                                                       class="webSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{fourthWebInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div style="padding: 6% 0 20.2% 10%">
-                                                        <input type="text" class="form-control webGroupInputBox"
-                                                               ng-mouseover="mouseOver=true"
-                                                               ng-mouseleave="mouseOver=false">
+                                                        <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 webGroupInputBox"
+                                                               ng-mouseover="webMouseOverFirst=true"
+                                                               ng-mouseleave="webMouseOverFirst=false"
+                                                               value="Web Box 1">
                                                         <div class="form-inline">
-                                                            <input style="width: 50%" type="text"
-                                                                   class="form-control webGroupInputBox"
-                                                                   value="">
-                                                            <input style="width: 50%;float: right" type="text"
-                                                                   class="form-control webGroupInputBox" value="">
-
-
-                                                            <!--<p ng-show="x"  class="speech" syle="text-align: center">SitePoint Rocks!</p>-->
-
+                                                            <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                                                   class="form-control2 webGroupInputBox"
+                                                                   ng-mouseover="webMouseOverSecond=true"
+                                                                   ng-mouseleave="webMouseOverSecond=false"
+                                                            value="Web Box 2">
+                                                            <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                                                   class="form-control2 webGroupInputBox"
+                                                                   ng-mouseover="webMouseOverThird=true"
+                                                                   ng-mouseleave="webMouseOverThird=false"
+                                                                   value="Web Box 3">
                                                         </div>
-                                                        <input type="text" class="form-control webGroupInputBox"
-                                                               value="">
+                                                        <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  webGroupInputBox"
+                                                               ng-mouseover="webMouseOverFourth=true"
+                                                               ng-mouseleave="webMouseOverFourth=false"
+                                                               value="Web Box 4">
                                                     </div>
                                                 </div>
                                             </div>
@@ -717,7 +741,7 @@
                                             <div class="apiDivBtn">
                                                 <h4 class="stepTextColor">Step 2</h4>
                                                 <a role="button" class="btn btn-primary  apiStepBtn" data-toggle="modal"
-                                                   data-target="#modal8"
+                                                   data-target="#modal8" data-backdrop="static" data-keyboard="false"
                                                    ng-click="ngModel1=''">Prepare Test Case
                                                 </a>
 
@@ -768,7 +792,7 @@
                                             <div class="apiDivBtn">
                                                 <h4 class="stepTextColor">Step 3</h4>
                                                 <a role="button" class="btn btn-primary  apiStepBtn" data-toggle="modal"
-                                                   data-target="#modal1"
+                                                   data-target="#modal1" data-backdrop="static" data-keyboard="false"
                                                    ng-click="ngModel1=''">Execute Test Case
                                                 </a>
                                                 <!--Popup Window using Bootstrap-->
@@ -810,29 +834,45 @@
                                             </p>
                                             <div class="row" id="apiBubbleRow">
                                                 <div class="col-md-2" id="apiBubbleColumn">
-                                                    <p ng-show="mouseOver"
+                                                    <p ng-show="apiMouseOverFirst"
                                                        class="apiSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{firstInputBox}}</p>
+                                                        {{firstApiInputBox}}</p>
+                                                    <p ng-show="apiMouseOverSecond"
+                                                       class="apiSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{secondApiInputBox}}</p>
+                                                    <p ng-show="apiMouseOverThird"
+                                                       class="apiSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{thirdApiInputBox}}</p>
+                                                    <p ng-show="apiMouseOverFourth"
+                                                       class="apiSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{fourthApiInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div style="padding: 6% 0 20.2% 10%;">
-                                                        <input type="text" class="form-control apiGroupInputBox"
-                                                               ng-mouseover="mouseOver=true"
-                                                               ng-mouseleave="mouseOver=false">
+                                                        <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 apiGroupInputBox"
+                                                               ng-mouseover="apiMouseOverFirst=true"
+                                                               ng-mouseleave="apiMouseOverFirst=false"
+                                                               value="Api Box 1">
                                                         <div class="form-inline">
-                                                            <input style="width: 50%" type="text"
-                                                                   class="form-control  apiGroupInputBox"
-                                                                   value="">
-                                                            <input style="width: 50%;float: right" type="text"
-                                                                   class="form-control  apiGroupInputBox" value="">
-
-
-                                                            <!--<p ng-show="x" ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()" class="speech" syle="text-align: center">SitePoint Rocks!</p>-->
-
+                                                            <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                                                   class="form-control2 apiGroupInputBox"
+                                                                   ng-mouseover="apiMouseOverSecond=true"
+                                                                   ng-mouseleave="apiMouseOverSecond=false"
+                                                                   value="Api Box 2">
+                                                            <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                                                   class="form-control2 apiGroupInputBox"
+                                                                   ng-mouseover="apiMouseOverThird=true"
+                                                                   ng-mouseleave="apiMouseOverThird=false"
+                                                                   value="Api Box 3">
                                                         </div>
-                                                        <input type="text" class="form-control  apiGroupInputBox"
-                                                               value="">
+                                                        <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  apiGroupInputBox"
+                                                               ng-mouseover="apiMouseOverFourth=true"
+                                                               ng-mouseleave="apiMouseOverFourth=false"
+                                                               value="Api Box 4">
                                                     </div>
                                                 </div>
                                             </div>
@@ -868,7 +908,7 @@
 
                                                 <!-- Trigger the Mobile modal with a button -->
                                                 <button type="button" class="btn btn-primary mobileStepBtn" data-toggle="modal"
-                                                        data-target="#mobilePrepareTestCaseModal1"
+                                                        data-target="#mobilePrepareTestCaseModal1" data-backdrop="static" data-keyboard="false"
                                                 >Prepare Test Case</button>
 
 
@@ -913,7 +953,7 @@
                                                 <h4 class="stepTextColor">Step 3</h4>
                                                 <a role="button" class="btn btn-primary  mobileStepBtn"
                                                    data-toggle="modal"
-                                                   data-target="#mobileExecuteTestCaseModal1"
+                                                   data-target="#mobileExecuteTestCaseModal1" data-backdrop="static" data-keyboard="false"
                                                    id="mobileExecuteTestCaseTrigger1"
                                                 >Execute Test Case
                                                 </a>
@@ -932,12 +972,14 @@
                                                             <div class="modal-body">
                                                                 <button class="btn btn-primary btn-block"
                                                                         data-target="#mobileExecuteTestCaseModal2"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-toggle="modal"
                                                                         id="mobileExecuteTestCaseTrigger2"
                                                                         ng-click="mobileModalViaGUIHeadingStyle=true">Via GUI
                                                                 </button>
                                                                 <br>
                                                                 <button class="btn btn-primary btn-block"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#mobileExecuteTestCaseModal3"
                                                                         data-toggle="modal"
                                                                         id="mobileExecuteTestCaseTrigger3"
@@ -978,6 +1020,7 @@
                                                                 <a role="button"
                                                                    class="btn btn-primary btn-block"
                                                                    data-toggle="modal"
+                                                                   data-backdrop="static" data-keyboard="false"
                                                                    data-target="#singleModal"
                                                                    ng-click="openMobileRide()">FUNCTIONAL
                                                                 </a>
@@ -985,6 +1028,7 @@
 
                                                                 <button class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#performanceModal"
 
                                                                         ng-click="openMobileRide()">AUTOMATION
@@ -993,6 +1037,7 @@
 
                                                                 <button class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#performanceModal"
 
                                                                         ng-click="openMobileRide()">LOAD
@@ -1032,6 +1077,7 @@
                                                                 </button>
                                                                 <a role="button"
                                                                    class="btn btn-primary btn-block"
+                                                                   data-backdrop="static" data-keyboard="false"
                                                                    data-toggle="modal"
                                                                    data-target="#singleModal"
                                                                    ng-click="openJenkins()">FUNCTIONAL
@@ -1040,6 +1086,7 @@
 
                                                                 <button class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#performanceModal"
 
                                                                         ng-click="openJenkins()">AUTOMATION
@@ -1048,6 +1095,7 @@
 
                                                                 <button class="btn btn-primary btn-block"
                                                                         data-toggle="modal"
+                                                                        data-backdrop="static" data-keyboard="false"
                                                                         data-target="#performanceModal"
 
                                                                         ng-click="openJenkins()">LOAD
@@ -1095,29 +1143,45 @@
                                             </p>
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <p ng-show="mouseOver"
+                                                    <p ng-show="mobileMouseOverFirst"
                                                        class="mobileSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{firstInputBox}}</p>
+                                                        {{firstMobileInputBox}}</p>
+                                                    <p ng-show="mobileMouseOverSecond"
+                                                       class="mobileSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{secondMobileInputBox}}</p>
+                                                    <p ng-show="mobileMouseOverThird"
+                                                       class="mobileSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{thirdMobileInputBox}}</p>
+                                                    <p ng-show="mobileMouseOverFourth"
+                                                       class="mobileSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{fourthMobileInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div style="padding: 6% 0 20.2% 10%;">
-                                                        <input type="text" class="form-control apiGroupInputBox"
-                                                               ng-mouseover="mouseOver=true"
-                                                               ng-mouseleave="mouseOver=false">
+                                                        <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 mobileGroupInputBox"
+                                                               ng-mouseover="mobileMouseOverFirst=true"
+                                                               ng-mouseleave="mobileMouseOverFirst=false"
+                                                               value="Mobile Box 1">
                                                         <div class="form-inline">
-                                                            <input style="width: 50%" type="text"
-                                                                   class="form-control  apiGroupInputBox"
-                                                                   value="">
-                                                            <input style="width: 50%;float: right" type="text"
-                                                                   class="form-control  apiGroupInputBox" value="">
-
-
-                                                            <!--<p ng-show="x" ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()" class="speech" syle="text-align: center">SitePoint Rocks!</p>-->
-
+                                                            <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                                                   class="form-control2 mobileGroupInputBox"
+                                                                   ng-mouseover="mobileMouseOverSecond=true"
+                                                                   ng-mouseleave="mobileMouseOverSecond=false"
+                                                                   value="Mobile Box 2">
+                                                            <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                                                   class="form-control2 mobileGroupInputBox"
+                                                                   ng-mouseover="mobileMouseOverThird=true"
+                                                                   ng-mouseleave="mobileMouseOverThird=false"
+                                                                   value="Mobile Box 3">
                                                         </div>
-                                                        <input type="text" class="form-control  apiGroupInputBox"
-                                                               value="">
+                                                        <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  mobileGroupInputBox"
+                                                               ng-mouseover="mobileMouseOverFourth=true"
+                                                               ng-mouseleave="mobileMouseOverFourth=false"
+                                                               value="Mobile Box 4">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1168,7 +1232,8 @@
 
             <br>
             <a id="userManual" href="/assets/pdf.pdf" target="_blank" style="text-decoration: none;font-size: medium;color:white;pading-left: 20%;text-align: left">
-                              <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</a>
+                                <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</a>
+
             <!--<a href="#">-->
             <!--<img clss="img-responsive"-->
             <!--src="../../images/pdf-icon.png" style="height:1%;width:20%;flat: left"/>-->
