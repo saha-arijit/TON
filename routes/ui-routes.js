@@ -259,6 +259,24 @@ UIRoutes.prototype.init = function() {
             console.log('stdout ');
         });
 
+    app.post('/analyzeWebAPI',
+        function(req, res){
+
+             console.log("Came to Analyze Web API Results");
+    child = exec(forAPI+"/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+    if (e instanceof Error) {
+        console.error(e);
+        throw e;
+    }
+    console.log('stdout ', stdout);
+    res.end();
+    });
+            console.log("Entering  into Kibana");
+
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
+        });
+
     // Response for apiFile1 req
 
  app.post('/apiFileUploadAPI',
