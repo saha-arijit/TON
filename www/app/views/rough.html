@@ -658,49 +658,45 @@
                                             </p>
                                             <div class="row" id="webBubbleRow">
                                                 <div class="col-md-2" id="webBubbleColumn">
-                                                    <p ng-show="mouseOverFirst"
+                                                    <p ng-show="webMouseOverFirst"
                                                        class="webSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{firstInputBox}}</p>
-                                                    <p ng-show="mouseOverSecond"
+                                                        {{firstWebInputBox}}</p>
+                                                    <p ng-show="webMouseOverSecond"
                                                        class="webSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{secondInputBox}}</p>
-                                                    <p ng-show="mouseOverThird"
+                                                        {{secondWebInputBox}}</p>
+                                                    <p ng-show="webMouseOverThird"
                                                        class="webSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{thirdInputBox}}</p>
-                                                    <p ng-show="mouseOverFourth"
+                                                        {{thirdWebInputBox}}</p>
+                                                    <p ng-show="webMouseOverFourth"
                                                        class="webSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{fourthInputBox}}</p>
+                                                        {{fourthWebInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div style="padding: 6% 0 20.2% 10%">
-                                                        <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control webGroupInputBox"
-                                                               ng-mouseover="mouseOverFirst=true"
-                                                               ng-mouseleave="mouseOverFirst=false"
-                                                               value="box 1">
+                                                        <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 webGroupInputBox"
+                                                               ng-mouseover="webMouseOverFirst=true"
+                                                               ng-mouseleave="webMouseOverFirst=false"
+                                                               value="Web Box 1">
                                                         <div class="form-inline">
-                                                            <input readonly="true" style=" background-color:transparent;width: 50%;cursor:default;" type="text"
-                                                                   class="form-control webGroupInputBox"
-                                                                   ng-mouseover="mouseOverSecond=true"
-                                                                   ng-mouseleave="mouseOverSecond=false"
-                                                            value="box 2">
+                                                            <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                                                   class="form-control2 webGroupInputBox"
+                                                                   ng-mouseover="webMouseOverSecond=true"
+                                                                   ng-mouseleave="webMouseOverSecond=false"
+                                                            value="Web Box 2">
                                                             <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
-                                                                   class="form-control webGroupInputBox"
-                                                                   ng-mouseover="mouseOverThird=true"
-                                                                   ng-mouseleave="mouseOverThird=false"
-                                                                   value="box 3">
-
-
-                                                            <!--<p ng-show="x"  class="speech" syle="text-align: center">SitePoint Rocks!</p>-->
-
+                                                                   class="form-control2 webGroupInputBox"
+                                                                   ng-mouseover="webMouseOverThird=true"
+                                                                   ng-mouseleave="webMouseOverThird=false"
+                                                                   value="Web Box 3">
                                                         </div>
-                                                        <input readonly="true" style="background-color:transparent;" type="text" class="form-control  webGroupInputBox"
-                                                               ng-mouseover="mouseOverFourth=true"
-                                                               ng-mouseleave="mouseOverFourth=false"
-                                                               value="box 4">
+                                                        <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  webGroupInputBox"
+                                                               ng-mouseover="webMouseOverFourth=true"
+                                                               ng-mouseleave="webMouseOverFourth=false"
+                                                               value="Web Box 4">
                                                     </div>
                                                 </div>
                                             </div>
@@ -838,29 +834,45 @@
                                             </p>
                                             <div class="row" id="apiBubbleRow">
                                                 <div class="col-md-2" id="apiBubbleColumn">
-                                                    <p ng-show="mouseOver"
+                                                    <p ng-show="apiMouseOverFirst"
                                                        class="apiSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{firstInputBox}}</p>
+                                                        {{firstApiInputBox}}</p>
+                                                    <p ng-show="apiMouseOverSecond"
+                                                       class="apiSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{secondApiInputBox}}</p>
+                                                    <p ng-show="apiMouseOverThird"
+                                                       class="apiSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{thirdApiInputBox}}</p>
+                                                    <p ng-show="apiMouseOverFourth"
+                                                       class="apiSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{fourthApiInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div style="padding: 6% 0 20.2% 10%;">
-                                                        <input type="text" class="form-control apiGroupInputBox"
-                                                               ng-mouseover="mouseOver=true"
-                                                               ng-mouseleave="mouseOver=false">
+                                                        <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 apiGroupInputBox"
+                                                               ng-mouseover="apiMouseOverFirst=true"
+                                                               ng-mouseleave="apiMouseOverFirst=false"
+                                                               value="Api Box 1">
                                                         <div class="form-inline">
-                                                            <input style="width: 50%" type="text"
-                                                                   class="form-control  apiGroupInputBox"
-                                                                   value="">
-                                                            <input style="width: 50%;float: right" type="text"
-                                                                   class="form-control  apiGroupInputBox" value="">
-
-
-                                                            <!--<p ng-show="x" ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()" class="speech" syle="text-align: center">SitePoint Rocks!</p>-->
-
+                                                            <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                                                   class="form-control2 apiGroupInputBox"
+                                                                   ng-mouseover="apiMouseOverSecond=true"
+                                                                   ng-mouseleave="apiMouseOverSecond=false"
+                                                                   value="Api Box 2">
+                                                            <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                                                   class="form-control2 apiGroupInputBox"
+                                                                   ng-mouseover="apiMouseOverThird=true"
+                                                                   ng-mouseleave="apiMouseOverThird=false"
+                                                                   value="Api Box 3">
                                                         </div>
-                                                        <input type="text" class="form-control  apiGroupInputBox"
-                                                               value="">
+                                                        <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  apiGroupInputBox"
+                                                               ng-mouseover="apiMouseOverFourth=true"
+                                                               ng-mouseleave="apiMouseOverFourth=false"
+                                                               value="Api Box 4">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1131,29 +1143,45 @@
                                             </p>
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <p ng-show="mouseOver"
+                                                    <p ng-show="mobileMouseOverFirst"
                                                        class="mobileSpeech"
                                                        style="text-align: center;margin-top: -10%;float: left">
-                                                        {{firstInputBox}}</p>
+                                                        {{firstMobileInputBox}}</p>
+                                                    <p ng-show="mobileMouseOverSecond"
+                                                       class="mobileSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{secondMobileInputBox}}</p>
+                                                    <p ng-show="mobileMouseOverThird"
+                                                       class="mobileSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{thirdMobileInputBox}}</p>
+                                                    <p ng-show="mobileMouseOverFourth"
+                                                       class="mobileSpeech"
+                                                       style="text-align: center;margin-top: -10%;float: left">
+                                                        {{fourthMobileInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div style="padding: 6% 0 20.2% 10%;">
-                                                        <input type="text" class="form-control apiGroupInputBox"
-                                                               ng-mouseover="mouseOver=true"
-                                                               ng-mouseleave="mouseOver=false">
+                                                        <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 mobileGroupInputBox"
+                                                               ng-mouseover="mobileMouseOverFirst=true"
+                                                               ng-mouseleave="mobileMouseOverFirst=false"
+                                                               value="Mobile Box 1">
                                                         <div class="form-inline">
-                                                            <input style="width: 50%" type="text"
-                                                                   class="form-control  apiGroupInputBox"
-                                                                   value="">
-                                                            <input style="width: 50%;float: right" type="text"
-                                                                   class="form-control  apiGroupInputBox" value="">
-
-
-                                                            <!--<p ng-show="x" ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()" class="speech" syle="text-align: center">SitePoint Rocks!</p>-->
-
+                                                            <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                                                   class="form-control2 mobileGroupInputBox"
+                                                                   ng-mouseover="mobileMouseOverSecond=true"
+                                                                   ng-mouseleave="mobileMouseOverSecond=false"
+                                                                   value="Mobile Box 2">
+                                                            <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                                                   class="form-control2 mobileGroupInputBox"
+                                                                   ng-mouseover="mobileMouseOverThird=true"
+                                                                   ng-mouseleave="mobileMouseOverThird=false"
+                                                                   value="Mobile Box 3">
                                                         </div>
-                                                        <input type="text" class="form-control  apiGroupInputBox"
-                                                               value="">
+                                                        <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  mobileGroupInputBox"
+                                                               ng-mouseover="mobileMouseOverFourth=true"
+                                                               ng-mouseleave="mobileMouseOverFourth=false"
+                                                               value="Mobile Box 4">
                                                     </div>
                                                 </div>
                                             </div>
