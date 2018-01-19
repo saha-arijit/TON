@@ -47,6 +47,26 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('input[type=file]').val(null)
         });
 
+        $(document).ready(function(){
+
+                $(".fullheight").height($(document).height());
+
+        });
+// Making columns to same height
+        function equalHeight(group) {
+            tallest = 0;
+            group.each(function() {
+                thisHeight = $(this).height();
+                if(thisHeight > tallest) {
+                    tallest = thisHeight;
+                }
+            });
+            group.height(tallest);
+        }
+        $(document).ready(function() {
+            equalHeight($(".column"));
+        });
+
 
 // Over ALl Modal Triggerring Function
 
@@ -663,6 +683,7 @@ var x= $(window).height();
 
         };
 
+
         $scope.openAPIRide = function () {
             $http({
                 method: 'post',
@@ -682,6 +703,7 @@ var x= $(window).height();
 
 
         };
+
 
         $scope.openWebAPIRide = function () {
             $http({
