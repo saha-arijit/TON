@@ -5,7 +5,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade btnInModal" id="modal1" role="dialog">
+<div class="modal fade" id="modal1" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -38,7 +38,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade btnInModal" id="modal2" role="dialog">
+<div class="modal fade " id="modal2" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -70,7 +70,7 @@
 
 <!--Modal 5-->
 
-<div class="modal fade btnInModal" id="modal5" role="dialog">
+<div class="modal fade " id="modal5" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -117,7 +117,7 @@
 
 
 <!-- Modal 9-->
-<div class="modal fade btnInModal" id="modal9" role="dialog">
+<div class="modal fade" id="modal9" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -143,10 +143,17 @@
     </div>
 </div>
 
+<!--<div class="container">-->
+    <!--<div class="row ">-->
+        <!--<div class="col-md-8 column" style="background-color: green;height: 500px">-->
+        <!--</div>-->
+            <!--<div class="col-md-4 column" style="background-color: orange;height: 100px">-->
 
-<div class="container-fluid m" style=" padding-left:0 ! important" id="m">
-    <div class="row row-eq-height">
-        <div class=" col-md-10" style=" padding-right:0 ! important">
+            <!--</div></div>-->
+<!--</div>-->
+<div class="container-fluid " style=" padding-left:0 ! important" id="m">
+    <div class="row  row-e-height">
+        <div class=" col-md-10 coumn fullheigt" style=" height:100%;padding-right:0 ! important">
             <!--<div class="row row-color">-->
             <!--<div class="col-sm-2 col-md-3">-->
             <!--&lt;!&ndash;Logo&ndash;&gt;-->
@@ -178,9 +185,9 @@
                         </a></li>
                     </ul>
                 </div>
-                <div class="panel-body" style="padding-bottom: 6vh ! important;">
+                <div class="panel-body " style="padding-bottom: 4% ! important;bottom: 10px ! important">
                     <div class="tab-content">
-                        <div class="tab-pane fade btnInModal in active" id="webTesting">
+                        <div class="tab-pane fade in active" id="webTesting">
                             <div class="row" style=" background-color: rgba(142,68,173,0.9);">
                                 <div class="col-md-12">
                                     <br><br>
@@ -198,7 +205,7 @@
                                                 </button>
 
                                                 <!--Modal For postman or kantu Web Testing  -->
-                                                <div class="modal fade btnInModal" id="wModal1" aria-hidden="true">
+                                                <div class="modal fade " id="wModal1" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -215,7 +222,7 @@
                                                                     USING BROWSER
                                                                 </button>
                                                                 <br>
-                                                                <button class="btn btn-primary btn-block btnInModal "
+                                                                <button class="btn btn-primary btn-block "
                                                                         ng-click='openPostmanRecord()'>
                                                                     USING API
                                                                 </button>
@@ -625,9 +632,46 @@
                                         <div class="col-md-3">
                                             <div class="webDivBtn">
                                                 <h4 class="stepTextColor">Step 4</h4>
-                                                <button class="btn btn-primary webStepBtn" ng-click="analyze()">Analyze
+                                                <button class="btn btn-primary webStepBtn"
+                                                        data-toggle="modal"
+                                                        data-backdrop="static" data-keyboard="false"
+                                                        data-target="#webAnalyzeModal"
+                                                >Analyze
                                                     Results
                                                 </button>
+
+
+                                                <!--webAnalyzeModal-->
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="webAnalyzeModal" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;
+                                                                </button>
+                                                                <h4 class="modal-title">Analyze Results</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <button type="button" class="btn btn-primary btn-block"
+                                                                     ng-click="analyze()"  >For Browser
+                                                                </button>
+                                                                <br>
+                                                                <button type="button" class="btn btn-primary btn-block"
+                                                                        ng-click="apiAnalyze()"
+                                                                        >For API
+                                                                </button>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -650,7 +694,7 @@
 
 
                                     <!--here the input file is removed-->
-                                    <div class="row">
+                                    <div class="row ">
                                         <div class="col-md-2"></div>
                                         <div class="col-md-8" style="background-color: #4b8ec9">
                                             <p class="webTestingHoverHeading">Open Source Architecture
@@ -676,7 +720,7 @@
                                                         {{fourthWebInputBox}}</p>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <div style="padding: 6% 0 20.2% 10%">
+                                                    <div>
                                                         <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 webGroupInputBox"
                                                                ng-mouseover="webMouseOverFirst=true"
                                                                ng-mouseleave="webMouseOverFirst=false"
@@ -713,7 +757,7 @@
                         </div>
 
 
-                        <div class="tab-pane fade btnInModal" id="apiTesting">
+                        <div class="tab-pane fade " id="apiTesting">
 
                             <div class="row" style=" background-color: rgba(142,68,173,0.9);">
                                 <div class="col-md-12">
@@ -995,7 +1039,7 @@
 
                                                 <!--mobileExecuteTestCaseModal2>-->
 
-                                                <div class="modal fade btnInModal" id="mobileExecuteTestCaseModal2"
+                                                <div class="modal fade " id="mobileExecuteTestCaseModal2"
                                                      tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
@@ -1053,7 +1097,7 @@
 
                                                 <!--mobileExecuteTestCaseModal3>-->
 
-                                                <div class="modal fade btnInModal" id="mobileExecuteTestCaseModal3"
+                                                <div class="modal fade " id="mobileExecuteTestCaseModal3"
                                                      tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
@@ -1202,22 +1246,8 @@
             </div>
         </div>
 
-        <!--Logo-->
-        <!--<img class="menuLogo" src="../../images/test-on-need-logo-192_42-1.png" height="42" width="192"/>-->
 
-
-        <!--<div class="col-sm-2 col-md-2">-->
-        <!--<button class="btn btn-primary menuHeading">Web Application Testing</button>-->
-        <!--</div>-->
-        <!--<div class="col-sm-2 col-md-2">-->
-        <!--<button class=" btn btn-primary menuHeading menuApiHeading">API Testing</button>-->
-
-        <!--</div>-->
-        <!--<div class="col-sm-2 col-md-3 ">-->
-        <!--<button class="btn btn-primary menuHeading">Mobile Application Testing</button>-->
-
-        <!--</div>-->
-        <div class=" col-md-2 menuLogin">
+        <div class=" col-md-2 coumn fullheight menuLogin">
 
             <button style="border-color: #ffffff; !important;" class="btn btn-primary menuLoginHeading">Login</button>
 
@@ -1242,8 +1272,8 @@
             <!--<p style="font-size: medium;color:white;padding-left: 20%"> User Manual</p>-->
             <!--</a>-->
 
-            <div class="row" style="background-color:#8c52ab;padding-top:5.5%;padding-bottom:5.8%;margin-top:57.7vh">
-                <div class="col-md-12 ">
+            <div class="row force-to-bottom">
+                <div class="col-md-12 " style="background-color:#8c52ab;padding:5%;">
                     <h4 style="text-align: center;color:white;">Contact Us</h4>
                     <p style="font-size: medium;text-align: center;color:white;">sales@testonneed.com</p>
                 </div>

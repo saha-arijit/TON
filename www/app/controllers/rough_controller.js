@@ -47,6 +47,26 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('input[type=file]').val(null)
         });
 
+        $(document).ready(function(){
+
+                $(".fullheight").height($(document).height());
+
+        });
+// Making columns to same height
+        function equalHeight(group) {
+            tallest = 0;
+            group.each(function() {
+                thisHeight = $(this).height();
+                if(thisHeight > tallest) {
+                    tallest = thisHeight;
+                }
+            });
+            group.height(tallest);
+        }
+        $(document).ready(function() {
+            equalHeight($(".column"));
+        });
+
 
 // Over ALl Modal Triggerring Function
 
@@ -132,7 +152,19 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         });
+var x= $(window).height();
 
+        var a = (x/113)+'%';
+        var b = 0;
+        var c = (x/33.3)+'%';
+        var d = (x/67)+'%';
+        var y = a +" "+b+" "+c+" "+d;
+
+        console.log(y);
+        $("#id").each(function() {
+            $(this).css("padding", y);
+        });
+    // $('#id').css('padding-bottom',20%)
 // Disabling the API Testing - api Functional modal
         $scope.apiShowFunctional = false;
 
@@ -518,6 +550,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $('#WebFile2').val(null);
                 $('#WebFile3').val(null);
                 $scope.files=[];
+                $scope.webFile2=[];
             })
                 .error(function (error) {
                     console.log(error,"Error")
@@ -590,6 +623,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                     $('#apiTestingBtn1Disable').val(null);
                     $scope.apiTestingBtn1Disable= true;
                     $scope.files=[];
+                    $scope.apiFile2=[];
                     $('#File1').val( null);
                 },
                 function (error) {
@@ -649,6 +683,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
+
         $scope.openAPIRide = function () {
             $http({
                 method: 'post',
@@ -668,6 +703,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
+
 
         $scope.openWebAPIRide = function () {
             $http({
@@ -706,9 +742,38 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         };
 
         $scope.analyze = function () {
+            $('#webAnalyzeModal').modal('hide');
+
             $http({
                 method: 'post',
                 url: '/analyze'
+            }).then(function success(response) {
+
+                console.log("resp", response)
+            }, function error(error) {
+
+                console.log("err", error)
+            });
+            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ngModel1 = ''
+                })
+            }, 9000);
+
+            // setTimeout(function () {
+            //     $scope.ngModel1="";
+            // },100)
+
+
+            // $('#webTestingModal').modal('hide')
+
+
+        };   $scope.apiAnalyze = function () {
+            $('#webAnalyzeModal').modal('hide');
+            $http({
+                method: 'post',
+                url: '/analyzeWebApi'
             }).then(function success(response) {
 
                 console.log("resp", response)
