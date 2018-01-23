@@ -6,7 +6,7 @@ kibanaApp.controller('everyApiController', ['$scope', '$http', 'Upload', functio
 
     $(document).ready(function(){
         var x =$(window).height();
-        var  z =$('#nav').height() + 2;
+        var  z =$('#nav').height() + 3;
         console.log(z);
         var y = x-z;
         console.log(y);
