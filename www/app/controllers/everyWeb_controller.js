@@ -49,7 +49,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $(document).ready(function(){
             var x =$(window).height();
-            var  z =$('#nav').height();
+            var  z =$('#nav').height()+ 2;
             console.log(z);
             var y = x-z;
                 $(".fullheight").height(y);

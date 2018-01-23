@@ -6,9 +6,11 @@ kibanaApp.controller('everyApiController', ['$scope', '$http', 'Upload', functio
 
     $(document).ready(function(){
         var x =$(window).height();
-        var  z =$('#nav').height();
+        var  z =$('#nav').height() + 2;
         console.log(z);
         var y = x-z;
+        console.log(y);
+
         $(".fullheight").height(y);
 
     });
