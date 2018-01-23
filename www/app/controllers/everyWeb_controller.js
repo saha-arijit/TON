@@ -17,7 +17,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-    .controller('roughController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
+    .controller('everyWebController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
 
         $scope.openPdf = function () {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
@@ -48,8 +48,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         });
 
         $(document).ready(function(){
-
-                $(".fullheight").height($(document).height());
+            var x =$(window).height();
+            var  z =$('#nav').height();
+            console.log(z);
+            var y = x-z;
+                $(".fullheight").height(y);
 
         });
 // Making columns to same height
@@ -873,6 +876,10 @@ var x= $(window).height();
         // var webModal = $('#webTestCaseModal');
         // var webInnermodal1 = webModal.find(".modal");     //get reference to nested modal
         // webModal.after(webInnermodal1);
-
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
 
     }]);

@@ -8,7 +8,10 @@
     <!--<link rel="icon" href="/content/images/a9t9favicon32.png">-->
     <!--Default css -->
     <link rel="stylesheet" href="lib/bootstrap/4/3/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="lib/adminLTE/AdminLTE.css">-->
     <link rel="stylesheet" href="lib/jquery/jquery-ui.css">
+    <!--<link rel="stylesheet" href="lib/adminLTE/_all-skins.css">-->
+
     <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css‌​/font-awesome.min.cs‌​s">-->
@@ -22,6 +25,8 @@
     <script src="lib/bootstrap/4/3/popper.min.js"></script>
     <script src="lib/bootstrap/4/3/bootstrap.min.js"></script>
     <script src="lib/jquery/jquery-ui.js"></script>
+    <!--<script src="lib/adminLTE/adminlte.min.js"></script>-->
+
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>-->
     <script src="lib/angular/angular-route/angular-route.min.js"></script>
@@ -35,14 +40,93 @@
     <!--Custom js-->
     <script src="app/app.js"></script>
     <script src="app/controllers/home_controller.js"></script>
-    <script src="app/controllers/rough_controller.js"></script>
-
+    <script src="app/controllers/everyWeb_controller.js"></script>
+    <script src="app/controllers/everyApi_controller.js"></script>
+    <script src="app/controllers/everyMobile_controller.js"></script>
 
 
 </head>
-<body ui-view   >
+<body>
+<!--navbar-->
+<nav class="navbar navbar-default" id="nav">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#first-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">   <img src="../../images/test-on-need-logo-192_42-1.png"
+                                                     width="192"/></a>
 
-<!--<iframe id="iFrame" src="./app/views/home.html" name="myIFrame" style="visibility: hidden"></iframe>-->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="first-navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#/everyWeb">EveryWeb <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/everyApi">EveryApi <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/everyMobile">EveryMobile <span class="sr-only">(current)</span></a></li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Login</a></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--Sidebar-->
+<nav class="navbar navbar-default fullheight " id="sidebar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <h4 class="menuResources"
+                style="color:white;margin-bottom: 3vh! important;margin-top: 3vh ! important">
+                Resources</h4>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="sidebar1">
+            <ul class="nav navbar-nav">
+                <li ><a id="userManual" href="/assets/pdf.pdf" target="_blank" style="text-decoration: none;font-size: medium;color:white;pading-left: 20%;text-align: left">
+                    <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</a></li>
+                <li><a href="#">
+                    <p style="text-align: center;color:white;">Contact Us</p>
+
+                <li><a href=""><p style="font-size: medium;text-align: center;color:white;">sales@testonneed.com</p>
+                    <span class="sr-only">(current)</span></a></li>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- Page Content Holder -->
+<div class="content fullheight" style=" background-color: rgba(142,68,173,0.9);"  ui-view>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 </body>

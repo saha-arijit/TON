@@ -13,14 +13,22 @@ kibanaApp.config(['$stateProvider', '$urlRouterProvider',
                     templateUrl: 'app/views/home.html',
                     controller: 'homeController'
                 }
-            ).state('rough', {
-                url: '/rough',
-                templateUrl: 'app/views/rough.html',
-                controller: 'roughController'
-            }
-        );
+            ).state('everyWeb', {
+                url: '/everyWeb',
+                templateUrl: 'app/views/everyWeb.html',
+                controller: 'everyWebController'
+            }).state('everyApi', {
+                url: '/everyApi',
+                templateUrl: 'app/views/everyApi.html',
+                controller: 'everyApiController'
+            }).state('everyMobile', {
+                url: '/everyMobile',
+                templateUrl: 'app/views/everyMobile.html',
+                controller: 'everyMobileController'
+            })
+
 
         // Using UrlRouterProvider
 
-        $urlRouterProvider.otherwise('rough')
+        $urlRouterProvider.otherwise('everyWeb')
     }]);
