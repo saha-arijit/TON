@@ -5,6 +5,21 @@ kibanaApp.controller('everyApiController', ['$scope', '$http', 'Upload', functio
 
 
     $(document).ready(function(){
+        var alterClass = function() {
+            var ww = document.body.clientWidth;
+            if (ww < 768) {
+                $('#sidebar').removeClass('fullheight');
+                $('#content').removeClass('fullheight');
+            } else if (ww >= 768) {
+                $('#content').addClass('fullheight');
+                $('#sidebar').addClass('fullheight');
+            };
+        };
+        $(window).resize(function(){
+            alterClass();
+        });
+        //Fire it when the page first loads:
+        alterClass();
         var x =$(window).height();
         var  z =$('#nav').height() + 3;
         console.log(z);

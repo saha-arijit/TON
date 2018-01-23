@@ -48,26 +48,33 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         });
 
         $(document).ready(function(){
+
+            // Removing Classes
+            var alterClass = function() {
+                var ww = document.body.clientWidth;
+                if (ww < 768) {
+                    $('#sidebar').removeClass('fullheight');
+                    $('#content').removeClass('fullheight');
+                } else if (ww >= 768) {
+                    $('#content').addClass('fullheight');
+                    $('#sidebar').addClass('fullheight');
+                };
+            };
+            $(window).resize(function(){
+                alterClass();
+            });
+
+            alterClass();
+
+            // Equalizing the Sidebar and Page Content
             var x =$(window).height();
-            var  z =$('#nav').height()+ 2;
+            var  z =$('#nav').height() + 3;
             console.log(z);
             var y = x-z;
-                $(".fullheight").height(y);
+            console.log(y);
 
-        });
-// Making columns to same height
-        function equalHeight(group) {
-            tallest = 0;
-            group.each(function() {
-                thisHeight = $(this).height();
-                if(thisHeight > tallest) {
-                    tallest = thisHeight;
-                }
-            });
-            group.height(tallest);
-        }
-        $(document).ready(function() {
-            equalHeight($(".column"));
+            $(".fullheight").height(y);
+
         });
 
 

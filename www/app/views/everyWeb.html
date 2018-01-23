@@ -1,0 +1,563 @@
+<div class="row" stye=" background-color: rgba(142,68,173,0.9);">
+    <div class="col-md-12">
+        <br><br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="webDivBtn">
+                    <h4 class="stepTextColor">Step 1</h4>
+
+                    <!--<img style="margin-top: 2%;width: 30%" src="../../images/step11.png"/>-->
+                    <!--<br>-->
+                    <button class="btn btn-primary webStepBtn" type="submit"
+                            data-toggle="modal"
+                            data-target="#wModal1" data-backdrop="static" data-keyboard="false"
+                            ng-click="ngModel1=''">Record Test Case
+                    </button>
+
+                    <!--Modal For postman or kantu Web Testing  -->
+                    <div class="modal fade " id="wModal1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!--<h4 class="modal-title">My Modal</h4>-->
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <!--<h4 class="modal-title">My Modal</h4>-->
+                                    <h4 class="modal-title">Record Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button class="btn btn-primary btn-block "
+                                            ng-click="openKantu()">
+                                        USING BROWSER
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block "
+                                            ng-click='openPostmanRecord()'>
+                                        USING API
+                                    </button>
+
+
+                                </div>
+                                <!--<div class="modal-footer">-->
+                                <!--<button type="button" class="btn btn-default"-->
+                                <!--data-dismiss="modal">Close-->
+                                <!--</button>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="webDivBtn">
+                    <h4 class="stepTextColor">Step 2</h4>
+                    <button class="btn btn-primary webStepBtn" type="button"
+                            data-toggle="modal" ng-click="ngModel1=''"
+                            data-backdrop="static" data-keyboard="false"
+                            data-target="#webPrepareTestCaseModal">Prepare
+                        Test Case
+                    </button>
+
+
+                    <!--webTestCaseModal-->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="webPrepareTestCaseModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Prepare Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-primary btn-block"
+                                            data-toggle="modal"
+                                            data-backdrop="static" data-keyboard="false"
+                                            data-target="#webPrepareTestCaseModal1"
+                                            ng-click="webModalForBrowserHeadingStyle=true"
+                                            id="webTestingForBrowserTrigger1">For Browser
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-primary btn-block"
+                                            data-toggle="modal"
+                                            data-backdrop="static" data-keyboard="false"
+                                            data-target="#webPrepareTestCaseModal2"
+                                            ng-click="webModalForAPIHeadingStyle=true"
+                                            id="webTestingForBrowserTrigger2">For API
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--webPrepareTestCaseModal 1-->
+                    <div class="modal fade" id="webPrepareTestCaseModal1" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class=" pull-left"
+                                       ng-click="webTestingForBrowserModalClose()">
+                                                       <span style="font-weight:700;color:#cccccc"
+                                                             class="glyphicon glyphicon-menu-left"></span>
+
+                                    </a>
+
+                                    <button type="button" class="close" data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Prepare Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-primary btn-block"
+                                            ng-class="{'webModalForBrowserHeadingStyle':webModalForBrowserHeadingStyle}">
+                                        For Browser
+                                    </button>
+
+                                    <form>
+                                        <label>Choose a Kantu .json File</label>
+
+                                        <input id="WebFile1" type="file" accept=".json" name="sampleFile"
+                                               style="padding: 1% 0 1% 20%"
+                                               class="form-control"
+                                               ng-files="getFiles($files)">
+                                        <br>
+                                        <button class="btn btn-primary"
+                                                ng-disabled="webTestingBtn1Disable"
+                                                ng-click="uploadWebFile1()">Prepare
+                                        </button>
+                                    </form>
+
+
+                                    <!-- <input type="file"  class="form-control" id="sampleFile"> -->
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--webPrepareTestCaseModal 2-->
+                    <div class="modal fade" id="webPrepareTestCaseModal2" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class=" pull-left"
+                                       ng-click="webTestingForAPIModalClose()">
+                                                       <span style="font-weight:700;color:#cccccc"
+                                                             class="glyphicon glyphicon-menu-left"></span>
+                                    </a>
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Prepare Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-primary btn-block"
+                                            ng-class="{'webModalForAPIHeadingStyle':webModalForAPIHeadingStyle}">
+                                        For API
+                                    </button>
+                                    <form name="webTestingApiform1">
+                                        <label class="labelMandatory ">Upload Postman Collection</label>
+                                        <input id="WebFile2"   ng-files="getWebFile1($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
+                                               class="form-control">
+                                        <br>
+                                        <label >Environment Variable (optional)</label>
+                                        <input  id="WebFile3"   ng-files="getWebFile2($files)" type="file" accept=".json" syle="padding: 1% 0 1% 19%;"
+                                                class="form-control"
+                                        >
+
+                                        <br>
+                                        <button class="btn btn-primary" type="submit"
+                                                ng-disabled="(webTestingBtn2Disable)" ng-click="uploadWebFile2()">Prepare
+                                        </button>
+                                    </form>
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="webDivBtn">
+                    <h4 class="stepTextColor">Step 3</h4>
+                    <button class="btn btn-primary webStepBtn" data-toggle="modal"
+                            data-backdrop="static" data-keyboard="false"
+                            data-target="#webExecuteTestCaseModal1"
+                            ng-click="ngModel1=''"
+                    >Execute Test Case
+                    </button>
+
+                    <!--webExecuteTestCaseModal1-->
+
+                    <div class="modal fade m" id="webExecuteTestCaseModal1" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Execute Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button class="btn btn-primary btn-block "
+                                            data-toggle="modal"
+                                            data-backdrop="static" data-keyboard="false"
+                                            data-target="#webExecuteTestCaseModal2"
+                                            id="webTestingViaGUITrigger2"
+                                            ng-click="webModalViaGUIHeadingStyle=true">Via
+                                        GUI
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block"
+                                            data-backdrop="static" data-keyboard="false"
+                                            data-toggle="modal"
+                                            data-target="#webExecuteTestCaseModal5"
+                                            id="webTestingViaTestOpsTrigger5"
+                                            ng-click="webModalViaTestOpsHeadingStyle=true">
+                                        Via TestOps
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--webExecuteTestCaseModal5-->
+
+                    <div class="modal fade m" id="webExecuteTestCaseModal5" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class=" pull-left"
+                                       ng-click="webTestingViaTestOpsModalClose()">
+                                                                       <span style="font-weight:700;color:#cccccc"
+                                                                             class="glyphicon glyphicon-menu-left"></span>
+                                    </a>
+
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Execute Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button class="btn btn-primary btn-block "
+                                            ng-class="{'webModalViaTestOpsHeadingStyle':webModalViaTestOpsHeadingStyle}"
+                                    >Via TestOps
+                                    </button>
+
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openJenkins()">BROWSER
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openJenkins()">API
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--webExecuteTestCaseModal2-->
+
+                    <div class="modal fade m" id="webExecuteTestCaseModal2" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class=" pull-left"
+                                       ng-click="webTestingViaGUIModalClose()">
+                                                                       <span style="font-weight:700;color:#cccccc"
+                                                                             class="glyphicon glyphicon-menu-left"></span>
+                                    </a>
+
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Execute Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button class="btn btn-primary btn-block "
+                                            ng-class="{'webModalViaGUIHeadingStyle':webModalViaGUIHeadingStyle}"
+                                    >Via GUI
+                                    </button>
+
+                                    <button class="btn btn-primary btn-block "
+                                            data-toggle="modal"
+                                            data-backdrop="static" data-keyboard="false"
+                                            data-target="#webExecuteTestCaseModal4"
+                                            id="webTestingBrowserTrigger4"
+                                            ng-click="webModalBrowserHeadingStyle=true">
+                                        Browser
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block "
+                                            data-toggle="modal"
+                                            data-target="#webExecuteTestCaseModal3"
+                                            data-backdrop="static" data-keyboard="false"
+                                            id="webTestingAPITrigger3"
+                                            ng-click="webModalAPIHeadingStyle=true">API
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--webExecuteTestCaseModal 4-->
+
+                    <div class="modal fade" id="webExecuteTestCaseModal4" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class=" pull-left"
+                                       ng-click="webTestingBrowserModalClose()">
+                                                                       <span style="font-weight:700;color:#cccccc"
+                                                                             class="glyphicon glyphicon-menu-left"></span>
+                                    </a>
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Execute Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button class="btn btn-primary btn-block "
+                                            ng-class="{'webModalViaGUIHeadingStyle':webModalViaGUIHeadingStyle}"
+                                    >Via GUI
+                                    </button>
+
+                                    <button class="btn btn-primary btn-block "
+                                            ng-class="{'webModalBrowserHeadingStyle':webModalBrowserHeadingStyle}">
+                                        Browser
+                                    </button>
+
+
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openRide()">FUNCTIONAL
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openRide()">AUTOMATION
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openRide()">LOAD
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--webExecuteTestCaseModal3-->
+
+                    <div class="modal fade m" id="webExecuteTestCaseModal3" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class=" pull-left"
+                                       ng-click="webTestingAPIModalClose()">
+                                                                       <span style="font-weight:700;color:#cccccc"
+                                                                             class="glyphicon glyphicon-menu-left"></span>
+                                    </a>
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Execute Test Case</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button class="btn btn-primary btn-block "
+                                            ng-class="{'webModalViaGUIHeadingStyle':webModalViaGUIHeadingStyle}"
+                                    >Via GUI
+                                    </button>
+
+                                    <button class="btn btn-primary btn-block "
+                                            ng-class="{'webModalAPIHeadingStyle':webModalAPIHeadingStyle}">
+                                        API
+                                    </button>
+
+
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openPostman()">FUNCTIONAL
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openPostman()">AUTOMATION
+                                    </button>
+                                    <br>
+                                    <button class="btn btn-primary btn-block"
+                                            ng-click="openWebAPIRide()">LOAD
+                                    </button>
+                                    <br>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="webDivBtn">
+                    <h4 class="stepTextColor">Step 4</h4>
+                    <button class="btn btn-primary webStepBtn"
+                            data-toggle="modal"
+                            data-backdrop="static" data-keyboard="false"
+                            data-target="#webAnalyzeModal"
+                    >Analyze
+                        Results
+                    </button>
+
+
+                    <!--webAnalyzeModal-->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="webAnalyzeModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close"
+                                            data-dismiss="modal">&times;
+                                    </button>
+                                    <h4 class="modal-title">Analyze Results</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-primary btn-block"
+                                            ng-click="analyze()"  >For Browser
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-primary btn-block"
+                                            ng-click="apiAnalyze()"
+                                    >For API
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+
+                <input type="text" ng-model="ngModel1" disabled
+                       style="cursor:default;padding: 1% 0 1% 35%" class="form-control">
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <br>
+        <br>
+
+
+        <!--here the input file is removed-->
+        <div class="row ">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" style="background-color: #4b8ec9">
+                <p class="webTestingHoverHeading">Open Source Architecture
+                    <!-- <strong style="font-size: large">Architecture</strong> -->
+                </p>
+                <div class="row" id="webBubbleRow">
+                    <div class="col-md-2" id="webBubbleColumn">
+                        <p ng-show="webMouseOverFirst"
+                           class="webSpeech"
+                           style="text-align: center;margin-top: -10%;float: left">
+                            {{firstWebInputBox}}</p>
+                        <p ng-show="webMouseOverSecond"
+                           class="webSpeech"
+                           style="text-align: center;margin-top: -10%;float: left">
+                            {{secondWebInputBox}}</p>
+                        <p ng-show="webMouseOverThird"
+                           class="webSpeech"
+                           style="text-align: center;margin-top: -10%;float: left">
+                            {{thirdWebInputBox}}</p>
+                        <p ng-show="webMouseOverFourth"
+                           class="webSpeech"
+                           style="text-align: center;margin-top: -10%;float: left">
+                            {{fourthWebInputBox}}</p>
+                    </div>
+                    <div class="col-md-8">
+                        <div style="padding: 6% 0 20.2% 10%;">
+                            <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 webGroupInputBox"
+                                   ng-mouseover="webMouseOverFirst=true"
+                                   ng-mouseleave="webMouseOverFirst=false"
+                                   value="Web Box 1">
+                            <div class="form-inline">
+                                <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mouseover="webMouseOverSecond=true"
+                                       ng-mouseleave="webMouseOverSecond=false"
+                                       value="Web Box 2">
+                                <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mouseover="webMouseOverThird=true"
+                                       ng-mouseleave="webMouseOverThird=false"
+                                       value="Web Box 3">
+                            </div>
+                            <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  webGroupInputBox"
+                                   ng-mouseover="webMouseOverFourth=true"
+                                   ng-mouseleave="webMouseOverFourth=false"
+                                   value="Web Box 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+
+</div>
