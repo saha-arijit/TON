@@ -25,7 +25,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload', func
         // Equalizing the Sidebar and Page Content
         var x =$(window).height();
         var  z =$('#nav').height() + 3;
-        console.log(z,"nav height");
+        console.log(z,"nav");
         var y = x-z;
         console.log(y);
 

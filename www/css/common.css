@@ -666,8 +666,10 @@ p.webSpeech-bubble {
     color: #fff;
     transition: all 0.3s;
     right:0;
-    top:83px;
-    position: absolute;
+    /*top:83px;*/
+    position: fixed;
+    /*position: absolute;*/
+    bottom: 0;
     /*right: 0;*/
     /*height: 1000px;*/
 }
@@ -682,6 +684,7 @@ p.webSpeech-bubble {
 .content{
     /*width: 100%;*/
     width: calc(100% - 230px);
+
 }
 
 /*#sidebar.active {*/
