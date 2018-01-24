@@ -68,8 +68,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
             // Equalizing the Sidebar and Page Content
             var x =$(window).height();
-            var  z =$('#nav').height() + 3;
-            console.log(z);
+            var  z =$('#nav').height() +1;
+            console.log(z,"nav height");
             var y = x-z;
             console.log(y);
 

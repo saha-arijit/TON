@@ -69,14 +69,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="first-navbar">
             <ul class="nav navbar-nav">
-                <li><a href="#/everyWeb">EveryWeb <span class="sr-only">(current)</span></a></li>
-                <li><a href="#/everyApi">EveryApi <span class="sr-only">(current)</span></a></li>
-                <li><a href="#/everyMobile">EveryMobile <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/everyWeb"><button class="btn btn-primary nav-btn ">EveryWeb</button><span class="sr-only">(current)</span></a></li>
+                <li><a href="#/everyApi"><button class="btn btn-primary nav-btn ">EveryApi</button><span class="sr-only">(current)</span></a></li>
+                <li><a href="#/everyMobile"><button class="btn btn-primary nav-btn ">EveryMobile</button> <span class="sr-only">(current)</span></a></li>
 
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a id="login" href="#">Login</a></li>
+                <li><a id="login" href="#">
+                    <button style="border-color: #ffffff; !important;" class="btn btn-primary menuLoginHeading">Login</button></a></li>
 
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -103,7 +104,7 @@
             <div class="row" style="background-color:#874aa3;">
                 <div class="col-md-12">
                     <h4 class="menuResources"
-                        style="color:white;margin-bottom: 3vh! important;margin-top: 3vh ! important">
+                        style="color:white;padding-top: 1% ! important">
                         Resources</h4></div>
             </div>
 
@@ -129,7 +130,7 @@
     </div><!-- /.container-fluid -->
 </nav>
 <!-- Page Content Holder -->
-<div class="content fullheght" id="content" style=" background-color: rgba(142,68,173,0.9);"  ui-view>
+<div class="content fullheight"  style=" background-color: rgba(142,68,173,0.9);"  ui-view>
 
 
 </div>

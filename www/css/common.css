@@ -72,8 +72,8 @@
 
 .menuLoginHeading {
 
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-top: 1.5vw;
+    margin-bottom:1.5vw;
 
 }
 
@@ -123,7 +123,7 @@
     text-align: center;
     padding-top: 1%;
     padding-bottom: 6%;
-
+    /*width:80%;*/
 }.apiDivBtn {
      background-color: #4b8ec9;
      text-align: center;
@@ -666,7 +666,7 @@ p.webSpeech-bubble {
     color: #fff;
     transition: all 0.3s;
     right:0;
-    top:51px;
+    top:83px;
     position: absolute;
     /*right: 0;*/
     /*height: 1000px;*/
@@ -680,7 +680,7 @@ p.webSpeech-bubble {
     text-align: center;
 }
 .content{
-    /*width: 82%;*/
+    /*width: 100%;*/
     width: calc(100% - 230px);
 }
 
@@ -729,9 +729,10 @@ p.webSpeech-bubble {
         background-color: transparent;
         /*padding-left: 0;*/
         text-align: left;
-    }.content{
+    }
+    .content{
          width:100%;
-         /*width: calc(100% - 230px);*/
+
      }
 
     /*!*#sidebar.active {*!*/
@@ -742,14 +743,25 @@ p.webSpeech-bubble {
     /*}*/
 }
 .navbar{
-    background-color: rgba(142,68,173,0.9);;
+    background-color: #874aa3;
     color: white !important;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    border:none;
+
 
  }
+.nav-btn{
+    margin-top: 3vw;
+    margin-left: 5vw;
+    /*margin-bottom: 0px;*/
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
 
 .navbar-default .navbar-nav>li>a {
     color: white;
+}.navbar-nav>li>a {
+    padding: 5px;
 }
 
 .navbar-brand {
