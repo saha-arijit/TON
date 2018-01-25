@@ -6,8 +6,11 @@ from createRobot import createRobot
 class Load_json_Parser:
 
 		
-	def createRunFile(self,json, base,envvar):
-			
+	def createRunFile(self,json, base,envvar,root,app):
+		
+
+		global location
+		location = "/back_end/API_GUI/"	
 		# file = open(json +'.js' , 'r')
 		# line = file.readlines()
 		print ("Json File Name :" +json)
@@ -22,11 +25,14 @@ class Load_json_Parser:
 		file.write('import sys'+'\n')
 		file.write('import os'+'\n')
 		file.write ('import time' +'\n')
-		#file.write("sys.path.insert(0,'"+base+"')"+"\n")
-		#file.write('from Load_Thread import myThread' + '\n')
-		#file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
-		#file.write('def ' + 'TC_'+ testCase[6] +'(users)' + ':'+'\n')
+		file.write("sys.path.insert(0,'"+root+location+"')"+"\n")
+		file.write('from Load_Thread import myThread' + '\n')
+		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
 		file.write('def ' + 'TC_'+ testCase[0] +'(iterations=1, vuser=1, ramp=1)' + ':'+'\n')
+		file.write('\t' +'baseFolder='+' "'+root+'"'+'\n')
+		file.write('\t' +'appName   = "'+app+'"'+'\n')
+		file.write('\t' +'thread1.createCSV(baseFolder,appName)'+'\n')
+		file.write('\t' +'thread1.start()'+'\n')
 		file.write('\t' +'if(int(vuser) == 1): \n')
 		file.write('\t\t' + 'os.chdir("'+base+'")' + '\n')
 		if(envvar =="None"):
@@ -46,15 +52,14 @@ class Load_json_Parser:
 		file.write('\t' + '\t' + '\t' + 'time.sleep(int(ramp)/int(vuser))' + '\n')
 		file.write('\t' + '\t' + '\t' + 'i = i +1'+ '\n')
 		file.write('\t' +'thread1.stop()')
-
 		file.close()
-		test = testCase[0]+".py"
-		print (base)
 		
+
+		test = testCase[0]+".py"
 		robot = createRobot()
 		robot.createTestFile(test, base)
 
 		
 		
 loadParse = Load_json_Parser()
-loadParse.createRunFile(sys.argv[1], sys.argv[2],sys.argv[3])
+loadParse.createRunFile(sys.argv[1], sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
