@@ -43,7 +43,7 @@ class createRobot :
 						sys.exit ()				
 					if lookup in line:
 						index = num + 1
-			value = "Library           " + testCase[0] + '/'+testFile+"\n"
+			value = "Library           " + libFilePath + '/'+testFile+"\n"
 			print("Library Path :" + value)
 			contents.insert (index, value)
 			file = open (robotFileName, "w")
@@ -51,7 +51,7 @@ class createRobot :
 			file.write (contents)
 		elif prsntFlg == 0:	
 			file.write ("*** Settings ***" + "\n")
-			file.write ("Library           " + testCase[0] + '/'+ testFile+"\n")
+			file.write ("Library           " + libFilePath + '/'+ testFile+"\n")
 
 	def writeVariables (self, file, prsntFlg):
 		if prsntFlg == 1:
