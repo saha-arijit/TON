@@ -116,7 +116,7 @@ class readJson :
 		file.write ("\t" + "\t" + "driver = webdriver.Chrome(chrome_options=chrome_options)" + "\n")#,executable_path=\"D:\\TestSelenium\\SeleniumScripts\\chromedriver.exe\")" + "\n")
 		file.write ("\t" + "else:" + "\n")
 		file.write ("\t" + "\t" + "driver = webdriver.Chrome ()" + "\n" + "\n")
-		file.write("\t"+ "driver.set_page_load_timeout(30)" +"\n")
+		file.write("\t"+ "driver.set_page_load_timeout(180)" +"\n")
 
 
 read = readJson()
