@@ -90,7 +90,7 @@ class readJson :
 		file.write ("\t"+"if (var_load == \"YES\" or var_load == \"Yes\" or var_load == \"yes\"):" +"\n")
 		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName)" + "\n")
 		file.write ("\t"+"\t"+"thread1.start()" + "\n")
-		file.write ("\t"+"\t"+"for i in range (1, int(var_instances)):" + "\n")
+		file.write ("\t"+"\t"+"for i in range (0, int(var_instances)):" + "\n")
 		file.write ("\t"+"\t"+"\t"+"Thread(target = "+testCase[6]+", args = [var_head]).start()" + "\n" + "\n")
 		file.write ("\t"+"else:" + "\n")
 		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName)" + "\n")
