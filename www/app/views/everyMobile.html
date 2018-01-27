@@ -1,303 +1,301 @@
-<div class="row" style=" bacground-color: rgba(142,68,173,0.9);">
-    <div class="col-md-12">
-        <br><br>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="mobileDivBtn">
-                    <h4 class="stepTextColor">Step 1</h4>
-                    <button class="btn btn-primary mobileStepBtn" ng-click="openNotepad()">
-                        Develop Test Case
-                    </button>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="mobileDivBtn">
-                    <h4 class="stepTextColor">Step 2</h4>
-
-
-                    <!-- Trigger the Mobile modal with a button -->
-                    <button type="button" class="btn btn-primary mobileStepBtn" data-toggle="modal"
-                            data-target="#mobilePrepareTestCaseModal1" data-backdrop="static" data-keyboard="false"
-                    >Prepare Test Case</button>
-
-
-                    <!-- mobilePrepareTestCase    Modal1  -->
-                    <div class="modal fade" id="mobilePrepareTestCaseModal1" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">
-                                        Prepare Test Case
-                                    </h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label>
-                                                Choose Test Case .py File
-                                            </label>
-
-                                            <input id="mobileTestingFile1" accept=".py" style="padding: 1% 0 1% 19%;"  ng-files="getFiles($files)" type="file" class="form-control">
-
-                                        </div>
-
-                                        <button class="btn btn-primary"   ng-disabled="mobileTestingBtn1Disable" ng-click="uploadMobileFile1()" type="submit">Prepare</button>
-                                    </form>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="mobileDivBtn">
-                    <h4 class="stepTextColor">Step 3</h4>
-                    <a role="button" class="btn btn-primary  mobileStepBtn"
-                       data-toggle="modal"
-                       data-target="#mobileExecuteTestCaseModal1" data-backdrop="static" data-keyboard="false"
-                       id="mobileExecuteTestCaseTrigger1"
-                    >Execute Test Case
-                    </a>
-
-
-                    <!--mobileTestCase Modal1-->
-                    <div class="modal fade" id="mobileExecuteTestCaseModal1" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Execute Test Case</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <button class="btn btn-primary btn-block"
-                                            data-target="#mobileExecuteTestCaseModal2"
-                                            data-backdrop="static" data-keyboard="false"
-                                            data-toggle="modal"
-                                            id="mobileExecuteTestCaseTrigger2"
-                                            ng-click="mobileModalViaGUIHeadingStyle=true">Via GUI
-                                    </button>
-                                    <br>
-                                    <button class="btn btn-primary btn-block"
-                                            data-backdrop="static" data-keyboard="false"
-                                            data-target="#mobileExecuteTestCaseModal3"
-                                            data-toggle="modal"
-                                            id="mobileExecuteTestCaseTrigger3"
-                                            ng-click="mobileModalViaTestOpsHeadingStyle=true">Via TestOps
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!--mobileExecuteTestCaseModal2>-->
-
-                    <div class="modal fade " id="mobileExecuteTestCaseModal2"
-                         tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <a href="#" class=" pull-left"
-                                       ng-click="mobileTestingViaGUIModalClose()">
-                                              <span style="font-weight:700;color:#cccccc"
-                                                    class="glyphicon glyphicon-menu-left"></span>
-                                    </a>
-
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                        <span aria-hidden="true">&times;</span></button>
-                                    <!--<h4 class="modal-title">My Modal</h4>-->
-                                    <h4 class="modal-title">Execute Test Case</h4>
-                                </div>
-                                <div class="modal-body">
-
-                                    <button class="btn btn-primary btn-block"
-                                            ng-class="{'mobileModalViaGUIHeadingStyle':mobileModalViaGUIHeadingStyle}">Via GUI
-                                    </button>
-                                    <a role="button"
-                                       class="btn btn-primary btn-block"
-                                       data-toggle="modal"
-                                       data-backdrop="static" data-keyboard="false"
-                                       data-target="#singleModal"
-                                       ng-click="openMobileRide()">FUNCTIONAL
-                                    </a>
-                                    <br>
-
-                                    <button class="btn btn-primary btn-block"
-                                            data-toggle="modal"
-                                            data-backdrop="static" data-keyboard="false"
-                                            data-target="#performanceModal"
-
-                                            ng-click="openMobileRide()">AUTOMATION
-                                    </button>
-                                    <br>
-
-                                    <button class="btn btn-primary btn-block"
-                                            data-toggle="modal"
-                                            data-backdrop="static" data-keyboard="false"
-                                            data-target="#performanceModal"
-
-                                            ng-click="openMobileRide()">LOAD
-                                    </button>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <!--mobileExecuteTestCaseModal3>-->
-
-                    <div class="modal fade " id="mobileExecuteTestCaseModal3"
-                         tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <a href="#" class=" pull-left"
-                                       ng-click="mobileTestingViaTestOpsModalClose()">
-                                              <span style="font-weight:700;color:#cccccc"
-                                                    class="glyphicon glyphicon-menu-left"></span>
-                                    </a>
-
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                        <span aria-hidden="true">&times;</span></button>
-                                    <!--<h4 class="modal-title">My Modal</h4>-->
-                                    <h4 class="modal-title">Execute Test Case</h4>
-                                </div>
-                                <div class="modal-body">
-
-                                    <button class="btn btn-primary btn-block"
-                                            ng-class="{'mobileModalViaTestOpsHeadingStyle':mobileModalViaTestOpsHeadingStyle}">Via TestOps
-                                    </button>
-                                    <a role="button"
-                                       class="btn btn-primary btn-block"
-                                       data-backdrop="static" data-keyboard="false"
-                                       data-toggle="modal"
-                                       data-target="#singleModal"
-                                       ng-click="openJenkins()">FUNCTIONAL
-                                    </a>
-                                    <br>
-
-                                    <button class="btn btn-primary btn-block"
-                                            data-toggle="modal"
-                                            data-backdrop="static" data-keyboard="false"
-                                            data-target="#performanceModal"
-
-                                            ng-click="openJenkins()">AUTOMATION
-                                    </button>
-                                    <br>
-
-                                    <button class="btn btn-primary btn-block"
-                                            data-toggle="modal"
-                                            data-backdrop="static" data-keyboard="false"
-                                            data-target="#performanceModal"
-
-                                            ng-click="openJenkins()">LOAD
-                                    </button>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="mobileDivBtn">
-                    <h4 class="stepTextColor">Step 4</h4>
-                    <button class="btn btn-primary mobileStepBtn" ng-click="analyze()">
-                        Analyze
-                        Results
-                    </button>
-                </div>
+<br>
+<br>
+    <section>   <div style=" margin-left:0;margin-right:0;overflow: auto"class="row">
+        <div class="col-md-3">
+            <div class="mobileDivBtn">
+                <h4 class="stepTextColor">Step 1</h4>
+                <button class="btn btn-primary mobileStepBtn" ng-click="openNotepad()">
+                    Develop Test Case
+                </button>
             </div>
         </div>
-        <br>
-        <br>
+        <div class="col-md-3">
+            <div class="mobileDivBtn">
+                <h4 class="stepTextColor">Step 2</h4>
 
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
 
-                <input type="text" ng-model="ngModel1" disabled
-                       style="cursor:default;padding: 1% 0 1% 35%" class="form-control">
+                <!-- Trigger the Mobile modal with a button -->
+                <button type="button" class="btn btn-primary mobileStepBtn" data-toggle="modal"
+                        data-target="#mobilePrepareTestCaseModal1" data-backdrop="static" data-keyboard="false"
+                >Prepare Test Case</button>
+
+
+                <!-- mobilePrepareTestCase    Modal1  -->
+                <div class="modal fade" id="mobilePrepareTestCaseModal1" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">
+                                    Prepare Test Case
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label>
+                                            Choose Test Case .py File
+                                        </label>
+
+                                        <input id="mobileTestingFile1" accept=".py" style="padding: 1% 0 1% 19%;"  ng-files="getFiles($files)" type="file" class="form-control">
+
+                                    </div>
+
+                                    <button class="btn btn-primary"   ng-disabled="mobileTestingBtn1Disable" ng-click="uploadMobileFile1()" type="submit">Prepare</button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
 
             </div>
-            <div class="col-md-1"></div>
         </div>
-        <br>
-        <br>
+        <div class="col-md-3">
+            <div class="mobileDivBtn">
+                <h4 class="stepTextColor">Step 3</h4>
+                <a role="button" class="btn btn-primary  mobileStepBtn"
+                   data-toggle="modal"
+                   data-target="#mobileExecuteTestCaseModal1" data-backdrop="static" data-keyboard="false"
+                   id="mobileExecuteTestCaseTrigger1"
+                >Execute Test Case
+                </a>
 
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8" style="background-color: #4b8ec9">
-                <p class="mobileTestingHoverHeading">Open Source Architecture
-                    <!-- <strong style="font-size: large">Architecture</strong> -->
-                </p>
-                <div class="row">
-                    <div class="col-md-2">
-                        <p ng-show="mobileMouseOverFirst"
-                           class="mobileSpeech"
-                           style="text-align: center;margin-top: -10%;float: left">
-                            {{firstMobileInputBox}}</p>
-                        <p ng-show="mobileMouseOverSecond"
-                           class="mobileSpeech"
-                           style="text-align: center;margin-top: -10%;float: left">
-                            {{secondMobileInputBox}}</p>
-                        <p ng-show="mobileMouseOverThird"
-                           class="mobileSpeech"
-                           style="text-align: center;margin-top: -10%;float: left">
-                            {{thirdMobileInputBox}}</p>
-                        <p ng-show="mobileMouseOverFourth"
-                           class="mobileSpeech"
-                           style="text-align: center;margin-top: -10%;float: left">
-                            {{fourthMobileInputBox}}</p>
-                    </div>
-                    <div class="col-md-8">
-                        <div style="padding: 6% 0 20.2% 10%;">
-                            <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 mobileGroupInputBox"
-                                   ng-mouseover="mobileMouseOverFirst=true"
-                                   ng-mouseleave="mobileMouseOverFirst=false"
-                                   value="Mobile Box 1">
-                            <div class="form-inline">
-                                <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
-                                       class="form-control2 mobileGroupInputBox"
-                                       ng-mouseover="mobileMouseOverSecond=true"
-                                       ng-mouseleave="mobileMouseOverSecond=false"
-                                       value="Mobile Box 2">
-                                <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
-                                       class="form-control2 mobileGroupInputBox"
-                                       ng-mouseover="mobileMouseOverThird=true"
-                                       ng-mouseleave="mobileMouseOverThird=false"
-                                       value="Mobile Box 3">
+
+                <!--mobileTestCase Modal1-->
+                <div class="modal fade" id="mobileExecuteTestCaseModal1" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Execute Test Case</h4>
                             </div>
-                            <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  mobileGroupInputBox"
-                                   ng-mouseover="mobileMouseOverFourth=true"
-                                   ng-mouseleave="mobileMouseOverFourth=false"
-                                   value="Mobile Box 4">
+                            <div class="modal-body">
+                                <button class="btn btn-primary btn-block"
+                                        data-target="#mobileExecuteTestCaseModal2"
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-toggle="modal"
+                                        id="mobileExecuteTestCaseTrigger2"
+                                        ng-click="mobileModalViaGUIHeadingStyle=true">Via GUI
+                                </button>
+                                <br>
+                                <button class="btn btn-primary btn-block"
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-target="#mobileExecuteTestCaseModal3"
+                                        data-toggle="modal"
+                                        id="mobileExecuteTestCaseTrigger3"
+                                        ng-click="mobileModalViaTestOpsHeadingStyle=true">Via TestOps
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--mobileExecuteTestCaseModal2>-->
+
+                <div class="modal fade " id="mobileExecuteTestCaseModal2"
+                     tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <a href="#" class=" pull-left"
+                                   ng-click="mobileTestingViaGUIModalClose()">
+                                              <span style="font-weight:700;color:#cccccc"
+                                                    class="glyphicon glyphicon-menu-left"></span>
+                                </a>
+
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <!--<h4 class="modal-title">My Modal</h4>-->
+                                <h4 class="modal-title">Execute Test Case</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <button class="btn btn-primary btn-block"
+                                        ng-class="{'mobileModalViaGUIHeadingStyle':mobileModalViaGUIHeadingStyle}">Via GUI
+                                </button>
+                                <a role="button"
+                                   class="btn btn-primary btn-block"
+                                   data-toggle="modal"
+                                   data-backdrop="static" data-keyboard="false"
+                                   data-target="#singleModal"
+                                   ng-click="openMobileRide()">FUNCTIONAL
+                                </a>
+                                <br>
+
+                                <button class="btn btn-primary btn-block"
+                                        data-toggle="modal"
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-target="#performanceModal"
+
+                                        ng-click="openMobileRide()">AUTOMATION
+                                </button>
+                                <br>
+
+                                <button class="btn btn-primary btn-block"
+                                        data-toggle="modal"
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-target="#performanceModal"
+
+                                        ng-click="openMobileRide()">LOAD
+                                </button>
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
+                <!--mobileExecuteTestCaseModal3>-->
+
+                <div class="modal fade " id="mobileExecuteTestCaseModal3"
+                     tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <a href="#" class=" pull-left"
+                                   ng-click="mobileTestingViaTestOpsModalClose()">
+                                              <span style="font-weight:700;color:#cccccc"
+                                                    class="glyphicon glyphicon-menu-left"></span>
+                                </a>
+
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <!--<h4 class="modal-title">My Modal</h4>-->
+                                <h4 class="modal-title">Execute Test Case</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <button class="btn btn-primary btn-block"
+                                        ng-class="{'mobileModalViaTestOpsHeadingStyle':mobileModalViaTestOpsHeadingStyle}">Via TestOps
+                                </button>
+                                <a role="button"
+                                   class="btn btn-primary btn-block"
+                                   data-backdrop="static" data-keyboard="false"
+                                   data-toggle="modal"
+                                   data-target="#singleModal"
+                                   ng-click="openJenkins()">FUNCTIONAL
+                                </a>
+                                <br>
+
+                                <button class="btn btn-primary btn-block"
+                                        data-toggle="modal"
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-target="#performanceModal"
+
+                                        ng-click="openJenkins()">AUTOMATION
+                                </button>
+                                <br>
+
+                                <button class="btn btn-primary btn-block"
+                                        data-toggle="modal"
+                                        data-backdrop="static" data-keyboard="false"
+                                        data-target="#performanceModal"
+
+                                        ng-click="openJenkins()">LOAD
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="col-md-2"></div>
+        </div>
+        <div class="col-md-3">
+            <div class="mobileDivBtn">
+                <h4 class="stepTextColor">Step 4</h4>
+                <button class="btn btn-primary mobileStepBtn" ng-click="analyze()">
+                    Analyze
+                    Results
+                </button>
+            </div>
+        </div>
+    </div></section>
+
+
+        <br>
+    <section>  <div style=" margin-left:0;margin-right:0;overflow: auto" class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+
+            <input type="text" ng-model="ngModel1" disabled
+                   style="cursor:default;padding: 1% 0 1% 35%" class="form-control">
+
+        </div>
+        <div class="col-md-1"></div>
+    </div></section>
+        <br>
+<section>  <div  style=" margin-left:0;margin-right:0;overflow: auto" class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="background-color: #4b8ec9">
+        <p class="mobileTestingHoverHeading">Open Source Architecture
+            <!-- <strong style="font-size: large">Architecture</strong> -->
+        </p>
+        <div class="row">
+            <div class="col-md-2">
+                <p ng-show="mobileMouseOverFirst"
+                   class="mobileSpeech"
+                   style="text-align: center;margin-top: -10%;float: left">
+                    {{firstMobileInputBox}}</p>
+                <p ng-show="mobileMouseOverSecond"
+                   class="mobileSpeech"
+                   style="text-align: center;margin-top: -10%;float: left">
+                    {{secondMobileInputBox}}</p>
+                <p ng-show="mobileMouseOverThird"
+                   class="mobileSpeech"
+                   style="text-align: center;margin-top: -10%;float: left">
+                    {{thirdMobileInputBox}}</p>
+                <p ng-show="mobileMouseOverFourth"
+                   class="mobileSpeech"
+                   style="text-align: center;margin-top: -10%;float: left">
+                    {{fourthMobileInputBox}}</p>
+            </div>
+            <div class="col-md-8">
+                <div style="padding: 6% 0 20.2% 10%;">
+                    <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 mobileGroupInputBox"
+                           ng-mouseover="mobileMouseOverFirst=true"
+                           ng-mouseleave="mobileMouseOverFirst=false"
+                           value="Mobile Box 1">
+                    <div class="form-inline">
+                        <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                               class="form-control2 mobileGroupInputBox"
+                               ng-mouseover="mobileMouseOverSecond=true"
+                               ng-mouseleave="mobileMouseOverSecond=false"
+                               value="Mobile Box 2">
+                        <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                               class="form-control2 mobileGroupInputBox"
+                               ng-mouseover="mobileMouseOverThird=true"
+                               ng-mouseleave="mobileMouseOverThird=false"
+                               value="Mobile Box 3">
+                    </div>
+                    <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  mobileGroupInputBox"
+                           ng-mouseover="mobileMouseOverFourth=true"
+                           ng-mouseleave="mobileMouseOverFourth=false"
+                           value="Mobile Box 4">
+                </div>
+            </div>
         </div>
     </div>
+    <div class="col-md-2"></div>
+</div></section>
 
 
-</div>
+
+
+

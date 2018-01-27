@@ -49,9 +49,29 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $(document).ready(function(){
 
+
             // Removing Classes
             var alterClass = function() {
+                // Equalizing the Sidebar and Page Content
+                var windowHeight =$(window).height();
+                var  navHeight =$('#nav').height() ;
+                // console.log(navHeight,"nav height");
+                // alert(z,"nav");
+                var contentHeight = windowHeight-navHeight;
+                console.log(y);
+
+                $(".fullheight").height(contentHeight);
+                // $(".sidebar").top(navHeight);
+
                 var ww = document.body.clientWidth;
+
+                if (ww <=1024 ) {
+                    $('#navBtn1,#navBtn2,#navBtn3').removeClass('.nav-btn1,.nav-btn2,.nav-btn3');
+                    $('#navBtn1,#navBtn2,#navBtn3').addClass('.nav-btn');
+                } else if (ww >= 1024) {
+                    ('#navBtn1,#navBtn2,#navBtn3').addClass('nav-btn1,nav-btn2,nav-btn3');
+                    $('#navBtn1,#navBtn2,#navBtn3').removeClass('nav-btn');
+                };
                 if (ww < 768) {
                     $('#sidebar').removeClass('fullheight');
                     $('.content').removeClass('fullheight');
@@ -59,7 +79,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                     $('.content').addClass('fullheight');
                     $('#sidebar').addClass('fullheight');
 
-                    $("#sidebar").addClass(z);
+                    $("#sidebar").addClass(navHeight);
                 };
             };
             $(window).resize(function(){
@@ -68,16 +88,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
             alterClass();
 
-            // Equalizing the Sidebar and Page Content
-            var x =$(window).height();
-            var  z =$('#nav').height() ;
-            console.log(z,"nav height");
-            // alert(z,"nav");
-            var y = x-z;
-            console.log(y);
-
-            $(".fullheight").height(y);
-            $(".sidebar").top(z);
 
         });
 

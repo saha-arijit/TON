@@ -4,16 +4,29 @@
 kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
     $(document).ready(function(){
 
+
         // Removing Classes
         var alterClass = function() {
+            // Equalizing the Sidebar and Page Content
+            var windowHeight =$(window).height();
+            var  navHeight =$('#nav').height() ;
+            // console.log(navHeight,"nav height");
+            // alert(z,"nav");
+            var contentHeight = windowHeight-navHeight;
+
+
+            $(".fullheight").height(contentHeight);
+            // $("#sidebar").top(navHeight);
+
             var ww = document.body.clientWidth;
             if (ww < 768) {
                 $('#sidebar').removeClass('fullheight');
-                $('#content').removeClass('fullheight');
-                $('#contactUs').removeClass('force-to-bottom');
+                $('.content').removeClass('fullheight');
             } else if (ww >= 768) {
-                $('#content').addClass('fullheight');
+                $('.content').addClass('fullheight');
                 $('#sidebar').addClass('fullheight');
+
+                $("#sidebar").addClass(navHeight);
             };
         };
         $(window).resize(function(){
@@ -22,14 +35,6 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload', func
 
         alterClass();
 
-        // Equalizing the Sidebar and Page Content
-        var x =$(window).height();
-        var  z =$('#nav').height() + 3;
-        console.log(z,"nav");
-        var y = x-z;
-        console.log(y);
-
-        $(".fullheight").height(y);
 
     });
 
