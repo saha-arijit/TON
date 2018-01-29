@@ -809,6 +809,26 @@ var x= $(window).height();
                 })
             }, 9000);
         };
+
+        $scope.mobileAnalyze = function () {
+            $('#webAnalyzeModal').modal('hide');
+            $http({
+                method: 'post',
+                url: '/analyzeMobileGUI'
+            }).then(function success(response) {
+
+                console.log("resp", response)
+            }, function error(error) {
+
+                console.log("err", error)
+            });
+            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ngModel1 = ''
+                })
+            }, 9000);
+        };
         $scope.openPostman = function () {
             $http({
                 method: 'post',
