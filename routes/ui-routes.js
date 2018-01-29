@@ -438,4 +438,22 @@ UIRoutes.prototype.init = function() {
 
         });
 
+          app.post('/analyzeMobileGUI',
+        function(req, res){
+
+             console.log("Came to Analyze API Results");
+    child = exec(baseFolder+"/back_end/Mobile_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+    if (e instanceof Error) {
+        console.error(e);
+        throw e;
+    }
+    console.log('stdout ', stdout);
+    res.end();
+    });
+            console.log("Entering  into Kibana");
+
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
+        });
+
 };

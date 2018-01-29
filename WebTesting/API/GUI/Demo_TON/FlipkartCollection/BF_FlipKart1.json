@@ -1,0 +1,45 @@
+{
+  "CreationDate": "2017-11-21",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://www.google.co.in/search?q=flipkart&rlz=1C1CHBF_enIN746IN746&oq=flipkart&aqs=chrome..69i57j0l5.2171j0j7&sourceid=chrome&ie=UTF-8",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=vn1s0p1c0",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "name=q",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "name=q",
+      "Value": "samsung galaxy on max"
+    },
+    {
+      "Command": "click",
+      "Target": "css=button.vh79eN",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"container\"]/div/div[1]/div/div[2]/div/div[2]/div/div[3]/div/div/div[2]/div/a/div[3]/div[1]/div[1]",
+      "Value": ""
+    },
+    {
+      "Command": "selectWindow",
+      "Target": "tab=1",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "link=CART0",
+      "Value": ""
+    }
+  ]
+}
