@@ -1,9 +1,12 @@
 /*body{*/
     /*overflow-y: hidden;*/
 /*}*/
-.modal-open body {
+body {
     padding-right: 0 !important;
-/*overflow-y: auto*/
+overflow-y: auto
+}.modal-open{
+
+overflow-y: auto
 }
 .loader {
     border: 16px solid #f3f3f3;

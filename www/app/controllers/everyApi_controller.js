@@ -123,7 +123,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $scope.apiFile1.push($files[k])
 
         }
-        console.log( $scope.files,"QuestionFilesList")
+        // console.log( $scope.files,"QuestionFilesList");
         $scope.$apply();
     };
 
@@ -134,7 +134,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $scope.apiFile2=[];
             $scope.apiFile2.push($files[k])
         }
-        console.log( $scope.files,"QuestionFilesList")
+        // console.log( $scope.files,"QuestionFilesList")
         $scope.$apply();
     };
 
@@ -190,7 +190,26 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
    // Sending Http Request Functions
+
+
+
+// For Step 1 start
+
+    $scope.openPostmanRecord = function () {
+        $http({
+            method: 'post',
+            url: '/postmanRecord'
+        });
+
+        $scope.ngModel1 = "Postman and Chrome has opened..please remember to close them...";
+
+
+    };
+
+// For Step 1 end
+
 // For Step 3 start
+
     $scope.openPostman = function () {
         $http({
             method: 'post',

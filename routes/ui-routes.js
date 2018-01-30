@@ -287,13 +287,13 @@ UIRoutes.prototype.init = function() {
             console.log("Number of Files : ",count)
             collFile = req.files['file[0]'].name.split('.json')
             folder = baseFolder+'/APITesting/API/GUI/Demo_TON/'+collFile[0]
-            
+
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
-                
+
                 var fileData = req.files[value];
                 var fileName =req.files[value].name;
-            
+
             if (!fs.existsSync(folder)){
                 fs.mkdirSync (folder)
             }
@@ -304,8 +304,8 @@ UIRoutes.prototype.init = function() {
                     return res.status(500).send(err);
             });
             }
-            
-            
+
+
             try{
             if(count>1){
                 cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
@@ -313,7 +313,7 @@ UIRoutes.prototype.init = function() {
             else{
                 cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ "None"+' '+baseFolder+' '+appName
                 }
-                
+
                 child = exec(cmd, (e, stdout, stderr)=> {
                 if (e instanceof Error) {
                  console.error(e);
@@ -325,7 +325,7 @@ UIRoutes.prototype.init = function() {
                 console.log ("In error...")
                 console.log (ex)
             }
-       
+
             console.log ("The file has been moved.")
 
             res.end()

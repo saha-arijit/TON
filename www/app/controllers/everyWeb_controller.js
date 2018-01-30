@@ -379,7 +379,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         $scope.uploadWebFile1 = function () {
-            $scope.ngModel1= "Preparation is in progress..."; $scope.ngModel1= "Preparation has been completed";
+            $scope.ngModel1= "Preparation is in progress...";
             $scope.loading = true;
             $('#webPrepareTestCaseModal1').modal('hide');
             // console.log($scope.WebFile1.length)
