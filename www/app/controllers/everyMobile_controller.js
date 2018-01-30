@@ -1,10 +1,10 @@
 /**
  * Created by rabeesh on 22/1/18.
  */
-kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
+kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state', function ($scope, $http, Upload,$state) {
 
     // Spinner Function
-
+    $scope.$state = $state;
     // Loader or Spinner
     $scope.loading = false;
 

@@ -20,7 +20,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     return {
         link: fn_link
     }
-}]).controller('everyApiController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
+}]).controller('everyApiController', ['$scope', '$http', 'Upload','$state',
+    function ($scope, $http, Upload,$state) {
 
 // Spinner Function
 
@@ -285,5 +286,5 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
 
-
+        $scope.$state = $state;
 }]);

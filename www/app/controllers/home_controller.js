@@ -1,9 +1,11 @@
-kibanaApp.controller('homeController',['$scope','$http',function ($scope,$http) {
+kibanaApp.controller('homeController',['$scope','$http','$state','$location',function ($scope,$http,$state,$location) {
 
     $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????-";
 
-
-
+// Enabling the ng-class
+$scope.isActive = function (currentUrl) {
+    return currentUrl === $location.path();
+};
 // disabling validate case button
     $scope.input = true;
 
@@ -67,7 +69,39 @@ kibanaApp.controller('homeController',['$scope','$http',function ($scope,$http) 
         })
 
     }
+    $scope.$state = $state;
+    $(document).ready(function() {
+        // Adding Href Attribute
+        $('#apiTestingModel').on('click', function () {
+            $scope.ngModel1 = "";
+            var href = '/assets/pdf2.pdf';
+            $('#userManual').attr('href', href)
+            // For Web Testing
+        }) ;$('#webTestingModel').on('click', function () {
+            $scope.ngModel1 = "";
+            var href="/assets/pdf.pdf";
+            $('#userManual').attr('href', href)
+        })
 
+        // For Mobile Testing
+        $('#mobileTestingModel').on('click', function () {
+            $scope.ngModel1 = "";
+            var href="/assets/pdf3.pdf";
+            $('#userManual').attr('href', href)
+        })
+
+    })
+
+    // $(document).ready(function () {
+    //     var url = window.location;
+    //     // Will only work if string in href matches with location
+    //     $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+    //
+    //     // Will also work for relative and absolute hrefs
+    //     $('ul.nav a').filter(function () {
+    //         return this.href == url;
+    //     }).parent().addClass('active').parent().parent().addClass('active');
+    // });
 
     // Upload.upload({
     //     url: 'my/upload/url',

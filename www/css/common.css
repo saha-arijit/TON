@@ -82,8 +82,10 @@ overflow-y: auto
 
 .menuLoginHeading {
 
-    margin-top: 1.5vw;
-    margin-bottom:1.5vw;
+    /*margin-top: 1.5vw;*/
+    /*margin-bottom:1.5vw;*/
+    margin-top: 5%;
+    margin-bottom:5%;
 
 }
 
@@ -727,7 +729,6 @@ p.webSpeech-bubble {
         padding-left: 1vw !important ;
         padding-right: 1vw !important;
     }
-
 }
 .navbar{
     background-color: #874aa3;
@@ -738,18 +739,65 @@ p.webSpeech-bubble {
 
 
  }
-.nav-btn{
-    margin-top: 35px;
-    margin-left: 40px;
-    /*margin-bottom: 0px;*/
-    padding-left: 5vw;
-    padding-right: 5vw;
+.navbar-border-bottom{
+    border-bottom: 1px solid #ddd;
 }
 
+.nav-tab>li>a.active{
+    cursor: default;
+    /*background-color: #fff;*/
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+.nav-btn{
+    /*margin-top: 20px;*/
+    margin-top: 7px;
+    margin-left: 40px;
+    /*margin-top: auto;*/
+    height: 100%;
+
+    /*margin-bottom: 0px;*/
+    /*padding-left: 5vw;*/
+    /*padding-right: 5vw;*/
+}.nav-btn1{
+   margin-top: 7%;
+     margin-left: 10px;
+
+}.nav-btn2{
+   margin-top: 7%;
+      margin-left: 10px
+
+  }.nav-btn3{
+   margin-top: 7%;
+   margin-bottom: 7%;
+         margin-left: 10px
+
+
+     }.navbar-nav>li>a:hover{
+               color: #555;
+               text-decoration: none;
+               background-color: white !important;
+               -webkit-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+               -moz-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+               box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+               border-radius: 10%;
+           }
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar.nav>.active>a:focus {
+    color: white !important;
+    text-decoration: none;
+    background-color: #4b8ec9 !important;
+    -webkit-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+    -moz-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+    box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+    border-radius: 10%;
+    /*padding-bottom: 17px;*/
+    /*padding-top: 10px;*/
+    /*padding: 15px 10px;*/
+}
 .navbar-default .navbar-nav>li>a {
     color: white;
 }.navbar-nav>li>a {
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 .navbar-brand {

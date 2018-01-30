@@ -17,7 +17,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-    .controller('everyWebController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
+    .controller('everyWebController', ['$scope', '$http', 'Upload','$state', function ($scope, $http, Upload,$state) {
         $scope.loading = false;
         $scope.openPdf = function () {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
@@ -442,7 +442,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             })
         }
 
-
+        $(document).ready(function() {
+            // Adding Href Attribute
+            $('#apiTestingModel').on('click', function () {
+                $scope.ngModel1 = "";
+                var href = '/assets/pdf2.pdf';
+                $('#userManual').attr('href', href)
+            })
+        })
         $scope.openKantu = function () {
             $http({
                 method: 'post',
@@ -654,5 +661,5 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         //         $('#sidebar').toggleClass('active');
         //     });
         // });
-
+        $scope.$state = $state;
     }]);
