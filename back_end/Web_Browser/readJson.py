@@ -15,7 +15,7 @@ class readJson :
             myObject = u.encode('utf-8')
             myFile.encoding
             myFile.close()
-            data = json.load(myObject,'utf-8')
+            data = json.loads(myObject,'utf-8')
 			testCase = testCase.split('.')
 			file = open (testCase[0]+".py", "w")
 			testCase = testCase[0].split("/")
