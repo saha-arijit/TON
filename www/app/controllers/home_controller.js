@@ -1,7 +1,8 @@
-kibanaApp.controller('homeController',['$scope','$http','$state','$location',function ($scope,$http,$state,$location) {
+kibanaApp.controller('homeController',['$scope','$http','$state','$location','$rootScope',
+    function ($scope,$http,$state,$location,$rootScope) {
 
     $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????-";
-
+        $rootScope.loading=false
 // Enabling the ng-class
 $scope.isActive = function (currentUrl) {
     return currentUrl === $location.path();

@@ -20,13 +20,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     return {
         link: fn_link
     }
-}]).controller('everyApiController', ['$scope', '$http', 'Upload','$state',
-    function ($scope, $http, Upload,$state) {
+}]).controller('everyApiController', ['$scope', '$http', 'Upload','$state','$rootScope',
+    function ($scope, $http, Upload,$state,$rootScope) {
 
-// Spinner Function
 
-    // Loader or Spinner
-    $scope.loading = false;
 
     $(document).ready(function(){
 
@@ -145,7 +142,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $('#modal8').modal('hide');
         $scope.ngModel1="Preparation is in progress...";
-        $scope.loading = true;
+        $rootScope.loading = true;
         // console.log($scope.files)
         $scope.files=$scope.apiFile1.concat($scope.apiFile2);
         Upload.upload(
@@ -162,7 +159,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         ).then(function (resp) {
                 $scope.ngModel1="Preparation has been completed...";
                 $('#apiTestingBtn2Disable').val(null);
-                $scope.loading = false;
+                $rootScope.loading = false;
                 $('#apiTestingBtn1Disable').val(null);
                 $scope.apiTestingBtn1Disable= true;
                 $scope.files=[];

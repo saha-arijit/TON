@@ -17,8 +17,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-    .controller('everyWebController', ['$scope', '$http', 'Upload','$state', function ($scope, $http, Upload,$state) {
-        $scope.loading = false;
+    .controller('everyWebController', ['$scope', '$http', 'Upload','$state','$rootScope', function ($scope, $http, Upload,$state,$rootScope) {
+        $rootScope.loading = false;
         $scope.openPdf = function () {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
         }
@@ -380,7 +380,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $scope.uploadWebFile1 = function () {
             $scope.ngModel1= "Preparation is in progress...";
-            $scope.loading = true;
+            $rootScope.loading = true;
             $('#webPrepareTestCaseModal1').modal('hide');
             // console.log($scope.WebFile1.length)
 
@@ -395,7 +395,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $('#WebFile1').val(null);
                 $scope.ngModel1= "Preparation has been completed";
 
-                $scope.loading = false;
+                $rootScope.loading = false;
             })
                 .error(function (error) {
                     console.log(error,"Error")
@@ -410,7 +410,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.uploadWebFile2 = function () {
             $scope.files=$scope.webFile1.concat($scope.webFile2);
             $scope.ngModel1= "Preparation is in progress...";
-            $scope.loading = true;
+            $rootScope.loading = true;
             $('#webPrepareTestCaseModal2').modal('hide');
             Upload.upload({
                 url:'/prepareWebAPI',
@@ -419,7 +419,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 file:$scope.files
             }).success(function (res) {
                 $scope.ngModel1= "Preparation has been completed...";
-                $scope.loading = false;
+                $rootScope.loading = false;
                 $scope.webTestingBtn2Disable= true;
                 $('#WebFile2').val(null);
                 $('#WebFile3').val(null);

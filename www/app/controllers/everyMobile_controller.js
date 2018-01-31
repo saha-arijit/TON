@@ -1,12 +1,9 @@
 /**
  * Created by rabeesh on 22/1/18.
  */
-kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state', function ($scope, $http, Upload,$state) {
+kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state','$rootScope',
+    function ($scope, $http, Upload,$state,$rootScope) {
 
-    // Spinner Function
-    $scope.$state = $state;
-    // Loader or Spinner
-    $scope.loading = false;
 
     $(document).ready(function(){
 
@@ -111,7 +108,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
     $scope.uploadMobileFile1 = function () {
         $scope.ngModel1= "Preparation is in progress...";
 
-        $scope.loading = true;
+        $rootScope.loading = true;
 
         $('#mobilePrepareTestCaseModal1').modal('hide');
 
@@ -123,7 +120,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
         }).then(function (resp) {
 
             $scope.ngModel1= "Preparation has been completed..";
-            $scope.loading = false;
+            $rootScope.loading = false;
             $scope.name = "";
             $scope.files=[];
             $('#mobileTestingFile1').val( null);
