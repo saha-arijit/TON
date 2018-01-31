@@ -248,35 +248,28 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
     // For Step 4 start
+        $scope.apiAnalyze = function () {
+            $http({
+                method: 'post',
+                url: '/analyzeWebApi'
+            }).then(function success(response) {
 
-    $scope.analyze = function () {
+                console.log("resp", response)
+            }, function error(error) {
 
-        $http({
-            method: 'post',
-            url: '/analyze'
-        }).then(function success(response) {
-
-            console.log("resp", response)
-        }, function error(error) {
-
-            console.log("err", error)
-        });
-        $scope.ngModel1 = "Kibana has opened..please remember to close it."
-        setTimeout(function () {
-            $scope.$apply(function () {
-                $scope.ngModel1 = ''
-            })
-        }, 9000);
-
-        // setTimeout(function () {
-        //     $scope.ngModel1="";
-        // },100)
+                console.log("err", error)
+            });
+            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ngModel1 = ''
+                })
+            }, 9000);
 
 
-        // $('#webTestingModal').modal('hide')
+        };
 
 
-    };
 
     // For Step 4 end
 

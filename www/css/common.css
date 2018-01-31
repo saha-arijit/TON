@@ -732,7 +732,9 @@ p.webSpeech-bubble {
          margin-left: 10px
 
 
-     }.navbar-nav>li>a:hover{
+     }#login:hover {
+           }.navbar-nav>li>a:hover{
+
                color: #555;
                text-decoration: none;
                background-color: white !important;
