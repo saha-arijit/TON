@@ -1,267 +1,101 @@
-
-
-
-
-<div class="container-fluid">
-    <div class="row row-color">
-        <div class="col-sm-2 col-md-3">
-            <!--Logo-->
-            <img class="menuLogo" src="../../images/test-on-need-logo-192_42-1.png" height="42" width="192"/>
-        </div>
-
-        <div class="col-sm-2 col-md-2">
-            <button class="btn btn-primary menuHeading">Web Application Testing</button>
-        </div>
-        <div class="col-sm-2 col-md-2">
-            <button class=" btn btn-primary menuHeading menuApiHeading">API Testing</button>
-
-        </div>
-        <div class="col-sm-2 col-md-3 ">
-            <button class="btn btn-primary menuHeading">Mobile Application Testing</button>
-
-        </div>
-        <div class="col-sm-3 col-md-2 menuLogin">
-
-            <button style="  border-color: #ffffff; !important;" class="btn btn-primary menuLoginHeading">Login</button>
+<div class="spinner" ng-show="loading">
+    <div class="loader"></div>
+</div><!--navbar-->
+<nav class="navbar navbar-default" id="nav">
+    <div class="contaner-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#first-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">   <img src="../../images/test-on-need-logo-192_42-1.png"
+                                                     width="192"/></a>
 
         </div>
 
-    </div>
-    <div class="row" style=" background-color: rgba(142,68,173,0.9);">
-        <div class="col-md-10">
-
-            <br>
-            <br>
-
-            <div class="row">
-                <div class="col-md-3">
-
-                    <div class="stepBtndiv">
-                        <h4>Step 1</h4>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="first-navbar">
+            <ul class="nav navbar-nav">
+                <!--<li><a href="#/everyWeb"><button class="btn btn-primary nav-btn ">EveryWeb</button><span class="sr-only">(current)</span></a></li>-->
+                <!--<li><a href="#/everyApi"><button  id="apiTestingModel" class="btn btn-primary nav-btn ">EveryApi</button><span class="sr-only">(current)</span></a></li>-->
+                <!--<li><a href="#/everyMobile"><button class="btn btn-primary nav-btn ">EveryMobile</button> <span class="sr-only">(current)</span></a>
+                </li>-->
 
 
-                        <button class="btn btn-primary stepBtn" type="submit" ng-click="RecordTestCase()">Record Test
-                            Case
-                        </button>
+                <!--<li ng-class="{active: $state.includes('everyWeb')}"><a class=" nav-btn" href="#/everyWeb">-->
+                <!--EveryWeb-->
+                <!--</a></li>-->
+                <!--<li  ng-class="{active: $state.includes('everyApi')}"><a class="nav-btn" href="#/everyApi">-->
+                <!--EveryApi</a></li>-->
+                <!--<li  ng-class="{active: $state.includes('everyMobile')}"><a class="nav-btn" href="#/everyMobile">EveryMobile<span class="sr-only">(current)</span></a></li>-->
+                <li  stle="padding-top:0 !important; "  ng-class="{active: isActive('/home/everyWeb')}" id="webTestingModel"><a  class=" nav-btn1" href="#/home/everyWeb">
+                    EveryWeb
+                </a></li>
+                <li ng-class="{active: isActive('/home/everyApi')}" id="apiTestingModel" ><a  class="nav-btn2" href="#/home/everyApi" >
+                    EveryApi</a></li>
+                <li ng-class="{active: isActive('/home/everyMobile')}" id="mobileTestingModel"><a  class="nav-btn3" href="#/home/everyMobile">EveryMobile</a></li>
 
-                    </div>
+            </ul>
 
-                </div>
-                <div class="col-md-3">
-                    <div class="stepBtndiv">
-                        <h4>Step 2</h4>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="login" href="#">
+                    <button style="border-color: #ffffff; !important;" class="btn btn-primary menuLognHeading">Login</button></a></li>
 
-                        <button class="btn btn-primary stepBtn" type="button" ng-disabled="input"
-                                ng-click="validateTestCase()">Validate
-                            Test Case
-                        </button>
-                    </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--Sidebar-->
+<nav class="navbar navbar-default fullheight " id="sidebar" >
+    <div >
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-
-                </div>
-                <div class="col-md-3">
-
-                    <div class="stepBtndiv">
-                        <h4>Step 3</h4>
-                        <button class="btn btn-primary stepBtn"  data-toggle="modal" data-target="#myModal" ng-click="ExecuteTestCse()">Execute Test Case</button>
-
-                       <!--Pouup Window using Bootstrap model-->
-                        <div class="modal fade" id="myModal" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <!--<h4 class="modal-title">My Modal</h4>-->
-
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <!--<h4 class="modal-title">My Modal</h4>-->
-                                        <h4 class="modal-title">Select Any One TestCase</h4>
-
-                                    </div>
-                                    <div class="modal-body">
-                                        <!--<p>My Modal Body</p>-->
-                                        <!--<h4>RIDE</h4>-->
-                                        <!--<h4>JENKINS</h4>-->
-                                        <!--<h4>API</h4>-->
-                                        <button class="btn btn-primary btn-block" style="margin-top: 2%"  ng-click="startRide()">RIDE</button>
-                                        <br>
-                                        <button class="btn btn-primary btn-block" style="margin-top: 2%">JENKINS</button>
-                                        <br>
-                                        <button class="btn btn-primary btn-block" style="margin-top: 2%">API</button>
-                                        <br>
-
-
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-3">
-
-                    <div class="stepBtndiv">
-                        <h4>Step 4</h4>
-
-                        <button class="btn btn-primary stepBtn" ng-click="analyze()">Analyze Results</button>
-
-                    </div>
-
-
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-
-                    <!--Browse to select the file-->
-
-                    <form
-                            enctype="multipart/form-data"
-                            action="/validate"
-                            method="post"
-                            target="myIFrame">
-
-                        <input type="file" accept=".json" name="sampleFile" ng-click="fileSelected()"
-                               style="padding: 1% 0 1% 35%" class="form-control"
-                               value="Browse To Select The File">
-
-                        <input type="submit" style="visibility: hidden" id="inputId" value="Validate" name="submit">
-                    </form>
-                    <!--<input type="file" style="padding: 1% 0 1% 35%" class="form-control" ng-model="inputFile"-->
-                    <!--value="Browse To Select The File">-->
-
-
-                </div>
-                <div class="col-md-1"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-2"></div>
-
-                <div class="col-md-8" style="background-color: #4b8ec9;margin-bottom: 3%">
-                    <p style="text-align: center;margin-top: 5%">open source <strong style="font-size: large">Architecture</strong>
-                    </p>
-                    <div class="row" id="bubbleRow">
-                        <div class="col-md-2" id="bubbleColumn">
-                            <!--<p   ng-show="x" ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()"-->
-                               <!--class="speech"-->
-                               <!--style="text-align: center;margin-top: -10%;float: left">{{firstInputBox}}</p>-->
-
-                        </div>
-                        <div class="col-md-8">
-
-
-                            <div style="padding: 1% 0 15% 20%;margin-right: -20%;">
-
-                                <input type="text" class="form-control groupInputBox"
-                                       ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()">
-                                <div class="form-inline">
-
-                                    <input style="width: 50%" type="text" class="form-control groupInputBox"
-                                           value="">
-                                    <input style="width: 50%;float: right" type="text"
-                                           class="form-control groupInputBox" value="">
-
-
-                                    <!--<p ng-show="x" ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()" class="speech" syle="text-align: center">SitePoint Rocks!</p>-->
-
-                                </div>
-                                <input type="text" class="form-control groupInputBox" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-2"></div>
-            </div>
 
         </div>
-        <div class="col-md-2" style="background-color:#4b8ec9;" >
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="sidebar1" >
 
             <div class="row" style="background-color:#874aa3;">
-                <div class="col-md-12 ">
-                    <h3 class="menuResources" style="color:white;">
-                        Resources</h3>
-                </div>
+                <div class="col-md-12">
+                    <h4 class="menuResources"
+                        style="color:white;padding-top: 1% ! important">
+                        Resources</h4></div>
             </div>
-            <br>
-            <br><a href="#">
-            <p style="font-size: medium;color:white;">- Installation Manual</p>
-
-        </a>
 
             <br>
-            <p style="font-size: medium;color:white;paddng-left: 20%">- User Manual</p>
+            <a id="userManual" href="/assets/pdf.pdf" target="_blank" style="text-decoration: none;font-size: medium;color:white;pading-left: 20%;text-align: left">
+                <i class="fa fa-file-pdf-o" style="font-size:30px;margin-right:3%;color:white"></i> User Manual</a>
 
-            <br>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
             <!--<a href="#">-->
             <!--<img clss="img-responsive"-->
-                 <!--src="../../images/pdf-icon.png" style="height:1%;width:20%;flat: left"/>-->
-            <!--&lt;!&ndash;<i class="fa fa-file-pdf-o" style="font-size:48px;color:red"> </i>&ndash;&gt;-->
+            <!--src="../../images/pdf-icon.png" style="height:1%;width:20%;flat: left"/>-->
+            <!--<span ><img style="width: 50%;background-color: transparent" src="images/pdf.png"/>-->
+            <!--</span>-->
             <!--<p style="font-size: medium;color:white;padding-left: 20%"> User Manual</p>-->
-        <!--</a>-->
+            <!--</a>-->
 
-
-            <br><br><br><br>
-
-            <div class="row" style="background-color:#8c52ab;padding-top:4%">
-                <div class="col-md-12 ">
-
+            <div class="row force-to-bottom" id="contactUs">
+                <div class="col-md-12 " style="background-color:#9753b5;padding:5%;">
                     <h4 style="text-align: center;color:white;">Contact Us</h4>
                     <p style="font-size: medium;text-align: center;color:white;">sales@testonneed.com</p>
-
                 </div>
             </div>
-        </div>
-    </div>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- Page Content Holder -->
+<div class="content fullheight"  style=" background-color: rgba(142,68,173,0.9);"  ui-view>
 
-    <!--<iframe id="iFrame" name="myIFrame" style="visibility: hidden"></iframe>-->
 
 </div>
-
-<!--<nav class="navbar navbar-inverse">-->
-<!--<div class="container-fluid">-->
-<!--<div class="navbar-header">-->
-<!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
-<!--<span class="sr-only">Toggle navigation</span>-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>-->
-<!--</button>-->
-<!--<a class="navbar-brand" href="#">            <img  src="../../images/test-on-need-logo-192_42-1.png" height="32" width="192"/>-->
-<!--</a>-->
-<!--</div>-->
-<!--<div id="navbar" class="navbar-collapse collapse">-->
-<!--<ul class="nav navbar-nav">-->
-<!--<li class="active"><a href="#">Home</a></li>-->
-<!--<li><a href="#">About</a></li>-->
-<!--<li><a href="#">Contact</a></li>-->
-<!--<li class="dropdown">-->
-<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
-<!--<ul class="dropdown-menu">-->
-<!--<li><a href="#">Action</a></li>-->
-<!--<li><a href="#">Another action</a></li>-->
-<!--<li><a href="#">Something else here</a></li>-->
-<!--<li role="separator" class="divider"></li>-->
-<!--<li class="dropdown-header">Nav header</li>-->
-<!--<li><a href="#">Separated link</a></li>-->
-<!--<li><a href="#">One more separated link</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--</ul>-->
-<!--<ul class="nav navbar-nav navbar-right">-->
-<!--<li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>-->
-<!--<li><a href="../navbar-static-top/">Static top</a></li>-->
-<!--<li><a href="../navbar-fixed-top/">Fixed top</a></li>-->
-<!--</ul>-->
-<!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
-<!--</div>&lt;!&ndash;/.container-fluid &ndash;&gt;-->
-<!--</nav>-->

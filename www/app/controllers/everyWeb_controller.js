@@ -17,8 +17,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-    .controller('roughController', ['$scope', '$http', 'Upload', function ($scope, $http, Upload) {
-
+    .controller('everyWebController', ['$scope', '$http', 'Upload','$state','$rootScope', function ($scope, $http, Upload,$state,$rootScope) {
+        $rootScope.loading = false;
         $scope.openPdf = function () {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
         }
@@ -28,15 +28,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.thirdWebInputBox = "bubble works !!!!!!!!!! Right????????????";
         $scope.fourthWebInputBox = "bubble works !!!!!!!!!! Right";
 
- $scope.firstApiInputBox = "bubble works !!! Right????????????";
-        $scope.secondApiInputBox = "bubble works !!!!!!!!!! Right?";
-        $scope.thirdApiInputBox = "bubble works !!!!!!!!!! Right????????????";
-        $scope.fourthApiInputBox = "bubble works !!!!!!!!!! Right";
 
- $scope.firstMobileInputBox = "bubble works !!! Right????????????";
-        $scope.secondMobileInputBox = "bubble works !!!!!!!!!! Right?";
-        $scope.thirdMobileInputBox = "bubble works !!!!!!!!!! Right????????????";
-        $scope.fourthMobileInputBox = "bubble works !!!!!!!!!! Right";
+
 
 
 
@@ -49,22 +42,39 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $(document).ready(function(){
 
-                $(".fullheight").height($(document).height());
 
-        });
-// Making columns to same height
-        function equalHeight(group) {
-            tallest = 0;
-            group.each(function() {
-                thisHeight = $(this).height();
-                if(thisHeight > tallest) {
-                    tallest = thisHeight;
-                }
+            // Removing Classes
+            var alterClass = function() {
+                // Equalizing the Sidebar and Page Content
+                var windowHeight =$(window).height();
+                var  navHeight =$('#nav').height() ;
+                // console.log(navHeight,"nav height");
+                // alert(z,"nav");
+                var contentHeight = windowHeight-navHeight;
+                // console.log(y);
+
+                $(".fullheight").height(contentHeight);
+                // $(".sidebar").top(navHeight);
+
+                var ww = document.body.clientWidth;
+
+                if (ww < 768) {
+                    $('#sidebar').removeClass('fullheight');
+                    $('.content').removeClass('fullheight');
+                } else if (ww >= 768) {
+                    $('.content').addClass('fullheight');
+                    $('#sidebar').addClass('fullheight');
+
+                    $("#sidebar").addClass(navHeight);
+                };
+            };
+
+
+            alterClass();
+
+            $(window).resize(function(){
+                alterClass();
             });
-            group.height(tallest);
-        }
-        $(document).ready(function() {
-            equalHeight($(".column"));
         });
 
 
@@ -101,40 +111,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         });
 
 
-// For Api Testing
-
-        // For Step 2
-        $('#Trigger2').on('click', function () {
-            $('#modal1').modal('hide');
-            // $('#singleModal').modal('toggle');
-            // $('#apiTestCaseModal').modal('show');
-        });
-        $('#Trigger3').on('click', function () {
-            $('#modal2').modal('hide');
-
-        });
-
-        $('#Trigger9').on('click', function () {
-            $('#modal1').modal('hide');
-
-        });
-
-
-
-
-
-        // For Mobile Testing Part
-
-        $('#mobileExecuteTestCaseTrigger2').on('click', function () {
-            $('#mobileExecuteTestCaseModal1').modal('hide');
-
-        }); $('#mobileExecuteTestCaseTrigger3').on('click', function () {
-            $('#mobileExecuteTestCaseModal1').modal('hide');
-
-        });
-
-
-
 
 
 
@@ -152,19 +128,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         });
-var x= $(window).height();
 
-        var a = (x/113)+'%';
-        var b = 0;
-        var c = (x/33.3)+'%';
-        var d = (x/67)+'%';
-        var y = a +" "+b+" "+c+" "+d;
-
-        console.log(y);
-        $("#id").each(function() {
-            $(this).css("padding", y);
-        });
-    // $('#id').css('padding-bottom',20%)
 // Disabling the API Testing - api Functional modal
         $scope.apiShowFunctional = false;
 
@@ -318,32 +282,12 @@ var x= $(window).height();
         $scope.webTestingBtn2Disable= true;
 
 
-        // For API Testing For API -> load part
-        $scope.apiTestingBtn1Disable= true;
-
-        // For Mobile Testing For Prepare TestCase part
-        $scope.mobileTestingBtn1Disable= true;
-
-
-
-        // Initially MouseOver false for all functions
+        // MouseOver false for all functions
         $scope.webMouseOverFirst = false;
         $scope.webMouseOverSecond = false;
         $scope.webMouseOverThird = false;
         $scope.webMouseOverFourth = false;
 
-        // For ApiPart
-
-        $scope.apiMouseOverFirst = false;
-        $scope.apiMouseOverSecond = false;
-        $scope.apiMouseOverThird = false;
-        $scope.apiMouseOverFourth = false;
-// For Mobile Part
-
-        $scope.mobileMouseOverFirst = false;
-        $scope.mobileMouseOverSecond = false;
-        $scope.mobileMouseOverThird = false;
-        $scope.mobileMouseOverFourth = false;
 
 
 
@@ -351,8 +295,7 @@ var x= $(window).height();
 
         $scope.webFile1 = [];
         $scope.webFile2 = [];
-        $scope.apiFile2 = [];
-        $scope.apiFile2 = [];
+
 
 
 
@@ -399,53 +342,6 @@ var x= $(window).height();
 
 
 
-
-        // Disabling the btn for Mobile Testing Part
-        $(' #mobileTestingFile1').change(function () {
-            if ($('#mobileTestingFile1').val() =="") {
-                $scope.$apply(function () {
-                    $scope.mobileTestingBtn1Disable= true;
-
-                })
-
-            }
-            else {
-                $scope.$apply(function () {
-                    $scope.mobileTestingBtn1Disable= false;
-
-                })
-
-            }
-        });
-
-
-
-
-        // Disabling the btn 1 for API Testing Part
-        $(' #apiTestingBtn1Disable').change(function () {
-            if ($('#apiTestingBtn1Disable').val() == "") {
-                $scope.$apply(function () {
-
-                    $scope.apiTestingBtn1Disable= true;
-
-
-                })
-
-            }
-            else {
-                $scope.$apply(function () {
-
-                    $scope.apiTestingBtn1Disable= false;
-
-                })
-
-            }
-        });
-
-
-
-
-
 // Uploading Files Function
 
         // For Web Testing
@@ -481,32 +377,10 @@ var x= $(window).height();
             $scope.$apply();
         };
 
-// For Api Testing
-        $scope.getApiFile1 = function($files) {
-
-            for (var k = 0; k < $files.length; k++) {
-                $scope.apiFile1=[];
-                $scope.apiFile1.push($files[k])
-
-            }
-            console.log( $scope.files,"QuestionFilesList")
-            $scope.$apply();
-        };
-
-        $scope.getApiFile2 = function($files) {
-
-            for (var k = 0; k < $files.length; k++) {
-
-                $scope.apiFile2=[];
-                $scope.apiFile2.push($files[k])
-            }
-            console.log( $scope.files,"QuestionFilesList")
-            $scope.$apply();
-        };
 
         $scope.uploadWebFile1 = function () {
-            $scope.ngModel1= "Preparation is in progress..."; $scope.ngModel1= "Preparation has been completed";
-            $scope.loading = true;
+            $scope.ngModel1= "Preparation is in progress...";
+            $rootScope.loading = true;
             $('#webPrepareTestCaseModal1').modal('hide');
             // console.log($scope.WebFile1.length)
 
@@ -521,7 +395,7 @@ var x= $(window).height();
                 $('#WebFile1').val(null);
                 $scope.ngModel1= "Preparation has been completed";
 
-                $scope.loading = false;
+                $rootScope.loading = false;
             })
                 .error(function (error) {
                     console.log(error,"Error")
@@ -536,7 +410,7 @@ var x= $(window).height();
         $scope.uploadWebFile2 = function () {
             $scope.files=$scope.webFile1.concat($scope.webFile2);
             $scope.ngModel1= "Preparation is in progress...";
-            $scope.loading = true;
+            $rootScope.loading = true;
             $('#webPrepareTestCaseModal2').modal('hide');
             Upload.upload({
                 url:'/prepareWebAPI',
@@ -545,7 +419,7 @@ var x= $(window).height();
                 file:$scope.files
             }).success(function (res) {
                 $scope.ngModel1= "Preparation has been completed...";
-                $scope.loading = false;
+                $rootScope.loading = false;
                 $scope.webTestingBtn2Disable= true;
                 $('#WebFile2').val(null);
                 $('#WebFile3').val(null);
@@ -568,75 +442,14 @@ var x= $(window).height();
             })
         }
 
-        // For Mobile Testing
-        $scope.uploadMobileFile1 = function () {
-            $scope.ngModel1= "Preparation is in progress...";
-
-            $scope.loading = true;
-
-            $('#mobilePrepareTestCaseModal1').modal('hide');
-
-            Upload.upload({
-                url: '/prepareMobileGUI',
-                method: 'POST',
-                data: [],
-                file:$scope.files
-            }).then(function (resp) {
-
-                $scope.ngModel1= "Preparation has been completed..";
-                $scope.loading = false;
-                $scope.name = "";
-                $scope.files=[];
-                $('#mobileTestingFile1').val( null);
-                $scope.mobileTestingBtn1Disable= true;
-
-
+        $(document).ready(function() {
+            // Adding Href Attribute
+            $('#apiTestingModel').on('click', function () {
+                $scope.ngModel1 = "";
+                var href = '/assets/pdf2.pdf';
+                $('#userManual').attr('href', href)
             })
-        };
-
-
-
-        // For API Testing Part
-
-        $scope.uploadApiFile1 =function () {
-
-            $('#modal8').modal('hide');
-            $scope.ngModel1="Preparation is in progress...";
-            $scope.loading = true;
-            console.log($scope.files)
-            $scope.files=$scope.apiFile1.concat($scope.apiFile2)
-            Upload.upload(
-
-
-
-                {
-                    url: '/apiFileUploadAPI',
-                    method:'post',
-                    data:[],
-                    file:$scope.files
-                }
-
-            ).then(function (resp) {
-                    $scope.ngModel1="Preparation has been completed...";
-                    $('#apiTestingBtn2Disable').val(null);
-                    $scope.loading = false;
-                    $('#apiTestingBtn1Disable').val(null);
-                    $scope.apiTestingBtn1Disable= true;
-                    $scope.files=[];
-                    $scope.apiFile2=[];
-                    $('#File1').val( null);
-                },
-                function (error) {
-                    console.log(error,"error")
-                })
-
-
-        };
-        // Loader or Spinner
-        $scope.loading = false;
-
-
-
+        })
         $scope.openKantu = function () {
             $http({
                 method: 'post',
@@ -684,25 +497,7 @@ var x= $(window).height();
         };
 
 
-        $scope.openAPIRide = function () {
-            $http({
-                method: 'post',
-                url: '/executeAPIGUI'
-            });
 
-            $scope.ngModel1 = "Ride has opened..please remember to close it.";
-
-
-            $('#webExecuteTestCaseModal3').modal('hide');
-            $('#webExecuteTestCaseModal4').modal('hide');
-
-
-            $('#mobileTestCaseModal').modal('hide');
-            $('#mobileExecuteTestCaseModal2').modal('hide');
-            $('#modal5').modal('hide');
-
-
-        };
 
 
         $scope.openWebAPIRide = function () {
@@ -723,23 +518,7 @@ var x= $(window).height();
 
         };
 
-        $scope.openMobileRide = function () {
-            $http({
-                method: 'post',
-                url: '/executeMobileGUI'
-            });
 
-            $scope.ngModel1 = "Ride has opened..please remember to close it.";
-
-
-            $('#webExecuteTestCaseModal3').modal('hide');
-            $('#webExecuteTestCaseModal4').modal('hide');
-
-
-            $('#mobileTestCaseModal').modal('hide');
-
-
-        };
 
         $scope.analyze = function () {
             $('#webAnalyzeModal').modal('hide');
@@ -769,8 +548,10 @@ var x= $(window).height();
             // $('#webTestingModal').modal('hide')
 
 
-        }; 
-          $scope.webAPIAnalyze = function () {
+        };
+
+        $scope.apiAnalyze = function () {
+
             $('#webAnalyzeModal').modal('hide');
             $http({
                 method: 'post',
@@ -881,19 +662,6 @@ var x= $(window).height();
         };
 
 
-        $scope.openNotepad = function () {
-            $http({
-                method: 'post',
-                url: '/notepad'
-            }).then(function success(response) {
-
-                console.log("Notepad will be open", response)
-            }, function error(error) {
-
-                console.log("Notepad will be not be  open", error)
-            });
-
-        };
 
         // To Show the modal one by one
         // Api Testing TestCase Modal
@@ -905,6 +673,10 @@ var x= $(window).height();
         // var webModal = $('#webTestCaseModal');
         // var webInnermodal1 = webModal.find(".modal");     //get reference to nested modal
         // webModal.after(webInnermodal1);
-
-
+        // $(document).ready(function () {
+        //     $('#sidebarCollapse').on('click', function () {
+        //         $('#sidebar').toggleClass('active');
+        //     });
+        // });
+        $scope.$state = $state;
     }]);
