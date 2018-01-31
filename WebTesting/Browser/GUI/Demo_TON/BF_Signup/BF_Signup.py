@@ -24,40 +24,50 @@ def TC_BF_Signup(var_head, var_instances, var_load):
 
 def BF_Signup(var_head):
 
-	chrome_options = Options() 
-	chrome_options.add_argument("--headless")
-	chrome_options.add_argument("--window-size=1920x1080")
+	try:
 
-	if (var_head == "YES" or var_head == "Yes" or var_head == "yes"):
-		driver = webdriver.Chrome(chrome_options=chrome_options)
-	else:
-		driver = webdriver.Chrome ()
+		chrome_options = Options() 
+		chrome_options.add_argument("--headless")
+		chrome_options.add_argument("--window-size=1920x1080")
 
-	driver.set_page_load_timeout(30)
-	url = "https://twitter.com/"
-	driver.get(url)
-	driver.maximize_window()
-	driver.implicitly_wait(5)
+		if (var_head == "YES" or var_head == "Yes" or var_head == "yes"):
+			driver = webdriver.Chrome(chrome_options=chrome_options)
+		else:
+			driver = webdriver.Chrome ()
 
-	elementClick1 = driver.find_element_by_link_text("Sign up")
-	elementClick1.click()
-	time.sleep(3)
+		driver.set_page_load_timeout(30)
+		url = "https://twitter.com/"
+		driver.get(url)
+		driver.maximize_window()
+		driver.implicitly_wait(5)
 
-	elementClick2 = driver.find_element_by_id("full-name")
-	elementClick2.send_keys("Arijit Saha")
-	time.sleep(3)
+		elementClick1 = driver.find_element_by_link_text("Sign up")
+		elementClick1.click()
+		time.sleep(3)
 
-	elementClick3 = driver.find_element_by_id("email")
-	elementClick3.click()
-	time.sleep(3)
+		elementClick2 = driver.find_element_by_id("full-name")
+		elementClick2.send_keys("Arijit Saha")
+		time.sleep(3)
 
-	elementClick4 = driver.find_element_by_id("email")
-	elementClick4.send_keys("a@b.c")
-	time.sleep(3)
+		elementClick3 = driver.find_element_by_id("email")
+		elementClick3.click()
+		time.sleep(3)
 
-	elementClick5 = driver.find_element_by_id("submit_button")
-	elementClick5.click()
-	time.sleep(3)
+		elementClick4 = driver.find_element_by_id("email")
+		elementClick4.send_keys("a@b.c")
+		time.sleep(3)
 
-	driver.quit()
-	thread1.stop()
+		elementClick5 = driver.find_element_by_id("s..ubmit_button")
+		elementClick5.click()
+		time.sleep(3)
+
+		driver.quit()
+		thread1.stop()
+	
+	except:
+
+		assert (1 > 2) , "Entered to except block"
+		driver.quit()
+		thread1.stop()
+	
+

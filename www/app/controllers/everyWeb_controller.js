@@ -549,11 +549,13 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
+
         $scope.apiAnalyze = function () {
+
             $('#webAnalyzeModal').modal('hide');
             $http({
                 method: 'post',
-                url: '/analyzeWebApi'
+                url: '/analyzeWebAPI'
             }).then(function success(response) {
 
                 console.log("resp", response)
@@ -567,15 +569,46 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                     $scope.ngModel1 = ''
                 })
             }, 9000);
+        };
 
-            // setTimeout(function () {
-            //     $scope.ngModel1="";
-            // },100)
+        $scope.apiAnalyze = function () {
+            $('#webAnalyzeModal').modal('hide');
+            $http({
+                method: 'post',
+                url: '/analyzeAPI'
+            }).then(function success(response) {
 
+                console.log("resp", response)
+            }, function error(error) {
 
-            // $('#webTestingModal').modal('hide')
+                console.log("err", error)
+            });
+            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ngModel1 = ''
+                })
+            }, 9000);
+        };
 
+        $scope.mobileAnalyze = function () {
+            $('#webAnalyzeModal').modal('hide');
+            $http({
+                method: 'post',
+                url: '/analyzeMobileGUI'
+            }).then(function success(response) {
 
+                console.log("resp", response)
+            }, function error(error) {
+
+                console.log("err", error)
+            });
+            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ngModel1 = ''
+                })
+            }, 9000);
         };
         $scope.openPostman = function () {
             $http({

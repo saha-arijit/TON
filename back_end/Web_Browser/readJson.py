@@ -16,6 +16,7 @@ class readJson :
             myFile.encoding
             myFile.close()
             data = json.loads(myObject,'utf-8')
+
 			testCase = testCase.split('.')
 			file = open (testCase[0]+".py", "w")
 			testCase = testCase[0].split("/")
@@ -96,7 +97,7 @@ class readJson :
 		file.write ("\t"+"if (var_load == \"YES\" or var_load == \"Yes\" or var_load == \"yes\"):" +"\n")
 		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName)" + "\n")
 		file.write ("\t"+"\t"+"thread1.start()" + "\n")
-		file.write ("\t"+"\t"+"for i in range (1, int(var_instances)):" + "\n")
+		file.write ("\t"+"\t"+"for i in range (0, int(var_instances)):" + "\n")
 		file.write ("\t"+"\t"+"\t"+"Thread(target = "+testCase[6]+", args = [var_head]).start()" + "\n" + "\n")
 		file.write ("\t"+"else:" + "\n")
 		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName)" + "\n")
@@ -122,7 +123,7 @@ class readJson :
 		file.write ("\t" + "\t" + "driver = webdriver.Chrome(chrome_options=chrome_options)" + "\n")#,executable_path=\"D:\\TestSelenium\\SeleniumScripts\\chromedriver.exe\")" + "\n")
 		file.write ("\t" + "else:" + "\n")
 		file.write ("\t" + "\t" + "driver = webdriver.Chrome ()" + "\n" + "\n")
-		file.write("\t"+ "driver.set_page_load_timeout(30)" +"\n")
+		file.write("\t"+ "driver.set_page_load_timeout(180)" +"\n")
 
 
 read = readJson()
