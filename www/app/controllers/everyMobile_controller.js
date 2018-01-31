@@ -15,7 +15,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
         var alterClass = function() {
             // Equalizing the Sidebar and Page Content
             var windowHeight =$(window).height();
-            var  navHeight =$('#nav').height() ;
+            var  navHeight =$('#nav').outerHeight() ;
             // console.log(navHeight,"nav height");
             // alert(z,"nav");
             var contentHeight = windowHeight-navHeight;
@@ -164,6 +164,18 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
 
             console.log("Notepad will be not be  open", error)
         });
+
+    };
+
+    $scope.openMobileRide = function () {
+        $http({
+            method: 'post',
+            url: '/executeMobileGUI'
+        });
+
+        $scope.ngModel1 = "Ride has opened..please remember to close it.";
+           $('#mobileExecuteTestCaseModal2').modal('hide');
+
 
     };
 

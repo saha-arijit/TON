@@ -35,7 +35,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         var alterClass = function() {
             // Equalizing the Sidebar and Page Content
             var windowHeight =$(window).height();
-            var  navHeight =$('#nav').height() ;
+            var  navHeight =$('#nav').outerHeight() ;
             // console.log(navHeight,"nav height");
             // alert(z,"nav");
             var contentHeight = windowHeight-navHeight;
@@ -52,7 +52,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $('.content').addClass('fullheight');
                 $('#sidebar').addClass('fullheight');
 
-                $("#sidebar").addClass(navHeight);
+                // $("#sidebar").addClass(navHeight);
             };
         };
         $(window).resize(function(){

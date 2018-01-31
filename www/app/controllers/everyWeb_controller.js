@@ -518,23 +518,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
-        $scope.openMobileRide = function () {
-            $http({
-                method: 'post',
-                url: '/executeMobileGUI'
-            });
 
-            $scope.ngModel1 = "Ride has opened..please remember to close it.";
-
-
-            $('#webExecuteTestCaseModal3').modal('hide');
-            $('#webExecuteTestCaseModal4').modal('hide');
-
-
-            $('#mobileTestCaseModal').modal('hide');
-
-
-        };
 
         $scope.analyze = function () {
             $('#webAnalyzeModal').modal('hide');

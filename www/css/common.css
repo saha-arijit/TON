@@ -46,21 +46,7 @@ overflow-y: auto
     background: white;
     opacity: 0.6;
 }
-.c {
-    background: red;
-    width: 200px;
-    height: 80px;
-    /*border-bottom-left-radius: 50% 25%;*/
-    /*border-bottom-right-radius: 50% 25%;*/
-    /*border-top-left-radius: 50% 25%;*/
-    /*border-top-right-radius: 50% 25%;*/
-    /*border-radius: 50%;*/
-    border-top-right-radius: 50%;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    border-bottom-left-radius: 50%;
 
-}
 
 .menuLogo {
     margin-top: 2vh;
@@ -428,16 +414,7 @@ p.webSpeech-bubble {
     margin: 3px auto;
 }
 
-.panel-pink {
-    background-color: #874aa3;
-}
-
-.panel {
-    margin-bottom: 0 !important;
-}.panel-body {
-
-     padding-top:0 !important;
- }.stepTextColor{
+.stepTextColor{
       color: white;
   }
 
@@ -569,26 +546,7 @@ p.webSpeech-bubble {
     color:white;
 }
 
-.nav-tabs>li.active>a:hover {
-    background-color: #874aa3!important;
 
-}.nav-tabs>li.active>a:focus {
-     background-color: #874aa3!important;
-     color: white!important;
-
-
- }.nav-tabs>li.active>a:hover {
-      background-color: #874aa3!important;
-      color: white;
-
-  }.nav-tabs>li.active>a {
-       background-color: #874aa3!important;
-       color: white;
-
-   }.nav>li.disabled>a:focus, .nav>li.disabled>a:hover{
-        cursor: pointer!important;
-        border: none!important;
-        /*border: transparent;*/  }
 
 .webTestingHoverHeading{
     text-align: center;
@@ -686,6 +644,7 @@ p.webSpeech-bubble {
     /*bottom: 0;*/
     /*overflow-y:hidden;*/
     min-height: 100%;
+    /*margin-top: auto;*/
 
 }
 .footer{
