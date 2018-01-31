@@ -172,8 +172,24 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
 
         $scope.ngModel1 = "Ride has opened..please remember to close it.";
            $('#mobileExecuteTestCaseModal2').modal('hide');
-
-
     };
+        $scope.mobileAnalyze = function () {
 
+            $http({
+                method: 'post',
+                url: '/analyzeMobileGUI'
+            }).then(function success(response) {
+
+                console.log("resp", response)
+            }, function error(error) {
+
+                console.log("err", error)
+            });
+            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ngModel1 = ''
+                })
+            }, 9000);
+        };
 }]);
