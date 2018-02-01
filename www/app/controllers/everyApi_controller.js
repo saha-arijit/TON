@@ -24,6 +24,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     function ($scope, $http, Upload,$state,$rootScope) {
 
 
+        // For bootstrap Popover
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+
+            })
+        })
 
     $(document).ready(function(){
 

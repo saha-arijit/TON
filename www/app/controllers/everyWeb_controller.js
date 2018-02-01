@@ -23,10 +23,18 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
         }
 
-        $scope.firstWebInputBox = "bubble works !!! Right????????????";
-        $scope.secondWebInputBox = "bubble works !!!!!!!!!! Right?";
-        $scope.thirdWebInputBox = "bubble works !!!!!!!!!! Right????????????";
-        $scope.fourthWebInputBox = "bubble works !!!!!!!!!! Right";
+        $scope.WebInputBoxOne = "Recording the web application for browser testing  and Convert Recorded testcase to JSON Format";
+        $scope.WebInputBoxTwo = "Record the web application for API Testing";
+        $scope.WebInputBoxThree = "Selection and Execution of Test Case and view log/report";
+        $scope.WebInputBoxFour = "Browser Automation";
+        $scope.WebInputBoxFive = "Visualisation of Automated steps";
+        $scope.WebInputBoxSix = "Load / Performance testing using API's";
+        $scope.WebInputBoxSeven = "Execution of Test Case for Continuous Integration and Continuous Deployment";
+        $scope.WebInputBoxEight = "Analytics Viewer to display graphs";
+        $scope.WebInputBoxNine = "Feed data to Elastic Search for visualizatio";
+        $scope.WebInputBoxTen = "Filter and create graphs from data";
+        $scope.WebInputBoxLeven = "Creating backend code";
+
 
 
 
@@ -283,10 +291,18 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         // MouseOver false for all functions
-        $scope.webMouseOverFirst = false;
-        $scope.webMouseOverSecond = false;
-        $scope.webMouseOverThird = false;
-        $scope.webMouseOverFourth = false;
+        $scope.webMouseOverOne = false;
+        $scope.webMouseOverTwo= false;
+        $scope.webMouseOverThree = false;
+        $scope.webMouseOverFour = false;
+        $scope.webMouseOverFive= false;
+        $scope.webMouseOverSix = false;
+        $scope.webMouseOverSeven = false;
+        $scope.webMouseOverEight = false;
+        $scope.webMouseOverNine = false;
+        $scope.webMouseOverTen = false;
+        $scope.webMouseOverLeven = false;
+
 
 
 
@@ -549,6 +565,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
+
+
+        // For bootstrap Popover
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+
+            })
+        })
 
         $scope.webapiAnalyze = function () {
 

@@ -726,14 +726,18 @@ p.webSpeech-bubble {
    margin-top: 7%;
       margin-left: 10px
 
-  }.nav-btn3{
+  }.popover-content {width: 100%!important;background-coor:blue;border-radius:5%;border-color:black;color: green; } .nav-btn3{
    margin-top: 7%;
    margin-bottom: 7%;
          margin-left: 10px
 
 
      }#login:hover {
-           }.navbar-nav>li>a:hover{
+          text-decoration: none;
+          background-color: #4b8ec9 !important;
+          box-shadow: none;
+          border-radius:inherit;
+      }.navbar-nav>li>a:hover{
 
                color: #555;
                text-decoration: none;

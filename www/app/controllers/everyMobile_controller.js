@@ -4,7 +4,12 @@
 kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state','$rootScope',
     function ($scope, $http, Upload,$state,$rootScope) {
 
+        // For bootstrap Popover
+        $(function () {
+            $('[data-toggle="popover"]').popover({
 
+            })
+        })
     $(document).ready(function(){
 
 
@@ -149,7 +154,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
 
 
     // Sending Http Request
-
+// For step1 start
     $scope.openNotepad = function () {
         $http({
             method: 'post',
@@ -163,7 +168,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
         });
 
     };
-
+// for step 1 end
     $scope.openMobileRide = function () {
         $http({
             method: 'post',
@@ -176,7 +181,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
 
 
 
-     // For Step 3 start
+        // For Step 3 start
         $scope.openJenkins = function () {
             $http({
                 method: 'post',
@@ -209,4 +214,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
                 })
             }, 9000);
         };
-}]);
+
+
+
+    }]);
