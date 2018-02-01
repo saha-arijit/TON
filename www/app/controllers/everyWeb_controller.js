@@ -566,12 +566,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
+
         // For bootstrap Popover
         $(function () {
             $('[data-toggle="popover"]').popover({
 
             })
         })
+
         $scope.webapiAnalyze = function () {
 
             $('#webAnalyzeModal').modal('hide');

@@ -7,7 +7,7 @@ sys.path.insert(0,'D:/TON/back_end\Web_Browser')
 from SampleThread_1 import myThread
 thread1 = myThread(1, "Thread-1", 1)
 
-def TC_Sample(var_head, var_instances, var_load):
+def TC_selectwindow(var_head, var_instances, var_load):
 
 	baseFolder = 'D:/TON'
 	appName    = 'Demo_TON'
@@ -15,14 +15,14 @@ def TC_Sample(var_head, var_instances, var_load):
 		thread1.createCSV(baseFolder,appName)
 		thread1.start()
 		for i in range (0, int(var_instances)):
-			Thread(target = Sample, args = [var_head]).start()
+			Thread(target = selectwindow, args = [var_head]).start()
 
 	else:
 		thread1.createCSV(baseFolder,appName)
 		thread1.start()
-		Sample (var_head)
+		selectwindow (var_head)
 
-def Sample(var_head):
+def selectwindow(var_head):
 
 	chrome_options = Options() 
 	chrome_options.add_argument("--headless")
@@ -34,28 +34,38 @@ def Sample(var_head):
 		driver = webdriver.Chrome ()
 
 	driver.set_page_load_timeout(180)
-	url = "https://www.amazon.in/"
+	url = "https://www.google.co.in/search?q=amazon&rlz=1C1CHBF_enIN775IN775&oq=amazon+&aqs=chrome..69i57j69i60l2j0l3.6204j0j7&sourceid=chrome&ie=UTF-8"
 	driver.get(url)
 	driver.maximize_window()
 	driver.implicitly_wait(5)
 
-	elementClick1 = driver.find_element_by_css_selector("span.nav-logo-base.nav-sprite")
+	elementClick1 = driver.find_element_by_link_text("Amazon India")
 	elementClick1.click()
 	time.sleep(3)
 
-	elementClick2 = driver.find_element_by_link_text("Today's Deals")
+	elementClick2 = driver.find_element_by_link_text("Amazon India")
 	elementClick2.click()
 	time.sleep(3)
 
-
-	elementClick4 = driver.find_element_by_link_text("Amazon Pay")
-	elementClick4.click()
+	elementClick3 = driver.find_element_by_id("twotabsearchtextbox")
+	elementClick3.click()
 	time.sleep(3)
 
-
-	elementClick6 = driver.find_element_by_css_selector("span.nav-logo-base.nav-sprite")
-	elementClick6.click()
+	elementClick4 = driver.find_element_by_id("twotabsearchtextbox")
+	elementClick4.send_keys("moto ")
 	time.sleep(3)
+
+	elementClick5 = driver.find_element_by_xpath("//*[@id='issDiv0']/span[2]")
+	elementClick5.click();
+	time.sleep(3);
+
+
+
+	elementClick8 = driver.find_element_by_xpath("//*[@id='result_1']/div/div/div/div[2]/div[1]/div[1]/a/h2")
+	elementClick8.click();
+	time.sleep(3);
+
+
 
 	driver.quit()
 	thread1.stop()
