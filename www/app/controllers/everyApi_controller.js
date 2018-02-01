@@ -251,7 +251,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.apiAnalyze = function () {
             $http({
                 method: 'post',
-                url: '/analyzeWebApi'
+                url: '/analyzeApi'
             }).then(function success(response) {
 
                 console.log("resp", response)

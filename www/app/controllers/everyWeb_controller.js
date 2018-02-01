@@ -550,7 +550,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
-        $scope.apiAnalyze = function () {
+        $scope.webapiAnalyze = function () {
 
             $('#webAnalyzeModal').modal('hide');
             $http({
