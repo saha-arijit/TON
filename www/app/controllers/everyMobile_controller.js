@@ -173,6 +173,23 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
         $scope.ngModel1 = "Ride has opened..please remember to close it.";
            $('#mobileExecuteTestCaseModal2').modal('hide');
     };
+
+
+
+     // For Step 3 start
+        $scope.openJenkins = function () {
+            $http({
+                method: 'post',
+                url: '/jenkins'
+            });
+            $('#mobileExecuteTestCaseModal3').modal('hide');
+
+            $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+
+
+        };
+
+        // For Step 3 end
         $scope.mobileAnalyze = function () {
 
             $http({
