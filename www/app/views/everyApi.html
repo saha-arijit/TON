@@ -268,28 +268,94 @@
                             {{fourthApiInputBox}}</p>
                     </div>
                     <div class="col-md-8">
-                        <div style="padding: 6% 0 20.2% 10%;">
-                            <input readonly="true"   style=" background-color:transparent;" type="text" class="form-control1 apiGroupInputBox"
-                                   ng-mouseover="apiMouseOverFirst=true"
-                                   ng-mouseleave="apiMouseOverFirst=false"
-                                   value="Api Box 1">
+                        <div style="padding: 6% 0 5% 0%;">
+                            <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  webGroupInputBox"
+                                   ng-ouseover="webMouseOverOne=true"
+                                   ng-mouseleve="webMouseOverOne=false" data-toggle="popover" data-trigger="hover"
+                                   data-content="Recording the web application for browser testing  and Convert Recorded testcase to JSON Format"
+                                   data-placement="left"
+                                   value="Kantu">
+                            <div class="form-inline">
+
+                                <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mousever="webMouseOverTwo=true"
+                                       ng-mouseeave="webMouseOverTwo=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Record the web application for API Testing"
+                                       data-placement="left"
+                                       value="Postman">
+                                <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-museover="webMouseOverThree=true"
+                                       ng-moueleave="webMouseOverThree=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Selection and Execution of Test Case and view log/report"
+                                       data-placement="right"
+                                       value="RIDE GUI">
+                            </div>
+
                             <div class="form-inline">
                                 <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
-                                       class="form-control2 apiGroupInputBox"
-                                       ng-mouseover="apiMouseOverSecond=true"
-                                       ng-mouseleave="apiMouseOverSecond=false"
-                                       value="Api Box 2">
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mousover="webMouseOverFour=true"
+                                       ng-moueleave="webMouseOverFour=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Browser Automation"
+                                       data-placement="left"
+                                       value="Selenium">
                                 <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
-                                       class="form-control2 apiGroupInputBox"
-                                       ng-mouseover="apiMouseOverThird=true"
-                                       ng-mouseleave="apiMouseOverThird=false"
-                                       value="Api Box 3">
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mousover="webMouseOverFive=true"
+                                       ng-mouseeave="webMouseOverFive=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Visualisation of Automated steps"
+                                       data-placement="right"
+                                       value="Chrome Driver">
+                            </div>  <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  webGroupInputBox"
+                                           ng-ouseover="webMouseOverSix=true"
+                                           ngmouseleave="webMouseOverSix=false" data-toggle="popover" data-trigger="hover"
+                                           data-content="Load / Performance testing using API's"
+                                           data-placement="left"
+                                           value="Newman">
+
+
+                            <div class="form-inline">
+                                <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mousever="webMouseOverSeven=true"
+                                       ng-mousleave="webMouseOverSeven=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Execution of Test Case for Continuous Integration and Continuous Deployment"
+                                       data-placement="left"
+                                       value="Jenkins">
+                                <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mouseoer="webMouseOverEight=true"
+                                       ng-mouseeave="webMouseOverEight=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Analytics Viewer to display graphs"
+                                       data-placement="right"
+                                       value="Kibana">
                             </div>
-                            <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  apiGroupInputBox"
-                                   ng-mouseover="apiMouseOverFourth=true"
-                                   ng-mouseleave="apiMouseOverFourth=false"
-                                   value="Api Box 4">
+                            <div class="form-inline">
+                                <input readonly="true" style=" background-color:transparent;width: 50%;float:left;cursor:default;" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mousever="webMouseOverNine=true"
+                                       ng-mousleave="webMouseOverNine=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Feed data to Elastic Search for visualizatio"
+                                       data-placement="left"
+                                       value="Logstash">
+                                <input readonly style="background-color:transparent;width: 50%;float: right" type="text"
+                                       class="form-control2 webGroupInputBox"
+                                       ng-mousever="webMouseOverTen=true"
+                                       ng-mousleave="webMouseOverTen=false" data-toggle="popover" data-trigger="hover"
+                                       data-content="Filter and create graphs from data"
+                                       data-placement="auto"
+                                       value="Elastic Search">
+                            </div>
+                            <input readonly="true" style="background-color:transparent;" type="text" class="form-control1  webGroupInputBox"
+                                   ng-mouseoer="webMouseOverLeven=true"
+                                   ng-mouseeave="webMouseOverLeven=false" data-toggle="popover" data-trigger="hover"
+                                   data-content="Creating backend code"
+                                   data-placement="left"
+                                   value="Python">
                         </div>
+
                     </div>
                 </div>
             </div>

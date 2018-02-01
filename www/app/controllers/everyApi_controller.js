@@ -24,6 +24,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     function ($scope, $http, Upload,$state,$rootScope) {
 
 
+        // For bootstrap Popover
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+
+            })
+        })
 
     $(document).ready(function(){
 
@@ -251,7 +257,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $scope.apiAnalyze = function () {
             $http({
                 method: 'post',
-                url: '/analyzeWebApi'
+                url: '/analyzeApi'
             }).then(function success(response) {
 
                 console.log("resp", response)

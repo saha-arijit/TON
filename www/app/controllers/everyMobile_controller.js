@@ -4,7 +4,12 @@
 kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state','$rootScope',
     function ($scope, $http, Upload,$state,$rootScope) {
 
+        // For bootstrap Popover
+        $(function () {
+            $('[data-toggle="popover"]').popover({
 
+            })
+        })
     $(document).ready(function(){
 
 
@@ -149,7 +154,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
 
 
     // Sending Http Request
-
+// For step1 start
     $scope.openNotepad = function () {
         $http({
             method: 'post',
@@ -163,7 +168,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
         });
 
     };
-
+// for step 1 end
     $scope.openMobileRide = function () {
         $http({
             method: 'post',
@@ -173,6 +178,25 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
         $scope.ngModel1 = "Ride has opened..please remember to close it.";
            $('#mobileExecuteTestCaseModal2').modal('hide');
     };
+
+
+
+        // For Step 3 start
+        $scope.openJenkins = function () {
+            $http({
+                method: 'post',
+                url: '/jenkins'
+            });
+            $('#mobileExecuteTestCaseModal3').modal('hide');
+
+            $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+
+
+        };
+
+        // For Step 3 end
+
+
         $scope.mobileAnalyze = function () {
 
             $http({
@@ -192,4 +216,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
                 })
             }, 9000);
         };
-}]);
+
+
+
+    }]);
