@@ -54,7 +54,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             // Removing Classes
             var alterClass = function() {
                 // Equalizing the Sidebar and Page Content
-                var windowHeight =$(window).height();
+                var windowHeight =$(document).height();
                 var  navHeight =$('#nav').height() ;
                 // console.log(navHeight,"nav height");
                 // alert(z,"nav");
@@ -66,15 +66,15 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 var ww = document.body.clientWidth;
 
-                if (ww < 768) {
-                    $('#sidebar').removeClass('fullheight');
-                    $('.content').removeClass('fullheight');
-                } else if (ww >= 768) {
-                    $('.content').addClass('fullheight');
-                    $('#sidebar').addClass('fullheight');
-
-                    $("#sidebar").addClass(navHeight);
-                };
+                            // if (ww < 768) {
+                            //     $('#sidebar').removeClass('fullheight');
+                            //     $('.content').removeClass('fullheight');
+                            // } else if (ww >= 768) {
+                            //     $('.content').addClass('fullheight');
+                            //     $('#sidebar').addClass('fullheight');
+                            //
+                            //     $("#sidebar").addClass(navHeight);
+                            // };
             };
 
 
@@ -567,11 +567,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         };
 
         // For bootstrap Popover
-        $(function () {
-            $('[data-toggle="popover"]').popover({
 
-            })
-        })
+        $('[data-toggle="popover"]').popover({container: 'body'});
+
+
         $scope.webapiAnalyze = function () {
 
             $('#webAnalyzeModal').modal('hide');

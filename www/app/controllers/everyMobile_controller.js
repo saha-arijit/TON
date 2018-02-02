@@ -4,19 +4,19 @@
 kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state','$rootScope',
     function ($scope, $http, Upload,$state,$rootScope) {
 
-        // For bootstrap Popover
-        $(function () {
-            $('[data-toggle="popover"]').popover({
 
-            })
-        })
-    $(document).ready(function(){
+        // For bootstrap Popover
+
+        $('[data-toggle="popover"]').popover({container: 'body'});
+
+        $(document).ready(function(){
 
 
         // Removing Classes
         var alterClass = function() {
             // Equalizing the Sidebar and Page Content
-            var windowHeight =$(window).height();
+            var windowHeight =$(document).height();
+            // var windowHeight =$(window).height();
             var  navHeight =$('#nav').outerHeight() ;
             // console.log(navHeight,"nav height");
             // alert(z,"nav");

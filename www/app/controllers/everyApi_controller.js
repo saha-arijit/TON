@@ -24,20 +24,20 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     function ($scope, $http, Upload,$state,$rootScope) {
 
 
+
         // For bootstrap Popover
-        $(function () {
-            $('[data-toggle="popover"]').popover({
 
-            })
-        })
+        $('[data-toggle="popover"]').popover({container: 'body'});
 
-    $(document).ready(function(){
+
+        $(document).ready(function(){
 
 
         // Removing Classes
         var alterClass = function() {
             // Equalizing the Sidebar and Page Content
-            var windowHeight =$(window).height();
+            var windowHeight =$(document).height();
+            // var windowHeight =$(window).height();
             var  navHeight =$('#nav').outerHeight() ;
             // console.log(navHeight,"nav height");
             // alert(z,"nav");
