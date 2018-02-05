@@ -176,6 +176,43 @@ overflow-y: auto
       -ms-box-shadow: 0 2px 0 #233240;
       margin-top: 9%;
   }
+ td{
+      padding: 1% 0.8%;
+      /*padding-top: 1%;*/
+      /*padding-bottom: 1%;*/
+      border: 1px solid black;
+      text-align: center;
+      cursor: default;
+      width: auto;
+
+  }
+.test{
+    width:100%;
+    line-height:25px;
+    position:relative;
+    background:white;
+    /*background:Grey;*/
+    text-align:center;
+
+    margin:4% auto;
+}
+.test:after, .test:before{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:50%;
+    left:100%;
+}
+.test:after{
+    bottom:0;
+    /*background: linear-gradient(to right bottom, grey 50%, transparent 50%);*/
+    background: linear-gradient(to right bottom, white 50%, transparent 50%);
+}
+.test:before{
+    top:0;
+    /*background: linear-gradient(to right top, grey 50%, transparent 50%);*/
+    background: linear-gradient(to right top, white 50%, transparent 50%);
+}
 .webGroupInputBox {
 
     background-color: #4b8ec9;
