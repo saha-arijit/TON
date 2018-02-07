@@ -9,13 +9,13 @@ class readJson :
 		self.appName    = appName
 		with open(testCase) as data_file:
 
-            myFile=open(testCase, 'r')
-            myObject=myFile.read()
-            u = myObject.decode('utf-8-sig')
-            myObject = u.encode('utf-8')
-            myFile.encoding
-            myFile.close()
-            data = json.loads(myObject,'utf-8')
+			myFile=open(testCase, 'r')
+			myObject=myFile.read()
+			u = myObject.decode('utf-8-sig')
+			myObject = u.encode('utf-8')
+			myFile.encoding
+			myFile.close()
+			data = json.loads(myObject,'utf-8')
 
 			testCase = testCase.split('.')
 			file = open (testCase[0]+".py", "w")
