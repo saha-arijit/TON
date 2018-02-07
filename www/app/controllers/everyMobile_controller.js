@@ -4,37 +4,68 @@
 kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state','$rootScope',
     function ($scope, $http, Upload,$state,$rootScope) {
 
-        // For bootstrap Popover
-        $(function () {
-            $('[data-toggle="popover"]').popover({
 
-            })
-        })
-    $(document).ready(function(){
+        // For bootstrap Popover
+
+        $('[data-toggle="popover"]').popover({container: 'body'});
+
+        $(document).ready(function(){
 
 
         // Removing Classes
         var alterClass = function() {
             // Equalizing the Sidebar and Page Content
-            var windowHeight =$(window).height();
+            var windowHeight =$(document).height();
+            // var windowHeight =$(window).height();
             var  navHeight =$('#nav').outerHeight() ;
+            var  rowHeight1 =$('#1row').innerHeight() ;
+            // alert(rowHeight1,"")
+            var  rowHeight2 =$('#2row').innerHeight() ;
+            var  rowHeight3 =$('#3row').innerHeight() ;
+            var  rowHeight4 =$('#4row').innerHeight() ;
+            // console.log(rowHeight,"rowHeight");
+            var a1 =(rowHeight1/1.2) ;
+            var a2 =(rowHeight2/1.2) ;
+            var a3 =(rowHeight3/1.2) ;
+            var a4 =(rowHeight4) ;
+            // console.log(rowHeight1,"rowHeight");
+            // console.log(rowHeight2,"rowHeight");
+            // console.log(rowHeight3,"rowHeight");
+            // console.log(rowHeight4,"rowHeight");
+
+            // console.log(a1,"rowHeight");
+            // console.log(a2,"rowHeight");
+            // console.log(a3,"rowHeight");
+            // console.log(a4,"rowHeight");
+
+            $('.test1').css('height',a1);
+
+            $('.test2').css('height',a2);
+            $('.test3').css('height',a3);
+            $('.test4').css('height',a4);
+
             // console.log(navHeight,"nav height");
             // alert(z,"nav");
             var contentHeight = windowHeight-navHeight;
 
 
-            $(".fullheight").height(contentHeight);
+            // $(".fullheiht").height(contentHeight);
             // $("#sidebar").top(navHeight);
 
-            var ww = document.body.clientWidth;
+            var ww = $(document).width();
+            // alert(ww)
+
             if (ww < 768) {
                 $('#sidebar').removeClass('fullheight');
+                $('#contactUs').removeClass('force-to-bottom');
                 $('.content').removeClass('fullheight');
+                $(".fullheight").height();
             } else if (ww >= 768) {
                 $('.content').addClass('fullheight');
                 $('#sidebar').addClass('fullheight');
+                $(".fullheight").height(contentHeight);
+                $('#contactUs').addClass('force-to-bottom');
 
-                $("#sidebar").addClass(navHeight);
             };
         };
         $(window).resize(function(){
