@@ -55,26 +55,56 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             var alterClass = function() {
                 // Equalizing the Sidebar and Page Content
                 var windowHeight =$(document).height();
-                var  navHeight =$('#nav').height() ;
+                // var  navHeight =$('#nav').height() ;
                 // console.log(navHeight,"nav height");
-                // alert(z,"nav");
+                var  navHeight =$('#nav').outerHeight() ;
+                var  rowHeight1 =$('#1row').innerHeight() ;
+                // alert(rowHeight1,"")
+                var  rowHeight2 =$('#2row').innerHeight() ;
+                var  rowHeight3 =$('#3row').innerHeight() ;
+                var  rowHeight4 =$('#4row').innerHeight() ;
+                // console.log(rowHeight,"rowHeight");
+                var a1 =(rowHeight1/1.2) ;
+                var a2 =(rowHeight2/1.2) ;
+                var a3 =(rowHeight3/1.2) ;
+                var a4 =(rowHeight4) ;
+                // console.log(rowHeight1,"rowHeight");
+                // console.log(rowHeight2,"rowHeight");
+                // console.log(rowHeight3,"rowHeight");
+                // console.log(rowHeight4,"rowHeight");
+
+                // console.log(a1,"rowHeight");
+                // console.log(a2,"rowHeight");
+                // console.log(a3,"rowHeight");
+                // console.log(a4,"rowHeight");
+
+                $('.test1').css('height',a1);
+
+                $('.test2').css('height',a2);
+                $('.test3').css('height',a3);
+                $('.test4').css('height',a4);
+
+
                 var contentHeight = windowHeight-navHeight;
                 // console.log(y);
 
-                $(".fullheight").height(contentHeight);
+                // $(".fullheight").height(contentHeight);
                 // $(".sidebar").top(navHeight);
+                var ww = $(document).width();
+                // alert(ww)
 
-                var ww = document.body.clientWidth;
+                if (ww < 768) {
+                    $('#sidebar').removeClass('fullheight');
+                    $('#contactUs').removeClass('force-to-bottom');
+                    $('.content').removeClass('fullheight');
+                    $(".fullheight").height();
+                } else if (ww >= 768) {
+                    $('.content').addClass('fullheight');
+                    $('#sidebar').addClass('fullheight');
+                    $(".fullheight").height(contentHeight);
+                    $('#contactUs').addClass('force-to-bottom');
 
-                            // if (ww < 768) {
-                            //     $('#sidebar').removeClass('fullheight');
-                            //     $('.content').removeClass('fullheight');
-                            // } else if (ww >= 768) {
-                            //     $('.content').addClass('fullheight');
-                            //     $('#sidebar').addClass('fullheight');
-                            //
-                            //     $("#sidebar").addClass(navHeight);
-                            // };
+                };
             };
 
 
@@ -142,20 +172,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
 // Ng Model function
-        $('#webTestingModel').on('click', function () {
-            $scope.ngModel1 = "";
-                      var href ='/assets/pdf.pdf';$('#userManual').attr('href',href)
-        });
-        $('#apiTestingModel').on('click', function () {
-            $scope.ngModel1 = "";
-                     var href ='/assets/pdf2.pdf';
-                      $('#userManual').attr('href',href)
-        });
-        $('#mobileTestingModel').on('click', function () {
-            $scope.ngModel1 = "";
-                       var href ='/assets/pdf3.pdf';
-                       $('#userManual').attr('href',href)
-        });
 
 
         $('.webStepBtn').on('click', function () {

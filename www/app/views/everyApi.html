@@ -225,7 +225,7 @@
                     <button class="btn btn-primary apiStepBtn" ng-click="apiAnalyze()">Analyze
                         Results
                     </button>
-                </div>
+                </div>git
             </div>
         </div></section>
         <br>
@@ -249,93 +249,97 @@
                     <!-- <strong style="font-size: large">Architecture</strong> -->
                 </p>
                 <div class="row" id="webBubbleRow" >
-                    <div class="col-md-12" style="padding: 6% 0 5% 0;">
+                    <div class="col-md-12" style="padding: 2% 0 5% 0;">
 
 
-                        <div class="col-md-3" >
-                            <div class="test" style="margin-top: 3%">TEST ANALYSIS</div>
-                            <div class="test" style="margin-top: 5%">TEST MANAGEMENT</div>
-                            <div class="test" style="margin-top: 8%">TEST EXECUTION</div>
-                            <div class="test" style="margin-top: 9%">TEST DESIGN</div>
+                        <div class="col-md-3 col-sm-3 fontsize" >
+                            <div class="test test1" style="margin-top: 0">TEST ANALYSIS</div>
+                            <div class="test test2" stye="margin-top: 5%">TEST MANAGEMENT</div>
+                            <div class="test test4" style="padding-top: 8%;">TEST EXECUTION</div>
+                            <div class="test test3" syle="margin-top: 9%">TEST DESIGN</div>
+
+
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 col-sm-9">
                             <table class="table1" border="1" width="100%" style="color: white">
 
-                                <tr>
-                                    <td colspan="4" data-toggle="popover" data-trigger="hover"
+                                <tr id="1row">
+                                    <td colspan="7" class="colspan" data-toggle="popover" data-trigger="hover"
                                         data-content=" It is used to visualize and display complex data in the form of variety of 2D and 3D graphs"
                                         data-placement="top"
                                     >Kibana</td>
-                                    <td colspan="4"  data-toggle="popover" data-trigger="hover"
+                                    <td colspan="7" class="colspan" data-toggle="popover" data-trigger="hover"
                                         data-content="It is the main engine that crunches the data
                                         feed from Logstash  to create insights and gives the results to Kibana"
                                         data-placement="top">Elastic Search</td>
-                                    <td colspan="4"  data-toggle="popover" data-trigger="hover"
+                                    <td colspan="6" class="colspan" data-toggle="popover" data-trigger="hover"
                                         data-content="It is used to feed the data provided by various sources to Elastic search"
                                         data-placement="top">Logstash</td>
                                 </tr>
-                                <tr>
-                                    <td colspan="6"  data-toggle="popover" data-trigger="hover"
+                                <tr id="2row">
+                                    <td colspan="10" class="colspan"  data-toggle="popover" data-trigger="hover"
                                         data-content=" It is used for selection and execution of the test cases as well as show test results, logs and reports"
                                         data-placement="top">Ride GUI</td>
-                                    <td colspan="6"  data-toggle="popover" data-trigger="hover"
+                                    <td colspan="10" class="colspan"  data-toggle="popover" data-trigger="hover"
                                         data-content=" It is used for test automation from command line to enable CDCI DevOps test life cycle"
                                         data-placement="top">Jenkins</td>
                                 </tr>
-                                <tr>
-                                    <td  data-toggle="popover" data-trigger="hover"
-                                         data-content=" It is used to automate browser to execute web UI test cases"
-                                         data-placement="top">Selenium</td>
-                                    <td  data-toggle="popover" data-trigger="hover"
-                                         data-content=" It is used to record, create and execute functional and automation test cases from the browser for web API testing and manually for product API testing.
+                                <tr id="4row">
+                                    <td colspan="2" class="colspan"  data-toggle="popover" data-trigger="hover"
+                                        data-content=" It is used to automate browser to execute web UI test cases"
+                                        data-placement="top">Selenium</td>
+                                    <td colspan="2" class="colspan"  data-toggle="popover" data-trigger="hover"
+                                        data-content=" It is used to record, create and execute functional and automation test cases from the browser for web API testing and manually for product API testing.
                                         It also converts swagger and YAML API documents to API for creating testcases for product API testing  "
-                                         data-placement="top">Postman</td>
-                                    <td data-toggle="popover" data-trigger="hover"
+                                        data-placement="top">Postman</td>
+                                    <td colspan="2" class="colspan" data-toggle="popover" data-trigger="hover"
                                         data-content="It is used to execute load test cases for web API and product API testing"
                                         data-placement="top">Newman</td>
-                                    <td   data-toggle="popover" data-trigger="hover"
-                                          data-content=" It is used to capture system performance such as CPU utilization and Memory usage"
-                                          data-placement="top">Data Capture</td>
-                                    <td data-toggle="popover" data-trigger="hover"
+                                    <td colspan="2" class="colspan"   data-toggle="popover" data-trigger="hover"
+                                        data-content=" It is used to capture system performance such as CPU utilization and Memory usage"
+                                        data-placement="top">Data Capture</td>
+                                    <td colspan="2" class="colspan" data-toggle="popover" data-trigger="hover"
                                         data-content="It is used to execute web UI testing in the browser such as chrome, firefox, IE etc."
                                         data-placement="top">Browser Driver</td>
-                                    <td colspan="2"  data-toggle="popover" data-trigger="hover"
+                                    <td colspan="2" class="colspan"   data-toggle="popover" data-trigger="hover"
                                         data-content="It is used to execute web UI testing in the background with out the browser"
                                         data-placement="top" >Headless Driver</td>
-                                    <td  data-toggle="popover" data-trigger="hover"
-                                         data-content="It is used to execute mobile application test cases using real phones as well as simulator"
-                                         data-placement="top">Appium</td>
-                                    <td  data-toggle="popover" data-trigger="hover"
-                                         data-content=" It is used to simulate Android devices for test execution 	"
-                                         data-placement="top">Genymotion</td>
-                                    <td  data-toggle="popover" data-trigger="hover"
-                                         data-content="It is used to simulate iOS devices for test execution "
-                                         data-placement="top">Iphone Simulator</td>
+                                    <td   colspan="2" class="colspan" data-toggle="popover" data-trigger="hover"
+                                          data-content="It is used to execute mobile application test cases using real phones as well as simulator"
+                                          data-placement="top">Appium</td>
+                                    <td colspan="3" class="colspan" data-toggle="popover" data-trigger="hover"
+                                        data-content=" It is used to simulate Android devices for test execution 	"
+                                        data-placement="top">Genymotion</td>
+                                    <td colspan="3" class="colspan" data-toggle="popover" data-trigger="hover"
+                                        data-content="It is used to simulate iOS devices for test execution "
+                                        data-placement="top">Iphone Simulator</td>
 
                                 </tr>
-                                <tr>
-                                    <td  colspan="3" data-toggle="popover" data-trigger="hover"
+                                <tr id="3row">
+                                    <td  colspan="4" class="colspan" data-toggle="popover" data-trigger="hover"
                                          data-content="It is used to record test cases
                                           from the browser for web UI testing as well as to covert in to JSON Format"
                                          data-placement="top">Kantu</td>
-                                    <td colspan="2" data-toggle="popover" data-trigger="hover"
+                                    <td colspan="5" class="colspan" data-toggle="popover" data-trigger="hover"
                                         data-content=" It is used to record, create and execute functional and automation test
                                          cases from the browser for web API testing and manually for product API testing.
                                          It also converts swagger and YAML API documents to API for creating testcases for product API testing "
                                         data-placement="top">Postman</td>
-                                    <td colspan="2"  data-toggle="popover" data-trigger="hover"
+                                    <td colspan="3" class="colspan"  data-toggle="popover" data-trigger="hover"
                                         data-content=" It is used to convert JSON format to Python format required for test execution"
                                         data-placement="top">Parser</td>
-                                    <td  colspan="2" data-toggle="popover" data-trigger="hover"
+                                    <td  colspan="4" class="colspan" data-toggle="popover" data-trigger="hover"
                                          data-content=" It is used to create testcases for Android (Notepad++) and iOS (Xcode) application testing"
                                          data-placement="top">Editor</td>
-                                    <td colspan="3"  data-toggle="popover" data-trigger="hover"
+                                    <td colspan="4" class="colspan" data-toggle="popover" data-trigger="hover"
                                         data-content="It is used to detect the elements in the mobile
                                          UI for Android (UI Automator) and iOS (Inspector) application testin"
                                         data-placement="top">Detector</td>
 
 
                                 </tr>
+
+
 
                             </table>
                         </div>
