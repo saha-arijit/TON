@@ -1,11 +1,16 @@
 *** Settings ***
-Library           selectwindow/selectwindow.py
+Library           BF_Signup/BF_Signup.py
+Library           Sample/Sample.py
 
 *** Variables ***
 
 *** Test Cases ***
-selectwindow
-#Keyword 	Headless 	Instances 	 LoadTest
-	TC_selectwindow
+Sample
+    #Keyword    Headless    Instances    LoadTest
+    TC_Sample    no    0    no
+
+BF_Signup
+    #Keyword    Headless    Instances    LoadTest
+    TC_BF_Signup    no    0    no
 
 *** Keywords ***

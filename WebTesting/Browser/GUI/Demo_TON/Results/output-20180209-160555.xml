@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180209 16:05:55.344" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\Browser\GUI\Demo_TON\TestCases.robot" id="s1" name="TestCases">
+<test id="s1-t1" name="Sample">
+<kw name="TC Sample" library="Sample">
+<arguments>
+<arg>no</arg>
+<arg>0</arg>
+<arg>no</arg>
+</arguments>
+<msg timestamp="20180209 16:07:24.532" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180209 16:07:24.533" starttime="20180209 16:05:55.476"></status>
+</kw>
+<status status="PASS" endtime="20180209 16:07:24.534" critical="yes" starttime="20180209 16:05:55.475"></status>
+</test>
+<status status="PASS" endtime="20180209 16:07:24.535" starttime="20180209 16:05:55.362"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="TestCases" pass="1">TestCases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

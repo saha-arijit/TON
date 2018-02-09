@@ -1,0 +1,697 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Flipkart",
+		"_postman_id": "c2c66a6f-fcba-b4e7-d5c2-6c43452502c8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://hk2-client-s.gateway.messenger.live.com/v1/users/ME/endpoints/SELF/subscriptions/0/poll",
+			"request": {
+				"url": "https://hk2-client-s.gateway.messenger.live.com/v1/users/ME/endpoints/SELF/subscriptions/0/poll",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Pragma",
+						"value": "no-cache",
+						"description": ""
+					},
+					{
+						"key": "BehaviorOverride",
+						"value": "redirectAs404",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "ClientInfo",
+						"value": "os=Windows; osVer=7; proc=Win32; lcid=en-us; deviceType=1; country=IN; clientName=outlook; clientVer=908/1.106.0.13//outlook",
+						"description": ""
+					},
+					{
+						"key": "ContextId",
+						"value": "tcid=151236918761461817",
+						"description": ""
+					},
+					{
+						"key": "RegistrationToken",
+						"value": "registrationToken=U2lnbmF0dXJlOjI6Mjg6QVFRQUFBQUdFRjk0TmlBMVpzcWZTU0RkR0QzcDtWZXJzaW9uOjY6MToxO0lzc3VlVGltZTo0OjE5OjUyNDgxNjU2MjEyNTQ5MzAzNTI7RXAuSWRUeXBlOjc6MToxO0VwLklkOjI6MjM6YXJpaml0X3NhaGFAaG90bWFpbC5jb207RXAuRXBpZDo1OjM2OjI5ZGRhNzljLTI2OTItNDdiZS1hZjUxLTJlMjg5ZjBlOGY2YztFcC5Mb2dpblRpbWU6NzoxOjA7RXAuQXV0aFRpbWU6NDoxOTo1MjQ4MTY1NjIxMjI5MTQ3MDQ5O0VwLkF1dGhUeXBlOjc6MjoxNTtFcC5FeHBUaW1lOjQ6MTk6NTI0ODE2NjQ4NDM4NzM4NzkwNDtVc3IuTmV0TWFzazoxMToxOjM7VXNyLlhmckNudDo2OjE6MDtVc3IuUmRyY3RGbGc6MjowOjtVc3IuRXhwSWQ6OToxOjA7VXNyLkV4cElkTGFzdExvZzo0OjE6MDtVc2VyLkF0aEN0eHQ6Mjo0MjA6Q2xOcmVYQmxWRzlyWlc0WFlYSnBhbWwwWDNOaGFHRkFhRzkwYldGcGJDNWpiMjBCQTFWcFl4UXhMekV2TURBd01TQXhNam93TURvd01DQkJUUXhPYjNSVGNHVmphV1pwWldRYmp5WnkweUR2MGdBQUFBQUFBRUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFTYkdsMlpUcGhjbWxxYVhSZmMyRm9ZVjh4QUFBQUFBQUFBQUFBQjA1dlUyTnZjbVVBQUFBQUJBQUFBQUFBQUFBQUFBQUFHNDhtY3RNZzc5SUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBRVNiR2wyWlRwaGNtbHFhWFJmYzJGb1lWOHhBQUFBQUFBQ0FBQUFDQUFBQUFOVmFXTUlTV1JsYm5ScGRIa09TV1JsYm5ScGRIbFZjR1JoZEdVSVEyOXVkR0ZqZEhNT1EyOXVkR0ZqZEhOVmNHUmhkR1VJUTI5dGJXVnlZMlVOUTI5dGJYVnVhV05oZEdsdmJoVkRiMjF0ZFc1cFkyRjBhVzl1VW1WaFpFOXViSGs9Ow==",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/javascript",
+						"description": ""
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache, no-store, must-revalidate",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Origin",
+						"value": "https://outlook.live.com",
+						"description": ""
+					},
+					{
+						"key": "Expires",
+						"value": "0",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://outlook.live.com/",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.flipkart.com/api/3/data/collector/business",
+			"request": {
+				"url": "https://www.flipkart.com/api/3/data/collector/business",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36 FKUA/website/41/website/Desktop",
+						"description": ""
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/samsung-galaxy-j2-2017-metallic-gold-8-gb/p/itmeym9w7ahzjfm5?pid=MOBEYM9W4EWEBQMH&fm=neo/merchandising&iid=M_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH&ppt=CLP&ppn=CLP:samsung-mobile-store&otracker=clp_pmu_v2_Latest+Samsung+mobiles+_1_samsu-categ-a3c72_Samsung+Galaxy+J2-2017+%28Metallic+gold%2C+8+GB%29_samsung-mobile-store_MOBEYM9W4EWEBQMH_neo/merchandising_0&cid=MOBEYM9W4EWEBQMH",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					},
+					{
+						"key": "Cookie",
+						"value": "AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; JSESSIONID=v2u6low4qlnmeqbidi7mzdj9; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C17505%7CMCMID%7C46734583811467904011691330543600821415%7CMCAAMLH-1512478466%7C3%7CMCAAMB-1512971652%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1512374052s%7CNONE%7CMCAID%7CNONE; S=d1t13ej8/P04/PD8/Pz8/Ehs/P1xRb9AGgjKUkRLQAHN/0cdjH+PuPFNUemheFtHJ7+EWIrfJS8YzIb54QmNjKNOYOQ==; T=TI150995708864576007800990208309861433526542277309735190200151345509; SN=2.VIBE656245124F4CA3842E128AE88E42D3.SI972D148C67D345D7B2641ADE021728A3.VSDE8351F96BFB4D9297469C86C6EFA339.1512369173; gpv_pn=Mobile%3ASamsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29; gpv_pn_t=Product%20Page; s_sq=%5B%5BB%5D%5D; s_cc=true",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"nc\":{\"ppt\":\"CLP\",\"ppn\":\"CLP:samsung-mobile-store\",\"pn\":\"Product Page\",\"pt\":\"Product Page\",\"fm\":\"neo/merchandising\",\"iid\":\"M_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH\"},\"e\":[{\"en\":\"OI\",\"fid\":\"rvu38w3bb40000001512369183279\",\"oids\":\",\",\"t\":1512369183279},{\"en\":\"RI\",\"fid\":\"nk2wkv94ps0000001512369183282\",\"rid\":\"d461cb77-996b-4699-9f72-2f837cd27cb7\",\"tp\":\"product\",\"t\":1512369183282},{\"en\":\"RI\",\"fid\":\"inlpbxk8r40000001512369183282\",\"rid\":\"92aa51c0-5b53-40f3-bc63-a9456553006b\",\"tp\":\"product\",\"t\":1512369183282},{\"en\":\"PSI\",\"fid\":\"7f42de76-e4ea-46d4-87db-5533d79cb749.MOBEYM9W4EWEBQMH\",\"t\":1512369183291},{\"en\":\"PWI\",\"fid\":\"7f42de76-e4ea-46d4-87db-5533d79cb749.MOBEYM9W4EWEBQMH\",\"pc\":700057,\"t\":1512369183291},{\"en\":\"PV\",\"ib\":false,\"id\":false,\"t\":1512369183301}]}]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.flipkart.com/api/3/data/collector/business",
+			"request": {
+				"url": "https://www.flipkart.com/api/3/data/collector/business",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36 FKUA/website/41/website/Desktop",
+						"description": ""
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/samsung-mobile-store?otracker=nmenu_sub_Electronics_0_Samsung",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					},
+					{
+						"key": "Cookie",
+						"value": "AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; JSESSIONID=v2u6low4qlnmeqbidi7mzdj9; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C17505%7CMCMID%7C46734583811467904011691330543600821415%7CMCAAMLH-1512478466%7C3%7CMCAAMB-1512971652%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1512374052s%7CNONE%7CMCAID%7CNONE; S=d1t13ej8/P04/PD8/Pz8/Ehs/P1xRb9AGgjKUkRLQAHN/0cdjH+PuPFNUemheFtHJ7+EWIrfJS8YzIb54QmNjKNOYOQ==; T=TI150995708864576007800990208309861433526542277309735190200151345509; SN=2.VIBE656245124F4CA3842E128AE88E42D3.SI972D148C67D345D7B2641ADE021728A3.VSDE8351F96BFB4D9297469C86C6EFA339.1512369173; gpv_pn=Mobile%3ASamsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29; gpv_pn_t=Product%20Page; s_sq=%5B%5BB%5D%5D; s_cc=true",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"nc\":{\"ppt\":\"Homepage\",\"ppn\":\"Homepage\",\"pn\":\"CLP:samsung-mobile-store\",\"pt\":\"CLP\",\"iid\":\"M_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH\",\"fm\":\"neo/merchandising\"},\"e\":[{\"en\":\"DCI\",\"iid\":\"M_323bed61-1290-4f64-8491-783c037f2f0d_2.9S6W0ME3L9\",\"ct\":\"rhsAnnouncement\",\"p\":\"1\",\"t\":1512369182609,\"st\":1512369163824,\"f\":true,\"pv\":50}]}]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://flipkart.d1.sc.omtrdc.net/b/ss/flipkart-prd/1/JS-1.5.1/s48724808984549",
+			"request": {
+				"url": "https://flipkart.d1.sc.omtrdc.net/b/ss/flipkart-prd/1/JS-1.5.1/s48724808984549",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain;charset=UTF-8",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/samsung-galaxy-j2-2017-metallic-gold-8-gb/p/itmeym9w7ahzjfm5?pid=MOBEYM9W4EWEBQMH&fm=neo/merchandising&iid=M_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH&ppt=CLP&ppn=CLP:samsung-mobile-store&otracker=clp_pmu_v2_Latest+Samsung+mobiles+_1_samsu-categ-a3c72_Samsung+Galaxy+J2-2017+%28Metallic+gold%2C+8+GB%29_samsung-mobile-store_MOBEYM9W4EWEBQMH_neo/merchandising_0&cid=MOBEYM9W4EWEBQMH",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "AQB=1&ndh=1&pf=1&t=4%2F11%2F2017%2012%3A3%3A3%201%20-330&mid=46734583811467904011691330543600821415&aamlh=3&ce=UTF-8&ns=flipkart&pageName=Mobile%3ASamsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29&g=https%3A%2F%2Fwww.flipkart.com%2Fsamsung-galaxy-j2-2017-metallic-gold-8-gb%2Fp%2Fitmeym9w7ahzjfm5%3Fpid%3DMOBEYM9W4EWEBQMH%26fm%3Dneo%2Fmerchandising%26iid%3DM_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH%26ppt%3DCLP%26ppn%3DCLP%3Asamsung-mobile-store%26otracker%3Dclp_p&cc=INR&pid=CLP%3Asamsung-mobile-store&pidt=1&oid=https%3A%2F%2Fwww.flipkart.com%2Fsamsung-galaxy-j2-2017-metallic-gold-8-gb%2Fp%2Fitmeym9w7ahzjfm5%3Fpid%3DMOBEYM9W4E&ot=A&-g=mu_v2_Latest%2BSamsung%2Bmobiles%2B_1_samsu-categ-a3c72_Samsung%2BGalaxy%2BJ2-2017%2B%2528Metallic%2Bgold%252C%2B8%2BGB%2529_samsung-mobile-store_MOBEYM9W4EWEBQMH_neo%2Fmerchandising_0%26cid%3DMOBEYM9W4EWEBQMH&pageType=Product%20Page&events=event1%2Cevent2%2CprodView%2Cevent182%3D844&products=%3BMOBEYM9W4EWEBQMH%3B%3B%3B%3BeVar22%3DMobile%7CeVar61%3DCLP%7CeVar51%3DCLP_PMU%7CeVar19%3DHandset%7CeVar88%3DLSTMOBEYM9W4EWEBQMH8WNC53%7CeVar84%3D7400_7390_6990_5_5%7Cevar67%3D4.3_2_20%7Cevar44%3Df6d15b4a4f304426_FA%7CeVar89%3DSamsung%7CeVar86%3D1%20to%201d_1d_1d_0d_Free%3ANA_NA%3ANA_NA%3ANA_NA&aamb=6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y&c1=Mobile&v1=Mobile&c3=Product%20Page&v3=Product%20Page&c4=Mobile%3ASamsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29&v4=login%3Aflipkart&v5=ACC1345495788885511&c8=c1-p0&v14=current&c16=Mobile&v16=Mobile&c17=Handset&v17=Handset&c19=Handset&v19=Handset&v24=NoCostEMI_notshown%7CABB_not_available%7CExchangeAvailable&c25=CLP&c26=CLP%3Asamsung-mobile-store&c27=35&v29=clp_pmu_v2_Latest%20Samsung%20mobiles%20_1_samsu-categ-a3c72_Samsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29_samsung-mobile-store_MOBEYM9W4EWEBQMH_neo%2Fmerchandising_0&v31=4d1d536c_ca0d52ff&v32=7983367b&v33=7ff4152c&v34=17af67e7_31ab5e0d&c35=https%3A%2F%2Fwww.flipkart.com%2Fsamsung-galaxy-j2-2017-metallic-gold-8-gb%2Fp%2Fitmeym9w7ahzjfm5%3Fpid%3DMOBEYM9W4EWEBQMH%26fm%3Dneo%2Fmerchandising%26iid%3DM_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH%26ppt%3DCLP%26ppn%3DCLP%3Asamsung-mobile-store%26otracker%3Dclp_pmu_v2_Latest%2BSamsung%2Bmobiles%2B_1_samsu-categ-a3c72_Samsung%2BGalaxy%2BJ2-2017%2B%2528Metallic%2Bgold%252C%2B8%2BGB%2529_samsung-mobile-store_MOBEYM9W4EWEBQMH_neo%2Fmerchandising_0%26cid%3DMOBEYM9W4EWEBQMH&c39=844&c41=Samsung&c43=Login%3AFlipkartFirst_Inactive&c44=TrueComRetail&v44=TrueComRetail&c45=1842&v45=2_17_4.2&v46=Next%20Day%20Delivery&v48=6990&c49=Samsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29&v49=Samsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29&v50=Mobile%3ASamsung%20Galaxy%20J2-2017%20%28Metallic%20gold%2C%208%20GB%29&v51=CLP_PMU&v52=700057&v56=1%20Days&c58=serviceable&c60=PINCODE_PRESENT&v61=CLP&v62=60bec570&v64=LSTMOBEYM9W4EWEBQMH8WNC53&c66=TI150995708864576007800990208309861433526542277309735190200151345509&v66=4.3&c69=PP_VCmp%3BPP_Similar%3BPP_CGrp%3BPP_EMI%3BPP_RView&v70=60b1c887_ef33dbb4_fbb9009f&v73=c5b22444&v77=MOBEYM9W4EWEBQMH&v85=13c84b64_84e28bb4&s=1366x768&c=24&j=1.6&v=N&k=Y&bw=1366&bh=637&AQE=1"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.flipkart.com/samsung-galaxy-j2-2017-metallic-gold-8-gb/p/itmeym9w7ahzjfm5?pid=MOBEYM9W4EWEBQMH&fm=neo/merchandising&iid=M_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH&ppt=CLP&ppn=CLP:samsung-mobile-store&otracker=clp_pmu_v2_Latest+Samsung+mobiles+_1_samsu-categ-a3c72_Samsung+Galaxy+J2-2017+%28Metallic+gold%2C+8+GB%29_samsung-mobile-store_MOBEYM9W4EWEBQMH_neo/merchandising_0&cid=MOBEYM9W4EWEBQMH",
+			"request": {
+				"url": "https://www.flipkart.com/samsung-galaxy-j2-2017-metallic-gold-8-gb/p/itmeym9w7ahzjfm5?pid=MOBEYM9W4EWEBQMH&fm=neo/merchandising&iid=M_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH&ppt=CLP&ppn=CLP:samsung-mobile-store&otracker=clp_pmu_v2_Latest+Samsung+mobiles+_1_samsu-categ-a3c72_Samsung+Galaxy+J2-2017+%28Metallic+gold%2C+8+GB%29_samsung-mobile-store_MOBEYM9W4EWEBQMH_neo/merchandising_0&cid=MOBEYM9W4EWEBQMH",
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					},
+					{
+						"key": "Cookie",
+						"value": "AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; JSESSIONID=v2u6low4qlnmeqbidi7mzdj9; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C17505%7CMCMID%7C46734583811467904011691330543600821415%7CMCAAMLH-1512478466%7C3%7CMCAAMB-1512971652%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1512374052s%7CNONE%7CMCAID%7CNONE; T=TI150995708864576007800990208309861433526542277309735190200151345509; s_cc=true; gpv_pn=CLP%3Asamsung-mobile-store; gpv_pn_t=CLP; S=d1t13ej8/P04/PD8/Pz8/Ehs/P1xRb9AGgjKUkRLQAHN/0cdjH+PuPFNUemheFtHJ7+EWIrfJS8YzIb54QmNjKNOYOQ==; SN=2.VIBE656245124F4CA3842E128AE88E42D3.SI972D148C67D345D7B2641ADE021728A3.VSDE8351F96BFB4D9297469C86C6EFA339.1512369150; s_sq=flipkart-prd%3D%2526pid%253DCLP%25253Asamsung-mobile-store%2526pidt%253D1%2526oid%253Dhttps%25253A%25252F%25252Fwww.flipkart.com%25252Fsamsung-galaxy-j2-2017-metallic-gold-8-gb%25252Fp%25252Fitmeym9w7ahzjfm5%25253Fpid%25253DMOBEYM9W4E%2526ot%253DA",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.flipkart.com/api/3/data/collector/business",
+			"request": {
+				"url": "https://www.flipkart.com/api/3/data/collector/business",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36 FKUA/website/41/website/Desktop",
+						"description": ""
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/samsung-mobile-store?otracker=nmenu_sub_Electronics_0_Samsung",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					},
+					{
+						"key": "Cookie",
+						"value": "AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; JSESSIONID=v2u6low4qlnmeqbidi7mzdj9; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C17505%7CMCMID%7C46734583811467904011691330543600821415%7CMCAAMLH-1512478466%7C3%7CMCAAMB-1512971652%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1512374052s%7CNONE%7CMCAID%7CNONE; T=TI150995708864576007800990208309861433526542277309735190200151345509; s_cc=true; gpv_pn=CLP%3Asamsung-mobile-store; gpv_pn_t=CLP; S=d1t13ej8/P04/PD8/Pz8/Ehs/P1xRb9AGgjKUkRLQAHN/0cdjH+PuPFNUemheFtHJ7+EWIrfJS8YzIb54QmNjKNOYOQ==; SN=2.VIBE656245124F4CA3842E128AE88E42D3.SI972D148C67D345D7B2641ADE021728A3.VSDE8351F96BFB4D9297469C86C6EFA339.1512369150; s_sq=flipkart-prd%3D%2526pid%253DCLP%25253Asamsung-mobile-store%2526pidt%253D1%2526oid%253Dhttps%25253A%25252F%25252Fwww.flipkart.com%25252Fsamsung-galaxy-j2-2017-metallic-gold-8-gb%25252Fp%25252Fitmeym9w7ahzjfm5%25253Fpid%25253DMOBEYM9W4E%2526ot%253DA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"nc\":{\"ppt\":\"Homepage\",\"ppn\":\"Homepage\",\"pn\":\"CLP:samsung-mobile-store\",\"pt\":\"CLP\",\"iid\":\"dtotfhh7340000001512369163507\",\"fm\":\"organic\"},\"e\":[{\"en\":\"PV\",\"ib\":false,\"id\":false,\"t\":1512369180228},{\"rid\":\"6cc3321c-73ee-41df-bbc8-3d0dfa708f94\",\"en\":\"RA\",\"t\":1512369180439},{\"en\":\"DCC\",\"iid\":\"M_6cc3321c-73ee-41df-bbc8-3d0dfa708f94_1_6HJK5H34O1_MC.MOBEYM9W4EWEBQMH\",\"ct\":\"productCard\",\"p\":\"1\",\"t\":1512369181641}]}]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.flipkart.com/api/3/data/web/clp/samsung-mobile-store/widgets",
+			"request": {
+				"url": "https://www.flipkart.com/api/3/data/web/clp/samsung-mobile-store/widgets",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36 FKUA/website/41/website/Desktop",
+						"description": ""
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/samsung-mobile-store?otracker=nmenu_sub_Electronics_0_Samsung",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					},
+					{
+						"key": "Cookie",
+						"value": "AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; JSESSIONID=v2u6low4qlnmeqbidi7mzdj9; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C17505%7CMCMID%7C46734583811467904011691330543600821415%7CMCAAMLH-1512478466%7C3%7CMCAAMB-1512971652%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1512374052s%7CNONE%7CMCAID%7CNONE; T=TI150995708864576007800990208309861433526542277309735190200151345509; s_cc=true; gpv_pn=CLP%3Asamsung-mobile-store; gpv_pn_t=CLP; s_sq=%5B%5BB%5D%5D; S=d1t13PzEPWT9gHgs/Pz8RPz8/M4gF3US+iONp8QYijjLoIvLHCe/GG/EFdioe6/FkN66waGUysu4uRano8Uq1HnbrMQ==; SN=2.VIBE656245124F4CA3842E128AE88E42D3.SI972D148C67D345D7B2641ADE021728A3.VSDE8351F96BFB4D9297469C86C6EFA339.1512369150",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"1.productCard.PMU\":null,\"1.productCard.PMU_V2\":null,\"2.productCard.PMU\":null,\"2.productCard.PMU_V2\":null,\"3.productCard.PMU\":null,\"3.productCard.PMU_V2\":null,\"4.productCard.PMU\":null,\"4.productCard.PMU_V2\":null,\"5.productCard.PMU\":null,\"5.productCard.PMU_V2\":null}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.flipkart.com/api/3/seo/desktop/metadata?url=https%3A%2F%2Fwww.flipkart.com%2Fsamsung-mobile-store%3Fotracker%3Dnmenu_sub_Electronics_0_Samsung",
+			"request": {
+				"url": "https://www.flipkart.com/api/3/seo/desktop/metadata?url=https%3A%2F%2Fwww.flipkart.com%2Fsamsung-mobile-store%3Fotracker%3Dnmenu_sub_Electronics_0_Samsung",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36 FKUA/website/41/website/Desktop",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/samsung-mobile-store?otracker=nmenu_sub_Electronics_0_Samsung",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					},
+					{
+						"key": "Cookie",
+						"value": "AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; JSESSIONID=v2u6low4qlnmeqbidi7mzdj9; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C17505%7CMCMID%7C46734583811467904011691330543600821415%7CMCAAMLH-1512478466%7C3%7CMCAAMB-1512971652%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1512374052s%7CNONE%7CMCAID%7CNONE; S=d1t13P1U/Jyk/P0k/aD8/PwQDPyry075PDY7s5gsdxQoNRChTjtSEUZmrLhqiAEk0o48AJmfvYEPPbPtlHv7s3c0dZQ==; T=TI150995708864576007800990208309861433526542277309735190200151345509; SN=2.VIBE656245124F4CA3842E128AE88E42D3.SI972D148C67D345D7B2641ADE021728A3.VSDE8351F96BFB4D9297469C86C6EFA339.1512369150; gpv_pn=HomePage; gpv_pn_t=Homepage; s_cc=true; s_sq=flipkart-prd%3D%2526pid%253DHomePage%2526pidt%253D1%2526oid%253Dhttps%25253A%25252F%25252Fwww.flipkart.com%25252Fsamsung-mobile-store%25253Fotracker%25253Dnmenu_sub_Electronics_0_Samsung%2526ot%253DA",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.flipkart.com/api/3/layout/page/web/clp/samsung-mobile-store",
+			"request": {
+				"url": "https://www.flipkart.com/api/3/layout/page/web/clp/samsung-mobile-store",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-user-agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36 FKUA/website/41/website/Desktop",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/samsung-mobile-store?otracker=nmenu_sub_Electronics_0_Samsung",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					},
+					{
+						"key": "Cookie",
+						"value": "AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; JSESSIONID=v2u6low4qlnmeqbidi7mzdj9; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C17505%7CMCMID%7C46734583811467904011691330543600821415%7CMCAAMLH-1512478466%7C3%7CMCAAMB-1512971652%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1512374052s%7CNONE%7CMCAID%7CNONE; S=d1t13P1U/Jyk/P0k/aD8/PwQDPyry075PDY7s5gsdxQoNRChTjtSEUZmrLhqiAEk0o48AJmfvYEPPbPtlHv7s3c0dZQ==; T=TI150995708864576007800990208309861433526542277309735190200151345509; SN=2.VIBE656245124F4CA3842E128AE88E42D3.SI972D148C67D345D7B2641ADE021728A3.VSDE8351F96BFB4D9297469C86C6EFA339.1512369150; gpv_pn=HomePage; gpv_pn_t=Homepage; s_cc=true; s_sq=flipkart-prd%3D%2526pid%253DHomePage%2526pidt%253D1%2526oid%253Dhttps%25253A%25252F%25252Fwww.flipkart.com%25252Fsamsung-mobile-store%25253Fotracker%25253Dnmenu_sub_Electronics_0_Samsung%2526ot%253DA",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://flapt.flipkart.net/v1/tracker/eventBatch/web",
+			"request": {
+				"url": "https://flapt.flipkart.net/v1/tracker/eventBatch/web",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "SDK_VERSION",
+						"value": "1.0",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"dontTrack\":false,\"events\":[{\"eventType\":\"adView\",\"eventTime\":1512369179798,\"viewStartTime\":1512369178792,\"maxPercent\":100,\"duration\":1006,\"pazid\":\"2GDVA75M07-M4VQB0CM7R-5XDB4AAFCD\",\"bannerId\":\"DMUT7PQHJJ\",\"requestId\":\"M_323bed61-1290-4f64-8491-783c037f2f0d_1.DMUT7PQHJJ\",\"triggeredBy\":0}],\"eventDispatchTime\":1512369180007}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://flapt.flipkart.net/v1/tracker/eventBatch/web",
+			"request": {
+				"url": "https://flapt.flipkart.net/v1/tracker/eventBatch/web",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "SDK_VERSION",
+						"value": "1.0",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"dontTrack\":false,\"events\":[{\"eventType\":\"adView\",\"eventTime\":1512369176799,\"viewStartTime\":1512369175793,\"maxPercent\":100,\"duration\":1006,\"pazid\":\"2GDVA75M07-M4VQB0CM7R-4ZKQHYTYYC\",\"bannerId\":\"HVRFE1TTT4\",\"requestId\":\"M_323bed61-1290-4f64-8491-783c037f2f0d_1.HVRFE1TTT4\",\"triggeredBy\":0}],\"eventDispatchTime\":1512369176997}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://flapt.flipkart.net/v1/tracker/eventBatch/web",
+			"request": {
+				"url": "https://flapt.flipkart.net/v1/tracker/eventBatch/web",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://www.flipkart.com",
+						"description": ""
+					},
+					{
+						"key": "SDK_VERSION",
+						"value": "1.0",
+						"description": ""
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.flipkart.com/",
+						"description": ""
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"dontTrack\":false,\"events\":[{\"eventType\":\"adView\",\"eventTime\":1512369173802,\"viewStartTime\":1512369172790,\"maxPercent\":100,\"duration\":1012,\"pazid\":\"2GDVA75M07-M4VQB0CM7R-VU5JPW2ONN\",\"bannerId\":\"HW7X0H4KRZ\",\"requestId\":\"M_323bed61-1290-4f64-8491-783c037f2f0d_1.HW7X0H4KRZ\",\"triggeredBy\":0}],\"eventDispatchTime\":1512369173999}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

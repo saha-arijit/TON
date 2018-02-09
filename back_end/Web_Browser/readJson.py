@@ -30,65 +30,67 @@ class readJson :
 					value = data["Commands"][i]["Value"]
 
 					if command == "open":
-						file.write("\t"+ "url = "+ "\""+target+ "\"" + "\n")
-						file.write("\t"+ "driver.get(url)" + "\n")
-						file.write("\t"+ "driver.maximize_window()" + "\n")
-						file.write("\t"+ "driver.implicitly_wait(5)" + "\n")
+						file.write("\t"+"\t"+"url = "+ "\""+target+ "\"" + "\n")
+						file.write("\t"+"\t"+"driver.get(url)" + "\n")
+						file.write("\t"+"\t"+"driver.maximize_window()" + "\n")
+						file.write("\t"+"\t"+"driver.implicitly_wait(5)" + "\n")
 
 					if command == "clickAndWait" or command == "click":
 						if 'link' in  target:
 							target = target.split("=")
-							file.write("\t"+ "elementClick"+str(i) + " = driver.find_element_by_link_text(\""+target[1]+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".click()"+"\n")
-							file.write("\t"+ "time.sleep(3)"+"\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i) + " = driver.find_element_by_link_text(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
 						elif '//*' in target:
-							file.write ("\t"+ "elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".click();"+"\n")
-							file.write("\t"+ "time.sleep(3);"+"\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click();"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3);"+"\n")
 
 						elif 'id' in target:
 							target = target.split("=")
-							file.write ("\t"+ "elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".click()"+"\n")
-							file.write("\t"+ "time.sleep(3)"+"\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
 						elif 'css' in target:
 							target = target.split("=")
-							file.write ("\t"+ "elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".click()"+"\n")
-							file.write("\t"+ "time.sleep(3)"+"\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
 					if command == "type":
 						if 'id' in target:
 							target = target.split("=")
-							file.write ("\t"+ "elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-							file.write("\t"+ "time.sleep(3)"+"\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 						
 						elif 'css' in target:
 							target = target.split("=")
-							file.write ("\t"+ "elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-							file.write("\t"+ "time.sleep(3)"+"\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
 						elif 'name' in target:
 							target = target.split("=")
-							file.write ("\t"+ "elementClick"+str(i)+" = driver.find_element_by_name(\""+target[1]+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-							file.write("\t"+ "time.sleep(3)"+"\n")						
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_name(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")						
 
 						elif '//*' in target:
-							file.write ("\t"+ "elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
-							file.write("\t"+ "elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-							file.write("\t"+ "time.sleep(3);"+"\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3);"+"\n")
 
 					file.write("\n")
 					i = i+1
 			except :
-				file.write ("\t"+ "driver.quit()"+"\n")
-				file.write ("\t"+ "thread1.stop()" + "\n")
-
+				file.write ("\t"+"\t"+"driver.quit()"+"\n")
+				file.write ("\t"+"\t"+"thread1.stop()" + "\n\n")
+				file.write ("\t"+"except Exception as e:"+"\n")
+				file.write ("\t"+"\t"+"thread1.stop()"+"\n")
+				file.write ("\t"+"\t"+"assert (1 > 2) , str(e)"+"\n")
 
 	def write_ClassName(self, testCase, file,baseFolder,appName):
 		file.write ("def TC_"+ testCase[6]+"(var_head, var_instances, var_load):"+ "\n"+"\n")
@@ -116,14 +118,15 @@ class readJson :
 		file.write ("thread1 = myThread(1, \"Thread-1\", 1)" + "\n" + "\n")
 		read.write_ClassName(testCase, file, baseFolder,appName)
 		file.write ("def "+ testCase[6]+"(var_head):"+ "\n"+"\n")
-		file.write ("\t" + "chrome_options = Options() " + "\n")
-		file.write ("\t" +"chrome_options.add_argument(\"--headless\")" + "\n")
-		file.write ("\t" + "chrome_options.add_argument(\"--window-size=1920x1080\")" + "\n" + "\n")
-		file.write ("\t" + "if (var_head == \"YES\" or var_head == \"Yes\" or var_head == \"yes\"):"+"\n")
-		file.write ("\t" + "\t" + "driver = webdriver.Chrome(chrome_options=chrome_options)" + "\n")#,executable_path=\"D:\\TestSelenium\\SeleniumScripts\\chromedriver.exe\")" + "\n")
-		file.write ("\t" + "else:" + "\n")
-		file.write ("\t" + "\t" + "driver = webdriver.Chrome ()" + "\n" + "\n")
-		file.write("\t"+ "driver.set_page_load_timeout(180)" +"\n")
+		file.write ("\t" + "try:" + "\n")
+		file.write ("\t" +"\t"+ "chrome_options = Options() " + "\n")
+		file.write ("\t" +"\t"+"chrome_options.add_argument(\"--headless\")" + "\n")
+		file.write ("\t" +"\t"+ "chrome_options.add_argument(\"--window-size=1920x1080\")" + "\n" + "\n")
+		file.write ("\t" +"\t"+ "if (var_head == \"YES\" or var_head == \"Yes\" or var_head == \"yes\"):"+"\n")
+		file.write ("\t" +"\t"+"\t" + "driver = webdriver.Chrome(chrome_options=chrome_options)" + "\n")#,executable_path=\"D:\\TestSelenium\\SeleniumScripts\\chromedriver.exe\")" + "\n")
+		file.write ("\t" +"\t"+"else:" + "\n")
+		file.write ("\t" +"\t"+"\t" + "driver = webdriver.Chrome ()" + "\n" + "\n")
+		file.write("\t"+"\t"+"driver.set_page_load_timeout(180)" +"\n")
 
 
 read = readJson()
