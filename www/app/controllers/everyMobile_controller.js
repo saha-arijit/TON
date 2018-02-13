@@ -210,10 +210,18 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
            $('#mobileExecuteTestCaseModal2').modal('hide');
     };
 
+      $scope.openAppium = function () {
+        $http({
+            method: 'post',
+            url: '/openAppium'
+        });
 
+        $scope.ngModel1 = "Appium has opened..please remember to close it.";
+           $('#mobileExecuteTestCaseModal2').modal('hide');
+    };
+  
 
-        // For Step 3 start
-        $scope.openJenkins = function () {
+    $scope.openJenkins = function () {
             $http({
                 method: 'post',
                 url: '/jenkins'

@@ -1,6 +1,7 @@
 var exec        =    require('child_process').exec,
     fs          =    require('fs');
 var sleep       = require('system-sleep');
+var cmd         =require('node-cmd');
 
 var flag        =0
     current_dir = __dirname;
@@ -438,14 +439,38 @@ UIRoutes.prototype.init = function() {
 
         });
 
+        app.post('/openAppium',
+        function(req, res){
+
+        console.log("Came into open APIIUM");
+
+        cmd.get(
+        'netstat -ano | findstr :4723',
+        function(err, data, stderr){
+
+         if(data == '') {   
+          child = exec('start '+baseFolder+"/bat_file/openAppium.bat", (e, stdout, stderr)=> {
+             if (e instanceof Error) {
+               console.error(e);
+               throw e;
+              };
+             res.end();
+            });
+          }
+          else{
+            console.log('Appium is Already Running on port 4723')
+          }
+        });
+    });
+
           app.post('/analyzeMobileGUI',
         function(req, res){
 
-             console.log("Came to Analyze API Results");
-    child = exec(baseFolder+"/back_end/Mobile_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
-    if (e instanceof Error) {
-        console.error(e);
-        throw e;
+        console.log("Came to Analyze API Results");
+        child = exec(baseFolder+"/back_end/Mobile_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+        if (e instanceof Error) {
+         console.error(e);
+         throw e;
     }
     console.log('stdout ', stdout);
     res.end();
