@@ -1,7 +1,7 @@
 var exec        =    require('child_process').exec,
     fs          =    require('fs');
 var sleep       = require('system-sleep');
-var cmd         =require('node-cmd');
+var cmd         = require('node-cmd');
 
 var flag        =0
     current_dir = __dirname;
