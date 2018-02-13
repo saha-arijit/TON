@@ -59,4 +59,3 @@ def print_time(threadName, counter, delay):
 		file.write("\n")
 		counter -= 1
 		file.close()
-
