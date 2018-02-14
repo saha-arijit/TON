@@ -304,7 +304,7 @@ UIRoutes.prototype.init = function() {
             var count = Object.keys(object).length;
             console.log("Number of Files : ",count)
             collFile = req.files['file[0]'].name.split('.json')
-            folder = baseFolder+'/APITesting/API/GUI/Demo_TON/'+collFile[0]
+            folder = baseFolder+'/APITesting/GUI/Demo_TON/'+collFile[0]
 
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
@@ -352,7 +352,7 @@ UIRoutes.prototype.init = function() {
      app.post('/executeAPIGUI',
         function(req, res){
         
-        dataFile = baseFolder+"/APITesting/API/GUI/"+appName+"/CPU%."+"csv";
+        dataFile = baseFolder+"/APITesting/GUI/"+appName+"/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
           
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
@@ -362,7 +362,7 @@ UIRoutes.prototype.init = function() {
         console.log("The file was saved!");
         });
         
-        child = exec('ride.py '+baseFolder+'/APITesting/API/GUI/'+appName+'/LoadTest.robot', (e, stdout, stderr)=> {
+        child = exec('ride.py '+baseFolder+'/APITesting/GUI/'+appName+'/LoadTest.robot', (e, stdout, stderr)=> {
           if (e instanceof Error) {
              console.error(e);
              throw e;
