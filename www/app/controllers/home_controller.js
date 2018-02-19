@@ -1,8 +1,7 @@
-kibanaApp.controller('homeController',['$scope','$http','$state','$location','$rootScope',
-    function ($scope,$http,$state,$location,$rootScope) {
+kibanaApp.controller('homeController',['$scope','$http','$location','$rootScope',
+    function ($scope,$http,$location,$rootScope) {
 
-    $scope.firstInputBox = "bubble works !!!!!!!!!! Right????????????-";
-        $rootScope.loading=false
+        $rootScope.loading=false;
 // Enabling the ng-class
 $scope.isActive = function (currentUrl) {
     return currentUrl === $location.path();
@@ -10,7 +9,7 @@ $scope.isActive = function (currentUrl) {
 
     $(document).ready(function() {
         // Adding Href Attribute
-        $('#apiTestingMode').on('click', function () {
+        $('#apiTestingModel').on('click', function () {
             $scope.ngModel1 = "";
             var href = '/assets/UserManual-EveryAPI.pdf';
             $('#userManual').attr('href', href)
