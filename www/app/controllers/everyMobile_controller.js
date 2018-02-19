@@ -102,6 +102,18 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
     });
 
 
+        // For Step 3
+        $scope.mobileTestingViaGUIModalClose = function () {
+            $('#mobileExecuteTestCaseModal2').modal('hide');
+            $('#mobileExecuteTestCaseModal1').modal('show');
+        };
+
+        $scope.mobileTestingViaTestOpsModalClose = function () {
+            $('#mobileExecuteTestCaseModal3').modal('hide');
+            $('#mobileExecuteTestCaseModal1').modal('show');
+        };
+
+
 // Button Disabling Functions
 
     // By Default
@@ -210,18 +222,10 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
            $('#mobileExecuteTestCaseModal2').modal('hide');
     };
 
-      $scope.openAppium = function () {
-        $http({
-            method: 'post',
-            url: '/openAppium'
-        });
 
-        $scope.ngModel1 = "Appium has opened..please remember to close it.";
-           $('#mobileExecuteTestCaseModal2').modal('hide');
-    };
-  
 
-    $scope.openJenkins = function () {
+        // For Step 3 start
+        $scope.openJenkins = function () {
             $http({
                 method: 'post',
                 url: '/jenkins'
@@ -234,6 +238,8 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
         };
 
         // For Step 3 end
+
+
         $scope.mobileAnalyze = function () {
 
             $http({

@@ -124,6 +124,21 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     });
 
 
+        $scope.apiTestingViaTestOpsModalClose = function () {
+
+            $('#modal9').modal('hide');
+            $('#modal1').modal('show');
+        };
+        $scope.apiTestingViaGUIApiModalClose = function () {
+            $('#modal5').modal('hide');
+            $('#modal2').modal('show');
+        };
+        $scope.apiTestingViaGUIModalClose = function () {
+            $('#modal2').modal('hide');
+            $('#modal1').modal('show');
+        };
+
+
 
 // Button Disabling Functions
 

@@ -13,15 +13,15 @@ kibanaApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',
                 url: '/everyWeb',
                 templateUrl: "app/views/everyWeb.html",
                 controller: "everyWebController"
-            }).state("home.everyApi", {
-                url: '/everyApi',
+            }).state("home.everyAPI", {
+                url: '/everyAPI',
                 templateUrl: "app/views/everyApi.html",
                 controller: "everyApiController"
             }).state("home.everyMobile", {
                 url: '/everyMobile',
                 templateUrl: "app/views/everyMobile.html",
                 controller: "everyMobileController"
-            })
+            });
 
 
         // Using UrlRouterProvider

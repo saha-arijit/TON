@@ -17,31 +17,9 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-    .controller('everyWebController', ['$scope', '$http', 'Upload','$state','$rootScope', function ($scope, $http, Upload,$state,$rootScope) {
+    .controller('everyWebController', ['$scope', '$http', 'Upload','$rootScope', function ($scope, $http, Upload,$rootScope) {
         $rootScope.loading = false;
-        $scope.openPdf = function () {
-            window.open('.../EAadhaar_365840125300_30082017174228_294713.pdf')
-        }
 
-        $scope.WebInputBoxOne = "Recording the web application for browser testing  and Convert Recorded testcase to JSON Format";
-        $scope.WebInputBoxTwo = "Record the web application for API Testing";
-        $scope.WebInputBoxThree = "Selection and Execution of Test Case and view log/report";
-        $scope.WebInputBoxFour = "Browser Automation";
-        $scope.WebInputBoxFive = "Visualisation of Automated steps";
-        $scope.WebInputBoxSix = "Load / Performance testing using API's";
-        $scope.WebInputBoxSeven = "Execution of Test Case for Continuous Integration and Continuous Deployment";
-        $scope.WebInputBoxEight = "Analytics Viewer to display graphs";
-        $scope.WebInputBoxNine = "Feed data to Elastic Search for visualizatio";
-        $scope.WebInputBoxTen = "Filter and create graphs from data";
-        $scope.WebInputBoxLeven = "Creating backend code";
-
-
-
-
-
-
-
-        // document.getElementById('#hafegi').readOnly = true;
 // Over ALl Modal Restricting Function
 
         $('.close').on('click',function () {
@@ -63,20 +41,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 var  rowHeight2 =$('#2row').innerHeight() ;
                 var  rowHeight3 =$('#3row').innerHeight() ;
                 var  rowHeight4 =$('#4row').innerHeight() ;
-                // console.log(rowHeight,"rowHeight");
                 var a1 =(rowHeight1/1.2) ;
                 var a2 =(rowHeight2/1.2) ;
                 var a3 =(rowHeight3/1.2) ;
                 var a4 =(rowHeight4) ;
-                // console.log(rowHeight1,"rowHeight");
-                // console.log(rowHeight2,"rowHeight");
-                // console.log(rowHeight3,"rowHeight");
-                // console.log(rowHeight4,"rowHeight");
 
-                // console.log(a1,"rowHeight");
-                // console.log(a2,"rowHeight");
-                // console.log(a3,"rowHeight");
-                // console.log(a4,"rowHeight");
 
                 $('.test1').css('height',a1);
 
@@ -86,12 +55,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
                 var contentHeight = windowHeight-navHeight;
-                // console.log(y);
 
                 // $(".fullheight").height(contentHeight);
                 // $(".sidebar").top(navHeight);
                 var ww = $(document).width();
-                // alert(ww)
 
                 if (ww < 768) {
                     $('#sidebar').removeClass('fullheight');
@@ -104,7 +71,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                     $(".fullheight").height(contentHeight);
                     $('#contactUs').addClass('force-to-bottom');
 
-                };
+                }
             };
 
 
@@ -117,9 +84,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
 // Over ALl Modal Triggerring Function
-
-
-        // For Web PArt
 
         // For Step 2 Prepare Test case
 
@@ -148,56 +112,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         });
 
-
-
-
-
-
-// Global Resetting function
-
-        $('.container-fluid').on('click', function () {
-
-
-            // api Testing Step 2 PopUp
-            // $('.m').modal('hide');
-
-            // Closing all the modal once the btn clicked
-            // $('.btnInModal').modal('hide')
-
-
-        });
-
-// Disabling the API Testing - api Functional modal
-        $scope.apiShowFunctional = false;
-
-
-// Ng Model function
-
-
-        $('.webStepBtn').on('click', function () {
-            $scope.ngModel1 = "";
-        });
-
-        $('.apiStepBtn').on('click', function () {
-            $scope.ngModel1 = "";
-        });
-
-
-// disabling web testing web prepare testcase button
-        $scope.web = true;
-
-
-        // Heading Style
-
-// Heading Style For API Part
-        $scope.apiShowFunctional = false;
-        $scope.apiShowAutomation = false;
-        $scope.apiShowLoad = false;
-
-
-
-
-        $scope.modalViaTestOpsHeadingStyle = false;
 
 
         // Heading Style For Web Part
@@ -265,63 +179,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         };
 
 
-        // For API Testing Part
-        $scope.apiTestingViaTestOpsModalClose = function () {
-
-            $('#modal9').modal('hide');
-            $('#modal1').modal('show');
-        };
-        $scope.apiTestingViaGUIApiModalClose = function () {
-            $('#modal5').modal('hide');
-            $('#modal2').modal('show');
-        };
-        $scope.apiTestingViaGUIModalClose = function () {
-            $('#modal2').modal('hide');
-            $('#modal1').modal('show');
-        };
-
-
-        // For Mobile Testing Part
-
-        // For Step 3
-        $scope.mobileTestingViaGUIModalClose = function () {
-            $('#mobileExecuteTestCaseModal2').modal('hide');
-            $('#mobileExecuteTestCaseModal1').modal('show');
-        };
-
-        $scope.mobileTestingViaTestOpsModalClose = function () {
-            $('#mobileExecuteTestCaseModal3').modal('hide');
-            $('#mobileExecuteTestCaseModal1').modal('show');
-        };
-
-
-
-
-
         // overall Disabling btn function
 
 
         // For Web Testing For Browser part
         $scope.webTestingBtn1Disable= true;
         $scope.webTestingBtn2Disable= true;
-
-
-        // MouseOver false for all functions
-        $scope.webMouseOverOne = false;
-        $scope.webMouseOverTwo= false;
-        $scope.webMouseOverThree = false;
-        $scope.webMouseOverFour = false;
-        $scope.webMouseOverFive= false;
-        $scope.webMouseOverSix = false;
-        $scope.webMouseOverSeven = false;
-        $scope.webMouseOverEight = false;
-        $scope.webMouseOverNine = false;
-        $scope.webMouseOverTen = false;
-        $scope.webMouseOverLeven = false;
-
-
-
-
 
         $scope.files = [];
 
@@ -582,11 +445,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
-
         // For bootstrap Popover
 
-
         $('[data-toggle="popover"]').popover({container: 'body'});
+
 
         $scope.webapiAnalyze = function () {
 
@@ -699,22 +561,4 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
-
-
-        // To Show the modal one by one
-        // Api Testing TestCase Modal
-        // var apiModal = $('#apiTestCaseModal');
-        // var apiInnermodal1 = apiModal.next(".modal");     //get reference to nested modal
-        // apiModal.after(apiInnermodal1);
-        //
-        // Web Testing
-        // var webModal = $('#webTestCaseModal');
-        // var webInnermodal1 = webModal.find(".modal");     //get reference to nested modal
-        // webModal.after(webInnermodal1);
-        // $(document).ready(function () {
-        //     $('#sidebarCollapse').on('click', function () {
-        //         $('#sidebar').toggleClass('active');
-        //     });
-        // });
-        $scope.$state = $state;
     }]);
