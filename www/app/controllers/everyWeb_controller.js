@@ -369,10 +369,16 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
         $scope.openJenkins = function () {
+
+            var currentStatus = "Web Browser";
             $http({
                 method: 'post',
-                url: '/jenkins'
-            });
+                url: '/jenkins',
+                data:[currentStatus]
+
+            }
+        );            console.log(currentStatus)
+
             $('#modal9').modal('hide');
             $('#modal1').modal('hide');
             $scope.ngModel1 = "jenkins has opened..please remember to close it.";

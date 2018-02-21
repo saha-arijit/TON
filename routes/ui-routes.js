@@ -73,10 +73,13 @@ UIRoutes.prototype.init = function() {
 
     app.post('/jenkins',
     function(req, res){
-      
+        console.log(req)
+        console.log(req.body)
+        // console.log(req.data.currentStatus)
+
      console.log("Came into Jenkins")
-     
-            child = shell.exec('Start chrome http://localhost:8080')
+
+            // child = shell.exec('Start chrome http://localhost:8080')
             res.end();
     }); 
 
@@ -251,6 +254,7 @@ UIRoutes.prototype.init = function() {
           console.error(e);
           throw e;
         }
+
         console.log('stdout ', stdout);
         console.log('Results -- /POC/Results')
         res.end();
