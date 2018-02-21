@@ -1,7 +1,6 @@
-<!--<div class="row" style=" margin-left:0;margin-right:0;overflow: auto">-->
-    <!--<div class="col-md-12">-->
+<!--<iframe src="http://localhost:5601/app/kibana#/visualize/edit/045d4300-da4c-11e7-b527-33bff8feaa58?embed=true&_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(filters:!(),linked:!f,query:(match_all:()),uiState:(),vis:(aggs:!((enabled:!t,id:'1',params:(aggregate:max,customLabel:'CPU+(%25)',field:'CPU(%25)',size:1,sortField:'Memory+Usage+(%25)',sortOrder:desc),schema:metric,type:top_hits),(enabled:!t,id:'2',params:(customLabel:'Memory+Usage+(%25)',field:'Memory+Usage+(%25)',order:desc,orderBy:_term,size:5),schema:segment,type:terms)),listeners:(),params:(addLegend:!t,addTooltip:!t,isDonut:!f,legendPosition:right),title:'CPU+vs+Memory+USage++Pie+Chart',type:pie))" height="100%" width="100%"></iframe>-->
 
-        <br>
+<br>
 <br>
         <section><div class="row " style=" margin-left:0;margin-right:0;overflow: auto">
             <div class="col-xs-6 col-sm-6 col-md-3">
@@ -468,14 +467,14 @@
                                     <h4 class="modal-title">Analyze Results</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <button type="button" class="btn btn-primary btn-block"
+                                    <a target="_blank" href="#/home/visualization" type="button" class="btn btn-primary btn-block"
                                             ng-click="analyze()"  >For Browser
-                                    </button>
+                                    </a>
                                     <br>
-                                    <button type="button" class="btn btn-primary btn-block"
+                                    <a target="_blank" href="#/home/visualization"  class="btn btn-primary btn-block"
                                             ng-click="webapiAnalyze()"
                                     >For API
-                                    </button>
+                                    </a>
 
                                 </div>
 

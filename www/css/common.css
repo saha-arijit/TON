@@ -786,6 +786,7 @@ p.webSpeech-bubble {
       margin-left: 10px
 
   }.popover-content {width: 100%!important;background-coor:blue;border-radius:5%;border-color:black;color: green; } .nav-btn3{
+
    margin-top: 7%;
    margin-bottom: 7%;
          margin-left: 10px
@@ -829,4 +830,9 @@ p.webSpeech-bubble {
     /*padding-bottom: 5px;*/
     /*height: 100px;*/
     /*line-height: 80px;*/
+}
+/*Related To Kibana*/
+
+.gridster,.vis-wrapper .vis-container--legend-right .legend-col-wrapper{
+    background-color: #9753b5;
 }

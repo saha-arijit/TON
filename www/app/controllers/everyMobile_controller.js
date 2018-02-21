@@ -233,6 +233,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
         // For Step 3 end
         $scope.mobileAnalyze = function () {
 
+
             $http({
                 method: 'post',
                 url: '/analyzeMobileGUI'

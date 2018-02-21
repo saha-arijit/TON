@@ -43,27 +43,29 @@
     <script src="app/controllers/everyWeb_controller.js"></script>
     <script src="app/controllers/everyApi_controller.js"></script>
     <script src="app/controllers/everyMobile_controller.js"></script>
+    <script src="app/controllers/visualization_controller.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            // Adding Href Attribute
-            $('#apiTestingModel').on('click', function () {
-                $scope.ngModel1 = "";
-                var href = '/assets/pdf2.pdf';
-                $('#userManual').attr('href', href)
-            })
-        })
-        $(document).ready(function () {
-            var url = window.location;
-            // Will only work if string in href matches with location
-            $('ul.nav a[href="' + url + '"]').parent().addClass('active');
 
-            // Will also work for relative and absolute hrefs
-            $('ul.nav a').filter(function () {
-                return this.href == url;
-            }).parent().addClass('active').parent().parent().addClass('active');
-        });
-    </script>
+    <!--<script>-->
+        <!--$(document).ready(function() {-->
+            <!--// Adding Href Attribute-->
+            <!--$('#apiTestingModel').on('click', function () {-->
+                <!--$scope.ngModel1 = "";-->
+                <!--var href = '/assets/pdf2.pdf';-->
+                <!--$('#userManual').attr('href', href)-->
+            <!--})-->
+        <!--})-->
+        <!--$(document).ready(function () {-->
+            <!--var url = window.location;-->
+            <!--// Will only work if string in href matches with location-->
+            <!--$('ul.nav a[href="' + url + '"]').parent().addClass('active');-->
+
+            <!--// Will also work for relative and absolute hrefs-->
+            <!--$('ul.nav a').filter(function () {-->
+                <!--return this.href == url;-->
+            <!--}).parent().addClass('active').parent().parent().addClass('active');-->
+        <!--});-->
+    <!--</script>-->
 </head>
 <body>
 
