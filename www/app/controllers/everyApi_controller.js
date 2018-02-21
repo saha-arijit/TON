@@ -271,9 +271,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     };
 
     $scope.openJenkins = function () {
+
+        var api = "API";
         $http({
             method: 'post',
-            url: '/jenkins'
+            url: '/jenkins',
+            data:[api]
         });
         $('#modal9').modal('hide');
 
