@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180221 10:54:25.053" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\Browser\GUI\Demo_TON\TestCases.robot" id="s1" name="TestCases">
+<test id="s1-t1" name="BF_LinkedIn_TC_001">
+<kw name="TC BF LinkedIn TC 001" library="BF_LinkedIn_TC_001">
+<arguments>
+<arg>no</arg>
+<arg>0</arg>
+<arg>no</arg>
+</arguments>
+<msg timestamp="20180221 10:54:50.146" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<msg timestamp="20180221 10:54:50.146" level="INFO">Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "C:\Python27\lib\threading.py", line 810, in __bootstrap_inner
+    self.run()
+  File "D:/TON/back_end\Web_Browser\SampleThread_1.py", line 18, in run
+    print_time(self.name, 50, self.counter)
+  File "D:/TON/back_end\Web_Browser\SampleThread_1.py", line 61, in print_time
+    file.write(",",TC_Name)
+TypeError: function takes exactly 1 argument (2 given)</msg>
+<status status="PASS" endtime="20180221 10:54:50.146" starttime="20180221 10:54:25.194"></status>
+</kw>
+<status status="PASS" endtime="20180221 10:54:50.146" critical="yes" starttime="20180221 10:54:25.178"></status>
+</test>
+<status status="PASS" endtime="20180221 10:54:50.146" starttime="20180221 10:54:25.069"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="TestCases" pass="1">TestCases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180221 11:49:28.813" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\API\GUI\Demo_TON\LoadTest.robot" id="s1" name="LoadTest">
+<test id="s1-t1" name="AL_Run_All">
+<kw name="TC FlipkartCollection" library="FlipkartCollection">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180221 11:51:48.051" level="INFO">Starting Thread-1
+
+Exiting Thread-1
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180221 11:51:48.051" starttime="20180221 11:49:28.954"></status>
+</kw>
+<kw name="TC BF Signup" library="BF_Signup">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180221 11:51:50.456" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180221 11:51:50.456" starttime="20180221 11:51:48.053"></status>
+</kw>
+<status status="PASS" endtime="20180221 11:51:50.456" critical="yes" starttime="20180221 11:49:28.954"></status>
+</test>
+<status status="PASS" endtime="20180221 11:51:50.456" starttime="20180221 11:49:28.829"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="LoadTest" pass="1">LoadTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

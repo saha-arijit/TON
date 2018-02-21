@@ -5,7 +5,7 @@ Library           Chrome_Genymotion/Chrome_GenymotionRun.py
 
 *** Test Cases ***
 Chrome_Genymotion
-#Keyword 
-	TC_Chrome_GenymotionRun
+    #Keyword
+    TC_Chrome_GenymotionRun
 
 *** Keywords ***

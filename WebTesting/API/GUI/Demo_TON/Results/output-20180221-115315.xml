@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180221 11:53:15.559" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\API\GUI\Demo_TON\LoadTest.robot" id="s1" name="LoadTest">
+<test id="s1-t1" name="FlipkartCollection">
+<kw name="TC FlipkartCollection" library="FlipkartCollection">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180221 11:53:22.274" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180221 11:53:22.274" starttime="20180221 11:53:15.684"></status>
+</kw>
+<status status="PASS" endtime="20180221 11:53:22.274" critical="yes" starttime="20180221 11:53:15.684"></status>
+</test>
+<test id="s1-t2" name="AL_Run_All">
+<kw name="TC FlipkartCollection" library="FlipkartCollection">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180221 11:53:22.274" level="FAIL">threads can only be started once</msg>
+<status status="FAIL" endtime="20180221 11:53:22.274" starttime="20180221 11:53:22.274"></status>
+</kw>
+<status status="FAIL" endtime="20180221 11:53:22.274" critical="yes" starttime="20180221 11:53:22.274">threads can only be started once</status>
+</test>
+<status status="FAIL" endtime="20180221 11:53:22.290" starttime="20180221 11:53:15.574"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="1">Critical Tests</stat>
+<stat fail="1" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="LoadTest" pass="1">LoadTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

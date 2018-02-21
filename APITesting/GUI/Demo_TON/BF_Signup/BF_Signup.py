@@ -11,13 +11,13 @@ def TC_BF_Signup(iterations=1, vuser=1, ramp=1):
 	thread1.createCSV(baseFolder,appName)
 	thread1.start()
 	if(int(vuser) == 1): 
-		os.chdir("D:/TON/APITesting/API/GUI/Demo_TON/BF_Signup")
+		os.chdir("D:/TON/APITesting/GUI/Demo_TON/BF_Signup")
 		cmd = "newman run BF_Signup.json -r html --reporter-html-export result.html -x -n "+str(iterations)
 		os.system(cmd)
 	elif(int(vuser) > 1):
 		i =1
 		while i <= int(vuser):
-			os.chdir("D:/TON/APITesting/API/GUI/Demo_TON/BF_Signup")
+			os.chdir("D:/TON/APITesting/GUI/Demo_TON/BF_Signup")
 			cmd = "newman run BF_Signup.json -r html --reporter-html-export result_"+str(i)+".html -x -n "+str(iterations)
 			os.system(cmd)
 			time.sleep(int(ramp)/int(vuser))
