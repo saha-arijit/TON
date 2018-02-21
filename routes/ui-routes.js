@@ -236,7 +236,7 @@ UIRoutes.prototype.init = function() {
     app.post('/execute',
         function(req, res){
 
-        dataFile = baseFolder+"/WebTesting/Browser/GUI/"+appName+"/CPU%."+"csv";
+        dataFile = baseFolder+"/WebTesting/Browser/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
           
         
@@ -269,10 +269,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            console.log("Entering  into Kibana");
+            // console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
 
     app.post('/analyzeWebAPI',
