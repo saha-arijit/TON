@@ -1,6 +1,0 @@
-Time , CPU (%), Memory Usage (%), TestCase
-11:54:06,21,0.82,FlipkartCollection
-11:54:08,6,0.84,FlipkartCollection
-11:54:11,16,0.87,BF_Signup
-11:54:12,24,0.85,BF_Signup
-11:54:13,14,0.94,BF_Signup
