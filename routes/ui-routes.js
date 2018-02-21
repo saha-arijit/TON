@@ -73,6 +73,9 @@ UIRoutes.prototype.init = function() {
 
     app.post('/jenkins',
     function(req, res){
+
+        console.log(req.body);
+
         if (req.body == 'Web Browser'){
             
             dataFile = baseFolder+"/WebTesting/Browser/CPU%."+"csv";
