@@ -17,7 +17,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-    .controller('everyWebController', ['$scope', '$http', 'Upload','$rootScope', function ($scope, $http, Upload,$rootScope) {
+    .controller('everyWebController', ['$scope', '$http', 'Upload','$rootScope',
+        function ($scope, $http, Upload,$rootScope) {
         $rootScope.loading = false;
 
 // Over ALl Modal Restricting Function
@@ -426,6 +427,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         $scope.analyze = function () {
+
             $('#webAnalyzeModal').modal('hide');
 
             $http({
@@ -462,7 +464,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $('[data-toggle="popover"]').popover({container: 'body'});
 
         $scope.webapiAnalyze = function () {
-
+            //
             $('#webAnalyzeModal').modal('hide');
             $http({
                 method: 'post',
@@ -482,45 +484,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             }, 9000);
         };
 
-        $scope.apiAnalyze = function () {
-            $('#webAnalyzeModal').modal('hide');
-            $http({
-                method: 'post',
-                url: '/analyzeAPI'
-            }).then(function success(response) {
 
-                console.log("resp", response)
-            }, function error(error) {
 
-                console.log("err", error)
-            });
-            $scope.ngModel1 = "Kibana has opened..please remember to close it."
-            setTimeout(function () {
-                $scope.$apply(function () {
-                    $scope.ngModel1 = ''
-                })
-            }, 9000);
-        };
-
-        $scope.mobileAnalyze = function () {
-            $('#webAnalyzeModal').modal('hide');
-            $http({
-                method: 'post',
-                url: '/analyzeMobileGUI'
-            }).then(function success(response) {
-
-                console.log("resp", response)
-            }, function error(error) {
-
-                console.log("err", error)
-            });
-            $scope.ngModel1 = "Kibana has opened..please remember to close it."
-            setTimeout(function () {
-                $scope.$apply(function () {
-                    $scope.ngModel1 = ''
-                })
-            }, 9000);
-        };
         $scope.openPostman = function () {
             $http({
                 method: 'post',
