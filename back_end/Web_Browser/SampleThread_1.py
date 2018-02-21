@@ -5,9 +5,6 @@ from selenium import webdriver
 import sys
 import subprocess
 
-exitFlag = 0
-
-
 class myThread (threading.Thread):
 	def __init__(self, threadID, name, counter):
 		threading.Thread.__init__(self)
@@ -21,11 +18,15 @@ class myThread (threading.Thread):
 		print_time(self.name, 50, self.counter)
 		print "Exiting " + self.name
 	
-	def createCSV(self,base,app):
+	def createCSV(self,base,app,TC):
+		global exitFlag
+		exitFlag = 0
 		global baseFolder
 		baseFolder = base
 		global appName
 		appName = app
+		global TC_Name
+		TC_Name = ","+TC 
 
 	def stop(self):
 		global exitFlag
@@ -33,7 +34,8 @@ class myThread (threading.Thread):
 		print "Exiting Main Thread" + "\n"
 
 
-def print_time(threadName, counter, delay):
+def print_time(threadName, counter, delay):	
+	time.sleep(5)
 	while counter:
 		if exitFlag:
 			sys.exit(0)
@@ -56,6 +58,7 @@ def print_time(threadName, counter, delay):
 		file.write(timeNow)
 		file.write(cpuPercentage)
 		file.write(str(memVa))
+		file.write(TC_Name)
 		file.write("\n")
 		counter -= 1
 		file.close()

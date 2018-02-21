@@ -16,17 +16,21 @@ class ChromeBrowser():
 		
 	def Open_Browser(self,name):
 	
-		self.driver.find_element_by_id ('org.chromium.webview_shell:id/url_field').send_keys(name)
-		time.sleep(5)
+		try:
+			self.driver.find_element_by_id ('org.chromium.webview_shell:id/url_field').send_keys(name)
+			time.sleep(5)
+
+			self.driver.find_element_by_accessibility_id('Load URL').click()
+			time.sleep(10)
+
+			self.driver.find_element_by_accessibility_id('Forgot your password?').click()
+			time.sleep(3)
+
+			self.driver.find_element_by_accessibility_id('Login Your Account').click()
+			time.sleep(2)
 		
-		self.driver.find_element_by_accessibility_id('Load URL').click()
-		time.sleep(10)
-		
-		self.driver.find_element_by_accessibility_id('Forgot your password?').click()
-		time.sleep(3)
-		
-		self.driver.find_element_by_accessibility_id('Login Your Account').click()
-		time.sleep(2)
+		except Exception as e:
+			print (e)
 		
 	def tearDown(self):
 		self.driver.quit()

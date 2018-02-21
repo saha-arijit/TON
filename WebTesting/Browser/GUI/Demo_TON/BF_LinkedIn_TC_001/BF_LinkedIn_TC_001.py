@@ -7,22 +7,23 @@ sys.path.insert(0,'D:/TON/back_end\Web_Browser')
 from SampleThread_1 import myThread
 thread1 = myThread(1, "Thread-1", 1)
 
-def TC_Sample(var_head, var_instances, var_load):
+def TC_BF_LinkedIn_TC_001(var_head, var_instances, var_load):
 
 	baseFolder = 'D:/TON'
 	appName    = 'Demo_TON'
+	TC = 'BF_LinkedIn_TC_001'
 	if (var_load == "YES" or var_load == "Yes" or var_load == "yes"):
-		thread1.createCSV(baseFolder,appName)
+		thread1.createCSV(baseFolder,appName,TC)
 		thread1.start()
 		for i in range (0, int(var_instances)):
-			Thread(target = Sample, args = [var_head]).start()
+			Thread(target = BF_LinkedIn_TC_001, args = [var_head]).start()
 
 	else:
-		thread1.createCSV(baseFolder,appName)
+		thread1.createCSV(baseFolder,appName,TC)
 		thread1.start()
-		Sample (var_head)
+		BF_LinkedIn_TC_001 (var_head)
 
-def Sample(var_head):
+def BF_LinkedIn_TC_001(var_head):
 
 	try:
 		chrome_options = Options() 
@@ -35,32 +36,28 @@ def Sample(var_head):
 			driver = webdriver.Chrome ()
 
 		driver.set_page_load_timeout(180)
-		url = "https://www.amazon.in/"
+		url = "https://www.linkedin.com/"
 		driver.get(url)
 		driver.maximize_window()
 		driver.implicitly_wait(5)
 
-		elementClick1 = driver.find_element_by_css_selector("span.nav-logo-base.nav-sprite")
-		elementClick1.click()
+		elementClick1 = driver.find_element_by_id("login-email")
+		elementClick1.send_keys("sample@example.com")
 		time.sleep(3)
 
-		elementClick2 = driver.find_element_by_link_text("Today's Deals")
-		elementClick2.click()
+		elementClick2 = driver.find_element_by_id("login-password")
+		elementClick2.send_keys("qwertyuiop")
 		time.sleep(3)
 
-
-		elementClick4 = driver.find_element_by_link_text("Amazon Pay")
-		elementClick4.click()
+		elementClick3 = driver.find_element_by_id("login-submit")
+		elementClick3.click()
 		time.sleep(3)
 
-
-		elementClick6 = driver.find_element_by_css_selector("span.nav-logo-base.nav-sprite")
-		elementClick6.click()
-		time.sleep(3)
 
 		driver.quit()
 		thread1.stop()
 
 	except Exception as e:
 		thread1.stop()
+		driver.quit()
 		assert (1 > 2) , str(e)

@@ -98,32 +98,36 @@ UIRoutes.prototype.init = function() {
             var count = Object.keys(object).length;
             console.log("Number of Files : ",count)
             collFile = req.files['file[0]'].name.split('.json')
-            folder = baseFolder+'/WebTesting/API/GUI/Demo_TON/'+collFile[0]
-
+            folder1 = baseFolder+'/WebTesting/API/GUI/Demo_TON/'+collFile[0]
+            folder2 = baseFolder+'/WebTesting/API/TestOps/Demo_TON/'+collFile[0]
+            var folder = [folder1,folder2]
+            
+            for(j=0;j<2;j++){
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
 
                 var fileData = req.files[value];
                 var fileName =req.files[value].name;
 
-            if (!fs.existsSync(folder)){
-                fs.mkdirSync (folder)
+            if (!fs.existsSync(folder[j])){
+                fs.mkdirSync (folder[j])
             }
-            var inputFile = folder + '/' + fileName
+            var inputFile = folder[j] + '/' + fileName
 
             fileData.mv (inputFile, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
             }
+           
 
 
             try{
             if(count>1){
-                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
+                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
                 }
             else{
-                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder +' '+ "None"+' '+baseFolder+' '+appName
+                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ "None"+' '+baseFolder+' '+appName
                 }
 
                 child = exec(cmd, (e, stdout, stderr)=> {
@@ -141,6 +145,7 @@ UIRoutes.prototype.init = function() {
             console.log ("The file has been moved.")
 
             res.end()
+        }
     });    
 
 
@@ -148,7 +153,7 @@ UIRoutes.prototype.init = function() {
         function(req, res){
 
         dataFile = baseFolder+"/WebTesting/API/GUI/"+appName+"/CPU%."+"csv";
-        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
           
         
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
@@ -184,24 +189,34 @@ UIRoutes.prototype.init = function() {
 
             folderName = sampleFile.split('.')
 
-            folder = baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ folderName[0]
-            
-            if (!fs.existsSync(folder)){
-                fs.mkdirSync (folder)
-            }   
+            folder1 = baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ folderName[0]
+            folder2 = baseFolder+'/WebTesting/Browser/TestOps/'+appName+'/'+ folderName[0]
 
-            global.inputFileName = folder + '/' + sampleFile
-            sampleData.mv (inputFileName, function(err){
+            if (!fs.existsSync(folder1)){
+                fs.mkdirSync (folder1)
+            }
+            if (!fs.existsSync(folder2)){
+                fs.mkdirSync (folder2)
+            }    
+
+            global.inputFileName1 = folder1 + '/' + sampleFile
+            sampleData.mv (inputFileName1, function(err){
+                if (err)
+                    return res.status(500).send(err);
+            });
+
+            global.inputFileName2 = folder2 + '/' + sampleFile
+            sampleData.mv (inputFileName2, function(err){
                 if (err)
                     return res.status(500).send(err);
             });
 
             sleep(5000);
 
-            child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName+' '+baseFolder+' '+appName);
+            child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName1+' '+inputFileName2+' '+baseFolder+' '+appName);
             res.end();
 
-            var name = (inputFileName).split(".");
+            var name = (inputFileName1).split(".");
             console.log("NAME",name)
             child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
             if (e instanceof Error) {
@@ -222,7 +237,7 @@ UIRoutes.prototype.init = function() {
         function(req, res){
 
         dataFile = baseFolder+"/WebTesting/Browser/GUI/"+appName+"/CPU%."+"csv";
-        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
           
         
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
