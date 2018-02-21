@@ -73,13 +73,21 @@ UIRoutes.prototype.init = function() {
 
     app.post('/jenkins',
     function(req, res){
-        console.log(req)
-        console.log(req.body)
-        // console.log(req.data.currentStatus)
+        if (req.body == 'Web Browser'){
+            
+            dataFile = baseFolder+"/WebTesting/Browser/CPU%."+"csv";
+            ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
+            
+            fs.writeFile(dataFile,ColumnNamesList , function(err) {
+            if(err) {
+             return console.log(err);
+            }
+            console.log("The file was saved!");
+           });
+         }
 
-     console.log("Came into Jenkins")
-
-            // child = shell.exec('Start chrome http://localhost:8080')
+        console.log("Came into Jenkins")
+            child = shell.exec('Start chrome http://localhost:8080')
             res.end();
     }); 
 
