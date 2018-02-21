@@ -368,18 +368,18 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
-        $scope.openJenkins = function () {
+        $scope.openWebJenkins = function () {
 
             var webBrowser  = "Web Browser";
-            var webAPI  = "Web API";
 
             $http({
                 method: 'post',
                 url: '/jenkins',
-                data:[webBrowser,webAPI]
+                data:[webBrowser]
 
             }
         );
+        
             $('#modal9').modal('hide');
             $('#modal1').modal('hide');
             $scope.ngModel1 = "jenkins has opened..please remember to close it.";
@@ -388,6 +388,24 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#mobileExecuteTestCaseModal3').modal('hide');
 
 
+        };
+        $scope.openWebAPIJenkins = function () {
+
+            var webAPI  = "Web API";
+
+            $http({
+                method: 'post',
+                url: '/jenkins',
+                data:[webAPI]
+
+            }
+        );
+          $('#modal9').modal('hide');
+          $('#modal1').modal('hide');
+          $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+
+          $('#webExecuteTestCaseModal5').modal('hide');
+          $('#mobileExecuteTestCaseModal3').modal('hide');
         };
         $scope.openRide = function () {
             $http({
