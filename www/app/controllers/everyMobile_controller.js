@@ -1,8 +1,8 @@
 /**
  * Created by rabeesh on 22/1/18.
  */
-kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$state','$rootScope',
-    function ($scope, $http, Upload,$state,$rootScope) {
+kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$rootScope',
+    function ($scope, $http, Upload,$rootScope) {
 
 
         // For bootstrap Popover
@@ -102,6 +102,21 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
     });
 
 
+
+
+        // For Step 3
+        $scope.mobileTestingViaGUIModalClose = function () {
+            $('#mobileExecuteTestCaseModal2').modal('hide');
+            $('#mobileExecuteTestCaseModal1').modal('show');
+        };
+
+        $scope.mobileTestingViaTestOpsModalClose = function () {
+            $('#mobileExecuteTestCaseModal3').modal('hide');
+            $('#mobileExecuteTestCaseModal1').modal('show');
+        };
+
+
+
 // Button Disabling Functions
 
     // By Default
@@ -165,24 +180,6 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$sta
 
         })
     };
-
-
-
-
-    // MouseOver false for all functions
-
-    $scope.mobileMouseOverFirst = false;
-    $scope.mobileMouseOverSecond = false;
-    $scope.mobileMouseOverThird = false;
-    $scope.mobileMouseOverFourth = false;
-
-    // Hovering Text
-
-    $scope.firstMobileInputBox = "bubble works !!! Right????????????";
-    $scope.secondMobileInputBox = "bubble works !!!!!!!!!! Right?";
-    $scope.thirdMobileInputBox = "bubble works !!!!!!!!!! Right????????????";
-    $scope.fourthMobileInputBox = "bubble works !!!!!!!!!! Right";
-
 
     // Sending Http Request
 // For step1 start

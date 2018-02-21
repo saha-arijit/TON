@@ -49,15 +49,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             var a2 =(rowHeight2/1.2) ;
             var a3 =(rowHeight3/1.2) ;
             var a4 =(rowHeight4) ;
-            // console.log(rowHeight1,"rowHeight");
-            // console.log(rowHeight2,"rowHeight");
-            // console.log(rowHeight3,"rowHeight");
-            // console.log(rowHeight4,"rowHeight");
 
-            // console.log(a1,"rowHeight");
-            // console.log(a2,"rowHeight");
-            // console.log(a3,"rowHeight");
-            // console.log(a4,"rowHeight");
 
             $('.test1').css('height',a1);
 
@@ -122,6 +114,27 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $('#modal1').modal('hide');
 
     });
+
+
+
+        $scope.apiTestingViaTestOpsModalClose = function () {
+
+            $('#modal9').modal('hide');
+            $('#modal1').modal('show');
+        };
+        $scope.apiTestingViaGUIApiModalClose = function () {
+            $('#modal5').modal('hide');
+            $('#modal2').modal('show');
+        };
+        $scope.apiTestingViaGUIModalClose = function () {
+            $('#modal2').modal('hide');
+            $('#modal1').modal('show');
+        };
+
+
+
+
+
 
 
 
@@ -210,18 +223,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
     };
 
-    //  MouseOver false for all functions
-
-    $scope.apiMouseOverFirst = false;
-    $scope.apiMouseOverSecond = false;
-    $scope.apiMouseOverThird = false;
-    $scope.apiMouseOverFourth = false;
-
-    // Hovering Text
-    $scope.firstApiInputBox = "bubble works !!! Right????????????";
-    $scope.secondApiInputBox = "bubble works !!!!!!!!!! Right?";
-    $scope.thirdApiInputBox = "bubble works !!!!!!!!!! Right????????????";
-    $scope.fourthApiInputBox = "bubble works !!!!!!!!!! Right";
 
 
    // Sending Http Request Functions
@@ -306,12 +307,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         };
 
+        // For Step 4 end
 
-
-    // For Step 4 end
-
-
-
-
-        $scope.$state = $state;
 }]);
