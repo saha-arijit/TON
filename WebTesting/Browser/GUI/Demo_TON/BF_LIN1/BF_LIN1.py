@@ -41,6 +41,10 @@ def BF_LIN1(var_head):
 		driver.maximize_window()
 		driver.implicitly_wait(5)
 
+		elementClick1 = driver.find_element_by_id("rhscol")
+		elementClick1.click()
+		time.sleep(3)
+
 		elementClick2 = driver.find_element_by_link_text("LinkedIn: Log In or Sign Up")
 		elementClick2.click()
 		time.sleep(3)

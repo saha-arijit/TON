@@ -42,8 +42,34 @@ UIRoutes.prototype.init = function() {
 
     app.post('/postman',
     function(req, res){
+           console.log(req.body)
+           if(req.body == 'Web API'){
+
+            dataFile = baseFolder+"/WebTesting/API/CPU%."+"csv";
+            ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
+            
+            fs.writeFile(dataFile,ColumnNamesList , function(err) {
+            if(err) {
+             return console.log(err);
+            }
+            console.log("The file was saved!");
+           });
+        }
+
+        else if(req.body == 'API'){
+
+            dataFile = baseFolder+"/APITesting/CPU%."+"csv";
+            ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
+            
+            fs.writeFile(dataFile,ColumnNamesList , function(err) {
+            if(err) {
+             return console.log(err); 
+          }
+          console.log("The file was saved!");
+         });
+        }
     
-     console.log("Came into Postman")
+      console.log("Came into Postman")
      
             child = shell.exec('START C:/Postman/Update.exe --processStart "Postman.exe"');
             res.end();
@@ -201,7 +227,7 @@ UIRoutes.prototype.init = function() {
 	app.post('/executeWebApi',
         function(req, res){
 
-        dataFile = baseFolder+"/WebTesting/API/GUI/"+appName+"/CPU%."+"csv";
+        dataFile = baseFolder+"/WebTesting/API/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
           
         

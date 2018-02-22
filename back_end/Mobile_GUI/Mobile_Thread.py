@@ -21,7 +21,7 @@ class myThread (threading.Thread):
 		print_time(self.name, 50, self.counter)
 		print "Exiting " + self.name
 	
-	def createCSV(self,base,app):
+	def createCSV(self,base,app,TC):
 		global baseFolder
 		baseFolder = base
 		global appName
