@@ -113,6 +113,19 @@ UIRoutes.prototype.init = function() {
            });
          }
 
+         else if (req.body == 'Mobile'){
+
+            dataFile = baseFolder+"/MobileTesting/CPU%."+"csv";
+            ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
+            
+            fs.writeFile(dataFile,ColumnNamesList , function(err) {
+            if(err) {
+             return console.log(err);
+            }
+            console.log("The file was saved!");
+          });
+         }
+
         console.log("Came into Jenkins")
             child = shell.exec('Start chrome http://localhost:8080')
             res.end();
@@ -441,12 +454,15 @@ UIRoutes.prototype.init = function() {
 
             folderName = sampleFile.split ('.')
 
-            folder = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
+            folder1 = baseFolder+'/MobileTesting/GUI/'+appName+'/'+ folderName[0]
+            folder2 = baseFolder+'/MobileTesting/TestOps/'+appName+'/'+ folderName[0]
+            folder  = [folder1,folder2]
 
-            if (!fs.existsSync(folder)){
-                fs.mkdirSync (folder)
-            }
-            this.inputFileName = folder + '/' + sampleFile
+            for(j = 0;j<2;j++){
+               if (!fs.existsSync(folder)){
+                 fs.mkdirSync (folder[j])
+               }
+            this.inputFileName = folder[j] + '/' + sampleFile
 
             sampleData.mv (inputFileName, function(err){
                 if (err)
@@ -468,13 +484,14 @@ UIRoutes.prototype.init = function() {
                 console.log ("In error...")
                 console.log (ex)
             }
+        }
         }); 
 
         app.post('/executeMobileGUI',
         function(req, res){
 
-        dataFile = baseFolder+"/MobileTesting/GUI/"+appName+"/CPU%."+"csv";
-        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+        dataFile = baseFolder+"/MobileTesting/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
           
         
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
