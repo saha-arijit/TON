@@ -42,7 +42,7 @@ def print_time(threadName, counter, delay):
 		if exitFlag:
 			sys.exit(0)
 		time.sleep(delay)
-		dataFile = baseFolder+"/WebTesting/API/GUI/"+appName+"/CPU%."+"csv"
+		dataFile = baseFolder+"/WebTesting/API/CPU%."+"csv"
 		file = open(dataFile,"a")
 		timeNow = datetime.now().strftime('%I:%M:%S')+","
 		command = "wmic cpu get loadpercentage"

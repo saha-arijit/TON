@@ -74,8 +74,6 @@ UIRoutes.prototype.init = function() {
     app.post('/jenkins',
     function(req, res){
 
-        console.log(req.body);
-
         if (req.body == 'Web Browser'){
             
             dataFile = baseFolder+"/WebTesting/Browser/CPU%."+"csv";
@@ -88,9 +86,23 @@ UIRoutes.prototype.init = function() {
             console.log("The file was saved!");
            });
          }
+
         else if (req.body == 'Web API'){
             
             dataFile = baseFolder+"/WebTesting/API/CPU%."+"csv";
+            ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
+            
+            fs.writeFile(dataFile,ColumnNamesList , function(err) {
+            if(err) {
+             return console.log(err);
+            }
+            console.log("The file was saved!");
+           });
+         }
+         
+        else if (req.body == 'API'){
+            
+            dataFile = baseFolder+"/APITesting/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
             
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
@@ -146,8 +158,6 @@ UIRoutes.prototype.init = function() {
             });
             }
            
-
-
             try{
             if(count>1){
                 cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
@@ -314,10 +324,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            console.log("Entering  into Kibana");
+            // console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
 
      app.post('/analyzeAPI',
@@ -332,10 +342,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            console.log("Entering  into Kibana");
+            // console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
     // Response for apiFile1 req
 
@@ -346,18 +356,21 @@ UIRoutes.prototype.init = function() {
             var count = Object.keys(object).length;
             console.log("Number of Files : ",count)
             collFile = req.files['file[0]'].name.split('.json')
-            folder = baseFolder+'/APITesting/GUI/Demo_TON/'+collFile[0]
-
+            folder1 = baseFolder+'/APITesting/GUI/Demo_TON/'+collFile[0]
+            folder2 = baseFolder+'/APITesting/TestOps/Demo_TON/'+collFile[0]
+            folder  = [folder1,folder2] 
+            
+            for (j=0;j<2;j++){
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
 
                 var fileData = req.files[value];
                 var fileName =req.files[value].name;
 
-            if (!fs.existsSync(folder)){
-                fs.mkdirSync (folder)
+            if (!fs.existsSync(folder[j])){
+                fs.mkdirSync (folder[j])
             }
-            var inputFile = folder + '/' + fileName
+            var inputFile = folder[j] + '/' + fileName
 
             fileData.mv (inputFile, function(err){
                 if (err)
@@ -365,13 +378,12 @@ UIRoutes.prototype.init = function() {
             });
             }
 
-
             try{
             if(count>1){
-                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
+                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
                 }
             else{
-                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder +' '+ "None"+' '+baseFolder+' '+appName
+                cmd = 'python '+baseFolder+'/back_end/API_GUI/LoadAPI.py ' + collFile[0]+' ' +folder[j] +' '+ "None"+' '+baseFolder+' '+appName
                 }
 
                 child = exec(cmd, (e, stdout, stderr)=> {
@@ -389,13 +401,14 @@ UIRoutes.prototype.init = function() {
             console.log ("The file has been moved.")
 
             res.end()
+        }
         })
 
      app.post('/executeAPIGUI',
         function(req, res){
         
-        dataFile = baseFolder+"/APITesting/GUI/"+appName+"/CPU%."+"csv";
-        ColumnNamesList = "Time , CPU (%), Memory Usage (%)\n"
+        dataFile = baseFolder+"/APITesting/CPU%."+"csv";
+        ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
           
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
          if(err) {
@@ -517,10 +530,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            console.log("Entering  into Kibana");
+            // console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
 
 };

@@ -1,0 +1,155 @@
+﻿{
+  "CreationDate": "2018-2-22",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://www.google.co.in/search?q=linkedin&rlz=1C1CHBF_enIN775IN775&oq=linkedin&aqs=chrome..69i57j69i60l4j0.34932j0j7&sourceid=chrome&ie=UTF-8",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=rhscol",
+      "Value": ""
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "link=LinkedIn: Log In or Sign Up",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=reg-firstname",
+      "Value": "Jikiki"
+    },
+    {
+      "Command": "click",
+      "Target": "id=reg-lastname",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=reg-lastname",
+      "Value": "kiki"
+    },
+    {
+      "Command": "click",
+      "Target": "id=reg-email",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=reg-email",
+      "Value": "gigi"
+    },
+    {
+      "Command": "click",
+      "Target": "id=reg-password",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=reg-password",
+      "Value": "huhu"
+    },
+    {
+      "Command": "click",
+      "Target": "id=login-email",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=login-email",
+      "Value": "fifi"
+    },
+    {
+      "Command": "click",
+      "Target": "id=login-password",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=login-password",
+      "Value": "lili"
+    },
+    {
+      "Command": "click",
+      "Target": "name=first",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "name=first",
+      "Value": "baba"
+    },
+    {
+      "Command": "click",
+      "Target": "name=last",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "name=last",
+      "Value": "sekar"
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "id=login-submit",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=session_password-login",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=session_password-login",
+      "Value": "jadar"
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "link=Join now@POS=2",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=first-name",
+      "Value": "hihi"
+    },
+    {
+      "Command": "click",
+      "Target": "id=last-name",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=last-name",
+      "Value": "hihi"
+    },
+    {
+      "Command": "click",
+      "Target": "id=join-email",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=join-email",
+      "Value": "haha"
+    },
+    {
+      "Command": "click",
+      "Target": "id=join-password",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=join-password",
+      "Value": "haha"
+    },
+    {
+      "Command": "click",
+      "Target": "css=span.fill-v2",
+      "Value": ""
+    }
+  ]
+}

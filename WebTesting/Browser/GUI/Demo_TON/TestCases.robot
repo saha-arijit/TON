@@ -1,16 +1,31 @@
 *** Settings ***
-Library           BF_LinkedIn_TC_001/BF_LinkedIn_TC_001.py
-Library           BF_LinkedIn_TC_002/BF_LinkedIn_TC_002.py
+Library           BF_LIN_001/BF_LIN_001.py
+Library           BF_IN_001/BF_IN_001.py
+Library           BF_LIN1/BF_LIN1.py
+Library           BF_LIN/BF_LIN.py
+Library           BF_LIN_002/BF_LIN_002.py
 
 *** Variables ***
 
 *** Test Cases ***
-BF_LinkedIn_TC_002
+BF_IN_001
     #Keyword    Headless    Instances    LoadTest
-    TC_BF_LinkedIn_TC_002    no    0    no
+    TC_BF_IN_001    no    0    no
 
-BF_LinkedIn_TC_001
+BF_LIN1
     #Keyword    Headless    Instances    LoadTest
-    TC_BF_LinkedIn_TC_001    no    0    no
+    TC_BF_LIN1    no    0    no
+
+BF_LIN
+    #Keyword    Headless    Instances    LoadTest
+    TC_BF_LIN    no    0    no
+
+BF_LIN_002
+    #Keyword    Headless    Instances    LoadTest
+    TC_BF_LIN_002    no    0    no
+
+BF_LIN_001
+    #Keyword    Headless    Instances    LoadTest
+    TC_BF_LIN_001    no    0    no
 
 *** Keywords ***
