@@ -108,10 +108,7 @@ UIRoutes.prototype.init = function() {
 
     app.post('/notepad',
     function(req, res){
-      
-     console.log("Came into NotePad")
-
-            child = shell.exec('START C:/Notepad++/notepad++.exe')
+    
             res.end();
     }); 
 
@@ -324,18 +321,18 @@ UIRoutes.prototype.init = function() {
         function(req, res){
 
              console.log("Came to Analyze API Results");
-    child = exec(baseFolder+"/back_end/API_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
-    if (e instanceof Error) {
-        console.error(e);
-        throw e;
-    }
-    console.log('stdout ', stdout);
+    // child = exec(baseFolder+"/back_end/API_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+    // if (e instanceof Error) {
+    //     console.error(e);
+    //     throw e;
+    // }
+    // console.log('stdout ', stdout);
     res.end();
-    });
+    // });
             console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
     // Response for apiFile1 req
 

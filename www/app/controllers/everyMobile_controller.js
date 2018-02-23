@@ -1,8 +1,14 @@
 /**
  * Created by rabeesh on 22/1/18.
  */
-kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$rootScope',
-    function ($scope, $http, Upload,$rootScope) {
+kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$rootScope','$timeout','$interval','$state','$location','$window',
+    function ($scope, $http, Upload,$rootScope,$timeout,$interval,$state,$location,$window) {
+
+    $rootScope.interval=true;
+
+
+
+
 
 
         // For bootstrap Popover
@@ -12,7 +18,10 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
         $(document).ready(function(){
 
 
-        // Removing Classes
+
+
+
+            // Removing Classes
         var alterClass = function() {
             // Equalizing the Sidebar and Page Content
             var windowHeight =$(document).height();
@@ -240,16 +249,23 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
             }).then(function success(response) {
 
                 console.log("resp", response)
-            }, function error(error) {
+            },function error(error) {
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            $scope.ngModel1 = "Kibana has opened..please remember to close it.";
             setTimeout(function () {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
-            }, 9000);
+            }, 31000);
+
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    var  href="#/home/visualization" ;
+                    $window.open(href,"_blank")
+                })
+            }, 30000);
         };
 
 
