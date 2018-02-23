@@ -368,11 +368,18 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         };
-        $scope.openJenkins = function () {
+        $scope.openWebJenkins = function () {
+
+            var webBrowser  = "Web Browser";
+
             $http({
                 method: 'post',
-                url: '/jenkins'
-            });
+                url: '/jenkins',
+                data:[webBrowser]
+
+            }
+        );
+        
             $('#modal9').modal('hide');
             $('#modal1').modal('hide');
             $scope.ngModel1 = "jenkins has opened..please remember to close it.";
@@ -381,6 +388,24 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#mobileExecuteTestCaseModal3').modal('hide');
 
 
+        };
+        $scope.openWebAPIJenkins = function () {
+
+            var webAPI  = "Web API";
+
+            $http({
+                method: 'post',
+                url: '/jenkins',
+                data:[webAPI]
+
+            }
+        );
+          $('#modal9').modal('hide');
+          $('#modal1').modal('hide');
+          $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+
+          $('#webExecuteTestCaseModal5').modal('hide');
+          $('#mobileExecuteTestCaseModal3').modal('hide');
         };
         $scope.openRide = function () {
             $http({
@@ -487,9 +512,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         $scope.openPostman = function () {
+            var webAPI = 'Web API'
             $http({
                 method: 'post',
-                url: '/postman'
+                url: '/postman',
+                data: [webAPI]
             });
 
             $scope.ngModel1 = "Postman has opened..please remember to close it.";
@@ -510,7 +537,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#modal5').modal('hide');
 
         };
-
 
         $scope.openPostmanRecord = function () {
             $http({

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180223 11:35:40.771" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\MobileTesting\TestOps\Demo_TON\mobileTestcase.robot" id="s1" name="mobileTestcase">
+<test id="s1-t1" name="Chrome_Genymotion">
+<kw name="TC Chrome GenymotionRun" library="Chrome_GenymotionRun">
+<msg timestamp="20180223 11:38:03.377" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180223 11:38:03.538" starttime="20180223 11:35:44.544"></status>
+</kw>
+<status status="PASS" endtime="20180223 11:38:03.547" critical="yes" starttime="20180223 11:35:44.542"></status>
+</test>
+<status status="PASS" endtime="20180223 11:38:03.554" starttime="20180223 11:35:41.626"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="mobileTestcase" pass="1">mobileTestcase</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180223 11:38:03.532" level="ERROR">Calling method 'log_message' of listener 'C:\Python27\lib\site-packages\robotide\contrib\testrunner\TestRunnerAgent.py' failed: error: [Errno 10054] An existing connection was forcibly closed by the remote host</msg>
+<msg timestamp="20180223 11:38:03.543" level="ERROR">Calling method 'end_keyword' of listener 'C:\Python27\lib\site-packages\robotide\contrib\testrunner\TestRunnerAgent.py' failed: error: [Errno 10054] An existing connection was forcibly closed by the remote host</msg>
+<msg timestamp="20180223 11:38:03.550" level="ERROR">Calling method 'end_test' of listener 'C:\Python27\lib\site-packages\robotide\contrib\testrunner\TestRunnerAgent.py' failed: error: [Errno 10054] An existing connection was forcibly closed by the remote host</msg>
+<msg timestamp="20180223 11:38:03.559" level="ERROR">Calling method 'end_suite' of listener 'C:\Python27\lib\site-packages\robotide\contrib\testrunner\TestRunnerAgent.py' failed: error: [Errno 10054] An existing connection was forcibly closed by the remote host</msg>
+</errors>
+</robot>

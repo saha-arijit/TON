@@ -247,9 +247,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // For Step 3 start
 
     $scope.openPostman = function () {
+        var API = 'API'
         $http({
             method: 'post',
-            url: '/postman'
+            url: '/postman',
+            data: [API]
         });
 
         $scope.ngModel1 = "Postman has opened..please remember to close it.";
@@ -271,9 +273,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     };
 
     $scope.openJenkins = function () {
+
+        var api = "API";
         $http({
             method: 'post',
-            url: '/jenkins'
+            url: '/jenkins',
+            data:[api]
         });
         $('#modal9').modal('hide');
 

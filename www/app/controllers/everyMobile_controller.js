@@ -218,10 +218,13 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
     };
   
 
-    $scope.openJenkins = function () {
+    $scope.openMobileJenkins = function () {
+        var mobile = "Mobile";
+
             $http({
                 method: 'post',
-                url: '/jenkins'
+                url: '/jenkins',
+                data:[mobile]
             });
             $('#mobileExecuteTestCaseModal3').modal('hide');
 
