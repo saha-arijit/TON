@@ -508,9 +508,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         $scope.openPostman = function () {
+            var webAPI = 'Web API'
             $http({
                 method: 'post',
-                url: '/postman'
+                url: '/postman',
+                data: [webAPI]
             });
 
             $scope.ngModel1 = "Postman has opened..please remember to close it.";
@@ -531,7 +533,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             $('#modal5').modal('hide');
 
         };
-
 
         $scope.openPostmanRecord = function () {
             $http({

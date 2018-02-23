@@ -8,7 +8,8 @@ thread1 = myThread(1, "Thread-1", 1)
 def TC_FlipkartCollection(iterations=1, vuser=1, ramp=1):
 	baseFolder= "D:/TON"
 	appName   = "Demo_TON"
-	thread1.createCSV(baseFolder,appName)
+	TC        = "FlipkartCollection"
+	thread1.createCSV(baseFolder,appName,TC)
 	thread1.start()
 	if(int(vuser) == 1): 
 		os.chdir("D:/TON/APITesting/GUI/Demo_TON/FlipkartCollection")

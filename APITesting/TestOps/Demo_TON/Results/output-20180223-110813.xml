@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180223 11:08:13.406" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\APITesting\TestOps\Demo_TON\LoadTest.robot" id="s1" name="LoadTest">
+<test id="s1-t1" name="BF_Signup">
+<kw name="TC BF Signup" library="BF_Signup">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180223 11:08:16.187" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180223 11:08:16.187" starttime="20180223 11:08:13.563"></status>
+</kw>
+<status status="PASS" endtime="20180223 11:08:16.189" critical="yes" starttime="20180223 11:08:13.562"></status>
+</test>
+<test id="s1-t2" name="FlipkartCollection">
+<kw name="TC FlipkartCollection" library="FlipkartCollection">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180223 11:08:24.380" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180223 11:08:24.381" starttime="20180223 11:08:16.191"></status>
+</kw>
+<status status="PASS" endtime="20180223 11:08:24.381" critical="yes" starttime="20180223 11:08:16.190"></status>
+</test>
+<status status="PASS" endtime="20180223 11:08:24.383" starttime="20180223 11:08:13.427"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="LoadTest" pass="2">LoadTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

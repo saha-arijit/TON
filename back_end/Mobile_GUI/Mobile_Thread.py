@@ -21,11 +21,13 @@ class myThread (threading.Thread):
 		print_time(self.name, 50, self.counter)
 		print "Exiting " + self.name
 	
-	def createCSV(self,base,app):
+	def createCSV(self,base,app,TC):
 		global baseFolder
 		baseFolder = base
 		global appName
 		appName = app
+		global TC_Name
+		TC_Name = ","+TC
 
 	def stop(self):
 		global exitFlag
@@ -38,7 +40,7 @@ def print_time(threadName, counter, delay):
 		if exitFlag:
 			sys.exit(0)
 		time.sleep(delay)
-		dataFile = baseFolder+"/MobileTesting/GUI/"+appName+"/CPU%."+"csv"
+		dataFile = baseFolder+"/MobileTesting/CPU%."+"csv"
 		file = open(dataFile,"a")
 		timeNow = datetime.now().strftime('%I:%M:%S')+","
 		command = "wmic cpu get loadpercentage"
@@ -56,6 +58,7 @@ def print_time(threadName, counter, delay):
 		file.write(timeNow)
 		file.write(cpuPercentage)
 		file.write(str(memVa))
+		file.write(TC_Name)
 		file.write("\n")
 		counter -= 1
 		file.close()
