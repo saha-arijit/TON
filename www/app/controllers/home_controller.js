@@ -8,6 +8,13 @@ $scope.isActive = function (currentUrl) {
 };
 
     $(document).ready(function() {
+
+        $(document).on('click','.navbar-collapse.in',function (event) {
+            if ($(event.target).is('a')) {
+                $(this).collapse('hide')
+            }
+
+        });
         // Adding Href Attribute
         $('#apiTestingModel').on('click', function () {
             $scope.ngModel1 = "";

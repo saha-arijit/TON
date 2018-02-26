@@ -25,11 +25,11 @@ kibanaApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',
                 url: '/visualization',
                 templateUrl: "app/views/visualization.html",
                 controller: "visualizationController"
-            })
+            });
 
 
         // Using UrlRouterProvider
 
         $urlRouterProvider.otherwise("/home/everyWeb");
-        // $locationProvider.html5Mode({enabled:true,requireBase:false})
+        $locationProvider.html5Mode(true);
     }]);

@@ -25,7 +25,8 @@ console.log(__dirname,"__dirname");
 
 
 // Setting here what we want to show from www folder
-app.set('views',__dirname + '/www/app/views');
+// app.set('views',__dirname + '/www/app/views');
+app.set('www',__dirname + '/www/app/views');
 
 // setting the view engine to html
 
