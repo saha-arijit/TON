@@ -348,14 +348,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             })
         }
 
-        $(document).ready(function() {
-            // Adding Href Attribute
-            $('#apiTestingModel').on('click', function () {
-                $scope.ngModel1 = "";
-                var href = '/assets/pdf2.pdf';
-                $('#userManual').attr('href', href)
-            })
-        })
+
         $scope.openKantu = function () {
             $http({
                 method: 'post',

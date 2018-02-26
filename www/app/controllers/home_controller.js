@@ -24,7 +24,7 @@ $scope.isActive = function (currentUrl) {
         // For Mobile Testing
         $('#mobileTestingModel').on('click', function () {
             $scope.ngModel1 = "";
-            var href="/assets/UserManual-EveryMobile.pdf";
+            var href="/assets/UserManual-EveryMobile-Android.pdf";
             $('#userManual').attr('href', href)
         })
 
