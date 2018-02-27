@@ -64,7 +64,7 @@ class createRobot :
 				for num, line in enumerate(myFile, 1):
 					if lookup in line:
 						index = num
-			value = testCase[0]+ "\n" + "#Keyword 	Headless 	Instances 	 LoadTest" + "\n" + "\t"+ "TC_"+testCase[0]+ "\n"
+			value = testCase[0]+ "\n" + "#Keyword 	Headless 	Instances 	 LoadTest" + "\n" + "\t"+ "TC_"+testCase[0] +"  no  0  no  "+"\n"
 			contents.insert (index, value)
 			file = open (robotCurrentFile, "w")
 			contents = "".join(contents)
@@ -73,7 +73,7 @@ class createRobot :
 			file.write ("\n"+"*** Test Cases ***" + "\n")
 			file.write (testCase[0] + "\n")
 			file.write ("#Keyword 	Headless 	Instances 	 LoadTest" + "\n")
-			file.write ("\t"+"TC_"+testCase[0]+ "\n")
+			file.write ("\t"+"TC_"+testCase[0] +"  no  0  no  "+ "\n")
 
 	def writeKeywords (self, file, prsntFlg):
 		if prsntFlg ==1 :

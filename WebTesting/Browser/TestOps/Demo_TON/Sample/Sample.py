@@ -13,13 +13,13 @@ def TC_Sample(var_head, var_instances, var_load):
 	appName    = 'Demo_TON'
 	TC = 'Sample'
 	if (var_load == "YES" or var_load == "Yes" or var_load == "yes"):
-		thread1.createCSV(baseFolder,appName,TC)
+		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
 		thread1.start()
 		for i in range (0, int(var_instances)):
 			Thread(target = Sample, args = [var_head]).start()
 
 	else:
-		thread1.createCSV(baseFolder,appName,TC)
+		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
 		thread1.start()
 		Sample (var_head)
 

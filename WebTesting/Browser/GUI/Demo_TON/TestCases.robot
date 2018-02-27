@@ -1,16 +1,16 @@
 *** Settings ***
 Library           Sample/Sample.py
-Library           BF_LIN1/BF_LIN1.py
+Library           BF_Signup/BF_Signup.py
 
 *** Variables ***
 
 *** Test Cases ***
-BF_LIN1
+BF_Signup
     #Keyword    Headless    Instances    LoadTest
-    TC_BF_LIN1    no    1    no
+    TC_BF_Signup    no    0    no
 
 Sample
     #Keyword    Headless    Instances    LoadTest
-    TC_Sample    no    1    no
+    TC_Sample    no    4    yes
 
 *** Keywords ***
