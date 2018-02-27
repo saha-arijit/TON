@@ -605,13 +605,13 @@ p.webSpeech-bubble {
     text-align: center;
     margin-top: 5%;
     color:white;
-    font-size: medium;
+    /*font-size: medium;*/
 }
 .apiTestingHoverHeading{
     text-align: center;
     margin-top: 5%;
     color:white;
-    font-size: medium;
+    /*font-size: medium;*/
 }
 .mobileTestingHoverHeading{
     text-align: center;

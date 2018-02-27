@@ -50,7 +50,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 $('.test2').css('height',a2);
                 $('.test3').css('height',a3);
-                $('.test4').css('height',a4);
+                $('.test4').css('height',a2);
+
 
 
                 var contentHeight = windowHeight-navHeight;

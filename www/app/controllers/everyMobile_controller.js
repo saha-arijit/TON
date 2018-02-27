@@ -42,7 +42,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
 
             $('.test2').css('height',a2);
             $('.test3').css('height',a3);
-            $('.test4').css('height',a4);
+            $('.test4').css('height',a2);
 
             // console.log(navHeight,"nav height");
             // alert(z,"nav");
