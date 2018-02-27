@@ -1,0 +1,35 @@
+{
+  "CreationDate": "2017-10-30",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://twitter.com/",
+      "Value": ""
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "link=Sign up",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=full-name",
+      "Value": "Arijit Saha"
+    },
+    {
+      "Command": "click",
+      "Target": "id=email",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=email",
+      "Value": "a@b.c"
+    },
+    {
+      "Command": "click",
+      "Target": "id=submit_button",
+      "Value": ""
+    }
+  ]
+}

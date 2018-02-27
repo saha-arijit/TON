@@ -15,10 +15,10 @@ class myThread (threading.Thread):
 		
 	def run(self):
 		print "Starting " + self.name + "\n"
-		print_time(self.name, 50, self.counter)
+		print_time(self.name, 500, self.counter)
 		print "Exiting " + self.name
 	
-	def createCSV(self,base,app,TC):
+	def createCSV(self,base,app,TC,instance1):
 		global exitFlag
 		exitFlag = 0
 		global baseFolder
@@ -27,10 +27,16 @@ class myThread (threading.Thread):
 		appName = app
 		global TC_Name
 		TC_Name = ","+TC 
+		global instanceNo 
+		instanceNo = instance1
+		global check
+		check = 0 
 
 	def stop(self):
 		global exitFlag
 		exitFlag = 1
+		global check
+		check = check+1
 		print "Exiting Main Thread" + "\n"
 
 
@@ -38,7 +44,12 @@ def print_time(threadName, counter, delay):
 	time.sleep(5)
 	while counter:
 		if exitFlag:
-			sys.exit(0)
+			if instanceNo > 0:
+				if check == instanceNo:
+					print("Number of Instances",check)
+					sys.exit(0)
+			else:
+				sys.exit(0)
 		time.sleep(delay)
 		dataFile = baseFolder+"/WebTesting/Browser/CPU%."+"csv"
 		file = open(dataFile,"a")

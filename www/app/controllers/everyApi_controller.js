@@ -48,14 +48,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             var a1 =(rowHeight1/1.2) ;
             var a2 =(rowHeight2/1.2) ;
             var a3 =(rowHeight3/1.2) ;
-            var a4 =(rowHeight4) ;
+            // var a4 =(rowHeight4/1.2) ;
 
 
             $('.test1').css('height',a1);
 
             $('.test2').css('height',a2);
             $('.test3').css('height',a3);
-            $('.test4').css('height',a4);
+            $('.test4').css('height',a2);
 
             // console.log(navHeight,"nav height");
             // alert(z,"nav");

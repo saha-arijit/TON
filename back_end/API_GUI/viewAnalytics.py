@@ -10,18 +10,18 @@ class viewAnalytics:
 		os.system ('start '+ confFile)
 		self.baseFolder = baseFolder
 
-		self.setIndex(baseFolder,appName)
-		time.sleep(5)
+		# self.setIndex(baseFolder,appName)
+		# time.sleep(5)
 		self.setVisualization(baseFolder,appName)
 
-	def setIndex(self,baseFolder,appName):
+	# def setIndex(self,baseFolder,appName):
 
-		command = "elasticdump --input="+baseFolder+"/back_end/API_GUI/createIndex.json --output=http://localhost:9200/.kibana"
-		os.system(command)
+	# 	command = "elasticdump --input="+baseFolder+"/back_end/API_GUI/createIndex.json --output=http://localhost:9200/.kibana"
+	# 	os.system(command)
 
 	def setVisualization(self,baseFolder,appName):
 
-		command = "elasticdump --input="+baseFolder+"/back_end/API_GUI/API.json --output=http://localhost:9200/.kibana"
+		command = "elasticdump --input="+baseFolder+"/back_end/API_GUI/TON.json --output=http://localhost:9200/.kibana"
 		os.system(command)
 
 

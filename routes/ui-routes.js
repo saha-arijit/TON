@@ -349,10 +349,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            // console.log("Entering  into Kibana");
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
 
     app.post('/analyzeWebAPI',
@@ -367,28 +367,28 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            // console.log("Entering  into Kibana");
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
 
     app.post('/analyzeAPI',
         function(req, res){
 
-            console.log("Came to Analyze API Results");
+             console.log("Came to Analyze API Results");
             child = exec(baseFolder+"/back_end/API_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
-                if (e instanceof Error) {
+            if (e instanceof Error) {
                 console.error(e);
                 throw e;
             }
             console.log('stdout ', stdout);
             res.end();
-        });
-            // console.log("Entering  into Kibana");
+            });
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
     // Response for apiFile1 req
 
@@ -578,10 +578,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            // console.log("Entering  into Kibana");
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
 
 };
