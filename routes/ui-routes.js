@@ -31,6 +31,13 @@ UIRoutes.prototype.init = function() {
     var shell = this.shell;
     var exec = this.exec;
 
+// Serving Index.html Page When the client refreshing the page
+
+    app.get("*",function (req,res) {
+        res.render("../www/index.html");
+        res.end();
+
+    });
 
     app.post('/kantu',
     function(req, res){

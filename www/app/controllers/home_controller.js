@@ -12,25 +12,13 @@ $scope.isActive = function (currentUrl) {
 };
 
     $(document).ready(function() {
-        reload()
-        $(document).click(function () {
-reload()
 
-        })
-function reload() {
-    if ($location.path()==='/home/visualization'){
-        // delay();
-        $timeout(
-            function hello(){
-                $rootScope.interval=false;
-                console.log("rootscope:true in home timout")},120000);
+        $(document).on('click','.navbar-collapse.in',function (event) {
+            if ($(event.target).is('a')) {
+                $(this).collapse('hide')
+            }
 
-    }
-    else{
-
-    }
-
-}
+        });
 
         // Adding Href Attribute
         $('#apiTestingModel').on('click', function () {
