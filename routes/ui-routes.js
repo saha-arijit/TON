@@ -159,10 +159,7 @@ UIRoutes.prototype.init = function() {
 
     app.post('/notepad',
     function(req, res){
-      
-     console.log("Came into NotePad")
-
-            child = shell.exec('START C:/Notepad++/notepad++.exe')
+    
             res.end();
     }); 
 
@@ -369,18 +366,18 @@ UIRoutes.prototype.init = function() {
             // console.log('stdout ');
         });
 
-     app.post('/analyzeAPI',
+    app.post('/analyzeAPI',
         function(req, res){
 
-             console.log("Came to Analyze API Results");
-    child = exec(baseFolder+"/back_end/API_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
-    if (e instanceof Error) {
-        console.error(e);
-        throw e;
-    }
-    console.log('stdout ', stdout);
-    res.end();
-    });
+            console.log("Came to Analyze API Results");
+            child = exec(baseFolder+"/back_end/API_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                if (e instanceof Error) {
+                console.error(e);
+                throw e;
+            }
+            console.log('stdout ', stdout);
+            res.end();
+        });
             // console.log("Entering  into Kibana");
 
             // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
@@ -388,7 +385,8 @@ UIRoutes.prototype.init = function() {
         });
     // Response for apiFile1 req
 
- app.post('/apiFileUploadAPI',
+
+    app.post('/apiFileUploadAPI',
         function (req,res) {
 
             var object = req.files;

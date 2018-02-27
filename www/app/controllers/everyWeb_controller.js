@@ -17,8 +17,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         link: fn_link
     }
 }])
-    .controller('everyWebController', ['$scope', '$http', 'Upload','$rootScope',
-        function ($scope, $http, Upload,$rootScope) {
+    .controller('everyWebController', ['$scope', '$http', 'Upload','$rootScope','$window',
+        function ($scope, $http, Upload,$rootScope,$window) {
         $rootScope.loading = false;
 
 // Over ALl Modal Restricting Function
@@ -348,14 +348,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             })
         }
 
-        $(document).ready(function() {
-            // Adding Href Attribute
-            $('#apiTestingModel').on('click', function () {
-                $scope.ngModel1 = "";
-                var href = '/assets/pdf2.pdf';
-                $('#userManual').attr('href', href)
-            })
-        })
         $scope.openKantu = function () {
             $http({
                 method: 'post',
@@ -470,16 +462,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
-            }, 9000);
+            }, 31000);
 
-            // setTimeout(function () {
-            //     $scope.ngModel1="";
-            // },100)
-
-
-            // $('#webTestingModal').modal('hide')
-
-
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    var  href="#/home/visualization" ;
+                    $window.open(href,"_blank")
+                })
+            }, 30000);
         };
 
 
@@ -489,7 +479,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         $('[data-toggle="popover"]').popover({container: 'body'});
 
         $scope.webapiAnalyze = function () {
-            //
             $('#webAnalyzeModal').modal('hide');
             $http({
                 method: 'post',
@@ -506,7 +495,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
-            }, 9000);
+            }, 31000);
+
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    var  href="#/home/visualization" ;
+                    $window.open(href,"_blank")
+                })
+            }, 30000);
         };
 
 

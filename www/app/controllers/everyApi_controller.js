@@ -20,8 +20,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     return {
         link: fn_link
     }
-}]).controller('everyApiController', ['$scope', '$http', 'Upload','$state','$rootScope',
-    function ($scope, $http, Upload,$state,$rootScope) {
+}]).controller('everyApiController', ['$scope', '$http', 'Upload','$state','$rootScope','$window',
+    function ($scope, $http, Upload,$state,$rootScope,$window) {
 
 
 
@@ -308,7 +308,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
-            }, 9000);
+            }, 31000);
+
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    var  href="#/home/visualization" ;
+                    $window.open(href,"_blank")
+                })
+            }, 30000);
 
 
         };
