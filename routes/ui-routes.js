@@ -174,7 +174,7 @@ UIRoutes.prototype.init = function() {
 
 
 	app.post('/prepareWebAPI',
-    	function(req, res){
+        function(req, res){
             
             console.log("came into prepareAPI")
             var object = req.files;
@@ -204,19 +204,19 @@ UIRoutes.prototype.init = function() {
             }
            
             try{
-            if(count>1){
-                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
-                }
-            else{
-                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ "None"+' '+baseFolder+' '+appName
-                }
+                if(count>1){
+                    cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
+                    }
+                else{
+                    cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ "None"+' '+baseFolder+' '+appName
+                    }
 
-                child = exec(cmd, (e, stdout, stderr)=> {
-                if (e instanceof Error) {
-                 console.error(e);
-                 throw e;
-                }
-                });
+                    child = exec(cmd, (e, stdout, stderr)=> {
+                        if (e instanceof Error) {
+                         console.error(e);
+                         throw e;
+                        }
+                    });
             }
             catch (ex){
                 console.log ("In error...")
@@ -224,9 +224,34 @@ UIRoutes.prototype.init = function() {
             }
 
             console.log ("The file has been moved.")
-         }
-         res.end()
-    });    
+        }
+
+            jobName = fileName.split('.')
+            
+            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + jobName[0], (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            res.end();
+            });
+
+            sleep(3000);
+
+            xmlFileName = folder2+"/"+jobName[0]+".xml"
+            child = exec('python '+forAPI+'/CreateJob.py '+ jobName[0] +" " + xmlFileName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            
+            });
+
+            res.end()
+        
+    });   
 
 
 	app.post('/executeWebApi',
