@@ -1,0 +1,100 @@
+{
+	"info": {
+		"name": "Bell_Demo",
+		"_postman_id": "3caeda1f-4f4e-90a5-dddc-16b07628f604",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AF_TestVNF_Ve-Vnfm_CreateVNFIdentifier001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"",
+							"",
+							"",
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " \n\"vnf_instance\": [\n    {\n      \"id\": 1,\n      \"body\": \"First Instance\",\n      \"postId\": 1\n    }\n  ]"
+				},
+				"url": {
+					"raw": "{{apiRoot}}/vnflcm/v1/vnf_instances",
+					"host": [
+						"{{apiRoot}}"
+					],
+					"path": [
+						"vnflcm",
+						"v1",
+						"vnf_instances"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AF_TestVNF_Ve-Vnfm_InstantiateVNF002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{apiRoot}}/vnflcm/v1/vnf_instances/{{vnfInstanceId}}/instantiate",
+					"host": [
+						"{{apiRoot}}"
+					],
+					"path": [
+						"vnflcm",
+						"v1",
+						"vnf_instances",
+						"{{vnfInstanceId}}",
+						"instantiate"
+					]
+				},
+				"description": "instantiate VNF"
+			},
+			"response": []
+		}
+	]
+}

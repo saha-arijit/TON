@@ -2,10 +2,9 @@ import sys
 
 class WebBrowserJob:
 
-	def createXML (self ,baseFolder, appName ,filePath, job):
+	def createXML (self ,baseFolder, appName , job):
 
 		self.job = job
-		self.filePath = filePath
 		
 		file = open( baseFolder + '/WebTesting/Browser/TestOps/' + appName + '/'+ self.job +'/' + self.job+ '.xml', 'w')
 		file.write("<?xml version='1.0' encoding='UTF-8'?>" + "\n")

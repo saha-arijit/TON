@@ -312,13 +312,12 @@ UIRoutes.prototype.init = function() {
 
             sleep(3000);
 
-            child = exec('python '+forBrowser+'/WebBrowserJob.py '+ baseFolder+' '+appName +' ' + inputFileName2 + ' ' + folderName[0], (e, stdout, stderr)=> {
+            child = exec('python '+forBrowser+'/WebBrowserJob.py '+ baseFolder+' '+appName +' '+ folderName[0], (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
             }
             console.log('stdout ', stdout);
-            res.end();
             });
 
 
@@ -326,7 +325,7 @@ UIRoutes.prototype.init = function() {
 
             var name = (inputFileName2).split(".");
             console.log ("XML NAME " + name[0]+".xml")
-            child = exec('python '+forBrowser+'/CreateJob.py '+ folderName[0] +" " + name[0]+".xml", (e, stdout, stderr)=> {
+            child = exec('python '+forBrowser+'/CreateJob.py '+baseFolder+' '+' '+folderName[0] +"  " + name[0]+".xml", (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;

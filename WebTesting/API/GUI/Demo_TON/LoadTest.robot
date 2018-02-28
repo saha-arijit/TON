@@ -1,14 +1,10 @@
 *** Settings ***
 Library           AF_Bell_Demo/AF_Bell_Demo.py
-Library           mtpltab2/mtpltab2.py
 Library           AF_Insomnia/AF_Insomnia.py
 
 *** Variables ***
 
 *** Test Cases ***
-mtpltab2
-#Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_mtpltab2	1	1	1
 AF_Insomnia
 #Keyword 	Iterations	VirtualUsers	RampUP Period
 	TC_AF_Insomnia	1	1	1
@@ -18,7 +14,6 @@ AF_Bell_Demo
 AL_Run_All
 #Keyword 	Iterations	VirtualUsers	RampUP Period
 	TC_AF_Bell_Demo	1	1	1
-	TC_mtpltab2	1	1	1
 	TC_AF_Insomnia	1	1	1
 
 *** Keywords ***

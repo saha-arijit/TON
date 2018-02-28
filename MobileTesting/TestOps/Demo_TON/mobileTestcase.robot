@@ -1,13 +1,13 @@
 *** Settings ***
 Library           Android_Calculator/Android_CalculatorRun.py
-Library           Chrome_Genymotion/Chrome_GenymotionRun.py
+Library           Android_Calculator_002/Android_Calculator_002Run.py
 
 *** Variables ***
 
 *** Test Cases ***
-Chrome_Genymotion
+Android_Calculator_002
 #Keyword 
-	TC_Chrome_GenymotionRun
+	TC_Android_Calculator_002Run
 Android_Calculator
 #Keyword 
 	TC_Android_CalculatorRun
