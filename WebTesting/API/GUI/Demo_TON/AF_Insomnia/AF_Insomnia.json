@@ -1,0 +1,69 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2017-10-08T16:27:02.816Z",
+	"__export_source": "insomnia.desktop.app:v5.8.4",
+	"resources": [
+		{
+			"_id": "wrk_48ccc93b5fba45bca93b17c11771731c",
+			"parentId": null,
+			"modified": 1507479876147,
+			"created": 1507479876147,
+			"name": "Insomnia",
+			"description": "",
+			"certificates": [],
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_147c72e740524dac935c78d12d7359de",
+			"parentId": "wrk_48ccc93b5fba45bca93b17c11771731c",
+			"modified": 1507479876167,
+			"created": 1507479876167,
+			"name": "Base Environment",
+			"data": {},
+			"color": null,
+			"isPrivate": false,
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_97d8bd8eb9d144e5b98d001618f7ac5f",
+			"parentId": "wrk_48ccc93b5fba45bca93b17c11771731c",
+			"modified": 1507479876152,
+			"created": 1507479876152,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_e22919715c2e436ab1d81f2ca41fa1ec",
+			"parentId": "wrk_48ccc93b5fba45bca93b17c11771731c",
+			"modified": 1507479940799,
+			"created": 1507479940799,
+			"name": "Govinda Test",
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1507479940799,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_cf0e7eec85e046f2ae4f08cae73b2132",
+			"parentId": "fld_e22919715c2e436ab1d81f2ca41fa1ec",
+			"modified": 1507479940781,
+			"created": 1507479940781,
+			"url": "https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65-JsLv",
+			"name": "https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65-JsLv_Get",
+			"description": "Get Request",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1507479940782,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		}
+	]
+}

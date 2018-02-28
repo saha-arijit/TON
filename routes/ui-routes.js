@@ -166,7 +166,9 @@ UIRoutes.prototype.init = function() {
 
     app.post('/notepad',
     function(req, res){
-    
+            
+            console.log("came into NotePad++")
+            child = shell.exec('START C:/Notepad++/notepad++.exe');
             res.end();
     }); 
 
@@ -222,9 +224,8 @@ UIRoutes.prototype.init = function() {
             }
 
             console.log ("The file has been moved.")
-
-            res.end()
-        }
+         }
+         res.end()
     });    
 
 
@@ -293,7 +294,7 @@ UIRoutes.prototype.init = function() {
             sleep(5000);
 
             child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName1+' '+inputFileName2+' '+baseFolder+' '+appName);
-            res.end();
+            // res.end();
 
             var name = (inputFileName1).split(".");
             console.log("NAME",name)
@@ -303,7 +304,7 @@ UIRoutes.prototype.init = function() {
               throw e;
             }
             console.log('stdout ', stdout);
-            res.end();
+            // res.end();
             });
 
             child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
@@ -444,8 +445,9 @@ UIRoutes.prototype.init = function() {
 
             console.log ("The file has been moved.")
 
-            res.end()
+           
         }
+         res.end()
         })
 
      app.post('/executeAPIGUI',
@@ -490,8 +492,10 @@ UIRoutes.prototype.init = function() {
             folder  = [folder1,folder2]
 
             for(j = 0;j<2;j++){
-               if (!fs.existsSync(folder)){
+               if (!fs.existsSync(folder[j])){
                  fs.mkdirSync (folder[j])
+               }else{
+
                }
             this.inputFileName = folder[j] + '/' + sampleFile
 
@@ -508,14 +512,16 @@ UIRoutes.prototype.init = function() {
                      console.error(e);
                      throw e;
                   }
-                 res.end();
+                 
                   console.log ("Done....")
+                  
                 });
             }catch (ex){
                 console.log ("In error...")
                 console.log (ex)
             }
         }
+        res.end();
         }); 
 
         app.post('/executeMobileGUI',

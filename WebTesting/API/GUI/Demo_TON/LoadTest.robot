@@ -1,19 +1,24 @@
 *** Settings ***
-Library           FlipkartCollection/FlipkartCollection.py
-Library           BF_Signup/BF_Signup.py
+Library           AF_Bell_Demo/AF_Bell_Demo.py
+Library           mtpltab2/mtpltab2.py
+Library           AF_Insomnia/AF_Insomnia.py
 
 *** Variables ***
 
 *** Test Cases ***
-BF_Signup
+mtpltab2
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_BF_Signup	1	1	1
-FlipkartCollection
+	TC_mtpltab2	1	1	1
+AF_Insomnia
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_FlipkartCollection	1	1	1
+	TC_AF_Insomnia	1	1	1
+AF_Bell_Demo
+#Keyword 	Iterations	VirtualUsers	RampUP Period
+	TC_AF_Bell_Demo	1	1	1
 AL_Run_All
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_FlipkartCollection	1	1	1
-	TC_BF_Signup	1	1	1
+	TC_AF_Bell_Demo	1	1	1
+	TC_mtpltab2	1	1	1
+	TC_AF_Insomnia	1	1	1
 
 *** Keywords ***

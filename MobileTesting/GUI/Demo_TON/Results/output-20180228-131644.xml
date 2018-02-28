@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180228 13:16:44.812" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\MobileTesting\GUI\Demo_TON\mobileTestcase.robot" id="s1" name="mobileTestcase">
+<test id="s1-t1" name="Chrome_Genymotion">
+<kw name="TC Chrome GenymotionRun" library="Chrome_GenymotionRun">
+<msg timestamp="20180228 13:17:06.624" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180228 13:17:06.624" starttime="20180228 13:16:44.975"></status>
+</kw>
+<status status="PASS" endtime="20180228 13:17:06.624" critical="yes" starttime="20180228 13:16:44.974"></status>
+</test>
+<test id="s1-t2" name="Android_Calculator">
+<kw name="TC Android CalculatorRun" library="Android_CalculatorRun">
+<msg timestamp="20180228 13:17:43.176" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180228 13:17:43.176" starttime="20180228 13:17:06.624"></status>
+</kw>
+<status status="PASS" endtime="20180228 13:17:43.176" critical="yes" starttime="20180228 13:17:06.624"></status>
+</test>
+<status status="PASS" endtime="20180228 13:17:43.176" starttime="20180228 13:16:44.831"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="mobileTestcase" pass="2">mobileTestcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
