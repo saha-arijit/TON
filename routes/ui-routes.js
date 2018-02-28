@@ -292,7 +292,7 @@ UIRoutes.prototype.init = function() {
             res.end();
 
             var name = (inputFileName1).split(".");
-            console.log("NAME",name)
+
             child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
@@ -305,6 +305,30 @@ UIRoutes.prototype.init = function() {
             child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
             res.end();
 
+            sleep(3000);
+
+            child = exec('python '+forBrowser+'/WebBrowserJob.py '+ baseFolder+' '+appName +' ' + inputFileName2 + ' ' + folderName[0], (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            res.end();
+            });
+
+
+            sleep(3000);
+
+            var name = (inputFileName2).split(".");
+            console.log ("XML NAME " + name[0]+".xml")
+            child = exec('python '+forBrowser+'/CreateJob.py '+ folderName[0] +" " + name[0]+".xml", (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            res.end();
+            });
         });
 
 
