@@ -92,7 +92,13 @@ UIRoutes.prototype.init = function() {
         child = shell.exec('START C:/Postman/Update.exe --processStart "Postman.exe"');
         res.end();
 
-        child = exec('"C:/Program\ Files\ (x86)/Google/Chrome/Application/chrome.exe" --ignore-certificate-errors', (e, stdout, stderr)=>{
+        /*child = exec('"C:/Program\ Files\ (x86)/Google/Chrome/Application/chrome.exe" --ignore-certificate-errors', (e, stdout, stderr)=>{
+            if (e instanceof Error) {
+                console.error(e);
+                throw e;
+            }
+        });*/
+        child = exec('"C:/Program Files/Mozilla\ Firefox/firefox.exe"', (e, stdout, stderr)=>{
             if (e instanceof Error) {
                 console.error(e);
                 throw e;
