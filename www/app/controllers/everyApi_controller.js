@@ -20,8 +20,8 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     return {
         link: fn_link
     }
-}]).controller('everyApiController', ['$scope', '$http', 'Upload','$state','$rootScope',
-    function ($scope, $http, Upload,$state,$rootScope) {
+}]).controller('everyApiController', ['$scope', '$http', 'Upload','$state','$rootScope','$window',
+    function ($scope, $http, Upload,$state,$rootScope,$window) {
 
 
 
@@ -48,14 +48,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             var a1 =(rowHeight1/1.2) ;
             var a2 =(rowHeight2/1.2) ;
             var a3 =(rowHeight3/1.2) ;
-            var a4 =(rowHeight4) ;
+            // var a4 =(rowHeight4/1.2) ;
 
 
             $('.test1').css('height',a1);
 
             $('.test2').css('height',a2);
             $('.test3').css('height',a3);
-            $('.test4').css('height',a4);
+            $('.test4').css('height',a2);
 
             // console.log(navHeight,"nav height");
             // alert(z,"nav");
@@ -308,7 +308,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
-            }, 9000);
+            }, 31000);
+
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    var  href="#/home/visualization" ;
+                    $window.open(href,"_blank")
+                })
+            }, 30000);
 
 
         };

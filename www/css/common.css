@@ -7,7 +7,8 @@ overflow-y: auto;
     /*font-size: 16px;*/
 
 
-}.modal-open{
+}
+.modal-open{
 
 overflow-y: auto
 }
@@ -602,19 +603,19 @@ p.webSpeech-bubble {
 
 .webTestingHoverHeading{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3.5%;
     color:white;
-    font-size: medium;
+    /*font-size: medium;*/
 }
 .apiTestingHoverHeading{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3.5%;
     color:white;
-    font-size: medium;
+    /*font-size: medium;*/
 }
 .mobileTestingHoverHeading{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3.5%;
     color:white;
     font-size: medium;
 }

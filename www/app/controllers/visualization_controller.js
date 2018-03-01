@@ -1,9 +1,28 @@
-kibanaApp.controller('visualizationController',['$scope','$http','$location','$rootScope',
-    function ($scope,$http,$location,$rootScope) {
+kibanaApp.controller('visualizationController',['$scope','$http','$location','$rootScope','$interval','$state',
+    function ($scope,$http,$location,$rootScope,$interval,$state) {
 
         $(document).ready(function(){
+            $rootScope.interval=true;
+            if ($location.path()==='/home/visualization') {
+                delay();
+
+            }          function delay () {
+
+                var timerStop  =     $interval(function hai() {
+                    if( $rootScope.interval){
+                        $state.transitionTo($state.current, {}, {reload:true});
+
+                        console.log("$rootScope.interval:true in mobile")
+
+                    }
+                    else {
+                        $interval.cancel(timerStop)
+                    }
 
 
+                },30000);
+
+            };
             // Removing Classes
             var alterClass = function() {
                 // Equalizing the Sidebar and Page Content

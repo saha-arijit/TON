@@ -31,6 +31,13 @@ UIRoutes.prototype.init = function() {
     var shell = this.shell;
     var exec = this.exec;
 
+// Serving Index.html Page When the client refreshing the page
+
+    app.get("*",function (req,res) {
+        res.render("../www/index.html");
+        res.end();
+
+    });
 
     app.post('/kantu',
     function(req, res){
@@ -159,16 +166,15 @@ UIRoutes.prototype.init = function() {
 
     app.post('/notepad',
     function(req, res){
-      
-     console.log("Came into NotePad")
-
-            child = shell.exec('START C:/Notepad++/notepad++.exe')
+            
+            console.log("came into NotePad++")
+            child = shell.exec('START C:/Notepad++/notepad++.exe');
             res.end();
     }); 
 
 
 	app.post('/prepareWebAPI',
-    	function(req, res){
+        function(req, res){
             
             console.log("came into prepareAPI")
             var object = req.files;
@@ -183,7 +189,7 @@ UIRoutes.prototype.init = function() {
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
 
-                var fileData = req.files[value];
+                var fileData = req.files[value];  
                 var fileName =req.files[value].name;
 
             if (!fs.existsSync(folder[j])){
@@ -198,19 +204,19 @@ UIRoutes.prototype.init = function() {
             }
            
             try{
-            if(count>1){
-                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
-                }
-            else{
-                cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ "None"+' '+baseFolder+' '+appName
-                }
+                if(count>1){
+                    cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
+                    }
+                else{
+                    cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ "None"+' '+baseFolder+' '+appName
+                    }
 
-                child = exec(cmd, (e, stdout, stderr)=> {
-                if (e instanceof Error) {
-                 console.error(e);
-                 throw e;
-                }
-                });
+                    child = exec(cmd, (e, stdout, stderr)=> {
+                        if (e instanceof Error) {
+                         console.error(e);
+                         throw e;
+                        }
+                    });
             }
             catch (ex){
                 console.log ("In error...")
@@ -218,10 +224,32 @@ UIRoutes.prototype.init = function() {
             }
 
             console.log ("The file has been moved.")
+        }
+            
+            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + collFile[0], (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            
+            });
+
+            sleep(3000);
+
+            xmlFileName = folder2+"/"+collFile[0]+".xml"
+            child = exec('python '+forAPI+'/CreateJob.py '+ collFile[0] +" " + xmlFileName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            
+            });
 
             res.end()
-        }
-    });    
+        
+    });   
 
 
 	app.post('/executeWebApi',
@@ -289,11 +317,38 @@ UIRoutes.prototype.init = function() {
             sleep(5000);
 
             child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName1+' '+inputFileName2+' '+baseFolder+' '+appName);
-            res.end();
+            // res.end();
 
             var name = (inputFileName1).split(".");
-            console.log("NAME",name)
+
             child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            // res.end();
+            });
+
+            child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
+            
+
+            sleep(3000);
+
+            child = exec('python '+forBrowser+'/WebBrowserJob.py '+ baseFolder+' '+appName +' '+ folderName[0], (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            });
+
+
+            sleep(3000);
+
+            var name = (inputFileName2).split(".");
+            console.log ("XML NAME " + name[0]+".xml")
+            child = exec('python '+forBrowser+'/CreateJob.py '+baseFolder+' '+' '+folderName[0] +"  " + name[0]+".xml", (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
@@ -301,10 +356,6 @@ UIRoutes.prototype.init = function() {
             console.log('stdout ', stdout);
             res.end();
             });
-
-            child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
-            res.end();
-
         });
 
 
@@ -345,10 +396,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            // console.log("Entering  into Kibana");
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
 
     app.post('/analyzeWebAPI',
@@ -363,32 +414,33 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            // console.log("Entering  into Kibana");
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
 
-     app.post('/analyzeAPI',
+    app.post('/analyzeAPI',
         function(req, res){
 
              console.log("Came to Analyze API Results");
-    child = exec(baseFolder+"/back_end/API_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
-    if (e instanceof Error) {
-        console.error(e);
-        throw e;
-    }
-    console.log('stdout ', stdout);
-    res.end();
-    });
-            // console.log("Entering  into Kibana");
+            child = exec(baseFolder+"/back_end/API_GUI/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+                console.error(e);
+                throw e;
+            }
+            console.log('stdout ', stdout);
+            res.end();
+            });
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
     // Response for apiFile1 req
 
- app.post('/apiFileUploadAPI',
+
+    app.post('/apiFileUploadAPI',
         function (req,res) {
 
             var object = req.files;
@@ -439,8 +491,9 @@ UIRoutes.prototype.init = function() {
 
             console.log ("The file has been moved.")
 
-            res.end()
+           
         }
+         res.end()
         })
 
      app.post('/executeAPIGUI',
@@ -485,8 +538,10 @@ UIRoutes.prototype.init = function() {
             folder  = [folder1,folder2]
 
             for(j = 0;j<2;j++){
-               if (!fs.existsSync(folder)){
+               if (!fs.existsSync(folder[j])){
                  fs.mkdirSync (folder[j])
+               }else{
+
                }
             this.inputFileName = folder[j] + '/' + sampleFile
 
@@ -503,14 +558,16 @@ UIRoutes.prototype.init = function() {
                      console.error(e);
                      throw e;
                   }
-                 res.end();
+                 
                   console.log ("Done....")
+                  
                 });
             }catch (ex){
                 console.log ("In error...")
                 console.log (ex)
             }
         }
+        res.end();
         }); 
 
         app.post('/executeMobileGUI',
@@ -573,10 +630,10 @@ UIRoutes.prototype.init = function() {
     console.log('stdout ', stdout);
     res.end();
     });
-            // console.log("Entering  into Kibana");
+            console.log("Entering  into Kibana");
 
-            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            // console.log('stdout ');
+            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            console.log('stdout ');
         });
 
 };

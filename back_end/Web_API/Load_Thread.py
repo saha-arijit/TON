@@ -18,7 +18,7 @@ class myThread (threading.Thread):
 		
 	def run(self):
 		print "Starting " + self.name + "\n"
-		print_time(self.name, 50, self.counter)
+		print_time(self.name, 500, self.counter)
 		print "Exiting " + self.name
 	
 	def createCSV(self,base,app,TC):
