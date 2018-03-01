@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180301 09:58:01.304" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\API\TestOps\Demo_TON\LoadTest.robot" id="s1" name="LoadTest">
+<test id="s1-t1" name="AF_Bell_Demo">
+<kw name="TC AF Bell Demo" library="AF_Bell_Demo">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180301 09:58:41.471" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180301 09:58:41.471" starttime="20180301 09:58:08.289"></status>
+</kw>
+<status status="PASS" endtime="20180301 09:58:41.471" critical="yes" starttime="20180301 09:58:08.289"></status>
+</test>
+<status status="PASS" endtime="20180301 09:58:41.471" starttime="20180301 09:58:01.457"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="LoadTest" pass="1">LoadTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

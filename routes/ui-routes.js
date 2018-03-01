@@ -189,7 +189,7 @@ UIRoutes.prototype.init = function() {
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
 
-                var fileData = req.files[value];
+                var fileData = req.files[value];  
                 var fileName =req.files[value].name;
 
             if (!fs.existsSync(folder[j])){
@@ -225,10 +225,8 @@ UIRoutes.prototype.init = function() {
 
             console.log ("The file has been moved.")
         }
-
-            jobName = fileName.split('.')
             
-            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + jobName[0], (e, stdout, stderr)=> {
+            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + collFile[0], (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
@@ -239,8 +237,8 @@ UIRoutes.prototype.init = function() {
 
             sleep(3000);
 
-            xmlFileName = folder2+"/"+jobName[0]+".xml"
-            child = exec('python '+forAPI+'/CreateJob.py '+ jobName[0] +" " + xmlFileName, (e, stdout, stderr)=> {
+            xmlFileName = folder2+"/"+collFile[0]+".xml"
+            child = exec('python '+forAPI+'/CreateJob.py '+ collFile[0] +" " + xmlFileName, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;

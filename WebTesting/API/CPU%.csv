@@ -1,8 +1,13 @@
 Time , CPU (%), Memory Usage (%), TestCase
-05:06:29,23,0.87,AF_Insomnia
-05:06:31,90,0.89,AF_Bell_Demo
-05:06:31,90,0.89,AF_Bell_Demo
-05:06:34,18,0.90,AF_Bell_Demo
-05:06:34,18,0.90,AF_Bell_Demo
-05:06:37,6,0.97,AF_Bell_Demo
-05:06:37,6,0.97,AF_Bell_Demo
+09:58:09,24,0.70,AF_Bell_Demo
+09:58:14,30,0.69,AF_Bell_Demo
+09:58:17,30,0.75,AF_Bell_Demo
+09:58:20,30,0.73,AF_Bell_Demo
+09:58:23,20,0.72,AF_Bell_Demo
+09:58:25,42,0.75,AF_Bell_Demo
+09:58:28,20,0.77,AF_Bell_Demo
+09:58:30,40,0.76,AF_Bell_Demo
+09:58:33,25,0.76,AF_Bell_Demo
+09:58:36,56,0.74,AF_Bell_Demo
+09:58:38,20,0.74,AF_Bell_Demo
+09:58:41,24,0.81,AF_Bell_Demo
