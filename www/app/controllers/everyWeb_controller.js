@@ -24,11 +24,17 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // Over ALl Modal Restricting Function
 
         $('.close').on('click',function () {
-            $('input[type=file]').val(null)
+            $('input[type=file]').val(null);
+            // $('.btn-primary').addClass('removingFocus');
         });
+
 
         $(document).ready(function(){
 
+            $('.close').on('click',function () {
+                $('input[type=file]').val(null);
+
+            });
 
             // Removing Classes
             var alterClass = function() {
