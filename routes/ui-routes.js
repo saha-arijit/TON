@@ -2,8 +2,9 @@ var exec        =    require('child_process').exec,
     fs          =    require('fs');
 var sleep       = require('system-sleep');
 var cmd         = require('node-cmd');
+var forEach     = require('async-foreach').forEach;
 
-var flag        =0
+var flag        = 0
     current_dir = __dirname;
 
 var UIRoutes = function(app,opn,fileUpload,shell,exec) {
@@ -287,6 +288,7 @@ UIRoutes.prototype.init = function() {
         console.log(req.files   ,req,"data")
         res.end()
     });
+    
     app.post('/validate',
         function(req, res){
             console.log("came into validate");
@@ -300,47 +302,36 @@ UIRoutes.prototype.init = function() {
 
             folder1 = baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ folderName[0]
             folder2 = baseFolder+'/WebTesting/Browser/TestOps/'+appName+'/'+ folderName[0]
+            folder  = [folder1,folder2]
 
-            if (!fs.existsSync(folder1)){
-                fs.mkdirSync (folder1)
-            }
-            if (!fs.existsSync(folder2)){
-                fs.mkdirSync (folder2)
-            }    
-
-            global.inputFileName1 = folder1 + '/' + sampleFile
-            sampleData.mv (inputFileName1, function(err){
+            forEach(folder,function(item,err){
+                console.log(item)
+                if (!fs.existsSync(item)){
+                fs.mkdirSync (item)
+                }
+                global.inputFileName = item + '/' + sampleFile
+                sampleData.mv (inputFileName, function(err){
                 if (err)
                     return res.status(500).send(err);
-            });
+                });
+              sleep(5000);
 
-            global.inputFileName2 = folder2 + '/' + sampleFile
-            sampleData.mv (inputFileName2, function(err){
-                if (err)
-                    return res.status(500).send(err);
-            });
+            child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName+' '+baseFolder+' '+appName);
 
-            sleep(5000);
+            var name = (inputFileName).split(".");
 
-            child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName1+' '+inputFileName2+' '+baseFolder+' '+appName);
-            // res.end();
-
-            var name = (inputFileName1).split(".");
-
-            child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+            child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName+' '+item, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
             }
             console.log('stdout ', stdout);
-            // res.end();
             });
 
-            child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
-            
+            // child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
 
-            sleep(3000);
-
+            sleep(1000);
+        });
             child = exec('python '+forBrowser+'/WebBrowserJob.py '+ baseFolder+' '+appName +' '+ folderName[0], (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
@@ -352,9 +343,9 @@ UIRoutes.prototype.init = function() {
 
             sleep(3000);
 
-            var name = (inputFileName2).split(".");
-            console.log ("XML NAME " + name[0]+".xml")
-            child = exec('python '+forBrowser+'/CreateJob.py '+baseFolder+' '+' '+folderName[0] +"  " + name[0]+".xml", (e, stdout, stderr)=> {
+            var name = folder2+"/"+folderName[0]
+            console.log ("XML NAME " + name+".xml")
+            child = exec('python '+forBrowser+'/CreateJob.py '+baseFolder+' '+' '+folderName[0] +"  " + name+".xml", (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
@@ -499,7 +490,29 @@ UIRoutes.prototype.init = function() {
 
            
         }
-         res.end()
+       
+        child = exec('python '+baseFolder+'/back_end/API_GUI/APIJob.py '+ baseFolder+' '+appName +' ' + collFile[0], (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            
+            });
+
+            sleep(3000);
+
+            xmlFileName = folder2+"/"+collFile[0]+".xml"
+            child = exec('python '+baseFolder+'/back_end/API_GUI/CreateJob.py '+ collFile[0] +" " + xmlFileName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            
+            });
+
+            res.end()
         })
 
      app.post('/executeAPIGUI',
