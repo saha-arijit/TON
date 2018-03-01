@@ -31,4 +31,4 @@ class WebBrowserJob:
 		file.close()
 
 webBrwsrJob = WebBrowserJob()
-webBrwsrJob.createXML(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4])
+webBrwsrJob.createXML(sys.argv[1],sys.argv[2],sys.argv[3])

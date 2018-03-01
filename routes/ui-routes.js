@@ -232,7 +232,7 @@ UIRoutes.prototype.init = function() {
               throw e;
             }
             console.log('stdout ', stdout);
-            res.end();
+            
             });
 
             sleep(3000);
@@ -331,7 +331,7 @@ UIRoutes.prototype.init = function() {
             });
 
             child = shell.exec('python -m compileall '+baseFolder+'/WebTesting/Browser/GUI/'+appName+'/'+ name[6]+".py");
-            res.end();
+            
 
             sleep(3000);
 

@@ -15,7 +15,7 @@
       <command>cd \ 
 cd /d D:/TON
 cd WebTesting/Browser/TestOps/Demo_TON/
-pybot.bat -d ..\Demo_TON\BF_Signup\Results --timestamp --reportbackground white:white:white -t BF_Signup TestCases.robot  </command>
+pybot.bat -d ..\Demo_TON\BF_LinkedIn_TC_001\Results --timestamp --reportbackground white:white:white -t BF_LinkedIn_TC_001 TestCases.robot  </command>
     </hudson.tasks.BatchFile>
   </builders>
   <publishers/>

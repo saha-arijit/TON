@@ -1,14 +1,14 @@
 *** Settings ***
-Library           AF_Bell_Demo/AF_Bell_Demo.py
+Library           FlipkartCollection/FlipkartCollection.py
 
 *** Variables ***
 
 *** Test Cases ***
-AF_Bell_Demo
+FlipkartCollection
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_AF_Bell_Demo	1	1	1
+	TC_FlipkartCollection	1	1	1
 AL_Run_All
 #Keyword 	Iterations	VirtualUsers	RampUP Period
-	TC_AF_Bell_Demo	1	1	1
+	TC_FlipkartCollection	1	1	1
 
 *** Keywords ***
