@@ -603,19 +603,19 @@ p.webSpeech-bubble {
 
 .webTestingHoverHeading{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3.5%;
     color:white;
     /*font-size: medium;*/
 }
 .apiTestingHoverHeading{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3.5%;
     color:white;
     /*font-size: medium;*/
 }
 .mobileTestingHoverHeading{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3.5%;
     color:white;
     font-size: medium;
 }
