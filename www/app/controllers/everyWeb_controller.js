@@ -6,7 +6,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             if (event.target.files.length>0 ||event.target.files.length == 1 ) {
                 onChange(scope, {$files: event.target.files});
             }else if (event.target.files.length > 1) {
-                alert('Please select only 1 files');
+                alert('Please select only 1 file.');
                 element.val(null);
             }
 
@@ -24,11 +24,17 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // Over ALl Modal Restricting Function
 
         $('.close').on('click',function () {
-            $('input[type=file]').val(null)
+            $('input[type=file]').val(null);
+            // $('.btn-primary').addClass('removingFocus');
         });
+
 
         $(document).ready(function(){
 
+            $('.close').on('click',function () {
+                $('input[type=file]').val(null);
+
+            });
 
             // Removing Classes
             var alterClass = function() {
@@ -286,7 +292,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         $scope.uploadWebFile1 = function () {
-            $scope.ngModel1= "Preparation is in progress...";
+            $scope.ngModel1= "Preparation is in progress.";
             $rootScope.loading = true;
             $('#webPrepareTestCaseModal1').modal('hide');
             // console.log($scope.WebFile1.length)
@@ -300,7 +306,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             }).success(function (res) {
                 $scope.webTestingBtn1Disable= true;
                 $('#WebFile1').val(null);
-                $scope.ngModel1= "Preparation has been completed";
+                $scope.ngModel1= "Preparation has been completed.";
 
                 $rootScope.loading = false;
             })
@@ -316,7 +322,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $scope.uploadWebFile2 = function () {
             $scope.files=$scope.webFile1.concat($scope.webFile2);
-            $scope.ngModel1= "Preparation is in progress...";
+            $scope.ngModel1= "Preparation is in progress.";
             $rootScope.loading = true;
             $('#webPrepareTestCaseModal2').modal('hide');
             Upload.upload({
@@ -325,7 +331,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 data:[],
                 file:$scope.files
             }).success(function (res) {
-                $scope.ngModel1= "Preparation has been completed...";
+                $scope.ngModel1= "Preparation has been completed.";
                 $rootScope.loading = false;
                 $scope.webTestingBtn2Disable= true;
                 $('#WebFile2').val(null);
@@ -355,7 +361,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 url: '/kantu'
             });
             $('#wModal1').modal('hide');
-            $scope.ngModel1 = "Kantu has opened..please remember to close it."
+
+            $scope.ngModel1 = "Kantu will be opening shortly.";
+
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Kantu has opened. Please remember to close it."
+                )
+            },60000)
 
             // $scope.webChildModal=$scope.apiChildModal=$scope.allModalHeadingStyle=$scope.webTestingBackMenuIcon=false;
 
@@ -375,7 +388,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         
             $('#modal9').modal('hide');
             $('#modal1').modal('hide');
-            $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+            $scope.ngModel1 = "Jenkins has opened. Please remember to close it.";
 
             $('#webExecuteTestCaseModal5').modal('hide');
             $('#mobileExecuteTestCaseModal3').modal('hide');
@@ -395,7 +408,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
         );
           $('#modal9').modal('hide');
           $('#modal1').modal('hide');
-          $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+          $scope.ngModel1 = "Jenkins has opened. Please remember to close it.";
 
           $('#webExecuteTestCaseModal5').modal('hide');
           $('#mobileExecuteTestCaseModal3').modal('hide');
@@ -405,8 +418,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 method: 'post',
                 url: '/execute'
             });
+            $scope.ngModel1 = "RIDE will be opening shortly.";
 
-            $scope.ngModel1 = "Ride has opened..please remember to close it.";
+            setTimeout(function () {
+                $scope.$apply(
+
+                    $scope.ngModel1 = "RIDE has opened. Please remember to close it."
+            )
+            },60000);
 
 
             $('#webExecuteTestCaseModal3').modal('hide');
@@ -429,8 +448,13 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 method: 'post',
                 url: '/executeWebApi'
             });
+            $scope.ngModel1 = "RIDE will be opening shortly.";
 
-            $scope.ngModel1 = "Ride has opened..please remember to close it.";
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "RIDE has opened. Please remember to close it."
+            )
+            },60000);
 
 
             $('#webExecuteTestCaseModal3').modal('hide');
@@ -458,19 +482,26 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+
+            $scope.ngModel1 = "Kibana will be opening shortly.";
+
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Kibana has opened. Please remember to close it."
+                )
+            },60000);
             setTimeout(function () {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
             }, 31000);
 
-            setTimeout(function () {
-                $scope.$apply(function () {
-                    var  href="#/home/visualization" ;
-                    $window.open(href,"_blank")
-                })
-            }, 30000);
+            // setTimeout(function () {
+            //     $scope.$apply(function () {
+            //         var  href="#/home/visualization" ;
+            //         $window.open(href,"_blank")
+            //     })
+            // }, 30000);
         };
 
 
@@ -491,7 +522,13 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            $scope.ngModel1 = "Kibana will be opening shortly.";
+
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Kibana has opened. Please remember to close it."
+                )
+            },60000);
             setTimeout(function () {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
@@ -509,17 +546,20 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
 
         $scope.openPostman = function () {
-            var webAPI = 'Web API'
+            var webAPI = 'Web API';
             $http({
                 method: 'post',
                 url: '/postman',
                 data: [webAPI]
             });
 
-            $scope.ngModel1 = "Postman has opened..please remember to close it.";
+            $scope.ngModel1 = "Postman will be opening shortly.";
 
-
-            // For Web Part
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Postman has opened. Please remember to close it."
+                )
+            },60000);
 
 // For Step 3
             $('#webExecuteTestCaseModal3').modal('hide');
@@ -541,7 +581,15 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 url: '/postmanRecord'
             });
 
-            $scope.ngModel1 = "Postman and Chrome has opened..please remember to close them.";
+            $scope.ngModel1 = "Postman and Firefox will be opening shortly.";
+
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Postman and Firefox has opened. Please remember to close them."
+            )
+            },60000);
+
+
 
 
             // For Web Part
