@@ -217,17 +217,17 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
             url: '/notepad'
         }).then(function success(response) {
 
-            $scope.ngModel1 = "Notepad will be opened in short time...";
+            $scope.ngModel1 = "Editor will be opening shortly.";
 
             setTimeout(function () {
                 $scope.$apply(
-                    $scope.ngModel1 = "Notepad has opened..please remember to close it..."
+                    $scope.ngModel1 = "Editor has opened. Please remember to close it."
                 )
             },60000);
-            console.log("Notepad will be open", response)
+            console.log("Editor will be opening", response)
         }, function error(error) {
 
-            console.log("Notepad will be not be  open", error)
+            console.log("Editor will be not be opening", error)
         });
 
     };
@@ -237,11 +237,11 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
             method: 'post',
             url: '/executeMobileGUI'
         });
-        $scope.ngModel1 = "Ride will be opened in short time...";
+        $scope.ngModel1 = "RIDE will be opening shortly.";
 
         setTimeout(function () {
             $scope.$apply(
-                $scope.ngModel1 = "Ride has opened..please remember to close it..."
+                $scope.ngModel1 = "RIDE has opened. Please remember to close it."
         )
         },60000);
            $('#mobileExecuteTestCaseModal2').modal('hide');
@@ -252,11 +252,11 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
             method: 'post',
             url: '/openAppium'
         });
-          $scope.ngModel1 = "Appium will be opened in short time...";
+          $scope.ngModel1 = "Appium will be opening shortly.";
 
           setTimeout(function () {
               $scope.$apply(
-                  $scope.ngModel1 = "Appium has opened..please remember to close it..."
+                  $scope.ngModel1 = "Appium has opened. Please remember to close it."
           )
           },60000);
            $('#mobileExecuteTestCaseModal2').modal('hide');
@@ -272,11 +272,11 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
                 data:[mobile]
             });
             $('#mobileExecuteTestCaseModal3').modal('hide');
-        $scope.ngModel1 = "Jenkins will be opened in short time...";
+        $scope.ngModel1 = "Jenkins will be opening shortly.";
 
         setTimeout(function () {
             $scope.$apply(
-                $scope.ngModel1 = "Jenkins has opened..please remember to close it..."
+                $scope.ngModel1 = "Jenkins has opened. Please remember to close it."
         )
         },60000);
 
@@ -297,11 +297,11 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana will be opened in short time...";
+            $scope.ngModel1 = "Kibana will be opening shortly.";
 
             setTimeout(function () {
                 $scope.$apply(
-                    $scope.ngModel1 = "Kibana has opened..please remember to close it..."
+                    $scope.ngModel1 = "Kibana has opened. Please remember to close it."
             )
             },60000);
             setTimeout(function () {

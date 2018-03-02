@@ -191,7 +191,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
     $scope.uploadApiFile1 =function () {
 
         $('#modal8').modal('hide');
-        $scope.ngModel1="Preparation is in progress...";
+        $scope.ngModel1="Preparation is in progress.";
         $rootScope.loading = true;
         // console.log($scope.files)
         $scope.files=$scope.apiFile1.concat($scope.apiFile2);
@@ -207,7 +207,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             }
 
         ).then(function (resp) {
-                $scope.ngModel1="Preparation has been completed...";
+                $scope.ngModel1="Preparation has been completed.";
                 $('#apiTestingBtn2Disable').val(null);
                 $rootScope.loading = false;
                 $('#apiTestingBtn1Disable').val(null);
@@ -237,11 +237,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             url: '/postmanRecord'
         });
 
-        $scope.ngModel1 = "Postman and Firefox  will be opened in short time...";
+        $scope.ngModel1 = "Postman and Firefox  will be opening shortly.";
 
         setTimeout(function () {
             $scope.$apply(
-                $scope.ngModel1 = "Postman and Firefox has opened..please remember to close them..."
+                $scope.ngModel1 = "Postman and Firefox has opened. Please remember to close them."
             )
         },60000);
 
@@ -260,11 +260,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             data: [API]
         });
 
-        $scope.ngModel1 = "Postman will be opened in short time...";
+        $scope.ngModel1 = "Postman will be opening shortly.";
 
         setTimeout(function () {
             $scope.$apply(
-                $scope.ngModel1 = "Postman has opened..please remember to close it..."
+                $scope.ngModel1 = "Postman has opened. Please remember to close it."
         )
         },60000);
 
@@ -277,11 +277,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             method: 'post',
             url: '/executeAPIGUI'
         });
-        $scope.ngModel1 = "Ride will be opened in short time...";
+        $scope.ngModel1 = "RIDE will be opening shortly.";
 
         setTimeout(function () {
             $scope.$apply(
-                $scope.ngModel1 = "Ride has opened..please remember to close it..."
+                $scope.ngModel1 = "RIDE has opened. Please remember to close it."
         )
         },60000);
         $('#modal5').modal('hide');
@@ -298,11 +298,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             data:[api]
         });
         $('#modal9').modal('hide');
-        $scope.ngModel1 = "Jenkins will be opened in short time...";
+        $scope.ngModel1 = "Jenkins will be opening shortly.";
 
         setTimeout(function () {
             $scope.$apply(
-                $scope.ngModel1 = "Jenkins has opened..please remember to close it..."
+                $scope.ngModel1 = "Jenkins has opened. Please remember to close it."
         )
         },60000);
 
@@ -326,11 +326,11 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana will be opened in short time...";
+            $scope.ngModel1 = "Kibana will be opening shortly.";
 
             setTimeout(function () {
                 $scope.$apply(
-                    $scope.ngModel1 = "Kibana has opened..please remember to close it..."
+                    $scope.ngModel1 = "Kibana has opened. Please remember to close it."
                 )
             },60000);
             setTimeout(function () {
