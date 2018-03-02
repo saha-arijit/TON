@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180302 13:11:37.885" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\Browser\TestOps\Demo_TON\TestCases.robot" id="s1" name="TestCases">
+<test id="s1-t1" name="Sample">
+<kw name="TestExecution Arguments" library="Comment">
+<arguments>
+<arg>Headless</arg>
+<arg>Instances</arg>
+<arg>LoadTest</arg>
+</arguments>
+<status status="PASS" endtime="20180302 13:11:38.029" starttime="20180302 13:11:38.028"></status>
+</kw>
+<kw name="TC Sample" library="Sample">
+<arguments>
+<arg>no</arg>
+<arg>0</arg>
+<arg>no</arg>
+</arguments>
+<msg timestamp="20180302 13:13:27.528" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180302 13:13:27.528" starttime="20180302 13:11:38.029"></status>
+</kw>
+<status status="PASS" endtime="20180302 13:13:27.528" critical="yes" starttime="20180302 13:11:38.028"></status>
+</test>
+<status status="PASS" endtime="20180302 13:13:27.529" starttime="20180302 13:11:37.888"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="TestCases" pass="1">TestCases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

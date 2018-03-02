@@ -3,30 +3,28 @@ import sys, os
 
 class createRobot :
 
-	def createTestFile(self, testCase,baseFolder,appName):
-		
-		global robotFileName;
-		robotFileName1 = baseFolder+"/WebTesting/Browser/GUI/"+appName+"/TestCases.robot"	
-		robotFileName2 = baseFolder+"/WebTesting/Browser/TestOps/"+appName+"/TestCases.robot"	
-		robotFileName  = [robotFileName1,robotFileName2] 
-		for i in range(0,2): 
-			with open(testCase) as data_file:
-				testFile = testCase.split('/')
+	def createTestFile(self, testCase,baseFolder):
 
-				if os.path.isfile(robotFileName[i]):
-					print ("yes")
-					prsntFlg = 1
-					file = open (robotFileName[i], "r")
-					contents = file.readlines()
-				else:
-					print ("no")
-					prsntFlg = 0
-					file = open (robotFileName[i], "w")
-					contents = ""
-				robot.writeSettings (testFile[7], file, contents, prsntFlg,robotFileName[i])
-				robot.writeVariables(file, prsntFlg)
-				robot.writeTestCases(file, testFile[7], contents, prsntFlg,robotFileName[i])
-				robot.writeKeywords(file, prsntFlg)
+		pyfilename = testCase.split(".py")
+		path = baseFolder.split(pyfilename[0])
+		global robotFileName, libFilePath;
+		libFilePath = baseFolder.replace('\\','/')
+		robotFileName = path[0]+"TestCases.robot"
+
+		if os.path.isfile(robotFileName):
+			print ("yes")
+			prsntFlg = 1
+			file = open (robotFileName, "r")
+			contents = file.readlines()
+		else:
+			print ("no")
+			prsntFlg = 0
+			file = open (robotFileName, "w")
+			contents = ""
+		robot.writeSettings (testCase, file, contents, prsntFlg,robotFileName)
+		robot.writeVariables(file, prsntFlg)
+		robot.writeTestCases(testCase, file, contents, prsntFlg,robotFileName)
+		robot.writeKeywords(file, prsntFlg)
 			
 
 	def writeSettings (self, testFile, file, contents, prsntFlg,robotCurrentFile):
@@ -48,6 +46,7 @@ class createRobot :
 		elif prsntFlg == 0:	
 			file.write ("*** Settings ***" + "\n")
 			file.write ("Library           "+testCase[0]+"/"+ testFile + "\n")
+			file.write ("Library           ../../../../back_end/Common/Comment.py")
 
 	def writeVariables (self, file, prsntFlg):
 		if prsntFlg == 1:
@@ -55,7 +54,7 @@ class createRobot :
 		elif prsntFlg == 0:	
 			file.write ("\n"+"*** Variables ***" + "\n")
 
-	def writeTestCases (self, file, testFile, contents, prsntFlg,robotCurrentFile):
+	def writeTestCases (self, testFile, file, contents, prsntFlg,robotCurrentFile):
 		testCase = testFile.split('.')
 		if prsntFlg == 1:
 			index = 0
@@ -64,7 +63,7 @@ class createRobot :
 				for num, line in enumerate(myFile, 1):
 					if lookup in line:
 						index = num
-			value = testCase[0]+ "\n" + "#Keyword 	Headless 	Instances 	 LoadTest" + "\n" + "\t"+ "TC_"+testCase[0] +"  no  0  no  "+"\n"
+			value = testCase[0]+ "\n" + "   TestExecution Arguments 	  Headless 	 Instances 	  LoadTest" + "\n" + "\t"+ "TC_"+testCase[0] +"  no  0  no  "+"\n"
 			contents.insert (index, value)
 			file = open (robotCurrentFile, "w")
 			contents = "".join(contents)
@@ -72,7 +71,7 @@ class createRobot :
 		elif prsntFlg == 0:
 			file.write ("\n"+"*** Test Cases ***" + "\n")
 			file.write (testCase[0] + "\n")
-			file.write ("#Keyword 	Headless 	Instances 	 LoadTest" + "\n")
+			file.write ("   TestExecution Arguments 	 Headless 	 Instances 	  LoadTest" + "\n")
 			file.write ("\t"+"TC_"+testCase[0] +"  no  0  no  "+ "\n")
 
 	def writeKeywords (self, file, prsntFlg):
@@ -83,4 +82,4 @@ class createRobot :
 
 			
 robot = createRobot()
-robot.createTestFile(sys.argv[1],sys.argv[2],sys.argv[3])
+robot.createTestFile(sys.argv[1],sys.argv[2])

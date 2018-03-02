@@ -4,96 +4,94 @@ import os
 
 class readJson :
 
-	def parseNCreate(self, testCase1,testCase2,baseFolder,appName):
+	def parseNCreate(self, testCase,baseFolder,appName):
 		self.baseFolder = baseFolder
 		self.appName    = appName
-		with open(testCase1) as data_file:
+		with open(testCase) as data_file:
 
-			myFile=open(testCase1, 'r')
+			myFile=open(testCase, 'r')
 			myObject=myFile.read()
 			u = myObject.decode('utf-8-sig')
 			myObject = u.encode('utf-8')
 			myFile.encoding
 			myFile.close()
 			data = json.loads(myObject,'utf-8')
-			bundle = [testCase1,testCase2]
-			
-			for j in range(0,2):
-				testCase = bundle[j].split('.')
-				file = open (testCase[0]+".py", "w")
-				testCase = testCase[0].split("/")
-				read.writeImports(file, testCase,baseFolder,appName)
+	
+			testCase = testCase.split('.')
+			file = open (testCase[0]+".py", "w")
+			testCase = testCase[0].split("/")
+			read.writeImports(file, testCase,baseFolder,appName)
 
-				i = 0
-				try :	
-					while (True):
-						command = data["Commands"][i]["Command"]
-						target = data["Commands"][i]["Target"] 
-						value = data["Commands"][i]["Value"]
+			i = 0
+			try :	
+				while (True):
+					command = data["Commands"][i]["Command"]
+					target = data["Commands"][i]["Target"] 
+					value = data["Commands"][i]["Value"]
 
-						if command == "open":
-							file.write("\t"+"\t"+"url = "+ "\""+target+ "\"" + "\n")
-							file.write("\t"+"\t"+"driver.get(url)" + "\n")
-							file.write("\t"+"\t"+"driver.maximize_window()" + "\n")
-							file.write("\t"+"\t"+"driver.implicitly_wait(5)" + "\n")
+					if command == "open":
+						file.write("\t"+"\t"+"url = "+ "\""+target+ "\"" + "\n")
+						file.write("\t"+"\t"+"driver.get(url)" + "\n")
+						file.write("\t"+"\t"+"driver.maximize_window()" + "\n")
+						file.write("\t"+"\t"+"driver.implicitly_wait(5)" + "\n")
 
-						if command == "clickAndWait" or command == "click":
-							if 'link' in  target:
-								target = target.split("=")
-								file.write ("\t"+"\t"+"elementClick"+str(i) + " = driver.find_element_by_link_text(\""+target[1]+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
+					if command == "clickAndWait" or command == "click":
+						if 'link' in  target:
+							target = target.split("=")
+							file.write ("\t"+"\t"+"elementClick"+str(i) + " = driver.find_element_by_link_text(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
-							elif '//*' in target:
-								file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".click();"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3);"+"\n")
+						elif '//*' in target:
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click();"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3);"+"\n")
 
-							elif 'id' in target:
-								target = target.split("=")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
+						elif 'id' in target:
+							target = target.split("=")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
-							elif 'css' in target:
-								target = target.split("=")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
+						elif 'css' in target:
+							target = target.split("=")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".click()"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
-						if command == "type":
-							if 'id' in target:
-								target = target.split("=")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
+					if command == "type":
+						if 'id' in target:
+							target = target.split("=")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_id(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 						
-							elif 'css' in target:
-								target = target.split("=")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
+						elif 'css' in target:
+							target = target.split("=")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_css_selector(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")
 
-							elif 'name' in target:
-								target = target.split("=")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_name(\""+target[1]+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3)"+"\n")						
+						elif 'name' in target:
+							target = target.split("=")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_name(\""+target[1]+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3)"+"\n")						
 
-							elif '//*' in target:
-								file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
-								file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
-								file.write ("\t"+"\t"+"time.sleep(3);"+"\n")
+						elif '//*' in target:
+							file.write ("\t"+"\t"+"elementClick"+str(i)+" = driver.find_element_by_xpath(\""+ target.replace("\"","'")+"\")" + "\n")
+							file.write ("\t"+"\t"+"elementClick"+str(i)+".send_keys(\""+value+"\")"+"\n")
+							file.write ("\t"+"\t"+"time.sleep(3);"+"\n")
 
-						file.write("\n")
-						i = i+1
-				except :
-					file.write ("\t"+"\t"+"driver.quit()"+"\n")
-					file.write ("\t"+"\t"+"thread1.stop()" + "\n\n")
-					file.write ("\t"+"except Exception as e:"+"\n")
-					file.write ("\t"+"\t"+"thread1.stop()"+"\n")
-					file.write ("\t"+"\t"+"driver.quit()"+"\n")
-					file.write ("\t"+"\t"+"assert (1 > 2) , str(e)"+"\n")
+					file.write("\n")
+					i = i+1
+			except :
+				file.write ("\t"+"\t"+"driver.quit()"+"\n")
+				file.write ("\t"+"\t"+"thread1.stop()" + "\n\n")
+				file.write ("\t"+"except Exception as e:"+"\n")
+				file.write ("\t"+"\t"+"thread1.stop()"+"\n")
+				file.write ("\t"+"\t"+"driver.quit()"+"\n")
+				file.write ("\t"+"\t"+"assert (1 > 2) , str(e)"+"\n")
 
 	def write_ClassName(self, testCase, file,baseFolder,appName):
 		file.write ("def TC_"+ testCase[6]+"(var_head, var_instances, var_load):"+ "\n"+"\n")
@@ -134,4 +132,4 @@ class readJson :
 
 
 read = readJson()
-read.parseNCreate(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4])
+read.parseNCreate(sys.argv[1],sys.argv[2],sys.argv[3])

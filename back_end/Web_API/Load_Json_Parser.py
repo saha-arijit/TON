@@ -45,7 +45,7 @@ class Load_json_Parser:
 		file.close()
 
 		test = json+".py"
-		
+		print("NAMEEE",test)
 		robot = createRobot()
 		robot.createTestFile(test,base)
 

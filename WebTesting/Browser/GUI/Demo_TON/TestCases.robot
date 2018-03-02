@@ -1,11 +1,15 @@
 *** Settings ***
-Library           BF_LinkedIn_TC_001/BF_LinkedIn_TC_001.py
-
+Library           BF_Signup/BF_Signup.py
+Library           Sample/Sample.py
+Library           ../../../../back_end/Common/Comment.py
 *** Variables ***
 
 *** Test Cases ***
-BF_LinkedIn_TC_001
-#Keyword 	Headless 	Instances 	 LoadTest
-	TC_BF_LinkedIn_TC_001  no  0  no  
+Sample
+   TestExecution Arguments 	  Headless 	 Instances 	  LoadTest
+	TC_Sample  no  0  no  
+BF_Signup
+   TestExecution Arguments 	 Headless 	 Instances 	  LoadTest
+	TC_BF_Signup  no  0  no  
 
 *** Keywords ***
