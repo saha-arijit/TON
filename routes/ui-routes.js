@@ -557,35 +557,63 @@ UIRoutes.prototype.init = function() {
             folder  = [folder1,folder2]
 
             for(j = 0;j<2;j++){
+               
                if (!fs.existsSync(folder[j])){
                  fs.mkdirSync (folder[j])
                }else{
 
                }
-            this.inputFileName = folder[j] + '/' + sampleFile
+                this.inputFileName = folder[j] + '/' + sampleFile
 
-            sampleData.mv (inputFileName, function(err){
-                if (err)
-                    return res.status(500).send(err);
+                sampleData.mv (inputFileName, function(err){
+                    if (err)
+                        return res.status(500).send(err);
+                });
+
+                console.log ("The file has been moved.")
+
+                sleep(5000);
+
+                try{
+                    child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                      if (e instanceof Error) {
+                         console.error(e);
+                         throw e;
+                      }
+                     
+                      console.log ("Done....")
+                      
+                    });
+                }catch (ex){
+                    console.log ("In error...")
+                    console.log (ex)
+                }
+            }
+            sleep(3000);
+
+            child = exec('python '+forMobile+'/MobileJob.py '+ baseFolder+' '+appName +' '+ folderName[0], (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
             });
 
-            console.log ("The file has been moved.")
-            sleep(5000);
-            try{
-                child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
-                  if (e instanceof Error) {
-                     console.error(e);
-                     throw e;
-                  }
-                 
-                  console.log ("Done....")
-                  
-                });
-            }catch (ex){
-                console.log ("In error...")
-                console.log (ex)
+            console.log ("XML CREATED.........." + folderName[0]);
+            xmlFileName = folder2+"/"+folderName[0]+".xml"
+            console.log (xmlFileName)
+
+            sleep (3000);
+
+            child = exec('python '+forMobile+'/CreateJob.py '+ baseFolder+' '+folderName[0] +' '+ xmlFileName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
             }
-        }
+            console.log('stdout ', stdout);
+            });
+            
+        
         res.end();
         }); 
 
