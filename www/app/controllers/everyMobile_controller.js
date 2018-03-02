@@ -217,6 +217,13 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
             url: '/notepad'
         }).then(function success(response) {
 
+            $scope.ngModel1 = "Notepad will be opened in short time...";
+
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Notepad has opened..please remember to close it..."
+                )
+            },60000);
             console.log("Notepad will be open", response)
         }, function error(error) {
 
@@ -230,8 +237,13 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
             method: 'post',
             url: '/executeMobileGUI'
         });
+        $scope.ngModel1 = "Ride will be opened in short time...";
 
-        $scope.ngModel1 = "Ride has opened..please remember to close it.";
+        setTimeout(function () {
+            $scope.$apply(
+                $scope.ngModel1 = "Ride has opened..please remember to close it..."
+        )
+        },60000);
            $('#mobileExecuteTestCaseModal2').modal('hide');
     };
 
@@ -240,8 +252,13 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
             method: 'post',
             url: '/openAppium'
         });
+          $scope.ngModel1 = "Appium will be opened in short time...";
 
-        $scope.ngModel1 = "Appium has opened..please remember to close it.";
+          setTimeout(function () {
+              $scope.$apply(
+                  $scope.ngModel1 = "Appium has opened..please remember to close it..."
+          )
+          },60000);
            $('#mobileExecuteTestCaseModal2').modal('hide');
     };
   
@@ -255,8 +272,13 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
                 data:[mobile]
             });
             $('#mobileExecuteTestCaseModal3').modal('hide');
+        $scope.ngModel1 = "Jenkins will be opened in short time...";
 
-            $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+        setTimeout(function () {
+            $scope.$apply(
+                $scope.ngModel1 = "Jenkins has opened..please remember to close it..."
+        )
+        },60000);
 
 
         };
@@ -275,19 +297,25 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana has opened..please remember to close it.";
+            $scope.ngModel1 = "Kibana will be opened in short time...";
+
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Kibana has opened..please remember to close it..."
+            )
+            },60000);
             setTimeout(function () {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
             }, 31000);
 
-            setTimeout(function () {
-                $scope.$apply(function () {
-                    var  href="#/home/visualization" ;
-                    $window.open(href,"_blank")
-                })
-            }, 30000);
+            // setTimeout(function () {
+            //     $scope.$apply(function () {
+            //         var  href="#/home/visualization" ;
+            //         $window.open(href,"_blank")
+            //     })
+            // }, 30000);
         };
 
 

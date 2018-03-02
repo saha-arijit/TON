@@ -237,7 +237,13 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             url: '/postmanRecord'
         });
 
-        $scope.ngModel1 = "Postman and Chrome has opened..please remember to close them...";
+        $scope.ngModel1 = "Postman and Firefox  will be opened in short time...";
+
+        setTimeout(function () {
+            $scope.$apply(
+                $scope.ngModel1 = "Postman and Firefox has opened..please remember to close them..."
+            )
+        },60000);
 
 
     };
@@ -254,7 +260,13 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             data: [API]
         });
 
-        $scope.ngModel1 = "Postman has opened..please remember to close it.";
+        $scope.ngModel1 = "Postman will be opened in short time...";
+
+        setTimeout(function () {
+            $scope.$apply(
+                $scope.ngModel1 = "Postman has opened..please remember to close it..."
+        )
+        },60000);
 
         $('#modal5').modal('hide');
 
@@ -265,8 +277,13 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             method: 'post',
             url: '/executeAPIGUI'
         });
+        $scope.ngModel1 = "Ride will be opened in short time...";
 
-        $scope.ngModel1 = "Ride has opened..please remember to close it.";
+        setTimeout(function () {
+            $scope.$apply(
+                $scope.ngModel1 = "Ride has opened..please remember to close it..."
+        )
+        },60000);
         $('#modal5').modal('hide');
 
 
@@ -281,8 +298,14 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
             data:[api]
         });
         $('#modal9').modal('hide');
+        $scope.ngModel1 = "Jenkins will be opened in short time...";
 
-        $scope.ngModel1 = "jenkins has opened..please remember to close it.";
+        setTimeout(function () {
+            $scope.$apply(
+                $scope.ngModel1 = "Jenkins has opened..please remember to close it..."
+        )
+        },60000);
+
 
 
     };
@@ -303,19 +326,25 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana has opened..please remember to close it."
+            $scope.ngModel1 = "Kibana will be opened in short time...";
+
+            setTimeout(function () {
+                $scope.$apply(
+                    $scope.ngModel1 = "Kibana has opened..please remember to close it..."
+                )
+            },60000);
             setTimeout(function () {
                 $scope.$apply(function () {
                     $scope.ngModel1 = ''
                 })
             }, 31000);
 
-            setTimeout(function () {
-                $scope.$apply(function () {
-                    var  href="#/home/visualization" ;
-                    $window.open(href,"_blank")
-                })
-            }, 30000);
+            // setTimeout(function () {
+            //     $scope.$apply(function () {
+            //         var  href="#/home/visualization" ;
+            //         $window.open(href,"_blank")
+            //     })
+            // }, 30000);
 
 
         };

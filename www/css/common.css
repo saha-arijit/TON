@@ -690,6 +690,15 @@ p.webSpeech-bubble {
     /*padding-left: 0;*/
     text-align: center;
 }
+.btn:focus {
+    outline: none;
+    background-color: #4b8ec9;
+    border-color: #2e6da4;
+}
+.removingFocus{
+    background-color: #4b8ec9;
+    outline: transparent;
+}
 .content{
     /*width: 100%;*/
     width: calc(100% - 230px);
