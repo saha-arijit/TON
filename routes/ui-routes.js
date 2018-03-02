@@ -320,7 +320,7 @@ UIRoutes.prototype.init = function() {
 
             var name = (inputFileName).split(".");
 
-            child = exec('python '+forBrowser+'/createRobot.py '+name[0]+".py "+baseFolder+' '+appName+' '+item, (e, stdout, stderr)=> {
+            child = exec('python '+forBrowser+'/createRobot.py '+folderName[0]+'.py'+' '+item, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;

@@ -10,9 +10,6 @@ class createRobot :
 		global robotFileName, libFilePath;
 		libFilePath = baseFolder.replace('\\','/')
 		robotFileName = path[0]+"LoadTest.robot"	
-		# with open(testCase) as data_file:
-		# 	testFile = testCase.split('/')
-		# 	testCase = testCase.split('.')
 
 		if os.path.isfile(robotFileName):
 			print ("yes")
