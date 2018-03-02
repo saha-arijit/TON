@@ -52,6 +52,7 @@ class createRobot :
 		elif prsntFlg == 0:	
 			file.write ("*** Settings ***" + "\n")
 			file.write ("Library           " + testCase[0] + '/'+ testFile+"\n")
+			file.write ("Library           ../../../../back_end/Common/Comment.py")
 
 	def writeVariables (self, file, prsntFlg):
 		if prsntFlg == 1:
@@ -72,7 +73,7 @@ class createRobot :
 					if lookup in line:
 						index = num
 			#print ("index : " + str(index))
-			value = testCase[0]+ "\n" + "#Keyword 	Iterations	VirtualUsers	RampUP Period" + "\n" + "\t"+ "TC_"+testCase[0]+"	1	1	1" +"\n"
+			value = testCase[0]+ "\n" + "   TestExecution Arguments 	Iterations	VirtualUsers	RampUP Period" + "\n" + "\t"+ "TC_"+testCase[0]+"	1	1	1" +"\n"
 			contents.insert (index, value)
 			file = open (robotFileName, "w")
 			contents = "".join(contents)
@@ -80,10 +81,10 @@ class createRobot :
 		elif prsntFlg == 0:
 			file.write ("\n"+"*** Test Cases ***" + "\n")
 			file.write (testCase[0] + "\n")
-			file.write ("#Keyword 	Iterations	VirtualUsers	RampUP Period" + "\n")
+			file.write ("   TestExecution Arguments 	Iterations	VirtualUsers	RampUP Period" + "\n")
 			file.write ("\t"+"TC_"+testCase[0] +"	1	1	1" +"\n")
 			file.write ("AL_Run_All" + "\n")
-			file.write ("#Keyword 	Iterations	VirtualUsers	RampUP Period" + "\n")
+			file.write ("   TestExecution Arguments 	Iterations	VirtualUsers	RampUP Period" + "\n")
 			file.write ("\t"+"TC_"+testCase[0] +"	1	1	1" +"\n")
 
 	def writeAllRun (self,file,testFile,contents,prsntFlg):

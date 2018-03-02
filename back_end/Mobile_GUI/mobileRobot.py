@@ -48,6 +48,7 @@ class mobileRobot :
 		elif prsntFlg == 0:	
 			file.write ("*** Settings ***" + "\n")
 			file.write ("Library           " + testCase[0] + '/'+ testCase[0]+"Run.py"+"\n")
+			file.write ("Library           ../../../../back_end/Common/Comment.py")
 
 	def writeVariables (self, file, prsntFlg):
 		if prsntFlg == 1:
@@ -65,7 +66,7 @@ class mobileRobot :
 				for num, line in enumerate(myFile, 1):
 					if lookup in line:
 						index = num
-			value = testCase[0]+ "\n" + "#Keyword " + "\n" + "\t"+ "TC_"+testCase[0]+"Run"+ "\n"
+			value = testCase[0]+ "\n" + "   TestExecution Arguments " + "\n" + "\t"+ "TC_"+testCase[0]+"Run"+ "\n"
 			contents.insert (index, value)
 			file = open (robotCurrentFile, "w")
 			contents = "".join(contents)
@@ -73,7 +74,7 @@ class mobileRobot :
 		elif prsntFlg == 0:
 			file.write ("\n"+"*** Test Cases ***" + "\n")
 			file.write (testCase[0] + "\n")
-			file.write ("#Keyword " + "\n")
+			file.write ("   TestExecution Arguments " + "\n")
 			file.write ("\t"+"TC_"+testCase[0] +"Run"+ "\n")
 
 	def writeKeywords (self, file, prsntFlg):

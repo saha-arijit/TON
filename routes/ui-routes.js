@@ -646,9 +646,7 @@ UIRoutes.prototype.init = function() {
 
         console.log("Came into open APIIUM");
 
-        cmd.get(
-        'netstat -ano | findstr :4723',
-        function(err, data, stderr){
+        cmd.get('netstat -ano | findstr :4723',function(err, data, stderr){
 
          if(data == '') {   
           child = exec('start '+baseFolder+"/bat_file/openAppium.bat", (e, stdout, stderr)=> {
