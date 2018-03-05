@@ -99,6 +99,7 @@ UIRoutes.prototype.init = function() {
                 throw e;
             }
         });*/
+
         if (req.body == 'EveryAPI'){
             console.log("Its from ",req.body)
         }
@@ -402,8 +403,8 @@ UIRoutes.prototype.init = function() {
     });
             console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
 
     app.post('/analyzeWebAPI',
@@ -420,10 +421,9 @@ UIRoutes.prototype.init = function() {
     });
             console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
-
     app.post('/analyzeAPI',
         function(req, res){
 
@@ -438,8 +438,8 @@ UIRoutes.prototype.init = function() {
             });
             console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
     // Response for apiFile1 req
 
@@ -684,8 +684,8 @@ UIRoutes.prototype.init = function() {
     });
             console.log("Entering  into Kibana");
 
-            child = opn('http://localhost:5601',{app:['chrome','-new-window']});
-            console.log('stdout ');
+            // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
+            // console.log('stdout ');
         });
 
 };

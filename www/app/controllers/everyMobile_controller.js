@@ -310,12 +310,12 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
                 })
             }, 31000);
 
-            // setTimeout(function () {
-            //     $scope.$apply(function () {
-            //         var  href="#/home/visualization" ;
-            //         $window.open(href,"_blank")
-            //     })
-            // }, 30000);
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    var  href="/home/visualization" ;
+                    $window.open(href,"_blank")
+                })
+            }, 30000);
         };
 
 

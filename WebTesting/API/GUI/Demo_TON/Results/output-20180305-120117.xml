@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180305 12:01:17.732" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\API\GUI\Demo_TON\LoadTest.robot" id="s1" name="LoadTest">
+<test id="s1-t1" name="AF_NFV_001">
+<kw name="TestExecution Arguments" library="Comment">
+<arguments>
+<arg>Iterations</arg>
+<arg>VirtualUsers</arg>
+<arg>RampUP Period</arg>
+</arguments>
+<status status="PASS" endtime="20180305 12:01:17.873" starttime="20180305 12:01:17.873"></status>
+</kw>
+<kw name="TC AF NFV 001" library="AF_NFV_001">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180305 12:01:48.431" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180305 12:01:48.431" starttime="20180305 12:01:17.873"></status>
+</kw>
+<status status="PASS" endtime="20180305 12:01:48.431" critical="yes" starttime="20180305 12:01:17.873"></status>
+</test>
+<test id="s1-t2" name="AF_Bell_Demo">
+<kw name="TestExecution Arguments" library="Comment">
+<arguments>
+<arg>Iterations</arg>
+<arg>VirtualUsers</arg>
+<arg>RampUP Period</arg>
+</arguments>
+<status status="PASS" endtime="20180305 12:01:48.431" starttime="20180305 12:01:48.431"></status>
+</kw>
+<kw name="TC AF Bell Demo" library="AF_Bell_Demo">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180305 12:01:54.143" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180305 12:01:54.143" starttime="20180305 12:01:48.431"></status>
+</kw>
+<status status="PASS" endtime="20180305 12:01:54.143" critical="yes" starttime="20180305 12:01:48.431"></status>
+</test>
+<status status="PASS" endtime="20180305 12:01:54.143" starttime="20180305 12:01:17.748"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="LoadTest" pass="2">LoadTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

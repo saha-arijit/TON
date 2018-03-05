@@ -496,12 +496,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 })
             }, 31000);
 
-            // setTimeout(function () {
-            //     $scope.$apply(function () {
-            //         var  href="#/home/visualization" ;
-            //         $window.open(href,"_blank")
-            //     })
-            // }, 30000);
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    var  href="#/home/visualization" ;
+                    $window.open(href,"_blank")
+                })
+            }, 30000);
         };
 
 
