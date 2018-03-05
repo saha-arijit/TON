@@ -4,16 +4,16 @@ from mobileRobot import mobileRobot
 
 class mobileTest:
 
-	def createMobFiles(self,json, base,app):
+	def createMobFiles(self,json,rootFolder ,base,app):
 
 		global location 
 		location = "/back_end/Mobile_GUI/"
 		
 		# Calling method to create Run Python file for Collection
-		mobile.createRunFile(json, base,app)
+		mobile.createRunFile(json,rootFolder,base,app)
 
 		
-	def createRunFile(self,json, base,app):
+	def createRunFile(self,json,rootFolder,base,app):
 
 		json = json.split('.')
 		json = json [0]	
@@ -38,12 +38,9 @@ class mobileTest:
 		test = testCase[6]+".py"
 		
 		robot = mobileRobot()
-		robot.createTestFile(test, base,app)
+		robot.createTestFile(test, rootFolder)
 
 		
 		
 mobile = mobileTest()
-mobile.createMobFiles(sys.argv[1], sys.argv[2],sys.argv[3])
-
-	
-	
+mobile.createMobFiles(sys.argv[1], sys.argv[2],sys.argv[3],sys.argv[4])

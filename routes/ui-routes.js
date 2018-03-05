@@ -582,7 +582,7 @@ UIRoutes.prototype.init = function() {
                 sleep(5000);
 
                 try{
-                    child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                    child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+folder[j]+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
                       if (e instanceof Error) {
                          console.error(e);
                          throw e;
