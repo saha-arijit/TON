@@ -416,7 +416,6 @@ UIRoutes.prototype.init = function() {
             // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
             // console.log('stdout ');
         });
-
     app.post('/analyzeAPI',
         function(req, res){
 
