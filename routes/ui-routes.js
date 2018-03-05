@@ -239,7 +239,7 @@ UIRoutes.prototype.init = function() {
             console.log ("The file has been moved.")
         }
             
-            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + collFile[0] + ' ' + baseFolder, (e, stdout, stderr)=> {
+            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + collFile[0], (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
@@ -251,7 +251,7 @@ UIRoutes.prototype.init = function() {
             sleep(3000);
 
             xmlFileName = folder2+"/"+collFile[0]+".xml"
-            child = exec('python '+forAPI+'/CreateJob.py '+ collFile[0] +" " + xmlFileName, (e, stdout, stderr)=> {
+            child = exec('python '+forAPI+'/CreateJob.py '+ collFile[0] +" " + xmlFileName+ ' ' + baseFolder, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
@@ -260,6 +260,7 @@ UIRoutes.prototype.init = function() {
             
             });
 
+            sleep(3000);
             res.end()
         
     });   
