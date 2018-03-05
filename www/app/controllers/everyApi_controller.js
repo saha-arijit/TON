@@ -232,11 +232,12 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // For Step 1 start
 
     $scope.openPostmanRecord = function () {
-        var EveryWeb = 'EveryWeb'
+
+        var EveryAPI = 'EveryAPI'
         $http({
             method: 'post',
             url: '/postmanRecord',
-            data: [EveryWeb] 
+            data: [EveryAPI]
         });
 
         $scope.ngModel1 = "Postman will be opening shortly.";

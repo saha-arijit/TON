@@ -99,18 +99,20 @@ UIRoutes.prototype.init = function() {
                 throw e;
             }
         });*/
-        if (req.body == 'EveryWeb'){
-        	console.log("For Every Web") 
+
+        if (req.body == 'EveryAPI'){
+            console.log("Its from ",req.body)
         }
         else{
-        child = exec('"C:/Program Files/Mozilla\ Firefox/firefox.exe"', (e, stdout, stderr)=>{
+            console.log("opening FireFox")
+            child = exec('"C:/Program Files/Mozilla\ Firefox/firefox.exe"', (e, stdout, stderr)=>{
             if (e instanceof Error) {
                 console.error(e);
                 throw e;
             }
         });
-     }
-        res.end();
+       }
+     res.end();
     });
 
             
@@ -250,7 +252,7 @@ UIRoutes.prototype.init = function() {
             sleep(3000);
 
             xmlFileName = folder2+"/"+collFile[0]+".xml"
-            child = exec('python '+forAPI+'/CreateJob.py '+ collFile[0] +" " + xmlFileName, (e, stdout, stderr)=> {
+            child = exec('python '+forAPI+'/CreateJob.py '+ collFile[0] +" " + xmlFileName+ ' ' + baseFolder, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
@@ -259,6 +261,7 @@ UIRoutes.prototype.init = function() {
             
             });
 
+            sleep(3000);
             res.end()
         
     });   
@@ -579,7 +582,7 @@ UIRoutes.prototype.init = function() {
                 sleep(5000);
 
                 try{
-                    child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                    child = exec('python '+forMobile+'/mobileTest.py ' + inputFileName+' '+folder[j]+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
                       if (e instanceof Error) {
                          console.error(e);
                          throw e;
