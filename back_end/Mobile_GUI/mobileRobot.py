@@ -3,29 +3,29 @@ import sys, os
 
 class mobileRobot :
 
-	def createTestFile(self, testCase,baseFolder,appName):
+	def createTestFile(self, testCase,baseFolder):
 		
-		global robotFileName;
-		robotFileName1 = baseFolder+"/MobileTesting/GUI/"+appName+"/mobileTestcase.robot"
-		robotFileName2 = baseFolder+"/MobileTesting/TestOps/"+appName+"/mobileTestcase.robot"
-		robotFileName  = [robotFileName1,robotFileName2]	
+		pyfilename = testCase.split(".py")
+		path = baseFolder.split(pyfilename[0])
+		global robotFileName, libFilePath;
+		libFilePath = baseFolder.replace('\\','/')
+		robotFileName = path[0]+"mobileTestcase.robot"	
 
-		for i in range (0,2):
-			if os.path.isfile(robotFileName[i]):
-				print ("yes")
-				prsntFlg = 1
-				file = open (robotFileName[i], "r")
-				contents = file.readlines()
-			else:
-				print ("no")
-				prsntFlg = 0
-				file = open (robotFileName[i], "w")
-				contents = ""
+		if os.path.isfile(robotFileName):
+			print ("yes")
+			prsntFlg = 1
+			file = open (robotFileName, "r")
+			contents = file.readlines()
+		else:
+			print ("no")
+			prsntFlg = 0
+			file = open (robotFileName, "w")
+			contents = ""
 
-			robot.writeSettings (testCase, file, contents, prsntFlg,robotFileName[i])
-			robot.writeVariables(file, prsntFlg)
-			robot.writeTestCases(file, testCase, contents, prsntFlg,robotFileName[i])
-			robot.writeKeywords(file, prsntFlg)
+		robot.writeSettings (testCase, file, contents, prsntFlg,robotFileName)
+		robot.writeVariables(file, prsntFlg)
+		robot.writeTestCases(file, testCase, contents, prsntFlg,robotFileName)
+		robot.writeKeywords(file, prsntFlg)
 			
 
 	def writeSettings (self, testFile, file, contents, prsntFlg,robotCurrentFile):
