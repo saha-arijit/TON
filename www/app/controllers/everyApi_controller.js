@@ -232,16 +232,18 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 // For Step 1 start
 
     $scope.openPostmanRecord = function () {
+        var EveryWeb = 'EveryWeb'
         $http({
             method: 'post',
-            url: '/postmanRecord'
+            url: '/postmanRecord',
+            data: [EveryWeb] 
         });
 
-        $scope.ngModel1 = "Postman and Firefox  will be opening shortly.";
+        $scope.ngModel1 = "Postman will be opening shortly.";
 
         setTimeout(function () {
             $scope.$apply(
-                $scope.ngModel1 = "Postman and Firefox has opened. Please remember to close them."
+                $scope.ngModel1 = "Postman has opened. Please remember to close them."
             )
         },60000);
 
@@ -341,7 +343,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
             setTimeout(function () {
                 $scope.$apply(function () {
-                    var  href="/home/visualization" ;
+                    var  href="home/visualization" ;
                     $window.open(href,"_blank")
                 })
             }, 30000);

@@ -99,12 +99,17 @@ UIRoutes.prototype.init = function() {
                 throw e;
             }
         });*/
+        if (req.body == 'EveryWeb'){
+        	console.log("For Every Web") 
+        }
+        else{
         child = exec('"C:/Program Files/Mozilla\ Firefox/firefox.exe"', (e, stdout, stderr)=>{
             if (e instanceof Error) {
                 console.error(e);
                 throw e;
             }
         });
+     }
         res.end();
     });
 
