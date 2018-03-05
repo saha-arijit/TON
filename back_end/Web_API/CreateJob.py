@@ -3,19 +3,19 @@ import subprocess
 
 class CreateJob:
 
-	def checkExistingJobs(self, jobName, xmlFilePath):
+	def checkExistingJobs(self, jobName, xmlFilePath, baseFolder):
 
-		cmd = 'java -jar D:\\TON\\back_end\\jenkins-cli.jar -s http://localhost:8080/ list-jobs All'
+		cmd = 'java -jar '+ baseFolder +'\\back_end\\jenkins-cli.jar -s http://localhost:8080/ list-jobs All'
 		output = subprocess.check_output(cmd, shell=True)
 		if jobName in output:
 			print "There...."
 		else:
-			self.createJob(jobName, xmlFilePath)
+			self.createJob(jobName, xmlFilePath, baseFolder)
 
-	def createJob(self,jobName, xmlFilePath):
+	def createJob(self,jobName, xmlFilePath, baseFolder):
 		
-		cmd = 'java -jar D:\\TON\\back_end\\jenkins-cli.jar -s http://localhost:8080/ create-job ' + jobName + ' < '+ xmlFilePath
+		cmd = 'java -jar '+ baseFolder +'\\back_end\\jenkins-cli.jar -s http://localhost:8080/ create-job ' + jobName + ' < '+ xmlFilePath
 		output = subprocess.check_output(cmd, shell=True)
 
 jobCreate = CreateJob()
-jobCreate.checkExistingJobs(sys.argv[1], sys.argv[2])
+jobCreate.checkExistingJobs(sys.argv[1], sys.argv[2], sys.argv[3])

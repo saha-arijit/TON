@@ -233,7 +233,7 @@ UIRoutes.prototype.init = function() {
             console.log ("The file has been moved.")
         }
             
-            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + collFile[0], (e, stdout, stderr)=> {
+            child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + collFile[0] + ' ' + baseFolder, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
