@@ -99,13 +99,19 @@ UIRoutes.prototype.init = function() {
                 throw e;
             }
         });*/
-        child = exec('"C:/Program Files/Mozilla\ Firefox/firefox.exe"', (e, stdout, stderr)=>{
+        if (req.body == 'EveryAPI'){
+            console.log("Its from ",req.body)
+        }
+        else{
+            console.log("opening FireFox")
+            child = exec('"C:/Program Files/Mozilla\ Firefox/firefox.exe"', (e, stdout, stderr)=>{
             if (e instanceof Error) {
                 console.error(e);
                 throw e;
             }
         });
-        res.end();
+       }
+     res.end();
     });
 
             
