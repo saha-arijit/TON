@@ -32,7 +32,7 @@ class Load_json_Parser:
 			file.write('\t\t' +'cmd = "newman run '+json+'.json -e '+envvar+' -r html --reporter-html-export result.html -x -n "+str(iterations)'+'\n')
 		file.write('\t\t' +'os.system(cmd)'+'\n')
 		file.write('\t' + 'elif(int(vuser) > 1):' + '\n')
-		file.write('\t\t' + 'for i in vuser:' + '\n')
+		file.write('\t\t' + 'for i in range (int(vuser)):' + '\n')
 		file.write('\t\t\t' + 'os.chdir("'+base+'")' + '\n')
 		if(envvar=="None"):
 			file.write('\t\t\t' + 'cmd = "newman run '+json+'.json -r html --reporter-html-export result_"+str(i)+".html -x -n "+str(iterations)' + '\n')

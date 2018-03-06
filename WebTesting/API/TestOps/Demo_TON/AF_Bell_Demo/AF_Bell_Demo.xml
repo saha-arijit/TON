@@ -15,7 +15,7 @@
       <command>cd \ 
 cd /d D:/TON
 cd WebTesting/API/TestOps/Demo_TON/
-pybot.bat -d ..\Demo_TON\TwitterCollection\Results --timestamp --reportbackground white:white:white -t TwitterCollection LoadTest.robot  </command>
+pybot.bat -d ..\Demo_TON\AF_Bell_Demo\Results --timestamp --reportbackground white:white:white -t AF_Bell_Demo LoadTest.robot  </command>
     </hudson.tasks.BatchFile>
   </builders>
   <publishers/>
