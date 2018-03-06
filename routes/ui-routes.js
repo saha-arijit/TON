@@ -22,6 +22,8 @@ global.appName    = "Demo_TON";
 global.forAPI     = baseFolder+"/back_end/Web_API";
 global.forBrowser = baseFolder+"/back_end/Web_Browser";
 global.forMobile  = baseFolder+"/back_end/Mobile_GUI";
+global.forDesktop = baseFolder+"/back_end/Desktop";
+
 module.exports    = UIRoutes;
 UIRoutes.prototype.init = function() {
     var self = this;
@@ -670,7 +672,8 @@ UIRoutes.prototype.init = function() {
         });
     });
 
-          app.post('/analyzeMobileGUI',
+        
+        app.post('/analyzeMobileGUI',
         function(req, res){
 
         console.log("Came to Analyze API Results");
@@ -678,14 +681,139 @@ UIRoutes.prototype.init = function() {
         if (e instanceof Error) {
          console.error(e);
          throw e;
-    }
-    console.log('stdout ', stdout);
-    res.end();
-    });
+        }
+        console.log('stdout ', stdout);
+        res.end();
+        });
             console.log("Entering  into Kibana");
 
             // child = opn('http://localhost:5601',{app:['chrome','-new-window']});
             // console.log('stdout ');
+        });
+
+
+    app.post('/prepareDesktop',
+        function(req, res){
+            
+            console.log("came into prepareDesktop...")
+
+            if (!req.files)
+                return res.status(400).send('No files were uploaded.');
+
+
+            this.sampleData = req.files['file[0]'];
+            this.sampleFile = req.files['file[0]'].name;
+
+            folderName = sampleFile.split ('.')
+
+            folder1 = baseFolder+'/DesktopTesting/GUI/'+appName+'/'+ folderName[0]
+            folder2 = baseFolder+'/DesktopTesting/TestOps/'+appName+'/'+ folderName[0]
+            folder  = [folder1,folder2]
+
+            for(j = 0;j<2;j++){
+               
+               if (!fs.existsSync(folder[j])){
+                 fs.mkdirSync (folder[j])
+               }else{
+
+               }
+                this.inputFileName = folder[j] + '/' + sampleFile
+
+                sampleData.mv (inputFileName, function(err){
+                    if (err)
+                        return res.status(500).send(err);
+                });
+
+                console.log ("The file has been moved.")
+
+                sleep(5000);
+
+                try{
+                    child = exec('python '+forDesktop+'/DesktopTest.py ' + inputFileName+' '+folder[j]+' '+baseFolder+' '+appName, (e, stdout, stderr)=> {
+                      if (e instanceof Error) {
+                         console.error(e);
+                         throw e;
+                      }
+                     
+                      console.log ("Done....")
+                      
+                    });
+                }catch (ex){
+                    console.log ("In error...")
+                    console.log (ex)
+                }
+            }
+
+            sleep(3000);
+
+            child = exec('python '+forDesktop+'/DesktopJob.py '+ baseFolder+' '+appName +' '+ folderName[0], (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            });
+
+            console.log ("XML CREATED.........." + folderName[0]);
+            xmlFileName = folder2+"/"+folderName[0]+".xml"
+            console.log (xmlFileName)
+
+            sleep (3000);
+
+            child = exec('python '+forDesktop+'/CreateJob.py '+ baseFolder+' '+folderName[0] +' '+ xmlFileName, (e, stdout, stderr)=> {
+            if (e instanceof Error) {
+              console.error(e);
+              throw e;
+            }
+            console.log('stdout ', stdout);
+            });
+            
+        res.end();
+        }); 
+
+
+        app.post('/executeDesktop',
+        function(req, res){
+
+            dataFile = baseFolder+"/DesktopTesting/CPU%."+"csv";
+            ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
+          
+            fs.writeFile(dataFile,ColumnNamesList , function(err) {
+                if(err) {
+                     return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
+
+            child = exec('ride.py '+baseFolder+'/DesktopTesting/GUI/'+appName+'/DesktopTestcase.robot', (e, stdout, stderr)=> {
+                if (e instanceof Error) {
+                 console.error(e);
+                 throw e;
+                }
+            });
+            res.end();
+        });
+
+
+        app.post('/openWinium',
+        function(req, res){
+
+        console.log("Came into open Winium");
+
+            // cmd.get('netstat -ano | findstr :4723',function(err, data, stderr){
+            //     if(data == '') {
+            //         child = exec('start '+baseFolder+"/bat_file/openAppium.bat", (e, stdout, stderr)=> {
+            //             if (e instanceof Error) {
+            //                 console.error(e);
+            //                 throw e;
+            //             };
+            //             res.end();
+            //         });
+            //     }
+            //     else{
+            //         console.log('Winium is Already Running on port 9999')
+            //     }
+            // });
         });
 
 };
