@@ -7,6 +7,13 @@ kibanaApp.controller('homeController',['$scope','$http','$location','$rootScope'
             return currentUrl === $location.path();
         };
 
+        setTimeout(function () {
+            $scope.$apply(
+                $rootScope.interval=false
+            )
+
+        },120000);
+
         $scope.openUserManual = function () {
             var x= $location.path();
             // alert(x)
@@ -25,6 +32,10 @@ kibanaApp.controller('homeController',['$scope','$http','$location','$rootScope'
             // }
             if( x == "/home/everyAPI"){
                 var href = '/assets/UserManual-EveryAPI.pdf';
+                $('#userManual').attr('href', href)
+            }
+            if( x == "/home/everyDesktop"){
+                var href = '/assets/UserManual-EveryDesktop.pdf';
                 $('#userManual').attr('href', href)
             }
 

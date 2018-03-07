@@ -21,6 +21,10 @@ kibanaApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',
                 url: '/everyMobile',
                 templateUrl: "app/views/everyMobile.html",
                 controller: "everyMobileController"
+            }).state("home.everyDesktop", {
+                url: '/everyDesktop',
+                templateUrl: "app/views/everyDesktop.html",
+                controller: "everyDesktopController"
             }).state("home.visualization", {
                 url: '/visualization',
                 templateUrl: "app/views/visualization.html",
