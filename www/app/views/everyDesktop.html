@@ -1,0 +1,371 @@
+<br>
+<br>
+<section>   <div style=" margin-left:0;margin-right:0;overflow: auto" class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="mobileDivBtn">
+            <h4 class="stepTextColor">Step 1</h4>
+            <button class="btn btn-primary mobileStepBtn" ng-click="openNotepad()">
+                Develop Test Case
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="mobileDivBtn">
+            <h4 class="stepTextColor">Step 2</h4>
+
+
+            <!-- Trigger the Mobile modal with a button -->
+            <button type="button" class="btn btn-primary mobileStepBtn" data-toggle="modal"
+                    data-target="#mobilePrepareTestCaseModal1" data-backdrop="static" data-keyboard="false"
+            >Prepare Test Case</button>
+
+
+            <!-- mobilePrepareTestCase    Modal1  -->
+            <div class="modal fade" id="mobilePrepareTestCaseModal1" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">
+                                Prepare Test Case
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>
+                                        Choose Test Case .py File
+                                    </label>
+
+                                    <input id="mobileTestingFile1" accept=".py" style="padding: 1% 0 1% 19%;"  ng-files="getFiles($files)" type="file" class="form-control">
+
+                                </div>
+
+                                <button class="btn btn-primary"   ng-disabled="mobileTestingBtn1Disable" ng-click="uploadDesktopFile1()" type="submit">Prepare</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="mobileDivBtn">
+            <h4 class="stepTextColor">Step 3</h4>
+            <a role="button" class="btn btn-primary  mobileStepBtn"
+               data-toggle="modal"
+               data-target="#mobileExecuteTestCaseModal1" data-backdrop="static" data-keyboard="false"
+               id="mobileExecuteTestCaseTrigger1"
+               ng-click="openWinium()"
+            >Execute Test Case
+            </a>
+
+
+            <!--mobileTestCase Modal1-->
+            <div class="modal fade" id="mobileExecuteTestCaseModal1" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Execute Test Case</h4>
+                        </div>
+                        <div class="modal-body">
+                            <button class="btn btn-primary btn-block"
+                                    data-target="#mobileExecuteTestCaseModal2"
+                                    data-backdrop="static" data-keyboard="false"
+                                    data-toggle="modal"
+                                    id="mobileExecuteTestCaseTrigger2"
+                                    ng-click="mobileModalViaGUIHeadingStyle=true">Via GUI
+                            </button>
+                            <br>
+                            <button class="btn btn-primary btn-block"
+                                    data-backdrop="static" data-keyboard="false"
+                                    data-target="#mobileExecuteTestCaseModal3"
+                                    data-toggle="modal"
+                                    id="mobileExecuteTestCaseTrigger3"
+                                    ng-click="mobileModalViaTestOpsHeadingStyle=true">Via TestOps
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!--mobileExecuteTestCaseModal2>-->
+
+            <div class="modal fade " id="mobileExecuteTestCaseModal2"
+                 tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a style="cursor: pointer" class=" pull-left"
+                               ng-click="mobileTestingViaGUIModalClose()">
+                                              <span style="font-weight:700;color:#cccccc"
+                                                    class="glyphicon glyphicon-menu-left"></span>
+                            </a>
+
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <!--<h4 class="modal-title">My Modal</h4>-->
+                            <h4 class="modal-title">Execute Test Case</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <button class="btn btn-primary btn-block"
+                                    ng-class="{'mobileModalViaGUIHeadingStyle':mobileModalViaGUIHeadingStyle}">Via GUI
+                            </button>
+                            <a role="button"
+                               class="btn btn-primary btn-block"
+                               data-toggle="modal"
+                               data-backdrop="static" data-keyboard="false"
+                               data-target="#singleModal"
+                               ng-click="openDesktopRide()">FUNCTIONAL
+
+                            </a>
+                            <br>
+
+                            <button class="btn btn-primary btn-block"
+                                    data-toggle="modal"
+                                    data-backdrop="static" data-keyboard="false"
+                                    data-target="#performanceModal"
+
+                                    ng-click="openDesktopRide()">AUTOMATION
+                            </button>
+                            <br>
+
+                            <!--<button class="btn btn-primary btn-block"-->
+                            <!--data-toggle="modal"-->
+                            <!--data-backdrop="static" data-keyboard="false"-->
+                            <!--data-target="#performanceModal"-->
+
+                            <!--ng-click="openMobileRide()">LOAD-->
+                            <!--</button>-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--mobileExecuteTestCaseModal3>-->
+
+            <div class="modal fade " id="mobileExecuteTestCaseModal3"
+                 tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a style="cursor: pointer" class=" pull-left"
+                               ng-click="mobileTestingViaTestOpsModalClose()">
+                                              <span style="font-weight:700;color:#cccccc"
+                                                    class="glyphicon glyphicon-menu-left"></span>
+                            </a>
+
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <!--<h4 class="modal-title">My Modal</h4>-->
+                            <h4 class="modal-title">Execute Test Case</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <button class="btn btn-primary btn-block"
+                                    ng-class="{'mobileModalViaTestOpsHeadingStyle':mobileModalViaTestOpsHeadingStyle}">Via TestOps
+                            </button>
+                            <a role="button"
+                               class="btn btn-primary btn-block"
+                               data-backdrop="static" data-keyboard="false"
+                               data-toggle="modal"
+                               data-target="#singleModal"
+                               ng-click="openDesktopJenkins()">FUNCTIONAL
+                            </a>
+                            <br>
+
+                            <button class="btn btn-primary btn-block"
+                                    data-toggle="modal"
+                                    data-backdrop="static" data-keyboard="false"
+                                    data-target="#performanceModal"
+
+                                    ng-click="openDesktopJenkins()">AUTOMATION
+                            </button>
+                            <br>
+
+                            <!--<button class="btn btn-primary btn-block"-->
+                            <!--data-toggle="modal"-->
+                            <!--data-backdrop="static" data-keyboard="false"-->
+                            <!--data-target="#performanceModal"-->
+
+                            <!--ng-click="openJenkins()">LOAD-->
+                            <!--</button>-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="mobileDivBtn">
+            <h4 class="stepTextColor">Step 4</h4>
+            <a class="btn btn-primary mobileStepBtn"  ng-click="desktopAnalyze()">
+                Analyze
+                Results
+            </a>
+
+            <!--<a class="btn btn-primary mobileStepBtn"  ng-click="mobileAnalyze()">-->
+            <!--Analyze-->
+            <!--Results-->
+            </a>
+        </div>
+    </div>
+</div></section>
+
+
+<br>
+<section>  <div style=" margin-left:0;margin-right:0;overflow: auto" class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+        <!--<input type="text" ng-model="ngModel1" disabled-->
+        <!--style="cursor:default;padding: 1% 0 1% 35%" class="form-control">-->
+
+
+        <input type="text" ng-model="ngModel1" disabled
+               style="cursor:default;padding: 1% 0 1% 5%;text-align: center" class="form-control">
+
+
+    </div>
+    <div class="col-md-1"></div>
+</div></section>
+<br>
+<section>  <div  style=" margin-left:0;margin-right:0;overflow: auto" class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="background-color: #4b8ec9">
+        <div class="row">
+            <h4 class="webTestingHoverHeading">Open Source Architecture
+                <!-- <strong style="font-size: large">Architecture</strong> -->
+            </h4>
+        </div>
+
+        <div class="row" id="webBubbleRow" >
+            <div class="col-md-12" style="padding: 2% 0 5% 0;">
+
+
+                <div class="col-md-3 col-sm-3 fontsize" >
+                    <div class="test test1" style="margin-top: 0">TEST ANALYSIS</div>
+                    <div class="test test2" style="margin-top: 5%">TEST MANAGEMENT</div>
+                    <div class="test test4" style="margin-top: 8%;">TEST EXECUTION</div>
+                    <div class="test test3" style="margin-top: 6%">TEST DESIGN</div>
+
+
+                </div>
+                <div class="col-md-9 col-sm-9">
+                    <table class="table1" border="1" width="100%" style="color: white">
+
+                        <tr id="1row">
+                            <td colspan="7" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used to visualize and display complex data in the form of variety of 2D and 3D graphs"
+                                data-placement="top"
+                            >Kibana</td>
+                            <td colspan="7" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content="It is the main engine that crunches the data
+                                        feed from Logstash  to create insights and gives the results to Kibana"
+                                data-placement="top">Elastic Search</td>
+                            <td colspan="6" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content="It is used to feed the data provided by various sources to Elastic search"
+                                data-placement="top">Logstash</td>
+                        </tr>
+                        <tr id="2row">
+                            <td colspan="10" class="colspan"  data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used for selection and execution of the test cases as well as show test results, logs and reports"
+                                data-placement="top">RIDE</td>
+                            <td colspan="10" class="colspan"  data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used for test automation from command line to enable CDCI DevOps test life cycle"
+                                data-placement="top">Jenkins</td>
+                        </tr>
+                        <tr id="4row">
+                            <td colspan="2" class="colspan"  data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used to automate browser to execute web UI test cases"
+                                data-placement="top">Selenium</td>
+                            <td colspan="2" class="colspan"  data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used to record, create and execute functional and automation test cases from the browser for web API testing and manually for product API testing.
+                                        It also converts swagger and YAML API documents to API for creating testcases for product API testing  "
+                                data-placement="top">Postman</td>
+                            <td colspan="2" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content="It is used to execute load test cases for web API and product API testing"
+                                data-placement="top">Newman</td>
+                            <td colspan="2" class="colspan"   data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used to capture system performance such as CPU utilization and Memory usage"
+                                data-placement="top">Data Capture</td>
+                            <td colspan="2" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content="It is used to execute web UI testing in the browser such as chrome, firefox, IE etc."
+                                data-placement="top">Browser Driver</td>
+                            <td colspan="2" class="colspan"   data-toggle="popover" data-trigger="hover"
+                                data-content="It is used to execute web UI testing in the background with out the browser"
+                                data-placement="top" >Headless Driver</td>
+                            <td   colspan="2" class="colspan" data-toggle="popover" data-trigger="hover"
+                                  data-content="It is used to execute mobile application test cases using real phones as well as simulator"
+                                  data-placement="top">Appium</td>
+                            <td colspan="3" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used to simulate Android devices for test execution 	"
+                                data-placement="top">Genymotion</td>
+                            <td colspan="3" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content="It is used to simulate iOS devices for test execution "
+                                data-placement="top">Iphone Simulator</td>
+
+                        </tr>
+                        <tr id="3row">
+                            <td  colspan="4" class="colspan" data-toggle="popover" data-trigger="hover"
+                                 data-content="It is used to record test cases
+                                          from the browser for web UI testing as well as to covert in to JSON Format"
+                                 data-placement="top">Kantu</td>
+                            <td colspan="5" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used to record, create and execute functional and automation test
+                                         cases from the browser for web API testing and manually for product API testing.
+                                         It also converts swagger and YAML API documents to API for creating testcases for product API testing "
+                                data-placement="top">Postman</td>
+                            <td colspan="3" class="colspan"  data-toggle="popover" data-trigger="hover"
+                                data-content=" It is used to convert JSON format to Python format required for test execution"
+                                data-placement="top">Parser</td>
+                            <td  colspan="4" class="colspan" data-toggle="popover" data-trigger="hover"
+                                 data-content=" It is used to create testcases for Android (Notepad++) and iOS (Xcode) application testing"
+                                 data-placement="top">Editor</td>
+                            <td colspan="4" class="colspan" data-toggle="popover" data-trigger="hover"
+                                data-content="It is used to detect the elements in the mobile
+                                         UI for Android (UI Automator) and iOS (Inspector) application testin"
+                                data-placement="top">Detector</td>
+
+
+                        </tr>
+
+
+
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div></section>
+
+
+
+
+
