@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180306 14:41:07.839" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\WebTesting\API\GUI\Demo_TON\LoadTest.robot" id="s1" name="LoadTest">
+<test id="s1-t1" name="AL_Run_All">
+<kw name="TestExecution Arguments" library="Comment">
+<arguments>
+<arg>Iterations</arg>
+<arg>VirtualUsers</arg>
+<arg>RampUP Period</arg>
+</arguments>
+<status status="PASS" endtime="20180306 14:41:07.977" starttime="20180306 14:41:07.976"></status>
+</kw>
+<kw name="TC AF Bell Demo" library="AF_Bell_Demo">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180306 14:41:13.734" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180306 14:41:13.734" starttime="20180306 14:41:07.978"></status>
+</kw>
+<kw name="TC AF NFV 001" library="AF_NFV_001">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180306 14:41:27.484" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180306 14:41:27.485" starttime="20180306 14:41:13.735"></status>
+</kw>
+<status status="PASS" endtime="20180306 14:41:27.486" critical="yes" starttime="20180306 14:41:07.975"></status>
+</test>
+<status status="PASS" endtime="20180306 14:41:27.488" starttime="20180306 14:41:07.857"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="LoadTest" pass="1">LoadTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

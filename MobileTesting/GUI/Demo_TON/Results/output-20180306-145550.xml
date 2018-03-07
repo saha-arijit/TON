@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180306 14:55:50.724" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\MobileTesting\GUI\Demo_TON\mobileTestcase.robot" id="s1" name="mobileTestcase">
+<test id="s1-t1" name="Android_Calculator_002">
+<kw name="TestExecution Arguments" library="Comment">
+<status status="PASS" endtime="20180306 14:55:50.859" starttime="20180306 14:55:50.858"></status>
+</kw>
+<kw name="TC Android Calculator 002Run" library="Android_Calculator_002Run">
+<msg timestamp="20180306 14:56:36.957" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180306 14:56:36.957" starttime="20180306 14:55:50.860"></status>
+</kw>
+<status status="PASS" endtime="20180306 14:56:36.958" critical="yes" starttime="20180306 14:55:50.857"></status>
+</test>
+<test id="s1-t2" name="Android_Calculator">
+<kw name="TestExecution Arguments" library="Comment">
+<status status="PASS" endtime="20180306 14:56:36.960" starttime="20180306 14:56:36.960"></status>
+</kw>
+<kw name="TC Android CalculatorRun" library="Android_CalculatorRun">
+<msg timestamp="20180306 14:57:13.191" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180306 14:57:13.191" starttime="20180306 14:56:36.961"></status>
+</kw>
+<status status="PASS" endtime="20180306 14:57:13.192" critical="yes" starttime="20180306 14:56:36.959"></status>
+</test>
+<status status="PASS" endtime="20180306 14:57:13.193" starttime="20180306 14:55:50.741"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="mobileTestcase" pass="2">mobileTestcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

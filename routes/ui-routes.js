@@ -175,6 +175,19 @@ UIRoutes.prototype.init = function() {
           });
          }
 
+         else if (req.body == 'Desktop'){
+
+            dataFile = baseFolder+"/DesktopTesting/CPU%."+"csv";
+            ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
+            
+            fs.writeFile(dataFile,ColumnNamesList , function(err) {
+            if(err) {
+             return console.log(err);
+            }
+            console.log("The file was saved!");
+          });
+         }
+
         console.log("Came into Jenkins")
             child = shell.exec('Start chrome http://localhost:8080')
             res.end();
@@ -800,20 +813,35 @@ UIRoutes.prototype.init = function() {
 
         console.log("Came into open Winium");
 
-            // cmd.get('netstat -ano | findstr :4723',function(err, data, stderr){
-            //     if(data == '') {
-            //         child = exec('start '+baseFolder+"/bat_file/openAppium.bat", (e, stdout, stderr)=> {
-            //             if (e instanceof Error) {
-            //                 console.error(e);
-            //                 throw e;
-            //             };
-            //             res.end();
-            //         });
-            //     }
-            //     else{
-            //         console.log('Winium is Already Running on port 9999')
-            //     }
-            // });
+            cmd.get('netstat -ano | findstr :9999',function(err, data, stderr){
+                if(data == '') {
+                    child = exec('start '+baseFolder+"/bat_file/openWinium.bat", (e, stdout, stderr)=> {
+                        if (e instanceof Error) {
+                            console.error(e);
+                            throw e;
+                        };
+                        res.end();
+                    });
+                }
+                else{
+                    console.log('Winium is Already Running on port 9999')
+                }
+            });
+        });
+
+        app.post('/analyzeMobileGUI',
+        function(req, res){
+
+        console.log("Came to Analyze API Results");
+        child = exec(baseFolder+"/back_end/Desktop/viewAnalytics.py "+baseFolder+' '+appName, (e, stdout, stderr)=> {
+        if (e instanceof Error) {
+         console.error(e);
+         throw e;
+        }
+        console.log('stdout ', stdout);
+        res.end();
+        });
+            console.log("Entering  into Kibana");
         });
 
 };
