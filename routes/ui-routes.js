@@ -534,7 +534,7 @@ UIRoutes.prototype.init = function() {
             sleep(3000);
 
             xmlFileName = folder2+"/"+collFile[0]+".xml"
-            child = exec('python '+baseFolder+'/back_end/API_GUI/CreateJob.py '+ collFile[0] +" " + xmlFileName, (e, stdout, stderr)=> {
+            child = exec('python '+baseFolder+'/back_end/API_GUI/CreateJob.py '+ collFile[0] +" " + xmlFileName + " " + baseFolder, (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
