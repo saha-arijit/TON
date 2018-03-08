@@ -5,10 +5,9 @@ import sys
 class uiSpy:
 
 	def openSPY(self):
-		
-		# confFile = "D:/TON/bat_file/UISpy.bat"
-		# os.system ('start '+ confFile)
-		
 
+		osCommandString = "C:/UISpy/UISpy.exe"
+		os.system(osCommandString)
+    
 uiSpy = uiSpy()
 uiSpy.openSPY()
