@@ -1,8 +1,9 @@
-var exec        =    require('child_process').exec,
-    fs          =    require('fs');
+var exec        = require('child_process').exec,
+    fs          = require('fs');
 var sleep       = require('system-sleep');
 var cmd         = require('node-cmd');
 var forEach     = require('async-foreach').forEach;
+var PythonShell = require('python-shell');
 
 var flag        = 0
     current_dir = __dirname;
@@ -193,12 +194,20 @@ UIRoutes.prototype.init = function() {
             res.end();
     }); 
 
-    app.post('/notepad',
-    function(req, res){
-            
-            console.log("came into NotePad++")
-            child = shell.exec('START C:/Notepad++/notepad++.exe');
-            res.end();
+    app.post('/notepad',function(req, res){
+
+        console.log("came into NotePad++")
+        if(req.body == 'Desktop'){
+
+            // child = shell.exec('START C:/UISpy/UISpy.exe');
+            PythonShell.run('D:/TON/back_end/Desktop/UISpy.py', function (err) {
+            if (err) throw err;
+               console.log('finished');
+           });
+        };
+
+        child = shell.exec('START C:/Notepad++/notepad++.exe');
+
     }); 
 
 
@@ -829,7 +838,7 @@ UIRoutes.prototype.init = function() {
             });
         });
 
-        app.post('/analyzeMobileGUI',
+        app.post('/analyzeDesktop',
         function(req, res){
 
         console.log("Came to Analyze API Results");

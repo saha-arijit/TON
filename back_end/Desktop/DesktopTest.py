@@ -10,7 +10,7 @@ class DesktopTest:
 		location = "/back_end/Desktop/"
 		
 		# Calling method to create Run Python file for Collection
-		mobile.createRunFile(json,rootFolder,base,app)
+		desktop.createRunFile(json,rootFolder,base,app)
 
 		
 	def createRunFile(self,json,rootFolder,base,app):
@@ -37,7 +37,7 @@ class DesktopTest:
 
 		test = testCase[6]+".py"
 		
-		robot = mobileRobot()
+		robot = DesktopRobot()
 		robot.createTestFile(test, rootFolder)
 
 		

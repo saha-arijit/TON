@@ -293,16 +293,16 @@ kibanaApp.controller('everyDesktopController', ['$scope', '$http', 'Upload','$ro
         $scope.desktopAnalyze = function () {
 
 
-            // $http({
-            //     method: 'post',
-            //     url: '/analyzeDesktop'
-            // }).then(function success(response) {
-            //
-            //     console.log("resp", response)
-            // },function error(error) {
-            //
-            //     console.log("err", error)
-            // });
+            $http({
+                method: 'post',
+                url: '/analyzeDesktop'
+            }).then(function success(response) {
+            
+                console.log("resp", response)
+            },function error(error) {
+            
+                console.log("err", error)
+            });
             $scope.ngModel1 = "Kibana will be opening shortly.";
 
             setTimeout(function () {
