@@ -199,7 +199,6 @@ UIRoutes.prototype.init = function() {
         console.log("came into NotePad++")
         if(req.body == 'Desktop'){
 
-            // child = shell.exec('START C:/UISpy/UISpy.exe');
             PythonShell.run('D:/TON/back_end/Desktop/UISpy.py', function (err) {
             if (err) throw err;
                console.log('finished');
@@ -207,6 +206,7 @@ UIRoutes.prototype.init = function() {
         };
 
         child = shell.exec('START C:/Notepad++/notepad++.exe');
+        res.end()
 
     }); 
 

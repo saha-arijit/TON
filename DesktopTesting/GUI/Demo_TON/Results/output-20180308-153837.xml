@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180308 15:38:37.856" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\DesktopTesting\GUI\Demo_TON\DesktopTestcase.robot" id="s1" name="DesktopTestcase">
+<test id="s1-t1" name="CalcPythton">
+<kw name="TestExecution Arguments" library="Comment">
+<status status="PASS" endtime="20180308 15:38:37.987" starttime="20180308 15:38:37.987"></status>
+</kw>
+<kw name="TC CalcPythtonRun" library="CalcPythtonRun">
+<msg timestamp="20180308 15:38:54.641" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180308 15:38:54.641" starttime="20180308 15:38:37.987"></status>
+</kw>
+<status status="PASS" endtime="20180308 15:38:54.641" critical="yes" starttime="20180308 15:38:37.987"></status>
+</test>
+<status status="PASS" endtime="20180308 15:38:54.641" starttime="20180308 15:38:37.871"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="DesktopTestcase" pass="1">DesktopTestcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
