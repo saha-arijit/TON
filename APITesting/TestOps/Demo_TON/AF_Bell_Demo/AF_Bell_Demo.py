@@ -13,13 +13,13 @@ def TC_AF_Bell_Demo(iterations=1, vuser=1, ramp=1):
 	thread1.start()
 	if(int(vuser) == 1): 
 		os.chdir("D:/TON/APITesting/TestOps/Demo_TON/AF_Bell_Demo")
-		cmd = "newman run AF_Bell_Demo.json -e globals.postman_globals.json -r html --reporter-html-export result.html -x -n "+str(iterations)
+		cmd = "newman run AF_Bell_Demo.json -e globals.postman_globals.json -r html --reporter-html-export newman_reports/result.html -x -n "+str(iterations)
 		os.system(cmd)
 	elif(int(vuser) > 1):
 		i =1
 		while i <= int(vuser):
 			os.chdir("D:/TON/APITesting/TestOps/Demo_TON/AF_Bell_Demo")
-			cmd = "newman run AF_Bell_Demo.json -e globals.postman_globals.json -r html --reporter-html-export result_"+str(i)+".html -x -n "+str(iterations)
+			cmd = "newman run AF_Bell_Demo.json -e globals.postman_globals.json -r html --reporter-html-export newman_reports/result_"+str(i)+".html -x -n "+str(iterations)
 			os.system(cmd)
 			time.sleep(int(ramp)/int(vuser))
 			i = i +1

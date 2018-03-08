@@ -8,6 +8,6 @@ class uiSpy:
 
 		osCommandString = "C:/UISpy/UISpy.exe"
 		os.system(osCommandString)
-		
+    
 uiSpy = uiSpy()
 uiSpy.openSPY()

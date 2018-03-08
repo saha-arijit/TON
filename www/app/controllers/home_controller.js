@@ -1,5 +1,5 @@
-kibanaApp.controller('homeController',['$scope','$http','$location','$rootScope','$window',
-    function ($scope,$http,$location,$rootScope,$window) {
+kibanaApp.controller('homeController',['$scope','$http','$location','$rootScope',
+    function ($scope,$http,$location,$rootScope) {
 
         $rootScope.loading=false;
 // Enabling the ng-class
