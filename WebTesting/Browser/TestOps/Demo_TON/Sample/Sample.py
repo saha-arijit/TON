@@ -9,6 +9,8 @@ thread1 = myThread(1, "Thread-1", 1)
 
 def TC_Sample(var_head, var_instances, var_load):
 
+	x = 0
+	t = 't'
 	baseFolder = 'D:/TON'
 	appName    = 'Demo_TON'
 	TC = 'Sample'
@@ -16,8 +18,16 @@ def TC_Sample(var_head, var_instances, var_load):
 		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
 		thread1.start()
 		for i in range (0, int(var_instances)):
-			Thread(target = Sample, args = [var_head]).start()
+			t = 't'
+			t = t + str(i)
+			t = threading.Thread(target = Sample, args = [var_head])
+			t.start()
 
+		while (x == 0):
+			if t.isAlive():
+				time.sleep(2)
+			else:
+				x = 1
 	else:
 		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
 		thread1.start()
