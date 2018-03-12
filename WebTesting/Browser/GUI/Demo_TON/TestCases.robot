@@ -12,6 +12,6 @@ BF_Signup
 
 Sample
     TestExecution Arguments    Headless    Instances    LoadTest
-    TC_Sample    no    4    yes
+    TC_Sample    no    0    no
 
 *** Keywords ***
