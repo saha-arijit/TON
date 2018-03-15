@@ -15,6 +15,7 @@
       <command>cd \ 
 cd /d D:/TON
 cd WebTesting/API/TestOps/Demo_TON/
+python D:/TON/back_end/Common/setParameters.py D:/TON WebAPI FlipkartCollection Iterations=1 VirtualUsers=1	RampUPPeriod=1 
 pybot.bat -d ..\Demo_TON\FlipkartCollection\Results --timestamp --reportbackground white:white:white -t FlipkartCollection LoadTest.robot  </command>
     </hudson.tasks.BatchFile>
   </builders>

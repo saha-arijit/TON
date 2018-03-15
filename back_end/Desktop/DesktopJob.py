@@ -22,6 +22,7 @@ class DesktopJob:
 		file.write("  <builders>" + "\n")
 		file.write("    <hudson.tasks.BatchFile>" + "\n")
 		file.write("      <command>cd \ " + "\n"+ "cd /d " + baseFolder + "\n" + "cd DesktopTesting/TestOps/"+appName+ "/" + "\n" + 
+									"python "+baseFolder+"/back_end/Common/setParameters.py "+baseFolder+" Desktop "+job+" Headless=no Instances=0 LoadTest=no"+ "\n"+
 									"pybot.bat -d ..\\"+appName+"\\"+job+"\Results --timestamp --reportbackground white:white:white -t "+ job+" DesktopTestcase.robot " +" </command>" + "\n")
 		file.write("    </hudson.tasks.BatchFile>" + "\n")
 		file.write("  </builders>" + "\n")

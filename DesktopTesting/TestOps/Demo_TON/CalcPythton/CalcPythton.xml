@@ -15,6 +15,7 @@
       <command>cd \ 
 cd /d D:/TON
 cd DesktopTesting/TestOps/Demo_TON/
+python D:/TON/back_end/Common/setParameters.py D:/TON Desktop CalcPythton Headless=no Instances=0 LoadTest=no
 pybot.bat -d ..\Demo_TON\CalcPythton\Results --timestamp --reportbackground white:white:white -t CalcPythton DesktopTestcase.robot  </command>
     </hudson.tasks.BatchFile>
   </builders>
