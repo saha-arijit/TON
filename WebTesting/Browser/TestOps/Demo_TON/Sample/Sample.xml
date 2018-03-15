@@ -15,6 +15,7 @@
       <command>cd \ 
 cd /d D:/TON
 cd WebTesting/Browser/TestOps/Demo_TON/
+python D:/TON/back_end/Common/setParameters.py D:/TON Browser Sample Headless=no Instances=0 LoadTest=no
 pybot.bat -d ..\Demo_TON\Sample\Results --timestamp --reportbackground white:white:white -t Sample TestCases.robot  </command>
     </hudson.tasks.BatchFile>
   </builders>

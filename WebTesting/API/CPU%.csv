@@ -1,5 +1,16 @@
 Time , CPU (%), Memory Usage (%), TestCase
-11:31:38,27,0.87,AF_Insomnia
-11:31:59,11,0.86,FlipkartCollection
-11:32:01,19,0.85,FlipkartCollection
-11:32:03,10,0.94,FlipkartCollection
+10:50:51,72,0.70,FlipkartCollection
+10:50:56,38,0.74,FlipkartCollection
+10:50:59,34,0.75,FlipkartCollection
+10:51:01,36,0.75,FlipkartCollection
+10:51:04,76,0.77,FlipkartCollection
+10:51:06,85,0.73,FlipkartCollection
+10:51:09,29,0.74,FlipkartCollection
+10:51:12,34,0.73,FlipkartCollection
+10:51:14,82,0.75,FlipkartCollection
+10:51:17,39,0.72,FlipkartCollection
+10:51:19,36,0.73,FlipkartCollection
+10:51:22,52,0.78,FlipkartCollection
+10:51:24,80,0.73,FlipkartCollection
+10:51:27,36,0.71,FlipkartCollection
+10:51:30,48,0.79,FlipkartCollection
