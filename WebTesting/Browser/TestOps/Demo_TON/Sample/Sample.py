@@ -13,6 +13,8 @@ def TC_Sample(var_head, var_instances, var_load):
 	t = 't'
 	baseFolder = 'D:/TON'
 	appName    = 'Demo_TON'
+	global check
+	check = 0
 	TC = 'Sample'
 	if (var_load == "YES" or var_load == "Yes" or var_load == "yes"):
 		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
@@ -27,6 +29,8 @@ def TC_Sample(var_head, var_instances, var_load):
 			if t.isAlive():
 				time.sleep(2)
 			else:
+				if(check == 1):
+					assert(1>2)
 				x = 1
 	else:
 		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
@@ -75,4 +79,6 @@ def Sample(var_head):
 	except Exception as e:
 		thread1.stop()
 		driver.quit()
+		global check
+		check = 1
 		assert (1 > 2) , str(e)

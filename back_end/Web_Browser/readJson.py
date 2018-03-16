@@ -91,6 +91,8 @@ class readJson :
 				file.write ("\t"+"except Exception as e:"+"\n")
 				file.write ("\t"+"\t"+"thread1.stop()"+"\n")
 				file.write ("\t"+"\t"+"driver.quit()"+"\n")
+				file.write ("\t"+"\t"+"global check"+"\n")
+				file.write ("\t"+"\t"+"check = 1"+"\n")
 				file.write ("\t"+"\t"+"assert (1 > 2) , str(e)"+"\n")
 
 	def write_ClassName(self, testCase, file,baseFolder,appName):
@@ -99,6 +101,8 @@ class readJson :
 		file.write ("\t"+"t = 't'" +"\n")
 		file.write ("\t"+"baseFolder = '"+baseFolder+"'" +"\n")
 		file.write ("\t"+"appName    = '"+appName+"'" +"\n")
+		file.write ("\t"+"global check"+"\n")
+		file.write ("\t"+"check = 0"+"\n")
 		file.write ("\t"+"TC = '"+testCase[6]+"'"+"\n")
 		file.write ("\t"+"if (var_load == \"YES\" or var_load == \"Yes\" or var_load == \"yes\"):" +"\n")
 		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName,TC,int(var_instances))" + "\n")
@@ -112,6 +116,8 @@ class readJson :
 		file.write ("\t"+"\t"+"\t"+"if t.isAlive():"+ "\n")
 		file.write ("\t"+"\t"+"\t"+"\t"+"time.sleep(2)"+ "\n")
 		file.write ("\t"+"\t"+"\t"+"else:"+ "\n")
+		file.write ("\t"+"\t"+"\t"+"\t"+"if(check == 1):"+ "\n")
+		file.write ("\t"+"\t"+"\t"+"\t"+"\t"+"assert(1>2)"+ "\n")
 		file.write ("\t"+"\t"+"\t"+"\t"+"x = 1"+ "\n")
 		file.write ("\t"+"else:" + "\n")
 		file.write ("\t"+"\t"+"thread1.createCSV(baseFolder,appName,TC,int(var_instances))" + "\n")
