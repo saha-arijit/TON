@@ -15,7 +15,12 @@
       <command>cd \ 
 cd /d D:/TON
 cd WebTesting/API/TestOps/Demo_TON/
+<<<<<<< HEAD:WebTesting/API/TestOps/Demo_TON/TwitterCollection/TwitterCollection.xml
 pybot.bat -d ..\Demo_TON\TwitterCollection\Results --timestamp --reportbackground white:white:white -t TwitterCollection LoadTest.robot  </command>
+=======
+python D:/TON/back_end/Common/setParameters.py D:/TON WebAPI AF_Insomnia Iterations=1 VirtualUsers=1	RampUPPeriod=1 
+pybot.bat -d ..\Demo_TON\AF_Insomnia\Results --timestamp --reportbackground white:white:white -t AF_Insomnia LoadTest.robot  </command>
+>>>>>>> 1847e9b9960f950a69623a7dabd16ab134d1cbeb:WebTesting/API/TestOps/Demo_TON/AF_Insomnia/AF_Insomnia.xml
     </hudson.tasks.BatchFile>
   </builders>
   <publishers/>

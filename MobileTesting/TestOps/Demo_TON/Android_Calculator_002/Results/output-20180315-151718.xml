@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180315 15:17:18.527" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\TON\MobileTesting\TestOps\Demo_TON\mobileTestcase.robot" id="s1" name="mobileTestcase">
+<test id="s1-t1" name="Android_Calculator_002">
+<kw name="TestExecution Arguments" library="Comment">
+<status status="PASS" endtime="20180315 15:17:18.656" starttime="20180315 15:17:18.656"></status>
+</kw>
+<kw name="TC Android Calculator 002Run" library="Android_Calculator_002Run">
+<msg timestamp="20180315 15:17:54.930" level="INFO">Starting Thread-1
+
+Exiting Main Thread</msg>
+<status status="PASS" endtime="20180315 15:17:54.930" starttime="20180315 15:17:18.656"></status>
+</kw>
+<status status="PASS" endtime="20180315 15:17:54.930" critical="yes" starttime="20180315 15:17:18.655"></status>
+</test>
+<status status="PASS" endtime="20180315 15:17:54.931" starttime="20180315 15:17:18.530"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="mobileTestcase" pass="1">mobileTestcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
