@@ -346,7 +346,7 @@ UIRoutes.prototype.init = function() {
                 if (err)
                     return res.status(500).send(err);
                 });
-              sleep(5000);
+              sleep(2000);
 
             child = shell.exec('python '+forBrowser+'/readJson.py ' + inputFileName+' '+baseFolder+' '+appName);
 
@@ -373,7 +373,7 @@ UIRoutes.prototype.init = function() {
             });
 
 
-            sleep(3000);
+            sleep(2000);
 
             var name = folder2+"/"+folderName[0]
             console.log ("XML NAME " + name+".xml")

@@ -9,15 +9,29 @@ thread1 = myThread(1, "Thread-1", 1)
 
 def TC_BF_Signup(var_head, var_instances, var_load):
 
+	#***************
+	t = 't'
+	x = 0
+	#**************
 	baseFolder = 'D:/TON'
 	appName    = 'Demo_TON'
 	TC = 'BF_Signup'
 	if (var_load == "YES" or var_load == "Yes" or var_load == "yes"):
 		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
 		thread1.start()
+		#**************************************
 		for i in range (0, int(var_instances)):
-			Thread(target = BF_Signup, args = [var_head]).start()
+			t = 't'
+			t = t + str(i)  
+			t = threading.Thread(target = BF_Signup, args = [var_head])
+			t.start()
 
+		while (x == 0):	
+			if t.isAlive():
+				time.sleep(2)
+			else:
+				x = 1
+		#***************************************
 	else:
 		thread1.createCSV(baseFolder,appName,TC,int(var_instances))
 		thread1.start()

@@ -14,8 +14,8 @@
     <hudson.tasks.BatchFile>
       <command>cd \ 
 cd /d D:/TON
-cd WebTesting/Browser/TestOps/Demo_TON/
-pybot.bat -d ..\Demo_TON\Sample\Results --timestamp --reportbackground white:white:white -t Sample TestCases.robot  </command>
+cd WebTesting/API/TestOps/Demo_TON/
+pybot.bat -d ..\Demo_TON\TwitterCollection\Results --timestamp --reportbackground white:white:white -t TwitterCollection LoadTest.robot  </command>
     </hudson.tasks.BatchFile>
   </builders>
   <publishers/>
