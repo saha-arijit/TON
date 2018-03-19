@@ -303,7 +303,7 @@ kibanaApp.controller('everyDesktopController', ['$scope', '$http', 'Upload','$ro
             
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana will be opening shortly.";
+            $scope.ngModel1 = "Kibana will open in 30 seconds";
 
             setTimeout(function () {
                 $scope.$apply(
