@@ -297,7 +297,7 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana will be opening shortly.";
+            $scope.ngModel1 = "Kibana will open in 30 seconds";
 
             setTimeout(function () {
                 $scope.$apply(
