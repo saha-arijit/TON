@@ -6,8 +6,9 @@ class viewAnalytics:
 
 	def confToLogstash(self,baseFolder,appName):
 		
-		confFile = baseFolder+"/bat_file/Mobileconf.bat"
-		os.system ('start '+ confFile)
+		# confFile = baseFolder+"/bat_file/Mobileconf.bat"
+		confFile = "CSCRIPT "+baseFolder+'\\bat_file\\logstash_feed.vbs "'+baseFolder+'\\bat_file\\Mobileconf.bat"'
+		os.system (confFile)
 		self.baseFolder = baseFolder
 
 		# self.setIndex(baseFolder,appName)

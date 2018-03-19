@@ -1,18 +1,2 @@
 Time , CPU (%), Memory Usage (%), TestCase
-11:27:13,17,1.00,CalcPythton
-11:27:16,31,0.99,CalcPythton
-11:27:19,14,0.97,CalcPythton
-11:27:21,28,0.97,CalcPythton
-11:27:24,42,0.95,CalcPythton
-11:27:26,13,0.95,CalcPythton
-11:27:29,17,0.95,CalcPythton
-11:27:31,10,0.98,CalcPythton
-11:27:34,10,0.98,CalcPythton
-11:27:36,5,0.98,CalcPythton
-11:27:38,7,0.97,CalcPythton
-11:27:41,18,0.99,CalcPythton
-11:29:06,36,0.95,CalcPythton
-11:29:09,5,0.94,CalcPythton
-11:29:11,22,0.95,CalcPythton
-11:29:14,10,0.98,CalcPythton
-11:29:16,41,0.98,CalcPythton
+02:50:09,11,0.85,CalcPythton
