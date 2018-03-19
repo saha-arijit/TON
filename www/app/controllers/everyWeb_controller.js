@@ -483,7 +483,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
                 console.log("err", error)
             });
 
-            $scope.ngModel1 = "Kibana will be opening shortly.";
+            $scope.ngModel1 = "Kibana will open in 30 seconds";
 
             setTimeout(function () {
                 $scope.$apply(
@@ -522,7 +522,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
                 console.log("err", error)
             });
-            $scope.ngModel1 = "Kibana will be opening shortly.";
+            $scope.ngModel1 = "Kibana will open in 30 seconds";
 
             setTimeout(function () {
                 $scope.$apply(
