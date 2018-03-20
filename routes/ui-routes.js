@@ -681,8 +681,8 @@ UIRoutes.prototype.init = function() {
 
          if(data == '') {   
           // child = exec('start '+baseFolder+"/bat_file/openAppium.bat", (e, stdout, stderr)=> {
-            appiumCommand = "CSCRIPT "+baseFolder+'\\bat_file\\openApplication.vbs "'+baseFolder+'\\bat_file\\openAppium.bat"'
-            child = exec(appiumCommand, (e, stdout, stderr)=> {
+           
+            child = exec("start "+baseFolder+'\\bat_file\\openAppium.vbs "'+baseFolder+'"', (e, stdout, stderr)=> {
              if (e instanceof Error) {
                console.error(e);
                throw e;
@@ -827,7 +827,7 @@ UIRoutes.prototype.init = function() {
             cmd.get('netstat -ano | findstr :9999',function(err, data, stderr){
                 if(data == '') {
                     // child = exec('start '+baseFolder+"/bat_file/openWinium.bat", (e, stdout, stderr)=> { 
-                       child = exec("CSCRIPT "+baseFolder+'\\bat_file\\openApplication.vbs "'+baseFolder+'\\bat_file\\openWinium.bat"', (e, stdout, stderr)=> {
+                       child = exec("start "+baseFolder+'\\bat_file\\openWinium.vbs "'+baseFolder+'"', (e, stdout, stderr)=> {
                         if (e instanceof Error) {
                             console.error(e);
                             throw e;
