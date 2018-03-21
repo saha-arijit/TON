@@ -212,9 +212,12 @@ kibanaApp.controller('everyMobileController', ['$scope', '$http', 'Upload','$roo
     // Sending Http Request
 // For step1 start
     $scope.openNotepad = function () {
+
+        var mobile = "Mobile";
         $http({
             method: 'post',
-            url: '/notepad'
+            url: '/notepad',
+            data:[mobile]
         }).then(function success(response) {
 
             $scope.ngModel1 = "Editor will be opening shortly.";
