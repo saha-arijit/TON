@@ -207,8 +207,10 @@ UIRoutes.prototype.init = function() {
 
         if(req.body == 'Mobile'){
 
-            console.log ("In MonbSdfasfasfsf")
-            child = shell.exec('uiautomatorviewer');
+         PythonShell.run(baseFolder+'/back_end/Mobile_GUI/UIAutomater.py', function (err) {
+            if (err) throw err;
+               console.log('finished');
+           });
            };
 
         child = shell.exec('START C:/Notepad++/notepad++.exe');
