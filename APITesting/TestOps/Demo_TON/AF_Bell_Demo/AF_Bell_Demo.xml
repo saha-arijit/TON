@@ -14,7 +14,7 @@
     <hudson.tasks.BatchFile>
       <command>cd \ 
 cd /d D:/TON
-cd D:/TON/APITesting/TestOps/Demo_TON/
+cd APITesting/TestOps/Demo_TON/
 python D:/TON/back_end/Common/setParameters.py D:/TON API AF_Bell_Demo Iterations=1 VirtualUsers=1 RampUPPeriod=1 
 pybot.bat -d ..\Demo_TON\AF_Bell_Demo\Results --timestamp --reportbackground white:white:white -t AF_Bell_Demo LoadTest.robot  </command>
     </hudson.tasks.BatchFile>
