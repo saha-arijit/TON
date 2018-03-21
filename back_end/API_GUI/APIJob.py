@@ -21,7 +21,7 @@ class APIJob:
 		file.write("  <concurrentBuild>false</concurrentBuild>" + "\n")
 		file.write("  <builders>" + "\n")
 		file.write("    <hudson.tasks.BatchFile>" + "\n")
-		file.write("      <command>cd \ " + "\n"+ "cd /d " + baseFolder + "\n" + "cd D:/TON/APITesting/TestOps/"+appName+ "/" + "\n" + 
+		file.write("      <command>cd \ " + "\n"+ "cd /d " + baseFolder + "\n" + "cd APITesting/TestOps/"+appName+ "/" + "\n" + 
 									"python "+baseFolder+"/back_end/Common/setParameters.py "+baseFolder+" API "+job+" Iterations=1 VirtualUsers=1 RampUPPeriod=1 "+ "\n"+
 									"pybot.bat -d ..\\"+appName+"\\"+job+"\Results --timestamp --reportbackground white:white:white -t "+ job+" LoadTest.robot " +" </command>" + "\n")
 		file.write("    </hudson.tasks.BatchFile>" + "\n")
