@@ -5,6 +5,19 @@ import sys
 class viewAnalytics:
 
 	def confToLogstash(self,baseFolder,appName):
+
+		# Kill Appium running when Step 3 was clicked
+		task   = 'netstat -ano | findstr :4723'
+		try:
+			result = subprocess.check_output(task, shell=True)
+			pid = result[-6:].strip()
+
+			killTask = 'taskkill /PID '+ pid +' /F'
+			os.system (killTask)
+
+		except :
+			print "Appium was not running."
+		
 		
 		# confFile = baseFolder+"/bat_file/Mobileconf.bat"
 		confFile = "CSCRIPT "+baseFolder+'\\bat_file\\logstash_feed.vbs "'+baseFolder+'\\bat_file\\Mobileconf.bat"'
