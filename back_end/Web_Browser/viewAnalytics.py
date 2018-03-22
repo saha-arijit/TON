@@ -5,6 +5,9 @@ import sys
 class viewAnalytics:
 
 	def confToLogstash(self,baseFolder,appName):
+
+		delCommand = "curl -XDELETE localhost:9200/browser"
+		os.system(delCommand)
 		
 		# confFile = baseFolder+"/bat_file/feedconf.bat"
 		confFile = "CSCRIPT "+baseFolder+'\\bat_file\\logstash_feed.vbs "'+baseFolder+'\\bat_file\\feedconf.bat"'
