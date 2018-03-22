@@ -6,11 +6,14 @@ class viewAnalytics:
 
 	def confToLogstash(self,baseFolder,appName):
 
+		delCommand = "curl -XDELETE localhost:9200/desktop"
+		os.system(delCommand)
+
 		# Kill Winium running when Step 3 was clicked
 		task   = 'netstat -ano | findstr :9999'
 		try:
 			result = subprocess.check_output(task, shell=True)
-			pid = result[-6:].strip()
+			pid = result[-7:].strip()
 
 			killTask = 'taskkill /PID '+ pid +' /F'
 			os.system (killTask)

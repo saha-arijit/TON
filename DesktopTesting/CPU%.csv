@@ -1,2 +1,11 @@
 Time , CPU (%), Memory Usage (%), TestCase
-02:50:09,11,0.85,CalcPythton
+1:15:30,27,0.52,BF_Sig
+1:15:48,19,0.48,BF_Sig
+1:15:51,18,0.43,BF_Sig
+1:15:53,19,0.41,BF_Sig
+1:15:56,7,0.63,BF_Sig
+1:15:30,27,0.52,BF_Signu
+1:15:48,19,0.48,BF_Signu
+1:15:51,18,0.43,BF_Signu
+1:15:53,19,0.41,BF_Signu
+1:15:56,7,0.63,BF_Signu

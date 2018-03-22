@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>cd \ 
+cd /d D:/TON
+cd WebTesting/Browser/TestOps/Demo_TON/
+python D:/TON/back_end/Common/setParameters.py D:/TON Browser BF_Signup Headless=no Instances=0 LoadTest=no
+pybot.bat -d ..\Demo_TON\BF_Signup\Results --timestamp --reportbackground white:white:white -t BF_Signup TestCases.robot  </command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
