@@ -685,23 +685,13 @@ UIRoutes.prototype.init = function() {
 
         console.log("Came into open APIIUM");
 
-        cmd.get('netstat -ano | findstr :4723',function(err, data, stderr){
-
-         if(data == '') {   
-          // child = exec('start '+baseFolder+"/bat_file/openAppium.bat", (e, stdout, stderr)=> {
-           
-            child = exec("start "+baseFolder+'\\bat_file\\openAppium.vbs "'+baseFolder+'"', (e, stdout, stderr)=> {
-             if (e instanceof Error) {
+       child = exec('python '+forMobile+'/openAppium.py '+ baseFolder, (e, stdout, stderr)=> {
+              if (e instanceof Error) {
                console.error(e);
                throw e;
-              };
-             res.end();
-            });
-          }
-          else{
-            console.log('Appium is Already Running on port 4723')
-          }
-        });
+              }
+             console.log(stdout);
+             });
     });
 
         
@@ -832,21 +822,13 @@ UIRoutes.prototype.init = function() {
 
         console.log("Came into open Winium");
 
-            cmd.get('netstat -ano | findstr :9999',function(err, data, stderr){
-                if(data == '') {
-                    // child = exec('start '+baseFolder+"/bat_file/openWinium.bat", (e, stdout, stderr)=> { 
-                       child = exec("start "+baseFolder+'\\bat_file\\openWinium.vbs "'+baseFolder+'"', (e, stdout, stderr)=> {
-                        if (e instanceof Error) {
-                            console.error(e);
-                            throw e;
-                        };
-                        res.end();
-                    });
-                }
-                else{
-                    console.log('Winium is Already Running on port 9999')
-                }
-            });
+            child = exec('python '+forDesktop+'/openWinium.py '+ baseFolder, (e, stdout, stderr)=> {
+              if (e instanceof Error) {
+               console.error(e);
+               throw e;
+              }
+             console.log(stdout);
+             });
         });
 
         app.post('/analyzeDesktop',
