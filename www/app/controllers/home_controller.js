@@ -38,6 +38,7 @@ kibanaApp.controller('homeController',['$scope','$http','$location','$rootScope'
                 var href = '/assets/UserManual-EveryDesktop.pdf';
                 $('#userManual').attr('href', href)
             }
+            
 
 
         }
