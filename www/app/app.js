@@ -9,7 +9,11 @@ kibanaApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',
                     templateUrl:"app/views/home.html",
                     controller: "homeController"
                 }
-            ).state("home.everyWeb", {
+            ).state("popup", {
+                url: '/popup',
+                templateUrl: "app/views/popup.html",
+                controller: "popupController"
+            }).state("home.everyWeb", {
                 url: '/everyWeb',
                 templateUrl: "app/views/everyWeb.html",
                 controller: "everyWebController"
@@ -34,6 +38,7 @@ kibanaApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',
 
         // Using UrlRouterProvider
 
-        $urlRouterProvider.otherwise("/home/everyWeb");
+        // $urlRouterProvider.otherwise("/home/everyWeb");
+        $urlRouterProvider.otherwise("/popup");
         $locationProvider.html5Mode(true);
     }]);

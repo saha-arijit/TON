@@ -837,6 +837,9 @@ p.webSpeech-bubble {
 }.navbar-nav>li>a {
     /*padding: 5px;*/
 }
+ .btn:active,.btn:visited{
+     outline: none!important;
+ }
 
 .navbar-brand {
     padding-top: 7px;
