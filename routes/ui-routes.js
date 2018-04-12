@@ -52,13 +52,13 @@ UIRoutes.prototype.init = function() {
         fs.stat(EULAFile, function(err,stat) {
           if(err){
             console.log(err)
-            res.end("error")
+            res.end("File not Exists")
           }
           else{
             console.log("File Exists",stat)
-            res.end("success")
+            res.end("File Exists")
           }
-      }); 
+      });
      });
 
      app.post('/accept',
@@ -67,22 +67,24 @@ UIRoutes.prototype.init = function() {
         fs.open(EULAFile,"wx" ,function (err, fd) {
           if(err){
             console.log(err)
-            res.end(err)
+            res.end("File is not Created")
           }
           else{
-          console.log("file Created")
-         }
+          console.log("File is Created")
+              res.end("File is Created")
+
+          }
       });
-        res.end()
+
      });
 
       app.post('/decline',
        function(req, res){
-       
        console.log("EULA Declined")
-       process.exit() 
-       res.end()
-       
+           res.end()
+       process.exit()
+
+
     });
 
 
@@ -103,7 +105,7 @@ UIRoutes.prototype.init = function() {
 
             dataFile = baseFolder+"/WebTesting/API/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-            
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
             if(err) {
              return console.log(err);
@@ -116,28 +118,28 @@ UIRoutes.prototype.init = function() {
 
             dataFile = baseFolder+"/APITesting/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-            
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
             if(err) {
-             return console.log(err); 
+             return console.log(err);
           }
           console.log("The file was saved!");
          });
         }
-    
+
       console.log("Came into Postman")
-     
+
             child = shell.exec('START C:/Postman/Update.exe --processStart "Postman.exe"');
             res.end();
 
-    }); 
+    });
 
 
     app.post('/postmanRecord',
     function(req, res){
-    
+
      console.log("Came into Postman for recording.")
-     
+
         child = shell.exec('START C:/Postman/Update.exe --processStart "Postman.exe"');
         res.end();
 
@@ -163,17 +165,17 @@ UIRoutes.prototype.init = function() {
      res.end();
     });
 
-            
+
 
 
     app.post('/jenkins',
     function(req, res){
 
         if (req.body == 'Web Browser'){
-            
+
             dataFile = baseFolder+"/WebTesting/Browser/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-            
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
             if(err) {
              return console.log(err);
@@ -183,10 +185,10 @@ UIRoutes.prototype.init = function() {
          }
 
         else if (req.body == 'Web API'){
-            
+
             dataFile = baseFolder+"/WebTesting/API/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-            
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
             if(err) {
              return console.log(err);
@@ -194,12 +196,12 @@ UIRoutes.prototype.init = function() {
             console.log("The file was saved!");
            });
          }
-         
+
         else if (req.body == 'API'){
-            
+
             dataFile = baseFolder+"/APITesting/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-            
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
             if(err) {
              return console.log(err);
@@ -212,7 +214,7 @@ UIRoutes.prototype.init = function() {
 
             dataFile = baseFolder+"/MobileTesting/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-            
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
             if(err) {
              return console.log(err);
@@ -225,7 +227,7 @@ UIRoutes.prototype.init = function() {
 
             dataFile = baseFolder+"/DesktopTesting/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-            
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
             if(err) {
              return console.log(err);
@@ -237,7 +239,7 @@ UIRoutes.prototype.init = function() {
         console.log("Came into Jenkins")
             child = shell.exec('Start chrome http://localhost:8080')
             res.end();
-    }); 
+    });
 
     app.post('/notepad',function(req, res){
 
@@ -261,12 +263,12 @@ UIRoutes.prototype.init = function() {
         child = shell.exec('START C:/Notepad++/notepad++.exe');
         res.end()
 
-    }); 
+    });
 
 
 	app.post('/prepareWebAPI',
         function(req, res){
-            
+
             console.log("came into prepareAPI")
             var object = req.files;
             var count = Object.keys(object).length;
@@ -275,12 +277,12 @@ UIRoutes.prototype.init = function() {
             folder1 = baseFolder+'/WebTesting/API/GUI/Demo_TON/'+collFile[0]
             folder2 = baseFolder+'/WebTesting/API/TestOps/Demo_TON/'+collFile[0]
             var folder = [folder1,folder2]
-            
+
             for(j=0;j<2;j++){
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
 
-                var fileData = req.files[value];  
+                var fileData = req.files[value];
                 var fileName =req.files[value].name;
 
             if (!fs.existsSync(folder[j])){
@@ -293,7 +295,7 @@ UIRoutes.prototype.init = function() {
                     return res.status(500).send(err);
             });
             }
-           
+
             try{
                 if(count>1){
                     cmd = 'python '+forAPI+'/Load_Json_Parser.py ' + collFile[0]+' ' +folder[j] +' '+ req.files['file[1]'].name+' '+baseFolder+' '+appName
@@ -316,14 +318,14 @@ UIRoutes.prototype.init = function() {
 
             console.log ("The file has been moved.")
         }
-            
+
             child = exec('python '+forAPI+'/WebAPIJob.py '+ baseFolder+' '+appName +' ' + collFile[0], (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
             }
             console.log('stdout ', stdout);
-            
+
             });
 
             sleep(3000);
@@ -335,13 +337,13 @@ UIRoutes.prototype.init = function() {
               throw e;
             }
             console.log('stdout ', stdout);
-            
+
             });
 
             sleep(3000);
             res.end()
-        
-    });   
+
+    });
 
 
 	app.post('/executeWebApi',
@@ -349,8 +351,8 @@ UIRoutes.prototype.init = function() {
 
         dataFile = baseFolder+"/WebTesting/API/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-          
-        
+
+
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
          if(err) {
              return console.log(err);
@@ -373,7 +375,7 @@ UIRoutes.prototype.init = function() {
         console.log(req.files   ,req,"data")
         res.end()
     });
-    
+
     app.post('/validate',
         function(req, res){
             console.log("came into validate");
@@ -446,8 +448,8 @@ UIRoutes.prototype.init = function() {
 
         dataFile = baseFolder+"/WebTesting/Browser/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-          
-        
+
+
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
          if(err) {
              return console.log(err);
@@ -530,8 +532,8 @@ UIRoutes.prototype.init = function() {
             collFile = req.files['file[0]'].name.split('.json')
             folder1 = baseFolder+'/APITesting/GUI/Demo_TON/'+collFile[0]
             folder2 = baseFolder+'/APITesting/TestOps/Demo_TON/'+collFile[0]
-            folder  = [folder1,folder2] 
-            
+            folder  = [folder1,folder2]
+
             for (j=0;j<2;j++){
             for (i=0;i<count;i++){
                  value = 'file['+i+']'
@@ -572,16 +574,16 @@ UIRoutes.prototype.init = function() {
 
             console.log ("The file has been moved.")
 
-           
+
         }
-       
+
         child = exec('python '+baseFolder+'/back_end/API_GUI/APIJob.py '+ baseFolder+' '+appName +' ' + collFile[0], (e, stdout, stderr)=> {
             if (e instanceof Error) {
               console.error(e);
               throw e;
             }
             console.log('stdout ', stdout);
-            
+
             });
 
             sleep(3000);
@@ -593,7 +595,7 @@ UIRoutes.prototype.init = function() {
               throw e;
             }
             console.log('stdout ', stdout);
-            
+
             });
 
             res.end()
@@ -601,17 +603,17 @@ UIRoutes.prototype.init = function() {
 
      app.post('/executeAPIGUI',
         function(req, res){
-        
+
         dataFile = baseFolder+"/APITesting/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-          
+
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
          if(err) {
              return console.log(err);
          }
         console.log("The file was saved!");
         });
-        
+
         child = exec('ride.py '+baseFolder+'/APITesting/GUI/'+appName+'/LoadTest.robot', (e, stdout, stderr)=> {
           if (e instanceof Error) {
              console.error(e);
@@ -624,7 +626,7 @@ UIRoutes.prototype.init = function() {
 
     app.post('/prepareMobileGUI',
         function(req, res){
-            
+
             console.log("came into prepareMobileGUI...")
 
             if (!req.files)
@@ -641,7 +643,7 @@ UIRoutes.prototype.init = function() {
             folder  = [folder1,folder2]
 
             for(j = 0;j<2;j++){
-               
+
                if (!fs.existsSync(folder[j])){
                  fs.mkdirSync (folder[j])
                }else{
@@ -664,9 +666,9 @@ UIRoutes.prototype.init = function() {
                          console.error(e);
                          throw e;
                       }
-                     
+
                       console.log ("Done....")
-                      
+
                     });
                 }catch (ex){
                     console.log ("In error...")
@@ -696,18 +698,18 @@ UIRoutes.prototype.init = function() {
             }
             console.log('stdout ', stdout);
             });
-            
-        
+
+
         res.end();
-        }); 
+        });
 
         app.post('/executeMobileGUI',
         function(req, res){
 
         dataFile = baseFolder+"/MobileTesting/CPU%."+"csv";
         ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-          
-        
+
+
         fs.writeFile(dataFile,ColumnNamesList , function(err) {
          if(err) {
              return console.log(err);
@@ -739,7 +741,7 @@ UIRoutes.prototype.init = function() {
              });
     });
 
-        
+
         app.post('/analyzeMobileGUI',
         function(req, res){
 
@@ -761,7 +763,7 @@ UIRoutes.prototype.init = function() {
 
     app.post('/prepareDesktop',
         function(req, res){
-            
+
             console.log("came into prepareDesktop...")
 
             if (!req.files)
@@ -778,7 +780,7 @@ UIRoutes.prototype.init = function() {
             folder  = [folder1,folder2]
 
             for(j = 0;j<2;j++){
-               
+
                if (!fs.existsSync(folder[j])){
                  fs.mkdirSync (folder[j])
                }else{
@@ -801,9 +803,9 @@ UIRoutes.prototype.init = function() {
                          console.error(e);
                          throw e;
                       }
-                     
+
                       console.log ("Done....")
-                      
+
                     });
                 }catch (ex){
                     console.log ("In error...")
@@ -834,9 +836,9 @@ UIRoutes.prototype.init = function() {
             }
             console.log('stdout ', stdout);
             });
-            
+
         res.end();
-        }); 
+        });
 
 
         app.post('/executeDesktop',
@@ -844,7 +846,7 @@ UIRoutes.prototype.init = function() {
 
             dataFile = baseFolder+"/DesktopTesting/CPU%."+"csv";
             ColumnNamesList = "Time , CPU (%), Memory Usage (%), TestCase\n"
-          
+
             fs.writeFile(dataFile,ColumnNamesList , function(err) {
                 if(err) {
                      return console.log(err);
