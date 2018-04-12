@@ -47,15 +47,12 @@ UIRoutes.prototype.init = function() {
 
      app.post('/popupCheck',
       function(req, res){
-        console.log('/comedddddddddd')
         EULAFile = baseFolder+"\\www\\EULA.txt"
         fs.stat(EULAFile, function(err,stat) {
           if(err){
-            console.log(err)
             res.end("File not Exists")
           }
           else{
-            console.log("File Exists",stat)
             res.end("File Exists")
           }
       });
@@ -80,7 +77,6 @@ UIRoutes.prototype.init = function() {
 
       app.post('/decline',
        function(req, res){
-       console.log("EULA Declined")
            res.end()
        process.exit()
 

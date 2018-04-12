@@ -3,7 +3,7 @@ kibanaApp.controller('popupController',['$scope','$http','$location','$rootScope
     $(window).ready(
         function () {
             // document.getElementById('#myModal').style.display='block';
-           $('#myModal').modal({backdrop:'static',keyboard:false},'show');
+           // $('#myModal').modal({backdrop:'static',keyboard:false});
             // $('#myModal').modal('show');
 
 $http({
@@ -14,12 +14,10 @@ $http({
             console.log(res,"res")
     if (res.data === "File not Exists"){
         $state.go('popup')
-        alert("no File")
         $("#myModal").modal('show')
     }
     else {
-        alert("file")
-        // $("#myModal").modal('hide')
+        $("#myModal").modal('hide')
 
         $state.go('home.everyWeb')
 
