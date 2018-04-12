@@ -3,11 +3,25 @@ kibanaApp.controller('popupController',['$scope','$http','$location','$rootScope
     $(window).ready(
         function () {
             // document.getElementById('#myModal').style.display='block';
-            $('#myModal').modal({backdrop:'static',keyboard:false},'show');
+           $('#myModal').modal({backdrop:'static',keyboard:false},'show');
             // $('#myModal').modal('show');
 
+// $http({
+//             url:'/popupCheck',
+//             method:'post'
+//         }).then(function success (res) {
+//              // $('#myModal').modal({backdrop:'static',keyboard:false},'show');
+//             console.log(res,"res")
+//             $("#myModal").modal('hide')
+//         },function error (error) {
+//               $state.go('popup')
+//             $('#myModal').modal({backdrop:'static',keyboard:false},'show');
+//             console.log("error", error)
+
+//         })
 
         }
+        
     )
 
         $scope.declineTheUser =function () {
@@ -25,6 +39,10 @@ kibanaApp.controller('popupController',['$scope','$http','$location','$rootScope
         }
         $scope.acceptTheUser =function () {
         $("#myModal").modal('hide')
+        $http({
+            url:'/accept',
+            method:'post'
+        })
             $state.go('home.everyWeb')
             // $location.path('/everyWeb')
         }

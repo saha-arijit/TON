@@ -4,6 +4,8 @@ var sleep       = require('system-sleep');
 var cmd         = require('node-cmd');
 var forEach     = require('async-foreach').forEach;
 var PythonShell = require('python-shell');
+var path        = require('path');
+var fs          = require('fs');
 
 var flag        = 0
     current_dir = __dirname;
@@ -43,11 +45,54 @@ UIRoutes.prototype.init = function() {
 
     });
 
+     app.post('/popupCheck',
+      function(req, res){
+        console.log('/comedddddddddd')
+        EULAFile = baseFolder+"\\www\\EULA.txt"
+        fs.stat(EULAFile, function(err,stat) {
+          if(err){
+            console.log(err)
+            res.end("error")
+          }
+          else{
+            console.log("File Exists",stat)
+            res.end("success")
+          }
+      }); 
+     });
+
+     app.post('/accept',
+      function(req, res){
+        EULAFile = baseFolder+"\\www\\EULA.txt"
+        fs.open(EULAFile,"wx" ,function (err, fd) {
+          if(err){
+            console.log(err)
+            res.end(err)
+          }
+          else{
+          console.log("file Created")
+         }
+      });
+        res.end()
+     });
+
+      app.post('/decline',
+       function(req, res){
+       
+       console.log("EULA Declined")
+       process.exit() 
+       res.end()
+       
+    });
+
+
+
     app.post('/kantu',
     function(req, res){
 
         opn('chrome-extension://gcbalfbdmfieckjlnblleoemohcganoc/popup.html', {app: ['chrome', '-new-window']});
         res.end();
+
     });
 
 
