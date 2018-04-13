@@ -51,6 +51,7 @@ UIRoutes.prototype.init = function() {
         fs.stat(EULAFile, function(err,stat) {
           if(err){
             res.end("File not Exists")
+
           }
           else{
             res.end("File Exists")
@@ -63,8 +64,8 @@ UIRoutes.prototype.init = function() {
         EULAFile = baseFolder+"\\www\\EULA.txt"
         fs.open(EULAFile,"wx" ,function (err, fd) {
           if(err){
-            console.log(err)
             res.end("File is not Created")
+            process.exit()
           }
           else{
           console.log("File is Created")
