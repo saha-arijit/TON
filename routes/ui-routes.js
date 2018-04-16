@@ -47,10 +47,8 @@ UIRoutes.prototype.init = function() {
 
      app.post('/popupCheck',
       function(req, res){
-        // EULAFile = baseFolder+"\\www\\EULA.txt"
-          EULAFile = "/home/rabeesh/Desktop/TON/www/EULA.txt"
-
-          fs.stat(EULAFile, function(err,stat) {
+        EULAFile = baseFolder+"\\www\\EULA.txt"
+        fs.stat(EULAFile, function(err,stat) {
           if(err){
             res.end("File not Exists")
 
@@ -63,21 +61,10 @@ UIRoutes.prototype.init = function() {
 
      app.post('/accept',
       function(req, res){
-        // EULAFile = baseFolder+"\\www\\EULA.txt"
-
-          EULAFile = "/home/rabeesh/Desktop/TON/www/EULA.txt"
-        fs.open(EULAFile,"wx" ,function (err, fd) {
-          if(err){
-            res.end("File is not Created")
-            process.exit()
-          }
-          else{
-          console.log("File is Created")
-          res.end("File is Created")
-
-          }
-      });
-
+        EULAFile = baseFolder+"\\www\\EULA.txt"
+        var createStream = fs.createWriteStream(EULAFile);
+        createStream.end(); 
+        res.end("File is Created")
      });
 
       app.post('/decline',
