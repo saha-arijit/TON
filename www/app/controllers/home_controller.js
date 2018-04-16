@@ -1,12 +1,25 @@
 kibanaApp.controller('homeController',['$scope','$http','$location','$rootScope',
     function ($scope,$http,$location,$rootScope) {
-
+// $rootScope.location = "home.everyWeb"
         $rootScope.loading=false;
 // Enabling the ng-class
         $scope.isActive = function (currentUrl) {
             return currentUrl === $location.path();
         };
+         $scope.webLocation = function(){
+           $rootScope.location = "home.everyWeb"
 
+        }
+        $scope.apiLocation = function(){
+           $rootScope.location = "home.everyAPI"
+           alert("hai")
+        } 
+        $scope.mobileLocation = function(){
+            $rootScope.location = "home.everyMobile"
+        }
+        $scope.mobileLocation = function(){
+            $rootScope.location = "home.everyDesktop"
+        }
         setTimeout(function () {
             $scope.$apply(
                 $rootScope.interval=false

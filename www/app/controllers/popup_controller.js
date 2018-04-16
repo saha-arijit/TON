@@ -1,5 +1,8 @@
 kibanaApp.controller('popupController',['$scope','$http','$location','$rootScope','$interval','$state',
     function ($scope,$http,$location,$rootScope,$interval,$state) {
+    //     setTimeout(function () {
+            $rootScope.location = "home.everyWeb"
+    // },100)
     $(window).ready(
         function () {
             // document.getElementById('#myModal').style.display='block';
@@ -19,7 +22,8 @@ $http({
     else {
         $("#myModal").modal('hide')
 
-        $state.go('home.everyWeb')
+        // $state.go('home.everyWeb')
+         $state.go($rootScope.location)
 
     }
 
@@ -42,6 +46,7 @@ $http({
         })
 
         }
+ 
         $scope.acceptTheUser =function () {
         // $("#myModal").modal('hide')
         $http({
@@ -50,7 +55,8 @@ $http({
         }).then(function success (res) {
             console.log(res,"res")
             $("#myModal").modal('hide')
-            $state.go('home.everyWeb')
+            $state.go($rootScope.location)
+            console.log($rootScope.location,"$rootScope.location")
         },function error (error) {
             console.log("error", error)
 

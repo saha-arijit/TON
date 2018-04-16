@@ -23,6 +23,28 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 }]).controller('everyApiController', ['$scope', '$http', 'Upload','$state','$rootScope','$window',
     function ($scope, $http, Upload,$state,$rootScope,$window) {
 
+        $(window).ready(
+        function () {
+            // document.getElementById('#myModal').style.display='block';
+           // $('#myModal').modal({backdrop:'static',keyboard:false});
+            // $('#myModal').modal('show');
+
+      $http({
+            url:'/popupCheck',
+            method:'post'
+          }).then(function success (res) {
+             // $('#myModal').modal({backdrop:'static',keyboard:false},'show');
+            console.log(res,"res")
+          if (res.data === "File not Exists"){
+             $state.go('popup')
+             $("#myModal").modal('show')
+           }
+          else {
+            $("#myModal").modal('hide')
+            $state.go('home.everyAPI')
+        }
+       })
+      })
 
 
         // For bootstrap Popover
