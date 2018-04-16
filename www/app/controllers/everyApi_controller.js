@@ -25,13 +25,6 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $(window).ready(
         function () {
-            setTimeout(
-                function () {
-                    $rootScope.location=
-                    console.log( $rootScope.location,"current home")
-                    // alert("refrshed")
-                },500
-            )
             // document.getElementById('#myModal').style.display='block';
            // $('#myModal').modal({backdrop:'static',keyboard:false});
             // $('#myModal').modal('show');
@@ -46,7 +39,7 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
              $state.go('home.popup')
 
              $("#myModal").modal('show')
-              $rootScope.location = "home.everyAPI"
+              // $rootScope.location = "home.everyAPI"
            }
           else {
             $("#myModal").modal('hide')

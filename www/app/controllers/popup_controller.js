@@ -64,7 +64,8 @@ $http({
         }).then(function success (res) {
             console.log(res,"res")
             $("#myModal").modal('hide')
-            $state.go($rootScope.alert())
+            // $state.go($rootScope.alert())
+            $state.go($rootScope.location)
             // console.log($rootScope.alert(),"$rootScope.location")
         },function error (error) {
             console.log("error", error)
