@@ -25,6 +25,13 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
 
         $(window).ready(
         function () {
+            setTimeout(
+                function () {
+                    $rootScope.location=
+                    console.log( $rootScope.location,"current home")
+                    // alert("refrshed")
+                },500
+            )
             // document.getElementById('#myModal').style.display='block';
            // $('#myModal').modal({backdrop:'static',keyboard:false});
             // $('#myModal').modal('show');
@@ -36,8 +43,10 @@ kibanaApp.directive('ngFiles', ['$parse', function ($parse) {
              // $('#myModal').modal({backdrop:'static',keyboard:false},'show');
             console.log(res,"res")
           if (res.data === "File not Exists"){
-             $state.go('popup')
+             $state.go('home.popup')
+
              $("#myModal").modal('show')
+              $rootScope.location = "home.everyAPI"
            }
           else {
             $("#myModal").modal('hide')

@@ -1,13 +1,12 @@
 kibanaApp.controller('popupController',['$scope','$http','$location','$rootScope','$interval','$state',
     function ($scope,$http,$location,$rootScope,$interval,$state) {
     //     setTimeout(function () {
-            $rootScope.location = "home.everyWeb"
+    //
     // },100)
+        $('#myModal').modal({backdrop:'static',keyboard:false},'hide');
+
     $(window).ready(
         function () {
-            // document.getElementById('#myModal').style.display='block';
-           // $('#myModal').modal({backdrop:'static',keyboard:false});
-            // $('#myModal').modal('show');
 
 $http({
             url:'/popupCheck',
@@ -16,14 +15,14 @@ $http({
              // $('#myModal').modal({backdrop:'static',keyboard:false},'show');
             console.log(res,"res")
     if (res.data === "File not Exists"){
-        $state.go('popup')
+        $state.go('home.popup')
         $("#myModal").modal('show')
     }
     else {
         $("#myModal").modal('hide')
 
-        // $state.go('home.everyWeb')
-         $state.go($rootScope.location)
+        $state.go('home.everyWeb')
+        //  $state.go($rootScope.location)
 
     }
 
@@ -45,8 +44,18 @@ $http({
 
         })
 
+        };
+        $rootScope.location;
+        console.log($rootScope.location,"$rootScope.location")
+
+        $rootScope.alert= function () {
+            // $rootScope.$apply()
+            return $rootScope.location
+
         }
- 
+        console.log($rootScope.location,"$rootScope.location")
+
+
         $scope.acceptTheUser =function () {
         // $("#myModal").modal('hide')
         $http({
@@ -55,8 +64,8 @@ $http({
         }).then(function success (res) {
             console.log(res,"res")
             $("#myModal").modal('hide')
-            $state.go($rootScope.location)
-            console.log($rootScope.location,"$rootScope.location")
+            $state.go($rootScope.alert())
+            // console.log($rootScope.alert(),"$rootScope.location")
         },function error (error) {
             console.log("error", error)
 

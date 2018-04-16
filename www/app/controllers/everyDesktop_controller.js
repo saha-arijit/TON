@@ -20,7 +20,7 @@ kibanaApp.controller('everyDesktopController', ['$scope', '$http', 'Upload','$ro
              // $('#myModal').modal({backdrop:'static',keyboard:false},'show');
             console.log(res,"res")
           if (res.data === "File not Exists"){
-             $state.go('popup')
+             $state.go('home.popup')
              $("#myModal").modal('show')
            }
           else {
