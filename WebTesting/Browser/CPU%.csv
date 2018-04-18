@@ -1,6 +1,7 @@
 Time , CPU (%), Memory Usage (%), TestCase
-12:15:30,27,0.52,BF_Signup
-12:15:48,19,0.48,BF_Signup
-12:15:51,18,0.43,BF_Signup
-12:15:53,19,0.41,BF_Signup
-12:15:56,7,0.63,BF_Signup
+11:11:43,76,0.99,BF_Signup
+11:11:52,77,0.95,BF_Signup
+11:11:54,54,0.93,BF_Signup
+11:11:57,58,0.88,BF_Signup
+11:12:00,73,0.87,BF_Signup
+11:12:03,63,1.09,BF_Signup
